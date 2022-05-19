@@ -51,7 +51,7 @@ namespace Chimera
         /*  */
         private void ManageItemClick(object sender, EventArgs e)
         {
-            ManageMultiMonitor managemultimonitor = new ManageMultiMonitor();
+            ManageMultiMonitor managemultimonitor = new ManageMultiMonitor( allMonitorProperties );
             managemultimonitor.ShowDialog();
         }
 
