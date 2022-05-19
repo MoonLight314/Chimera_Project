@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6658F8E-8277-434A-BC64-2CBB04FB85B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chimera</RootNamespace>
+    <AssemblyName>Chimera</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller.cs" />
+    <Compile Include="DisplayDevice.cs" />
+    <Compile Include="DisplayDevices.cs" />
+    <Compile Include="Library\Binding\PropertyComparer.cs" />
+    <Compile Include="Library\Binding\SortableBindingList.cs" />
+    <Compile Include="Library\Command\CommandMessaging.cs" />
+    <Compile Include="Library\Command\MagicCommand.cs" />
+    <Compile Include="Library\Environment\AutoStart.cs" />
+    <Compile Include="Library\Environment\DmtRegistry.cs" />
+    <Compile Include="Library\Environment\ILocalEnvironment.cs" />
+    <Compile Include="Library\Environment\LocalEnvironment.cs" />
+    <Compile Include="Library\Environment\Monitor.cs" />
+    <Compile Include="Library\Environment\Monitors.cs" />
+    <Compile Include="Library\Environment\OsHelper.cs" />
+    <Compile Include="Library\Extensions\RectangeExtensions.cs" />
+    <Compile Include="Library\GuiUtils\FileSelectionHelper.cs" />
+    <Compile Include="Library\GuiUtils\MsgDlg.cs" />
+    <Compile Include="Library\GuiUtils\ScreenHelper.cs" />
+    <Compile Include="Library\GuiUtils\WindowPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\HotKeys\HotKey.cs" />
+    <Compile Include="Library\HotKeys\HotKeyController.cs" />
+    <Compile Include="Library\HotKeys\HotKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\HotKeys\HotKeyForm.Designer.cs">
+      <DependentUpon>HotKeyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\HotKeys\HotKeyPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\HotKeys\HotKeyPanel.Designer.cs">
+      <DependentUpon>HotKeyPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\HotKeys\HotKeyRepository.cs" />
+    <Compile Include="Library\HotKeys\IHotKeyService.cs" />
+    <Compile Include="Library\HotKeys\KeyCombo.cs" />
+    <Compile Include="Library\HotKeys\KeyComboPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\HotKeys\KeyComboPanel.Designer.cs">
+      <DependentUpon>KeyComboPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\HotKeys\ScrollableHotKeysPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\HotKeys\ScrollableHotKeysPanel.Designer.cs">
+      <DependentUpon>ScrollableHotKeysPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\HotKeys\VirtualKey.cs" />
+    <Compile Include="Library\Html\FakeRequester.cs" />
+    <Compile Include="Library\Html\HtmlElement.cs" />
+    <Compile Include="Library\Html\HtmlReader.cs" />
+    <Compile Include="Library\Html\HttpConnection.cs" />
+    <Compile Include="Library\Html\HttpConnectionManager.cs" />
+    <Compile Include="Library\Html\HttpHelper.cs" />
+    <Compile Include="Library\Html\HttpRequester.cs" />
+    <Compile Include="Library\Html\HttpResponseData.cs" />
+    <Compile Include="Library\Html\IHttpConnectionManager.cs" />
+    <Compile Include="Library\Html\IHttpRequester.cs" />
+    <Compile Include="Library\Html\NetHelper.cs" />
+    <Compile Include="Library\Logging\ILogger.cs" />
+    <Compile Include="Library\Logging\Logger.cs" />
+    <Compile Include="Library\PInvoke\ActiveDesktop.cs" />
+    <Compile Include="Library\PInvoke\NativeMethods.cs" />
+    <Compile Include="Library\Settings\BoolSetting.cs" />
+    <Compile Include="Library\Settings\FileLocations.cs" />
+    <Compile Include="Library\Settings\IntSetting.cs" />
+    <Compile Include="Library\Settings\ISettingsService.cs" />
+    <Compile Include="Library\Settings\SettingsReader.cs" />
+    <Compile Include="Library\Settings\SettingsRepository.cs" />
+    <Compile Include="Library\Settings\SettingsWriter.cs" />
+    <Compile Include="Library\Settings\StringSetting.cs" />
+    <Compile Include="Library\Settings\UIntSetting.cs" />
+    <Compile Include="Library\Transform\ScaleHelper.cs" />
+    <Compile Include="Library\Transform\Scaler.cs" />
+    <Compile Include="Library\Transform\ScreenMapping.cs" />
+    <Compile Include="Library\Utils\ImageExifExtensions.cs" />
+    <Compile Include="Library\Utils\LatestVersion.cs" />
+    <Compile Include="Library\Utils\LatestVersionFile.cs" />
+    <Compile Include="Library\Utils\RNG.cs" />
+    <Compile Include="Library\Utils\SafeFileWriter.cs" />
+    <Compile Include="Library\Utils\StringUtils.cs" />
+    <Compile Include="Library\WallpaperPlugin\IDWC_Plugin.cs" />
+    <Compile Include="Library\WallpaperPlugin\IImageProvider.cs" />
+    <Compile Include="Library\WallpaperPlugin\ProviderHelper.cs" />
+    <Compile Include="Library\WallpaperPlugin\ProviderImage.cs" />
+    <Compile Include="Library\Wallpaper\ImageFitter.cs" />
+    <Compile Include="Library\Wallpaper\IWallpaperCompositor.cs" />
+    <Compile Include="Library\Wallpaper\IWallpaperCompositorFactory.cs" />
+    <Compile Include="Library\Wallpaper\StretchType.cs" />
+    <Compile Include="Library\Wallpaper\SwitchType.cs" />
+    <Compile Include="Library\Wallpaper\WallpaperCompositor.cs" />
+    <Compile Include="Library\Wallpaper\WallpaperCompositorFactory.cs" />
+    <Compile Include="Library\Wallpaper\WindowsWallpaper.cs" />
+    <Compile Include="ManageMultiMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageMultiMonitor.Designer.cs">
+      <DependentUpon>ManageMultiMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor.cs" />
+    <Compile Include="Monitors.cs" />
+    <Compile Include="NativeDisplayHelper.cs" />
+    <Compile Include="NativeDisplayMethods.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\CommonStrings.Designer.cs" />
+    <Compile Include="ScreenHelper.cs" />
+    <Compile Include="SettingWallpaper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingWallpaper.Designer.cs">
+      <DependentUpon>SettingWallpaper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StretchType.cs" />
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\HotKeys\HotKeyForm.resx">
+      <DependentUpon>HotKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\HotKeys\HotKeyPanel.resx">
+      <DependentUpon>HotKeyPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\HotKeys\KeyComboPanel.resx">
+      <DependentUpon>KeyComboPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\HotKeys\ScrollableHotKeysPanel.resx">
+      <DependentUpon>ScrollableHotKeysPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageMultiMonitor.resx">
+      <DependentUpon>ManageMultiMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resource\CommonStrings.resx" />
+    <EmbeddedResource Include="SettingWallpaper.resx">
+      <DependentUpon>SettingWallpaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
