@@ -44,7 +44,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_OK = new System.Windows.Forms.Button();
             this.button_Exit = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_MonitorOff = new System.Windows.Forms.CheckBox();
+            this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tv_Monitor_List
@@ -180,27 +184,63 @@
             // 
             // button_OK
             // 
-            this.button_OK.Location = new System.Drawing.Point(366, 330);
+            this.button_OK.Location = new System.Drawing.Point(365, 380);
             this.button_OK.Name = "button_OK";
             this.button_OK.Size = new System.Drawing.Size(111, 39);
             this.button_OK.TabIndex = 14;
             this.button_OK.Text = "SET";
             this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.manage_Set);
             // 
             // button_Exit
             // 
-            this.button_Exit.Location = new System.Drawing.Point(503, 330);
+            this.button_Exit.Location = new System.Drawing.Point(502, 380);
             this.button_Exit.Name = "button_Exit";
             this.button_Exit.Size = new System.Drawing.Size(111, 39);
             this.button_Exit.TabIndex = 15;
             this.button_Exit.Text = "EXIT";
             this.button_Exit.UseVisualStyleBackColor = true;
+            this.button_Exit.Click += new System.EventHandler(this.manage_exit);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cb_MonitorOff);
+            this.groupBox2.Controls.Add(this.cb_SetAsPrimary);
+            this.groupBox2.Location = new System.Drawing.Point(233, 253);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(380, 102);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Setting";
+            // 
+            // cb_MonitorOff
+            // 
+            this.cb_MonitorOff.AutoSize = true;
+            this.cb_MonitorOff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_MonitorOff.Location = new System.Drawing.Point(20, 67);
+            this.cb_MonitorOff.Name = "cb_MonitorOff";
+            this.cb_MonitorOff.Size = new System.Drawing.Size(105, 16);
+            this.cb_MonitorOff.TabIndex = 16;
+            this.cb_MonitorOff.Text = "Monitor Off     ";
+            this.cb_MonitorOff.UseVisualStyleBackColor = true;
+            // 
+            // cb_SetAsPrimary
+            // 
+            this.cb_SetAsPrimary.AutoSize = true;
+            this.cb_SetAsPrimary.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_SetAsPrimary.Location = new System.Drawing.Point(16, 34);
+            this.cb_SetAsPrimary.Name = "cb_SetAsPrimary";
+            this.cb_SetAsPrimary.Size = new System.Drawing.Size(109, 16);
+            this.cb_SetAsPrimary.TabIndex = 15;
+            this.cb_SetAsPrimary.Text = "Set As Primary";
+            this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
             // 
             // ManageMultiMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 391);
+            this.ClientSize = new System.Drawing.Size(635, 445);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button_Exit);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.groupBox1);
@@ -209,6 +249,8 @@
             this.Text = "ManageMultiMonitor";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +273,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_Exit;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox cb_MonitorOff;
+        private System.Windows.Forms.CheckBox cb_SetAsPrimary;
     }
 }

@@ -28,6 +28,7 @@ namespace Chimera
 
             // force _displayDevices to be populated
             GetAllDevices();
+
         }
 
 
@@ -201,6 +202,81 @@ namespace Chimera
 
             return changesMade;
         }
+
+
+
+
+
+
+
+
+        public void MakeAsDisabled(int monitorIndex , bool enable)
+        //public void MakeAsDisabled(int monitorIndex)
+        {
+            int ModeIndex = ScreenIndexToSourceModeIndex(monitorIndex);
+
+            if (ModeIndex < 0)
+            {
+                throw new ApplicationException(string.Format("MarkAsDisabled: can't find monitorIndex {0}", monitorIndex));
+            }
+
+            for (int pathIdx = 0; pathIdx < _pathInfos.Length; pathIdx++)
+            {
+                if (_pathInfos[pathIdx].sourceInfo.modeInfoIdx == ModeIndex)
+                {
+                    if (enable == false)
+                    {
+                        if ((_pathInfos[pathIdx].flags & NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE) != 0)
+                        {
+                            _pathInfos[pathIdx].flags &= ~NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE;
+                            //_pathInfos[pathIdx].targetInfo.modeInfoIdx = NativeDisplayMethods.DISPLAYCONFIG_PATH_MODE_IDX_INVALID;
+                        }
+                    }
+                    else
+                    {
+                        if ((_pathInfos[pathIdx].flags & ~NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE) != 0)
+                        {
+                            _pathInfos[pathIdx].flags &= NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE;
+                            //_pathInfos[pathIdx].targetInfo.modeInfoIdx = NativeDisplayMethods.DISPLAYCONFIG_PATH_MODE_IDX_INVALID;
+                        }
+                    }
+
+                }
+            }
+
+
+            ApplyDisplayConfig();
+        }
+
+
+
+
+
+        private int ScreenIndexToSourceModeIndex(int screenIndex)
+        {
+            int sourceModeIndex = -1;
+            int curScreenIndex = 0;
+
+            for (int modeIndex = 0; modeIndex < _modeInfos.Length; modeIndex++)
+            {
+                if (_modeInfos[modeIndex].infoType == NativeDisplayMethods.DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE)
+                {
+                    if (curScreenIndex == screenIndex)
+                    {
+                        sourceModeIndex = modeIndex;
+                        break;
+                    }
+                    curScreenIndex++;
+                }
+            }
+
+            return sourceModeIndex;
+        }
+
+
+
+
+
 
         // create and fill in _displayDevices
         List<DisplayDevice> GetAllDevices()
