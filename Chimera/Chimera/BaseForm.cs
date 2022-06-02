@@ -40,11 +40,25 @@ namespace Chimera
 
 
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        /*  */
+        private void aboutBoxMenuItem_click(object sender, EventArgs e)
         {
-            this.Close();
-            Application.Exit();
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
         }
+
+
+
+
+        /*  */
+        private void cursorControlMenuItem_click(object sender, EventArgs e)
+        {
+            CursorControl cursorControl = new CursorControl();
+            cursorControl.ShowDialog();
+        }
+
+
+               
 
 
 
@@ -57,6 +71,8 @@ namespace Chimera
 
 
 
+
+
         /*  */
         private void settingWallpaper_Click(object sender, EventArgs e)
         {
@@ -66,17 +82,15 @@ namespace Chimera
 
 
 
+
+
         /*  */
-        private void aboutBoxMenuItem_click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.ShowDialog();
+            this.Close();
+            Application.Exit();
         }
 
-        private void cursorControlMenuItem_click(object sender, EventArgs e)
-        {
-            CursorControl cursorControl = new CursorControl();
-            cursorControl.ShowDialog();
-        }
+
     }
 }

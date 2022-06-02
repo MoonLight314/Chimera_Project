@@ -17,9 +17,18 @@ namespace Chimera
             InitializeComponent();
         }
 
+
+
         private void cursorControl_OK_click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+
+        private void moveNext_Button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
