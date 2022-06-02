@@ -20,6 +20,10 @@ namespace Chimera
         // flags for DISPLAYCONFIG_PATH_INFO.flags
         public const uint DISPLAYCONFIG_PATH_ACTIVE = 0x00000001;
 
+
+        public const uint DISPLAYCONFIG_SOURCE_IN_USE = 0x00000001;
+
+        
         //flags for DISPLAYCONFIG_PATH_TARGET_INFO.modeInfoIdx
         public const uint DISPLAYCONFIG_PATH_MODE_IDX_INVALID = 0xffffffff;
 

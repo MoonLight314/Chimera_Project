@@ -15,6 +15,7 @@ namespace Chimera
 
         IList<MonitorSetInfo>   MonitorSettingInfo;
         DisplayDevices          _displayDevices;
+        String                  CurrentSelMonitorName;
 
 
         public ManageMultiMonitor(IList<DisplayDevice> allMonitorProperties , DisplayDevices displayDevices)
@@ -25,9 +26,15 @@ namespace Chimera
 
             _displayDevices = displayDevices;
 
+            CurrentSelMonitorName = "All Monitors";
+
             GetOnlyActiveMonitors( allMonitorProperties );
 
             InitUI();
+
+            //_displayDevices.MakeAsDisabled(2, true);
+            _displayDevices.MakeAsDisabled( "4K2KHDMI30");
+
         }
 
 
@@ -61,8 +68,7 @@ namespace Chimera
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 tv_Monitor_List.Nodes[0].Nodes.Add(msi.displaydevice.FriendlyName);
-            }
-
+            }            
         }
 
 
@@ -70,12 +76,17 @@ namespace Chimera
         /* 모니터 정보 Tree View 선택시 */
         private void tv_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Text == "All Monitors")
+            CurrentSelMonitorName = e.Node.Text;
+
+            if( CurrentSelMonitorName == "All Monitors" )
             {
                 ClearMonitorInfo();
             }
             else
             {
+                cb_SetAsPrimary.Enabled = true;
+                cb_MonitorOff.Enabled = true;
+
                 foreach (MonitorSetInfo msi in MonitorSettingInfo)
                 {
                     /* 선택한 Monitor에 대한 정보를 표시한다. */
@@ -89,6 +100,8 @@ namespace Chimera
         }
 
 
+
+
         private void DisplaySelectedMonitorInfo(MonitorSetInfo msi )
         {
             textBox_Primary.Text = msi.displaydevice.IsPrimary ? "Yes" : "No";            
@@ -98,10 +111,13 @@ namespace Chimera
             textBox_OutputTech.Text = msi.displaydevice.OutputTechnology;
             textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees );
 
-            cb_SetAsPrimary.Checked = msi.displaydevice.IsPrimary;
+            cb_SetAsPrimary.Checked = msi.SetAsPrimary;
             cb_MonitorOff.Checked = msi.Off;
 
-            if (msi.displaydevice.IsPrimary)
+            //cb_SetAsPrimary.Checked = msi.displaydevice.IsPrimary;
+            //cb_MonitorOff.Checked = msi.Off;
+
+            if (msi.SetAsPrimary)
                 cb_MonitorOff.Enabled = false;
             else
                 cb_MonitorOff.Enabled = true;
@@ -121,6 +137,12 @@ namespace Chimera
 
             cb_SetAsPrimary.Checked = false;
             cb_MonitorOff.Checked = false;
+
+            if (CurrentSelMonitorName == "All Monitors")
+            {
+                cb_SetAsPrimary.Enabled = false;
+                cb_MonitorOff.Enabled = false;
+            }
         }
 
 
@@ -138,9 +160,124 @@ namespace Chimera
         /* 설정 반영하기 */
         private void manage_Set(object sender, EventArgs e)
         {
-            //_displayDevices.MakePrimary(0);
-            _displayDevices.MakeAsDisabled(2 , false);
-            _displayDevices.MakeAsDisabled(2 , true);
+            /*  */
+            if (CheckSettingValidity() == false)
+            {
+                //throw new ApplicationException(string.Format("Setting Error : The number of primary monitor must be one."));
+                MessageBox.Show("The number of primary monitor must be one.", "Setting Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            _displayDevices.Reset();
+
+            /* Primary Monitor 설정 */
+            _displayDevices.MakePrimary(GetPrimaryMonitorIndex());
+
+            /* Monitor Off 설정 */
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if ( msi.Off )
+                {
+                    _displayDevices.MakeAsDisabled(msi.MonitorIndex , false);
+                }
+                    
+            }
+        }
+
+
+        private int GetPrimaryMonitorIndex()
+        {
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if (msi.SetAsPrimary)
+                    return msi.MonitorIndex;
+            }
+
+            return -1;
+        }
+
+
+
+        /* 입력한 Setting 정보가 실제 변경을 할 수 있는 상황인지 판단 */
+        private bool CheckSettingValidity()
+        {
+            uint TotalPrimaryMonitorNo = 0;
+
+            /*  */
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if (msi.SetAsPrimary)
+                    TotalPrimaryMonitorNo++;
+            }
+
+            if (TotalPrimaryMonitorNo != 1)
+            {                
+                return false;
+            }
+            else
+                return true;
+        }
+
+
+
+
+
+
+
+        /* 'Set As Primary' Button Click 처리 */
+        private void click_SetAsPrimary(object sender, EventArgs e)
+        {
+            if( CurrentSelMonitorName == "All Monitors")
+            {
+                cb_SetAsPrimary.Checked = false;
+            }
+
+            /*  */
+            foreach(MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if( msi.displaydevice.FriendlyName == CurrentSelMonitorName )
+                {
+                    /* Primary로 선택된 Monitor는 끌 수 없게 한다. */
+                    msi.SetAsPrimary = cb_SetAsPrimary.Checked;
+                    cb_MonitorOff.Enabled = msi.SetAsPrimary ? false : true;
+
+                    if(msi.SetAsPrimary && cb_MonitorOff.Checked)
+                    {
+                        cb_MonitorOff.Checked = false;
+                        msi.Off = false;
+                    }
+
+                    DisplaySelectedMonitorInfo(msi);
+                    break;
+                }
+            }
+
+            tv_Monitor_List.Select();            
+        }
+
+
+
+
+        /* 'Monitor Off' Button Click 처리 */
+        private void click_MonitorOff(object sender, EventArgs e)
+        {
+            if (CurrentSelMonitorName == "All Monitors")
+            {
+                cb_MonitorOff.Checked = false;
+            }
+
+            /*  */
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                {
+                    msi.Off = cb_MonitorOff.Checked;
+
+                    DisplaySelectedMonitorInfo(msi);
+                    break;
+                }
+            }
+
+            tv_Monitor_List.Select();
         }
     }
 

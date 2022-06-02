@@ -208,10 +208,35 @@ namespace Chimera
 
 
 
+        public void MakeAsDisabled(string FriendlyName)
+        {
+            string f_name;
+
+            for (int pathIdx = 0; pathIdx < _pathInfos.Length; pathIdx++)
+            {
+                NativeDisplayMethods.LUID adapterId = _pathInfos[pathIdx].sourceInfo.adapterId;
+                uint outletId = _pathInfos[pathIdx].sourceInfo.id;
+                uint targetId = _pathInfos[pathIdx].targetInfo.id;
+
+                f_name = MonitorFriendlyName(adapterId, targetId);
+
+                if(f_name == FriendlyName)
+                {
+                    _pathInfos[pathIdx].flags |= NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE;
+                    _pathInfos[pathIdx].sourceInfo.statusFlags |= NativeDisplayMethods.DISPLAYCONFIG_SOURCE_IN_USE;
+                }
+            }
+
+            ApplyDisplayConfig();
+        }
+
+
+
+
+
 
 
         public void MakeAsDisabled(int monitorIndex , bool enable)
-        //public void MakeAsDisabled(int monitorIndex)
         {
             int ModeIndex = ScreenIndexToSourceModeIndex(monitorIndex);
 
@@ -229,16 +254,12 @@ namespace Chimera
                         if ((_pathInfos[pathIdx].flags & NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE) != 0)
                         {
                             _pathInfos[pathIdx].flags &= ~NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE;
-                            //_pathInfos[pathIdx].targetInfo.modeInfoIdx = NativeDisplayMethods.DISPLAYCONFIG_PATH_MODE_IDX_INVALID;
+                            _pathInfos[pathIdx].targetInfo.modeInfoIdx = NativeDisplayMethods.DISPLAYCONFIG_PATH_MODE_IDX_INVALID;
                         }
                     }
                     else
                     {
-                        if ((_pathInfos[pathIdx].flags & ~NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE) != 0)
-                        {
-                            _pathInfos[pathIdx].flags &= NativeDisplayMethods.DISPLAYCONFIG_PATH_ACTIVE;
-                            //_pathInfos[pathIdx].targetInfo.modeInfoIdx = NativeDisplayMethods.DISPLAYCONFIG_PATH_MODE_IDX_INVALID;
-                        }
+                        /* 해당 Index의 Monotor를 Enable 시키는 Code */
                     }
 
                 }
@@ -305,8 +326,41 @@ namespace Chimera
             return _displayDevices;
         }
 
+
+
+
+
+
         void AddDisplayConfig()
         {
+            /* Test */
+            uint flags_cnt = 0;
+            List<NativeDisplayMethods.LUID> Src_LUID = new List<NativeDisplayMethods.LUID>();
+            List<NativeDisplayMethods.LUID> Target_LUID = new List<NativeDisplayMethods.LUID>();
+            List<uint> SrcInfoId = new List<uint>();
+            List<uint> TargetInfoId = new List<uint>();
+
+            for (int pathIndex = 0; pathIndex < _pathInfos.Length; pathIndex++)
+            {
+                NativeDisplayMethods.DISPLAYCONFIG_PATH_INFO pathInfo = _pathInfos[pathIndex];
+
+                if (pathInfo.flags != 0)
+                    flags_cnt++;
+
+                Src_LUID.Add(pathInfo.sourceInfo.adapterId);
+                Target_LUID.Add(pathInfo.targetInfo.adapterId);
+                SrcInfoId.Add(pathInfo.sourceInfo.id);
+                TargetInfoId.Add(pathInfo.targetInfo.id);
+            }
+
+            Src_LUID = Src_LUID.Distinct().ToList();
+            Target_LUID = Target_LUID.Distinct().ToList();
+            SrcInfoId = SrcInfoId.Distinct().ToList();
+            TargetInfoId = TargetInfoId.Distinct().ToList();
+
+            /* Test */
+            ;
+
             for (int pathIndex = 0; pathIndex < _pathInfos.Length; pathIndex++)
             {
                 NativeDisplayMethods.DISPLAYCONFIG_PATH_INFO pathInfo = _pathInfos[pathIndex];
@@ -314,7 +368,9 @@ namespace Chimera
                 NativeDisplayMethods.LUID adapterId = pathInfo.sourceInfo.adapterId;
                 uint outletId = pathInfo.sourceInfo.id;
                 uint targetId = pathInfo.targetInfo.id;
+
                 DisplayDevice displayDevice = FindDevice(adapterId, outletId);
+
                 if (displayDevice == null)
                 {
                     displayDevice = new DisplayDevice(pathIndex, adapterId, outletId);
@@ -363,6 +419,10 @@ namespace Chimera
             }
         }
 
+
+
+
+
         // hack to get devices in same order as Monitor.AllMonitors
         // TODO: general logic can be cleaned to reduce allocs/copying
         void ReOrderDevices()
@@ -392,6 +452,10 @@ namespace Chimera
             // now use the ordered devices
             _displayDevices = orderedDevices;
         }
+
+
+
+
 
         void MergeEnumDisplayMonitors()
         {
@@ -432,6 +496,9 @@ namespace Chimera
                     return true;
                 }, IntPtr.Zero);
         }
+
+
+
 
         DisplayDevice MergeVirtualMonitorProperties(IntPtr hVirtualMonitor, IntPtr hdcMonitor)
         {
@@ -479,6 +546,9 @@ namespace Chimera
             return displayDevice;
         }
 
+
+
+
         DisplayDevice FindMonitor(Rectangle bounds)
         {
             foreach (DisplayDevice displayDevice in _displayDevices)
@@ -518,6 +588,11 @@ namespace Chimera
             displayDevice.MaxBrightness = maxBrightness;
             displayDevice.CurBrightness = curBrightness;
         }
+
+
+
+
+
 
         // see http://stackoverflow.com/questions/26404982/how-get-monitors-friendly-name-with-winapi
         static string MonitorFriendlyName(NativeDisplayMethods.LUID adapterId, uint targetId)
@@ -630,6 +705,24 @@ namespace Chimera
             {
                 _modeInfos[i] = _originalModeInfos[i];
             }
+        }
+
+
+
+
+        /// <summary>
+		/// Resets the monitors back to their original state
+		/// and resets our working copy of the structures.
+		/// </summary>
+		public void Reset()
+        {
+            // restore any changed monitors
+            //Restore();
+
+            // rebuild list of monitors
+            // (should be identical each time we call, but jic)
+            //EnumMonitors();
+            CopyOriginalState();
         }
     }
 }

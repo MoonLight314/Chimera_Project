@@ -223,6 +223,8 @@
             this.cb_MonitorOff.TabIndex = 16;
             this.cb_MonitorOff.Text = "Monitor Off     ";
             this.cb_MonitorOff.UseVisualStyleBackColor = true;
+            this.cb_MonitorOff.Click += new System.EventHandler(this.click_MonitorOff);
+            this.cb_MonitorOff.Enabled = false;
             // 
             // cb_SetAsPrimary
             // 
@@ -234,6 +236,8 @@
             this.cb_SetAsPrimary.TabIndex = 15;
             this.cb_SetAsPrimary.Text = "Set As Primary";
             this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
+            this.cb_SetAsPrimary.Click += new System.EventHandler(this.click_SetAsPrimary);
+            this.cb_SetAsPrimary.Enabled = false;
             // 
             // ManageMultiMonitor
             // 
