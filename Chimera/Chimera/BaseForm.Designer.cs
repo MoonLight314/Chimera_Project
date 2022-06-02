@@ -32,9 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.aboutBoxMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.upperSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.cursorControlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lowerSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,14 +56,38 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutBoxMenuItem,
+            this.upperSeparator,
+            this.cursorControlMenuItem,
             this.manageToolStripMenuItem,
             this.wallpaperToolStripMenuItem,
+            this.lowerSeparator,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 148);
+            // 
+            // aboutBoxMenuItem
+            // 
+            this.aboutBoxMenuItem.Name = "aboutBoxMenuItem";
+            this.aboutBoxMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutBoxMenuItem.Text = "About...";
+            this.aboutBoxMenuItem.Click += new System.EventHandler(this.aboutBoxMenuItem_click);
+            // 
+            // upperSeparator
+            // 
+            this.upperSeparator.Name = "upperSeparator";
+            this.upperSeparator.Size = new System.Drawing.Size(149, 6);
+            // 
+            // cursorControlMenuItem
+            // 
+            this.cursorControlMenuItem.Name = "cursorControlMenuItem";
+            this.cursorControlMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cursorControlMenuItem.Text = "Cursor";
+            this.cursorControlMenuItem.Click += new System.EventHandler(this.cursorControlMenuItem_click);
             // 
             // manageToolStripMenuItem
             // 
+            this.manageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageToolStripMenuItem.Image")));
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             this.manageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manageToolStripMenuItem.Text = "Manage";
@@ -79,6 +107,11 @@
             this.SettingWallpaperToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.SettingWallpaperToolStripMenuItem.Text = "Setting Wallpaper";
             this.SettingWallpaperToolStripMenuItem.Click += new System.EventHandler(this.settingWallpaper_Click);
+            // 
+            // lowerSeparator
+            // 
+            this.lowerSeparator.Name = "lowerSeparator";
+            this.lowerSeparator.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -105,10 +138,16 @@
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+
+        private System.Windows.Forms.ToolStripMenuItem aboutBoxMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cursorControlMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wallpaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingWallpaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator upperSeparator;
+        private System.Windows.Forms.ToolStripSeparator lowerSeparator;
     }
 }
 

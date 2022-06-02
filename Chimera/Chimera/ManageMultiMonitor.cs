@@ -18,6 +18,8 @@ namespace Chimera
         String                  CurrentSelMonitorName;
 
 
+
+        /*   */
         public ManageMultiMonitor(IList<DisplayDevice> allMonitorProperties , DisplayDevices displayDevices)
         {
             InitializeComponent();
@@ -30,10 +32,8 @@ namespace Chimera
 
             GetOnlyActiveMonitors( allMonitorProperties );
 
+            /*  */
             InitUI();
-
-            //_displayDevices.MakeAsDisabled(2, true);
-            //_displayDevices.MakeAsDisabled( "4K2KHDMI30");
 
         }
 
@@ -51,14 +51,18 @@ namespace Chimera
                     if (dd.IsPrimary)
                         msi.SetAsPrimary = true;
 
-                    //msi.MonitorIndex = allMonitorProperties.IndexOf(dd);
+                    /* MonitorIndex를 Display Device의 Path Index를 사용하지만,  */
+                    /* 추후 Issue 발생시 추가검토 필요성 있음  */
                     msi.MonitorIndex = dd.PathIndex;
+
                     MonitorSettingInfo.Add(msi);
                     msi = null;
                     
                 }
             }
         }
+
+
 
 
 
@@ -114,9 +118,6 @@ namespace Chimera
 
             cb_SetAsPrimary.Checked = msi.SetAsPrimary;
             cb_MonitorOff.Checked = msi.Off;
-
-            //cb_SetAsPrimary.Checked = msi.displaydevice.IsPrimary;
-            //cb_MonitorOff.Checked = msi.Off;
 
             if (msi.SetAsPrimary)
                 cb_MonitorOff.Enabled = false;
@@ -181,9 +182,15 @@ namespace Chimera
             }
 
             /* Primary Monitor */
-            //_displayDevices.MakePrimary(GetPrimaryMonitorIndex());
+            _displayDevices.MakePrimary( GetPrimaryMonitorIndex() );
+
+            /* 변경된 설정 적용 */
             _displayDevices.ApplyDisplayChange();
         }
+
+
+
+
 
 
         private int GetPrimaryMonitorIndex()

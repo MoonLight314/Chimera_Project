@@ -63,5 +63,20 @@ namespace Chimera
             SettingWallpaper settingwallpaper = new SettingWallpaper( allMonitorProperties );
             settingwallpaper.ShowDialog();
         }
+
+
+
+        /*  */
+        private void aboutBoxMenuItem_click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
+        }
+
+        private void cursorControlMenuItem_click(object sender, EventArgs e)
+        {
+            CursorControl cursorControl = new CursorControl();
+            cursorControl.ShowDialog();
+        }
     }
 }

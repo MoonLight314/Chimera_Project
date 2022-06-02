@@ -29,3 +29,5 @@ C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.SettingW
 C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.csproj.GenerateResource.Cache
 C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.exe
 C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.pdb
+C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.AboutBox.resources
+C:\Users\Moon\Desktop\Chimera_Project\Chimera\Chimera\obj\Debug\Chimera.CursorControl.resources

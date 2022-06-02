@@ -192,6 +192,7 @@ namespace Chimera
 
 
 
+        /*   */
         bool ApplyDisplayConfig()
         {
             bool changesMade = false;
@@ -269,6 +270,7 @@ namespace Chimera
                     else
                     {
                         /* 해당 Index의 Monotor를 Enable 시키는 Code */
+                        /* 현재는 여기에 구현할 Code는 필요없을 듯 */
                     }
 
                 }
