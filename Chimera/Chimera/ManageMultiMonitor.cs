@@ -33,7 +33,7 @@ namespace Chimera
             InitUI();
 
             //_displayDevices.MakeAsDisabled(2, true);
-            _displayDevices.MakeAsDisabled( "4K2KHDMI30");
+            //_displayDevices.MakeAsDisabled( "4K2KHDMI30");
 
         }
 
@@ -51,7 +51,8 @@ namespace Chimera
                     if (dd.IsPrimary)
                         msi.SetAsPrimary = true;
 
-                    msi.MonitorIndex = allMonitorProperties.IndexOf(dd);
+                    //msi.MonitorIndex = allMonitorProperties.IndexOf(dd);
+                    msi.MonitorIndex = dd.PathIndex;
                     MonitorSettingInfo.Add(msi);
                     msi = null;
                     
@@ -167,10 +168,7 @@ namespace Chimera
                 MessageBox.Show("The number of primary monitor must be one.", "Setting Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            _displayDevices.Reset();
-
-            /* Primary Monitor 설정 */
-            _displayDevices.MakePrimary(GetPrimaryMonitorIndex());
+            _displayDevices.Reset();            
 
             /* Monitor Off 설정 */
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
@@ -181,6 +179,10 @@ namespace Chimera
                 }
                     
             }
+
+            /* Primary Monitor */
+            //_displayDevices.MakePrimary(GetPrimaryMonitorIndex());
+            _displayDevices.ApplyDisplayChange();
         }
 
 

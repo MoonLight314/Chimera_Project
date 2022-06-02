@@ -183,6 +183,15 @@ namespace Chimera
 
 
 
+        /*   */
+        public void ApplyDisplayChange()
+        {
+            ApplyDisplayConfig();
+        }
+
+
+
+
         bool ApplyDisplayConfig()
         {
             bool changesMade = false;
@@ -207,7 +216,7 @@ namespace Chimera
 
 
 
-
+#if TEST
         public void MakeAsDisabled(string FriendlyName)
         {
             string f_name;
@@ -229,7 +238,7 @@ namespace Chimera
 
             ApplyDisplayConfig();
         }
-
+#endif
 
 
 
