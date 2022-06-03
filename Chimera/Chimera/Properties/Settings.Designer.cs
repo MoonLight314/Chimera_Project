@@ -26,5 +26,87 @@ namespace Chimera.Properties
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Chimera.PortableFileSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DefaultCursorType
+        {
+            get
+            {
+                return ((int)(this["DefaultCursorType"]));
+            }
+            set
+            {
+                this["DefaultCursorType"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Chimera.PortableFileSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int MinStickyForce
+        {
+            get
+            {
+                return ((int)(this["MinStickyForce"]));
+            }
+            set
+            {
+                this["MinStickyForce"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Chimera.PortableFileSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ControlUnhindersCursor
+        {
+            get
+            {
+                return ((bool)(this["ControlUnhindersCursor"]));
+            }
+            set
+            {
+                this["ControlUnhindersCursor"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PrimaryReturnUnhindered
+        {
+            get
+            {
+                return ((bool)(this["PrimaryReturnUnhindered"]));
+            }
+            set
+            {
+                this["PrimaryReturnUnhindered"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("162")]
+        public uint FreeCursorMovementKey
+        {
+            get
+            {
+                return ((uint)(this["FreeCursorMovementKey"]));
+            }
+            set
+            {
+                this["FreeCursorMovementKey"] = value;
+            }
+        }
     }
 }

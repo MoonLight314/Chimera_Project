@@ -122,5 +122,33 @@ namespace Chimera.Properties {
                 return ResourceManager.GetString("UnderStretch", resourceCulture);
             }
         }
+
+
+
+        /// <summary>
+        ///   Move cursor to next screen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorNextScreenDescription
+        {
+            get
+            {
+                return ResourceManager.GetString("CursorNextScreenDescription", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorNextScreenWin7
+        {
+            get
+            {
+                return ResourceManager.GetString("CursorNextScreenWin7", resourceCulture);
+            }
+        }
+
+
+
     }
 }

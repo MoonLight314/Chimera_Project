@@ -682,31 +682,31 @@ namespace Chimera
             return Monitor.AllMonitors[nextScreenIndex];
         }
 
-        ///// <summary>
-        ///// Finds the index within Screen.AllScreens[] that the passed screen is on.
-        ///// </summary>
-        ///// <param name="screen">The screen whose index we are trying to find</param>
-        ///// <returns>Zero based screen index, or -1 if screen not found</returns>
-        //public static int FindScreenIndex(Screen screen)
-        //{
-        //	int screenIndex = -1;
-        //	for (int i = 0; i < Screen.AllScreens.Length; i++)
-        //	{
-        //		// We cannnot compare the screen objects as Screen.FromRectangle()
-        //		// creates a new instance of the screen, rather than returning the
-        //		// one in the AllScreens array.
-        //		// Also comparing the DeviceName does not always seem to work,
-        //		// as have seen corrupt names (on XP SP3 with Catalyst 9.1).
-        //		// So we just compare the Bounds rectangle.
-        //		if (screen.Bounds == Screen.AllScreens[i].Bounds)
-        //		{
-        //			screenIndex = i;
-        //			break;
-        //		}
-        //	}
+        /// <summary>
+        /// Finds the index within Screen.AllScreens[] that the passed screen is on.
+        /// </summary>
+        /// <param name="screen">The screen whose index we are trying to find</param>
+        /// <returns>Zero based screen index, or -1 if screen not found</returns>
+        public static int FindScreenIndex(Screen screen)
+        {
+            int screenIndex = -1;
+            for (int i = 0; i < Screen.AllScreens.Length; i++)
+            {
+                // We cannnot compare the screen objects as Screen.FromRectangle()
+                // creates a new instance of the screen, rather than returning the
+                // one in the AllScreens array.
+                // Also comparing the DeviceName does not always seem to work,
+                // as have seen corrupt names (on XP SP3 with Catalyst 9.1).
+                // So we just compare the Bounds rectangle.
+                if (screen.Bounds == Screen.AllScreens[i].Bounds)
+                {
+                    screenIndex = i;
+                    break;
+                }
+            }
 
-        //	return screenIndex;
-        //}
+            return screenIndex;
+        }
 
         /// <summary>
         /// Moves the window corresponding to the specified HWND

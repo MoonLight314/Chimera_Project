@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,14 +75,25 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="CursorBarrier.cs" />
+    <Compile Include="CursorBarrierLower.cs" />
+    <Compile Include="CursorBarrierUpper.cs" />
     <Compile Include="CursorControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CursorControl.Designer.cs">
       <DependentUpon>CursorControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CursorController.cs" />
+    <Compile Include="CursorHelper.cs" />
     <Compile Include="DisplayDevice.cs" />
     <Compile Include="DisplayDevices.cs" />
+    <Compile Include="HotKey.cs" />
+    <Compile Include="HotKeyController.cs" />
+    <Compile Include="KeyCombo.cs" />
+    <Compile Include="KeyComboPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Library\Binding\PropertyComparer.cs" />
     <Compile Include="Library\Binding\SortableBindingList.cs" />
     <Compile Include="Library\Command\CommandMessaging.cs" />
@@ -186,9 +198,13 @@
     <Compile Include="NativeDisplayHelper.cs" />
     <Compile Include="NativeDisplayMethods.cs" />
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="OsHelper.cs" />
+    <Compile Include="PortableFileSettings.cs" />
+    <Compile Include="PortableFileSettingsProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\CommonStrings.Designer.cs" />
+    <Compile Include="Scaler.cs" />
     <Compile Include="ScreenHelper.cs" />
     <Compile Include="SettingWallpaper.cs">
       <SubType>Form</SubType>
@@ -197,6 +213,7 @@
       <DependentUpon>SettingWallpaper.cs</DependentUpon>
     </Compile>
     <Compile Include="StretchType.cs" />
+    <Compile Include="Win32.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
