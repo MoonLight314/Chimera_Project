@@ -14,6 +14,7 @@ namespace Chimera
     /// </summary>
     public partial class KeyComboPanel : UserControl
     {
+#if TEST
         #region Virtual Key Codes
         /// <summary>
         /// Private structure representing a single key.
@@ -264,5 +265,6 @@ namespace Chimera
             }
             return keyCode;
         }
+#endif
     }
 }

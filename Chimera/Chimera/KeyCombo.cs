@@ -227,7 +227,9 @@ namespace Chimera
                 {
                     ret += "+";
                 }
+#if TEST
                 ret += KeyComboPanel.KeyCodeToName(KeyCode);
+#endif
             }
             else
             {

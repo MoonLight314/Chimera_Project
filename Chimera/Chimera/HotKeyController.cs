@@ -101,6 +101,7 @@ namespace Chimera
                 }
             }
 
+#if TEST
             HotKeyForm dlg = new HotKeyForm(hotKey, description, note);
 
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -115,7 +116,7 @@ namespace Chimera
                 // indicate OK has been pressed
                 edited = true;
             }
-
+#endif
             return edited;
         }
 
