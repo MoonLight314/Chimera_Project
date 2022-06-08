@@ -15,6 +15,8 @@ namespace Chimera
         DisplayDevices          displayDevices;
         IList<DisplayDevice>    allMonitorProperties;
 
+        CursorControl cursorControl;
+
         ////IList<DisplayDevice> allMonitorProperties = displayDevices.Items;
         // = displayDevices.Items();
 
@@ -28,6 +30,7 @@ namespace Chimera
             displayDevices = new DisplayDevices();
             allMonitorProperties = displayDevices.Items;
 
+            cursorControl = new CursorControl(this);
         }
 
 
@@ -53,7 +56,8 @@ namespace Chimera
         /*  */
         private void cursorControlMenuItem_click(object sender, EventArgs e)
         {
-            CursorControl cursorControl = new CursorControl();
+            //CursorControl cursorControl = new CursorControl();
+            //CursorControl cursorControl = new CursorControl(this);
             cursorControl.ShowDialog();
         }
 
@@ -87,6 +91,7 @@ namespace Chimera
         /*  */
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cursorControl.CleanUp();
             this.Close();
             Application.Exit();
         }

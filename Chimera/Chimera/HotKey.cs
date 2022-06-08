@@ -109,6 +109,11 @@ namespace Chimera
                 UnRegisterHotKey();
             }
 
+            /* TEST */
+            keyCombo.Enabled = true;
+            keyCombo.FromPropertyValue(0x00060027);
+            
+
             if (keyCombo.Enabled)
             {
                 isRegistered = Win32.RegisterHotKey(form.Handle, id,

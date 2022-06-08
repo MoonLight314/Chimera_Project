@@ -424,7 +424,7 @@ namespace Chimera
             cursorNextScreenHotKeyController.Dispose();
             //lockCursorHotKeyController.Dispose();
             //stickyCursorHotKeyController.Dispose();
-            freeCursorHotKeyController.Dispose();
+            //freeCursorHotKeyController.Dispose();
             //showDesktop2HotKeyController.Dispose();
             //showDesktop1HotKeyController.Dispose();
             //rotatePrevHotKeyController.Dispose();

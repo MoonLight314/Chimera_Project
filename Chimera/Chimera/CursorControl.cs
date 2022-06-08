@@ -15,7 +15,8 @@ namespace Chimera
 {
     public partial class CursorControl : Form
     {
-        public CursorControl()
+        //public CursorControl()
+        public CursorControl(Form form)
         {
             InitializeComponent();
 
@@ -23,10 +24,24 @@ namespace Chimera
             /* 나중에 활용할 때가 있을지도... */
             /* Screen.AllScreens; */
 
-            CursorController.Instance.Init(this);
+            //CursorController.Instance.Init(this);
+            CursorController.Instance.Init(form);
 
             SystemEvents.DisplaySettingsChanged += new EventHandler(SystemEvents_DisplaySettingsChanged);
         }
+
+
+
+
+        public void CleanUp()
+        {
+            SystemEvents.DisplaySettingsChanged -= new EventHandler(SystemEvents_DisplaySettingsChanged);
+
+            // Let the controller release all the hotkeys
+            // and any other resources it has
+            CursorController.Instance.Term();
+        }
+
 
 
 
@@ -39,14 +54,25 @@ namespace Chimera
 
 
 
-        private void cursorControl_OK_click(object sender, EventArgs e)
+        private void moveNext_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cursorControl_Set_click(object sender, EventArgs e)
+        {
+            Test();
+        }
+
+        private void cursorControl_Cancel_click(object sender, EventArgs e)
         {
             this.Close();
         }
 
 
 
-        private void moveNext_Button_Click(object sender, EventArgs e)
+
+        private void Test()
         {
 
         }

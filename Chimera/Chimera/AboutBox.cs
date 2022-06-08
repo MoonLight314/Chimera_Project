@@ -22,6 +22,7 @@ namespace Chimera
             this.Close();
         }
 
+#if TEST
         private void key_down_test(object sender, KeyEventArgs e)
         {
             cb_Ctrl.Checked = e.Control;
@@ -36,5 +37,6 @@ namespace Chimera
             cb_Alt.Checked = e.Alt;
             cb_Shift.Checked = e.Shift;
         }
+#endif
     }
 }
