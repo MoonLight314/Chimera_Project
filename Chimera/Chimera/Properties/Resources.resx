@@ -117,17 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AltModifierKey" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Multi Monitor Manager</value>
+  </data>
   <data name="Center" xml:space="preserve">
     <value>Center image and do not stretch</value>
   </data>
-  <data name="MyTitle" xml:space="preserve">
-    <value>Multi Monitor Manager</value>
+  <data name="CtrlModifierKey" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="CursorNextScreenDescription" xml:space="preserve">
+    <value>Move cursor to next screen</value>
+  </data>
+  <data name="CursorNextScreenWin7" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DisabledHotKey" xml:space="preserve">
+    <value>--DISABLED--</value>
+  </data>
+  <data name="NoKey" xml:space="preserve">
+    <value>You need to select a key from the drop down box</value>
+  </data>
+  <data name="NotWin7" xml:space="preserve">
+    <value>For future combatibility with Windows 7 and later, you may want to use {0} for this function, as this is what Windows 7 uses.</value>
   </data>
   <data name="OpenImageFilter" xml:space="preserve">
     <value>Image Files (*.bmp, *.jpg, *.jpeg, *.png, *.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif</value>
   </data>
   <data name="OverStretch" xml:space="preserve">
     <value>Over stretch and clip to maintain aspect ratio</value>
+  </data>
+  <data name="RegisterFail" xml:space="preserve">
+    <value>The registration of this hotkey has failed.
+Try another hot key combination.</value>
+  </data>
+  <data name="ShiftModifierKey" xml:space="preserve">
+    <value>Shift</value>
   </data>
   <data name="Stretch" xml:space="preserve">
     <value>Stretch ignoring aspect ratio</value>
@@ -137,5 +165,11 @@
   </data>
   <data name="UnderStretch" xml:space="preserve">
     <value>Under stretch and add bars to maintain aspect ratio</value>
+  </data>
+  <data name="Win7" xml:space="preserve">
+    <value>This functionality is already provided by Windows 7 using {0}, so there is no need to enable this unless you want SwapScreen to handle it using a different hotkey.</value>
+  </data>
+  <data name="WinModifierKey" xml:space="preserve">
+    <value>Win</value>
   </data>
 </root>

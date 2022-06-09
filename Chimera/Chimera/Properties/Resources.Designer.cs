@@ -61,6 +61,24 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   Alt과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string AltModifierKey {
+            get {
+                return ResourceManager.GetString("AltModifierKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Multi Monitor Manager과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Center image and do not stretch과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Center {
@@ -70,11 +88,56 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   Multi Monitor Manager과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Ctrl과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string MyTitle {
+        internal static string CtrlModifierKey {
             get {
-                return ResourceManager.GetString("MyTitle", resourceCulture);
+                return ResourceManager.GetString("CtrlModifierKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Move cursor to next screen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorNextScreenDescription {
+            get {
+                return ResourceManager.GetString("CursorNextScreenDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorNextScreenWin7 {
+            get {
+                return ResourceManager.GetString("CursorNextScreenWin7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   --DISABLED--과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string DisabledHotKey {
+            get {
+                return ResourceManager.GetString("DisabledHotKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   You need to select a key from the drop down box과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string NoKey {
+            get {
+                return ResourceManager.GetString("NoKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   For future combatibility with Windows 7 and later, you may want to use {0} for this function, as this is what Windows 7 uses.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string NotWin7 {
+            get {
+                return ResourceManager.GetString("NotWin7", resourceCulture);
             }
         }
         
@@ -93,6 +156,25 @@ namespace Chimera.Properties {
         internal static string OverStretch {
             get {
                 return ResourceManager.GetString("OverStretch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The registration of this hotkey has failed.
+        ///Try another hot key combination.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RegisterFail {
+            get {
+                return ResourceManager.GetString("RegisterFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Shift과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ShiftModifierKey {
+            get {
+                return ResourceManager.GetString("ShiftModifierKey", resourceCulture);
             }
         }
         
@@ -122,33 +204,23 @@ namespace Chimera.Properties {
                 return ResourceManager.GetString("UnderStretch", resourceCulture);
             }
         }
-
-
-
+        
         /// <summary>
-        ///   Move cursor to next screen과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   This functionality is already provided by Windows 7 using {0}, so there is no need to enable this unless you want SwapScreen to handle it using a different hotkey.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string CursorNextScreenDescription
-        {
-            get
-            {
-                return ResourceManager.GetString("CursorNextScreenDescription", resourceCulture);
+        internal static string Win7 {
+            get {
+                return ResourceManager.GetString("Win7", resourceCulture);
             }
         }
-
-
+        
         /// <summary>
-        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Win과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string CursorNextScreenWin7
-        {
-            get
-            {
-                return ResourceManager.GetString("CursorNextScreenWin7", resourceCulture);
+        internal static string WinModifierKey {
+            get {
+                return ResourceManager.GetString("WinModifierKey", resourceCulture);
             }
         }
-
-
-
     }
 }

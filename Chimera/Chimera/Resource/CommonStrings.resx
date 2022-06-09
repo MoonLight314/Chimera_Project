@@ -135,7 +135,7 @@
   <data name="LShiftKey" xml:space="preserve">
     <value>Left Shift Key</value>
   </data>
-  <data name="MyTitle" xml:space="preserve">
+  <data name="ApplicationName" xml:space="preserve">
     <value>Multi Monitor Manager</value>
   </data>
   <data name="NoKey" xml:space="preserve">

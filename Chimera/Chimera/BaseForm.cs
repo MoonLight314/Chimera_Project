@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using Chimera.Resources;
+using System.IO;
+
+
 
 namespace Chimera
 {
@@ -15,10 +20,14 @@ namespace Chimera
         DisplayDevices          displayDevices;
         IList<DisplayDevice>    allMonitorProperties;
 
-        CursorControl cursorControl;
+        CursorControl           cursorControl;
+        ConfigManager           configManager;
 
         ////IList<DisplayDevice> allMonitorProperties = displayDevices.Items;
         // = displayDevices.Items();
+
+
+
 
         public BaseForm()
         {
@@ -26,12 +35,18 @@ namespace Chimera
 
             this.Load += notifyIcon1_Load;
 
+            configManager = new ConfigManager();
+
             /*  */
             displayDevices = new DisplayDevices();
             allMonitorProperties = displayDevices.Items;
 
             cursorControl = new CursorControl(this);
         }
+
+        
+
+
 
 
         /*  */
@@ -57,7 +72,6 @@ namespace Chimera
         private void cursorControlMenuItem_click(object sender, EventArgs e)
         {
             //CursorControl cursorControl = new CursorControl();
-            //CursorControl cursorControl = new CursorControl(this);
             cursorControl.ShowDialog();
         }
 

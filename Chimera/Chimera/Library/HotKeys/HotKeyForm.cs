@@ -99,7 +99,7 @@ namespace Chimera.Library.HotKeys
 			{
 				if (keyCombo.KeyCode == (Keys)0)
 				{
-					MsgDlg.UserError(CommonStrings.NoKey);
+					MsgDlg.UserError(Properties.Resources.NoKey);
 					return;
 				}
 			}
@@ -107,7 +107,7 @@ namespace Chimera.Library.HotKeys
 			// attempt to register this hotkey
 			if (!_hotKey.RegisterHotKey(keyCombo))
 			{
-				MsgDlg.UserError(CommonStrings.RegisterFail);
+				MsgDlg.UserError(Properties.Resources.RegisterFail);
 				return;
 			}
 

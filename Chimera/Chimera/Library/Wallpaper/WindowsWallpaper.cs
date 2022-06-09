@@ -156,22 +156,22 @@ namespace Chimera.Library.Wallpaper
 				{
 					wallpaperImage.Save(path, System.Drawing.Imaging.ImageFormat.Bmp);
 
-					//if (attempt > 1)
-					//{
-					//	string msg = string.Format("Windows wallpaper saved to {0} on attempt {1}", path, attempt);
-					//	MessageBox.Show(msg, CommonStrings.MyTitle);
-					//}
+                    //if (attempt > 1)
+                    //{
+                    //	string msg = string.Format("Windows wallpaper saved to {0} on attempt {1}", path, attempt);
+                    //	MessageBox.Show(msg, Properties.Resources.ApplicationName);
+                    //}
 
-					return true;
+                    return true;
 				}
 				catch (Exception ex)
 				{
-					//MessageBox.Show("wallpaper.Save(" + path + ") : " + ex.Message, CommonStrings.MyTitle);
-					//throw;
-				}
+                    //MessageBox.Show("wallpaper.Save(" + path + ") : " + ex.Message, Properties.Resources.ApplicationName);
+                    //throw;
+                }
 
-				// add a short(ish) delay before retrying
-				Thread.Sleep(1000);
+                // add a short(ish) delay before retrying
+                Thread.Sleep(1000);
 			}
 
 			return false;

@@ -447,7 +447,7 @@ namespace Chimera
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, CommonStrings.MyTitle);
+                MessageBox.Show(ex.Message, Properties.Resources.ApplicationName );
             }
         }
 

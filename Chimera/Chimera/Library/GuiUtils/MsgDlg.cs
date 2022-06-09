@@ -38,7 +38,7 @@ namespace Chimera.Library.GuiUtils
 		/// <param name="msg"></param>
 		public static void Error(string msg)
 		{
-			MessageBox.Show(msg, CommonStrings.MyTitle);
+			MessageBox.Show(msg, Properties.Resources.ApplicationName);
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace Chimera.Library.GuiUtils
 		/// <param name="msg"></param>
 		public static void UserError(string msg)
 		{
-			MessageBox.Show(msg, CommonStrings.MyTitle);
+			MessageBox.Show(msg, Properties.Resources.ApplicationName);
 		}
 
 		/// <summary>
@@ -58,7 +58,7 @@ namespace Chimera.Library.GuiUtils
 		/// <param name="msg"></param>
 		public static void SystemError(string msg)
 		{
-			MessageBox.Show(msg, CommonStrings.MyTitle);
+			MessageBox.Show(msg, Properties.Resources.ApplicationName);
 		}
 	}
 }

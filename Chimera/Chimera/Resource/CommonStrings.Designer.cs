@@ -136,9 +136,9 @@ namespace Chimera.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dual Monitor Tools.
         /// </summary>
-        internal static string MyTitle {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("MyTitle", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
             }
         }
         

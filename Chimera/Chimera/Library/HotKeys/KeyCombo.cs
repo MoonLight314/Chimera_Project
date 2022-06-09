@@ -219,7 +219,7 @@ namespace Chimera.Library.HotKeys
 			}
 			else
 			{
-				ret = CommonStrings.DisabledHotKey;	// "--DISABLED--";
+				ret = Properties.Resources.DisabledHotKey;	// "--DISABLED--";
 			}
 
 			return ret;
@@ -230,7 +230,7 @@ namespace Chimera.Library.HotKeys
 			string ret = string.Empty;
 			if (WinMod)
 			{
-				ret += CommonStrings.WinModifierKey;	// "Win";
+				ret += Properties.Resources.WinModifierKey;	// "Win";
 			}
 
 			if (ControlMod)
@@ -240,7 +240,7 @@ namespace Chimera.Library.HotKeys
 					ret += "+";
 				}
 
-				ret += CommonStrings.CtrlModifierKey;	// "Ctrl";
+				ret += Properties.Resources.CtrlModifierKey;	// "Ctrl";
 			}
 
 			if (ShiftMod)
@@ -250,7 +250,7 @@ namespace Chimera.Library.HotKeys
 					ret += "+";
 				}
 
-				ret += CommonStrings.ShiftModifierKey;	// "Shift";
+				ret += Properties.Resources.ShiftModifierKey;	// "Shift";
 			}
 
 			if (AltMod)
@@ -260,7 +260,7 @@ namespace Chimera.Library.HotKeys
 					ret += "+";
 				}
 
-				ret += CommonStrings.AltModifierKey;	// "Alt";
+				ret += Properties.Resources.AltModifierKey;	// "Alt";
 			}
 
 			return ret;

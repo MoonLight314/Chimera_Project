@@ -114,11 +114,11 @@ namespace Chimera.Library.HotKeys
 			{
 				if (OsHelper.IsWin7OrLater())
 				{
-					note = string.Format(CommonStrings.Win7, _win7Key);
+					note = string.Format(Properties.Resources.Win7, _win7Key);
 				}
 				else
 				{
-					note = string.Format(CommonStrings.NotWin7, _win7Key);
+					note = string.Format(Properties.Resources.NotWin7, _win7Key);
 				}
 			}
 
