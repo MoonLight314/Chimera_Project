@@ -74,6 +74,8 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="ConfigValues.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="CursorBarrier.cs" />
     <Compile Include="CursorBarrierLower.cs" />

@@ -11,20 +11,144 @@ using System.IO;
 
 
 namespace Chimera
-{
+{  
+
+
     public class ConfigManager
     {
         Configuration applicationConfig;
         string configPathAndName;
+        ConfigValues configValues;
 
 
-
-        public ConfigManager()
+        public ConfigManager(ConfigValues cv )
         {
             configPathAndName = GetConfigFilePath();
             applicationConfig = OpenConfiguration(configPathAndName);
-            SetAppConfig("CurNextScreen", "123456");
+            configValues = cv;
+
+            /**/
+            VerifyConfigValues();
         }
+
+
+        /*  */
+        private void VerifyConfigValues()
+        {
+
+
+            /* Enable Cursor Feature  */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains( Properties.Resources.ConfigItem_EnableCursorFeature ) )
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.EnableCursorFeature = string.Equals("false",
+                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableCursorFeature].Value)
+                                                                 ? false : true;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableCursorFeature, "false");
+                configValues.EnableCursorFeature = false;
+            }
+
+
+            /* Enable Move Cursor Next Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_EnableMoveCursorNextScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.EnableMoveCursorNextScreen = string.Equals("false",
+                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorNextScreen].Value)
+                                                                 ? false : true;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableMoveCursorNextScreen, "false");
+                configValues.EnableMoveCursorNextScreen = false;
+            }
+
+
+            /* Hotkey MoveC ursor Next Screen  */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.HotkeyMoveCursorNextScreen = applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen].Value;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen, "Not Defined");
+                configValues.HotkeyMoveCursorNextScreen = "Not Defined";
+            }
+
+
+            /* Enable Move Cursor Prev Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.EnableMoveCursorPrevScreen = string.Equals("false",
+                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen].Value)
+                                                                 ? false : true;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen, "false");
+                configValues.EnableMoveCursorPrevScreen = false;
+            }
+
+
+            /* Hotkey Move Cursor Prev Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.HotkeyMoveCursorPrevScreen = applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen].Value;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen, "Not Defined");
+                configValues.HotkeyMoveCursorPrevScreen = "Not Defined";
+            }
+
+
+            /* Enable Stick Cursor To Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_EnableStickCursorToScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.EnableStickCursorToScreen = string.Equals("false",
+                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableStickCursorToScreen].Value)
+                                                                 ? false : true;
+
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableStickCursorToScreen, "false");
+                configValues.EnableStickCursorToScreen = false;
+            }
+
+
+            /* Hotkey Stick Cursor To Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyStickCursorToScreen))
+            {
+                /* 값이 있는 경우, 값을 읽어온다. */
+                configValues.HotkeyStickCursorToScreen = applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyStickCursorToScreen].Value;
+            }
+            else
+            {
+                /* 값이 없으면 Default값으로 기록한다. */
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyStickCursorToScreen, "Not Defined");
+                configValues.HotkeyStickCursorToScreen = "Not Defined";
+            }
+
+            /*  */
+            applicationConfig.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(applicationConfig.AppSettings.SectionInformation.Name);
+        }
+
+
 
 
         /*  */
@@ -65,7 +189,7 @@ namespace Chimera
 
 
         /* 설정 추가하기 */
-        public void SetAppConfig(string key, string val, string configFile)
+        public void AddConfigItem(string key, string val, string configFile)
         {
             try
             {
@@ -91,14 +215,14 @@ namespace Chimera
 
 
         /*  */
-        public void SetAppConfig(string key, string val)
+        public void AddConfigItem(string key, string val)
         {
-            SetAppConfig(key, val, configPathAndName);
+            AddConfigItem(key, val, configPathAndName);
         }
 
 
         /* 설정 가져오기 */
-        public string GetAppConfig(string key, string configFile)
+        public string GetConfigItem(string key, string configFile)
         {
             Configuration config = this.OpenConfiguration(configFile);
             string val = String.Empty;
@@ -112,16 +236,20 @@ namespace Chimera
         }
 
 
+
+
         /*  */
-        public string GetAppConfig(string key)
+        public string GetConfigItem(string key)
         {
-            return GetAppConfig(key, configPathAndName);
+            return GetConfigItem(key, configPathAndName);
         }
 
 
 
+
+
         /* 설정 삭제하기 */
-        public void RemoveAppConfig(string key, string configFile)
+        public void RemoveConfigItem(string key, string configFile)
         {
             Configuration config = this.OpenConfiguration(configFile);
 
@@ -137,9 +265,9 @@ namespace Chimera
 
 
         /*  */
-        public void RemoveAppConfig(string key)
+        public void RemoveConfigItem(string key)
         {
-            RemoveAppConfig(key, configPathAndName);
+            RemoveConfigItem(key, configPathAndName);
         }
 
     }

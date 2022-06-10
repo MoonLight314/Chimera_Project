@@ -126,6 +126,27 @@
   <data name="Center" xml:space="preserve">
     <value>Center image and do not stretch</value>
   </data>
+  <data name="ConfigItem_EnableCursorFeature" xml:space="preserve">
+    <value>EnableCursorFeature</value>
+  </data>
+  <data name="ConfigItem_EnableMoveCursorNextScreen" xml:space="preserve">
+    <value>EnableMoveCursorNextScreen</value>
+  </data>
+  <data name="ConfigItem_EnableMoveCursorPrevScreen" xml:space="preserve">
+    <value>EnableMoveCursorPrevScreen</value>
+  </data>
+  <data name="ConfigItem_EnableStickCursorToScreen" xml:space="preserve">
+    <value>EnableStickCursorToScreen</value>
+  </data>
+  <data name="ConfigItem_HotkeyMoveCursorNextScreen" xml:space="preserve">
+    <value>HotkeyMoveCursorNextScreen</value>
+  </data>
+  <data name="ConfigItem_HotkeyMoveCursorPrevScreen" xml:space="preserve">
+    <value>HotkeyMoveCursorPrevScreen</value>
+  </data>
+  <data name="ConfigItem_HotkeyStickCursorToScreen" xml:space="preserve">
+    <value>HotkeyStickCursorToScreen</value>
+  </data>
   <data name="CtrlModifierKey" xml:space="preserve">
     <value>Ctrl</value>
   </data>

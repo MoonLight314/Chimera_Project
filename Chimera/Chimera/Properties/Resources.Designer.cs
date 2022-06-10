@@ -88,6 +88,69 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   EnableCursorFeature과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_EnableCursorFeature {
+            get {
+                return ResourceManager.GetString("ConfigItem_EnableCursorFeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   EnableMoveCursorNextScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_EnableMoveCursorNextScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_EnableMoveCursorNextScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   EnableMoveCursorPrevScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_EnableMoveCursorPrevScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_EnableMoveCursorPrevScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   EnableStickCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_EnableStickCursorToScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_EnableStickCursorToScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   HotkeyMoveCursorNextScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_HotkeyMoveCursorNextScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_HotkeyMoveCursorNextScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   HotkeyMoveCursorPrevScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_HotkeyMoveCursorPrevScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_HotkeyMoveCursorPrevScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   HotkeyStickCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_HotkeyStickCursorToScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_HotkeyStickCursorToScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ctrl과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string CtrlModifierKey {

@@ -437,7 +437,7 @@ namespace Chimera
             //nextScreenHotKeyController.Dispose();
         }
 
-
+#if TEST
         public void SaveSettings()
         {
             try
@@ -450,10 +450,10 @@ namespace Chimera
                 MessageBox.Show(ex.Message, Properties.Resources.ApplicationName );
             }
         }
+#endif
 
 
-
-        #region UDA HotKeys
+#region UDA HotKeys
 #if UDA
         /* UDA : User Defined Area */
 
@@ -603,6 +603,6 @@ namespace Chimera
             }
         }
 #endif
-        #endregion
+#endregion
     }
 }

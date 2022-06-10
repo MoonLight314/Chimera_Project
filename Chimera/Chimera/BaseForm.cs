@@ -22,10 +22,10 @@ namespace Chimera
 
         CursorControl           cursorControl;
         ConfigManager           configManager;
+        ConfigValues            configValues;
 
         ////IList<DisplayDevice> allMonitorProperties = displayDevices.Items;
         // = displayDevices.Items();
-
 
 
 
@@ -35,13 +35,14 @@ namespace Chimera
 
             this.Load += notifyIcon1_Load;
 
-            configManager = new ConfigManager();
+            configValues = new ConfigValues();
+            configManager = new ConfigManager(configValues);
 
             /*  */
             displayDevices = new DisplayDevices();
             allMonitorProperties = displayDevices.Items;
 
-            cursorControl = new CursorControl(this);
+            cursorControl = new CursorControl(this , configValues);
         }
 
         

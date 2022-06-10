@@ -33,15 +33,15 @@
             this.grpBox_Feature_Enable = new System.Windows.Forms.GroupBox();
             this.cb_FeatureEnable = new System.Windows.Forms.CheckBox();
             this.grpBox_EachFeatures = new System.Windows.Forms.GroupBox();
-            this.cb_MovCursorNextScreen = new System.Windows.Forms.CheckBox();
-            this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
-            this.btn_CursorMov_Next_Screen_KeyChange = new System.Windows.Forms.Button();
+            this.btn_Cursor_Stick_Screen_KeyChange = new System.Windows.Forms.Button();
+            this.txtBox_Hotkey_StickToScreen = new System.Windows.Forms.TextBox();
+            this.cb_StickToScreen = new System.Windows.Forms.CheckBox();
             this.btn_CursorMov_Prev_Screen_KeyChange = new System.Windows.Forms.Button();
             this.txtBox_Hotkey_MovCurPrevScreen = new System.Windows.Forms.TextBox();
             this.cb_MovCursorPrevScreen = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtBox_Hotkey_StickToScreen = new System.Windows.Forms.TextBox();
-            this.cb_StickToScreen = new System.Windows.Forms.CheckBox();
+            this.btn_CursorMov_Next_Screen_KeyChange = new System.Windows.Forms.Button();
+            this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
+            this.cb_MovCursorNextScreen = new System.Windows.Forms.CheckBox();
             this.grpBox_Feature_Enable.SuspendLayout();
             this.grpBox_EachFeatures.SuspendLayout();
             this.SuspendLayout();
@@ -85,10 +85,11 @@
             this.cb_FeatureEnable.TabIndex = 0;
             this.cb_FeatureEnable.Text = " Enable Cursor Features";
             this.cb_FeatureEnable.UseVisualStyleBackColor = true;
+            this.cb_FeatureEnable.CheckedChanged += new System.EventHandler(this.cb_FeatureEnable_ChangeCheck);
             // 
             // grpBox_EachFeatures
             // 
-            this.grpBox_EachFeatures.Controls.Add(this.button1);
+            this.grpBox_EachFeatures.Controls.Add(this.btn_Cursor_Stick_Screen_KeyChange);
             this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_StickToScreen);
             this.grpBox_EachFeatures.Controls.Add(this.cb_StickToScreen);
             this.grpBox_EachFeatures.Controls.Add(this.btn_CursorMov_Prev_Screen_KeyChange);
@@ -104,68 +105,15 @@
             this.grpBox_EachFeatures.TabStop = false;
             this.grpBox_EachFeatures.Text = "Features";
             // 
-            // cb_MovCursorNextScreen
+            // btn_Cursor_Stick_Screen_KeyChange
             // 
-            this.cb_MovCursorNextScreen.AutoSize = true;
-            this.cb_MovCursorNextScreen.Location = new System.Drawing.Point(18, 40);
-            this.cb_MovCursorNextScreen.Name = "cb_MovCursorNextScreen";
-            this.cb_MovCursorNextScreen.Size = new System.Drawing.Size(194, 16);
-            this.cb_MovCursorNextScreen.TabIndex = 0;
-            this.cb_MovCursorNextScreen.Text = " Move Cursor To Next Screen";
-            this.cb_MovCursorNextScreen.UseVisualStyleBackColor = true;
-            // 
-            // txtBox_Hotkey_MovCurNextScreen
-            // 
-            this.txtBox_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(262, 36);
-            this.txtBox_Hotkey_MovCurNextScreen.Name = "txtBox_Hotkey_MovCurNextScreen";
-            this.txtBox_Hotkey_MovCurNextScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(128, 21);
-            this.txtBox_Hotkey_MovCurNextScreen.TabIndex = 1;
-            // 
-            // btn_CursorMov_Next_Screen_KeyChange
-            // 
-            this.btn_CursorMov_Next_Screen_KeyChange.Location = new System.Drawing.Point(396, 36);
-            this.btn_CursorMov_Next_Screen_KeyChange.Name = "btn_CursorMov_Next_Screen_KeyChange";
-            this.btn_CursorMov_Next_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
-            this.btn_CursorMov_Next_Screen_KeyChange.TabIndex = 4;
-            this.btn_CursorMov_Next_Screen_KeyChange.Text = "Change...";
-            this.btn_CursorMov_Next_Screen_KeyChange.UseVisualStyleBackColor = true;
-            // 
-            // btn_CursorMov_Prev_Screen_KeyChange
-            // 
-            this.btn_CursorMov_Prev_Screen_KeyChange.Location = new System.Drawing.Point(396, 72);
-            this.btn_CursorMov_Prev_Screen_KeyChange.Name = "btn_CursorMov_Prev_Screen_KeyChange";
-            this.btn_CursorMov_Prev_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
-            this.btn_CursorMov_Prev_Screen_KeyChange.TabIndex = 7;
-            this.btn_CursorMov_Prev_Screen_KeyChange.Text = "Change...";
-            this.btn_CursorMov_Prev_Screen_KeyChange.UseVisualStyleBackColor = true;
-            // 
-            // txtBox_Hotkey_MovCurPrevScreen
-            // 
-            this.txtBox_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(262, 72);
-            this.txtBox_Hotkey_MovCurPrevScreen.Name = "txtBox_Hotkey_MovCurPrevScreen";
-            this.txtBox_Hotkey_MovCurPrevScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(128, 21);
-            this.txtBox_Hotkey_MovCurPrevScreen.TabIndex = 6;
-            // 
-            // cb_MovCursorPrevScreen
-            // 
-            this.cb_MovCursorPrevScreen.AutoSize = true;
-            this.cb_MovCursorPrevScreen.Location = new System.Drawing.Point(18, 76);
-            this.cb_MovCursorPrevScreen.Name = "cb_MovCursorPrevScreen";
-            this.cb_MovCursorPrevScreen.Size = new System.Drawing.Size(217, 16);
-            this.cb_MovCursorPrevScreen.TabIndex = 5;
-            this.cb_MovCursorPrevScreen.Text = " Move Cursor To Previous Screen";
-            this.cb_MovCursorPrevScreen.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(396, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 21);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Change...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Cursor_Stick_Screen_KeyChange.Location = new System.Drawing.Point(396, 108);
+            this.btn_Cursor_Stick_Screen_KeyChange.Name = "btn_Cursor_Stick_Screen_KeyChange";
+            this.btn_Cursor_Stick_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
+            this.btn_Cursor_Stick_Screen_KeyChange.TabIndex = 10;
+            this.btn_Cursor_Stick_Screen_KeyChange.Text = "Change...";
+            this.btn_Cursor_Stick_Screen_KeyChange.UseVisualStyleBackColor = true;
+            this.btn_Cursor_Stick_Screen_KeyChange.Click += new System.EventHandler(this.btn_Click_Cursor_Stick_Screen_KeyChange);
             // 
             // txtBox_Hotkey_StickToScreen
             // 
@@ -184,6 +132,65 @@
             this.cb_StickToScreen.TabIndex = 8;
             this.cb_StickToScreen.Text = " Stick To Screen";
             this.cb_StickToScreen.UseVisualStyleBackColor = true;
+            this.cb_StickToScreen.CheckedChanged += new System.EventHandler(this.cb_StickScreen_ChangeCheck);
+            // 
+            // btn_CursorMov_Prev_Screen_KeyChange
+            // 
+            this.btn_CursorMov_Prev_Screen_KeyChange.Location = new System.Drawing.Point(396, 72);
+            this.btn_CursorMov_Prev_Screen_KeyChange.Name = "btn_CursorMov_Prev_Screen_KeyChange";
+            this.btn_CursorMov_Prev_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
+            this.btn_CursorMov_Prev_Screen_KeyChange.TabIndex = 7;
+            this.btn_CursorMov_Prev_Screen_KeyChange.Text = "Change...";
+            this.btn_CursorMov_Prev_Screen_KeyChange.UseVisualStyleBackColor = true;
+            this.btn_CursorMov_Prev_Screen_KeyChange.Click += new System.EventHandler(this.btn_Click_CursorMov_Prev_Screen_KeyChange);
+            // 
+            // txtBox_Hotkey_MovCurPrevScreen
+            // 
+            this.txtBox_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(262, 72);
+            this.txtBox_Hotkey_MovCurPrevScreen.Name = "txtBox_Hotkey_MovCurPrevScreen";
+            this.txtBox_Hotkey_MovCurPrevScreen.ReadOnly = true;
+            this.txtBox_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(128, 21);
+            this.txtBox_Hotkey_MovCurPrevScreen.TabIndex = 6;
+            // 
+            // cb_MovCursorPrevScreen
+            // 
+            this.cb_MovCursorPrevScreen.AutoSize = true;
+            this.cb_MovCursorPrevScreen.Location = new System.Drawing.Point(18, 76);
+            this.cb_MovCursorPrevScreen.Name = "cb_MovCursorPrevScreen";
+            this.cb_MovCursorPrevScreen.Size = new System.Drawing.Size(217, 16);
+            this.cb_MovCursorPrevScreen.TabIndex = 5;
+            this.cb_MovCursorPrevScreen.Text = " Move Cursor To Previous Screen";
+            this.cb_MovCursorPrevScreen.UseVisualStyleBackColor = true;
+            this.cb_MovCursorPrevScreen.CheckedChanged += new System.EventHandler(this.cb_CursorPrevScreen_ChangeCheck);
+            // 
+            // btn_CursorMov_Next_Screen_KeyChange
+            // 
+            this.btn_CursorMov_Next_Screen_KeyChange.Location = new System.Drawing.Point(396, 36);
+            this.btn_CursorMov_Next_Screen_KeyChange.Name = "btn_CursorMov_Next_Screen_KeyChange";
+            this.btn_CursorMov_Next_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
+            this.btn_CursorMov_Next_Screen_KeyChange.TabIndex = 4;
+            this.btn_CursorMov_Next_Screen_KeyChange.Text = "Change...";
+            this.btn_CursorMov_Next_Screen_KeyChange.UseVisualStyleBackColor = true;
+            this.btn_CursorMov_Next_Screen_KeyChange.Click += new System.EventHandler(this.btn_Click_CursorMov_Next_Screen_KeyChange);
+            // 
+            // txtBox_Hotkey_MovCurNextScreen
+            // 
+            this.txtBox_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(262, 36);
+            this.txtBox_Hotkey_MovCurNextScreen.Name = "txtBox_Hotkey_MovCurNextScreen";
+            this.txtBox_Hotkey_MovCurNextScreen.ReadOnly = true;
+            this.txtBox_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(128, 21);
+            this.txtBox_Hotkey_MovCurNextScreen.TabIndex = 1;
+            // 
+            // cb_MovCursorNextScreen
+            // 
+            this.cb_MovCursorNextScreen.AutoSize = true;
+            this.cb_MovCursorNextScreen.Location = new System.Drawing.Point(18, 40);
+            this.cb_MovCursorNextScreen.Name = "cb_MovCursorNextScreen";
+            this.cb_MovCursorNextScreen.Size = new System.Drawing.Size(194, 16);
+            this.cb_MovCursorNextScreen.TabIndex = 0;
+            this.cb_MovCursorNextScreen.Text = " Move Cursor To Next Screen";
+            this.cb_MovCursorNextScreen.UseVisualStyleBackColor = true;
+            this.cb_MovCursorNextScreen.CheckedChanged += new System.EventHandler(this.cb_CursorNextScreen_ChangeCheck);
             // 
             // CursorControl
             // 
@@ -219,7 +226,7 @@
         private System.Windows.Forms.Button btn_CursorMov_Prev_Screen_KeyChange;
         private System.Windows.Forms.TextBox txtBox_Hotkey_MovCurPrevScreen;
         private System.Windows.Forms.CheckBox cb_MovCursorPrevScreen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Cursor_Stick_Screen_KeyChange;
         private System.Windows.Forms.TextBox txtBox_Hotkey_StickToScreen;
         private System.Windows.Forms.CheckBox cb_StickToScreen;
     }
