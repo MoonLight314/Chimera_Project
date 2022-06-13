@@ -233,7 +233,7 @@ namespace Chimera
             }
             else
             {
-                ret = "--DISABLED--";
+                ret = "Not Defined";
             }
 
             return ret;

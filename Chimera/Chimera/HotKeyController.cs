@@ -130,6 +130,13 @@ namespace Chimera
             return hotKey.HotKeyCombo.Enabled;
         }
 
+
+        public KeyCombo GetHotKeyCombo()
+        {
+            //return hotKey.HotKeyCombo.ToPropertyValue() != KeyCombo.DisabledComboValue;
+            return hotKey.HotKeyCombo;
+        }
+
         // Gets the HotKey combo value from the persisted value in Poperties.Settings
         private KeyCombo GetSavedKeyCombo()
         {

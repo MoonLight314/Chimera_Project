@@ -150,15 +150,6 @@ namespace Chimera
         public HotKeyController ShowDesktop2HotKeyController
         {
             get { return showDesktop2HotKeyController; }
-        }        
-
-        private HotKeyController stickyCursorHotKeyController;
-        /// <summary>
-        /// HotKey to make cursor movement sticky between screens
-        /// </summary>
-        public HotKeyController StickyCursorHotKeyController
-        {
-            get { return stickyCursorHotKeyController; }
         }
 
         private HotKeyController lockCursorHotKeyController;
@@ -170,6 +161,15 @@ namespace Chimera
             get { return lockCursorHotKeyController; }
         }
 #endif
+
+        private HotKeyController stickyCursorHotKeyController;
+        /// <summary>
+        /// HotKey to make cursor movement sticky between screens
+        /// </summary>
+        public HotKeyController StickyCursorHotKeyController
+        {
+            get { return stickyCursorHotKeyController; }
+        }
 
         private HotKeyController freeCursorHotKeyController;
         /// <summary>
@@ -189,9 +189,6 @@ namespace Chimera
             get { return cursorNextScreenHotKeyController; }
         }
 
-
-
-#if NOT_IMPLEMENTED
         private HotKeyController cursorPrevScreenHotKeyController;
         /// <summary>
         /// Hotkey to move cursor to previous screen
@@ -200,6 +197,10 @@ namespace Chimera
         {
             get { return cursorPrevScreenHotKeyController; }
         }
+
+
+
+#if NOT_IMPLEMENTED        
 
         private HotKeyController swapTop2HotKeyController;
         /// <summary>
@@ -353,13 +354,7 @@ namespace Chimera
                 "FreeCursorHotKey",
                 Properties.Resources.FreeCursorDescription,
                 Properties.Resources.FreeCursorWin7,
-                new HotKey.HotKeyHandler(CursorHelper.FreeCursor));
-
-            stickyCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_STICKYCURSOR,
-                "StickyCursorHotKey",
-                Properties.Resources.StickyCursorDescription,
-                Properties.Resources.StickyCursorWin7,
-                new HotKey.HotKeyHandler(CursorHelper.StickyCursor));
+                new HotKey.HotKeyHandler(CursorHelper.FreeCursor));            
 
             lockCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_LOCKCURSOR,
                 "LockCursorHotKey",
@@ -367,18 +362,27 @@ namespace Chimera
                 Properties.Resources.LockCursorWin7,
                 new HotKey.HotKeyHandler(CursorHelper.LockCursor));
 #endif
+            stickyCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_STICKYCURSOR,
+                "StickyCursorHotKey",
+                Properties.Resources.StickyCursorDescription,
+                Properties.Resources.StickyCursorWin7,
+                new HotKey.HotKeyHandler(CursorHelper.StickyCursor));
+
             cursorNextScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORNEXTSCREEN,
                 "CursorNextScreenHotKey",
                 Properties.Resources.CursorNextScreenDescription,
                 Properties.Resources.CursorNextScreenWin7,
                 new HotKey.HotKeyHandler(CursorHelper.CursorToNextScreen));
 
-#if NOT_IMPLEMENTED
+
             cursorPrevScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORPREVSCREEN,
                 "CursorPrevScreenHotKey",
                 Properties.Resources.CursorPrevScreenDescription,
                 Properties.Resources.CursorPrevScreenWin7,
                 new HotKey.HotKeyHandler(CursorHelper.CursorToPrevScreen));
+
+
+#if NOT_IMPLEMENTED            
 
             swapTop2HotKeyController = new HotKeyController(form, ID_HOTKEY_SWAPTOP2,
                 "SwapTop2HotKey",

@@ -110,8 +110,8 @@ namespace Chimera
             }
 
             /* TEST */
-            keyCombo.Enabled = true;
-            keyCombo.FromPropertyValue(0x00060027);
+            //keyCombo.Enabled = true;
+            //keyCombo.FromPropertyValue(0x00060027);
             
 
             if (keyCombo.Enabled)

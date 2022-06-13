@@ -92,6 +92,12 @@
     <Compile Include="DisplayDevices.cs" />
     <Compile Include="HotKey.cs" />
     <Compile Include="HotKeyController.cs" />
+    <Compile Include="HotKeyInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotKeyInput.Designer.cs">
+      <DependentUpon>HotKeyInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyCombo.cs" />
     <Compile Include="KeyComboPanel.cs">
       <SubType>UserControl</SubType>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CursorControl.resx">
       <DependentUpon>CursorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotKeyInput.resx">
+      <DependentUpon>HotKeyInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Library\HotKeys\HotKeyForm.resx">
       <DependentUpon>HotKeyForm.cs</DependentUpon>

@@ -178,6 +178,24 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   Move cursor to previous screen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorPrevScreenDescription {
+            get {
+                return ResourceManager.GetString("CursorPrevScreenDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CursorPrevScreenWin7 {
+            get {
+                return ResourceManager.GetString("CursorPrevScreenWin7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   --DISABLED--과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string DisabledHotKey {
@@ -238,6 +256,24 @@ namespace Chimera.Properties {
         internal static string ShiftModifierKey {
             get {
                 return ResourceManager.GetString("ShiftModifierKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cursor movement between screens is sticky과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string StickyCursorDescription {
+            get {
+                return ResourceManager.GetString("StickyCursorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string StickyCursorWin7 {
+            get {
+                return ResourceManager.GetString("StickyCursorWin7", resourceCulture);
             }
         }
         

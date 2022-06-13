@@ -22,15 +22,15 @@ namespace Chimera
         {
             InitializeComponent();
 
-            configValues = cv;
-            ApplyConfigSettingToUI();
-
             /* 참고. Screen.AllScreens는 현재 Active되어 있는 Screen 정보만 보여준다. */
             /* 나중에 활용할 때가 있을지도... */
             /* Screen.AllScreens; */
 
             //CursorController.Instance.Init(this);
             CursorController.Instance.Init(form);
+
+            configValues = cv;
+            ApplyConfigSettingToUI();
 
             SystemEvents.DisplaySettingsChanged += new EventHandler(SystemEvents_DisplaySettingsChanged);
         }
@@ -58,9 +58,9 @@ namespace Chimera
         private void ApplyConfigSettingToUI()
         {
             /*  */
-            txtBox_Hotkey_MovCurNextScreen.Text = configValues.HotkeyMoveCursorNextScreen;
-            txtBox_Hotkey_MovCurPrevScreen.Text = configValues.HotkeyMoveCursorPrevScreen;
-            txtBox_Hotkey_StickToScreen.Text = configValues.HotkeyStickCursorToScreen;
+            txtBox_Hotkey_MovCurNextScreen.Text = CursorController.Instance.CursorNextScreenHotKeyController.ToString();
+            txtBox_Hotkey_MovCurPrevScreen.Text = CursorController.Instance.CursorPrevScreenHotKeyController.ToString();
+            txtBox_Hotkey_StickToScreen.Text = CursorController.Instance.CursorPrevScreenHotKeyController.ToString();
 
             /* 전체 Disable인 경우 */
             if (configValues.EnableCursorFeature == false )
@@ -206,6 +206,8 @@ namespace Chimera
         /* Move Cursor To Next Screen key 변경 Button */
         private void btn_Click_CursorMov_Next_Screen_KeyChange(object sender, EventArgs e)
         {
+            HotKeyInput hotKeyInput = new HotKeyInput(CursorController.Instance.CursorNextScreenHotKeyController.GetHotKeyCombo());
+            hotKeyInput.Show();
 
         }
 
