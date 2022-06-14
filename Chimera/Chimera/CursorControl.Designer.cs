@@ -117,11 +117,12 @@
             // 
             // txtBox_Hotkey_StickToScreen
             // 
-            this.txtBox_Hotkey_StickToScreen.Location = new System.Drawing.Point(262, 108);
+            this.txtBox_Hotkey_StickToScreen.Location = new System.Drawing.Point(237, 108);
             this.txtBox_Hotkey_StickToScreen.Name = "txtBox_Hotkey_StickToScreen";
             this.txtBox_Hotkey_StickToScreen.ReadOnly = true;
-            this.txtBox_Hotkey_StickToScreen.Size = new System.Drawing.Size(128, 21);
+            this.txtBox_Hotkey_StickToScreen.Size = new System.Drawing.Size(153, 21);
             this.txtBox_Hotkey_StickToScreen.TabIndex = 9;
+            this.txtBox_Hotkey_StickToScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cb_StickToScreen
             // 
@@ -146,11 +147,12 @@
             // 
             // txtBox_Hotkey_MovCurPrevScreen
             // 
-            this.txtBox_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(262, 72);
+            this.txtBox_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(237, 72);
             this.txtBox_Hotkey_MovCurPrevScreen.Name = "txtBox_Hotkey_MovCurPrevScreen";
             this.txtBox_Hotkey_MovCurPrevScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(128, 21);
+            this.txtBox_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(153, 21);
             this.txtBox_Hotkey_MovCurPrevScreen.TabIndex = 6;
+            this.txtBox_Hotkey_MovCurPrevScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cb_MovCursorPrevScreen
             // 
@@ -175,11 +177,12 @@
             // 
             // txtBox_Hotkey_MovCurNextScreen
             // 
-            this.txtBox_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(262, 36);
+            this.txtBox_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(237, 36);
             this.txtBox_Hotkey_MovCurNextScreen.Name = "txtBox_Hotkey_MovCurNextScreen";
             this.txtBox_Hotkey_MovCurNextScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(128, 21);
+            this.txtBox_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(153, 21);
             this.txtBox_Hotkey_MovCurNextScreen.TabIndex = 1;
+            this.txtBox_Hotkey_MovCurNextScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cb_MovCursorNextScreen
             // 
@@ -204,6 +207,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CursorControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CursorControl";
             this.grpBox_Feature_Enable.ResumeLayout(false);
             this.grpBox_Feature_Enable.PerformLayout();

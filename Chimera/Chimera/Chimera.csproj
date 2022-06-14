@@ -98,6 +98,7 @@
     <Compile Include="HotKeyInput.Designer.cs">
       <DependentUpon>HotKeyInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeyCodeValues.cs" />
     <Compile Include="KeyCombo.cs" />
     <Compile Include="KeyComboPanel.cs">
       <SubType>UserControl</SubType>

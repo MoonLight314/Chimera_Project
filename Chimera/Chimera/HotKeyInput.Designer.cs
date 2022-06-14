@@ -70,8 +70,10 @@
             // 
             this.txtBox_NormalKey.Location = new System.Drawing.Point(126, 55);
             this.txtBox_NormalKey.Name = "txtBox_NormalKey";
-            this.txtBox_NormalKey.Size = new System.Drawing.Size(87, 21);
+            this.txtBox_NormalKey.ReadOnly = true;
+            this.txtBox_NormalKey.Size = new System.Drawing.Size(135, 21);
             this.txtBox_NormalKey.TabIndex = 3;
+            this.txtBox_NormalKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -105,9 +107,10 @@
             this.Controls.Add(this.cb_Shift);
             this.KeyPreview = true;
             this.Name = "HotKeyInput";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HotKeyInput";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down_test);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.key_up_test);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.key_up);
             this.ResumeLayout(false);
             this.PerformLayout();
 
