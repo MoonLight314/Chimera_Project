@@ -16,6 +16,7 @@ namespace Chimera
     {
         // The HotKey does the real work
         private HotKey hotKey;
+        //public HotKey hotKey { get; set; }
 
         // The name used in Properties.Settings.Default. to persist
         // the value of the hotkey between sessions.

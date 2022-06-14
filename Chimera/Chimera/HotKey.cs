@@ -28,7 +28,8 @@ namespace Chimera
         /// </summary>
         public event HotKeyHandler HotKeyPressed;
 
-        private KeyCombo hotKeyCombo;
+        private KeyCombo hotKeyCombo;        
+
         /// <summary>
         /// The KeyCombo that we will be using as the hotkey.
         /// </summary>
@@ -109,10 +110,6 @@ namespace Chimera
                 UnRegisterHotKey();
             }
 
-            /* TEST */
-            //keyCombo.Enabled = true;
-            //keyCombo.FromPropertyValue(0x00060027);
-            
 
             if (keyCombo.Enabled)
             {

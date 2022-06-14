@@ -206,13 +206,15 @@ namespace Chimera
         /* Move Cursor To Next Screen key 변경 Button */
         private void btn_Click_CursorMov_Next_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput(ref CursorController.Instance.CursorNextScreenHotKeyController.GetHotKeyCombo());
+            HotKeyInput hotKeyInput = new HotKeyInput();
 
             /* Show()는 Form이 시작되고 바로 다음 Line으로 실행이 넘어간다. */
             /* ShowDialog()를 사용하면, Form이 닫힌 다음에 다음 Line으로 실행이 넘어간다. */
             hotKeyInput.ShowDialog();
+            KeyCombo a = CursorController.Instance.CursorNextScreenHotKeyController.GetHotKeyCombo();
 
-            /*  */
+            /* hotKeyInput에 KeyCombo를 Return할 수 있는 함수를 하나 만들고
+             * CursorController.Instance.CursorNextScreenHotKeyController에 HotKey Class의 RegisterHotKey를 호출할 수 있는 함수를 하나 만들자 */
             ;
         }
 

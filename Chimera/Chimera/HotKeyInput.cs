@@ -15,10 +15,9 @@ namespace Chimera
 
         KeyCombo keyCombo;
 
-        public HotKeyInput(ref KeyCombo keyCombo)
+        public HotKeyInput()
         {
-            InitializeComponent();
-            this.keyCombo = keyCombo;
+            InitializeComponent();            
         }
 
         private void HotKeyInput_Cancel(object sender, EventArgs e)
