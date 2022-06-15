@@ -72,8 +72,21 @@ namespace Chimera
         /*  */
         private void cursorControlMenuItem_click(object sender, EventArgs e)
         {
-            //CursorControl cursorControl = new CursorControl();
-            cursorControl.ShowDialog();
+            DialogResult Ret;
+
+            cursorControl.BackupConfigValue();
+
+            Ret = cursorControl.ShowDialog();
+
+            if (Ret == DialogResult.OK)
+            {
+                ;
+            }
+            else if(Ret == DialogResult.Cancel)
+            {
+                cursorControl.RestoreConfigValue();
+            }
+
         }
 
 

@@ -22,6 +22,7 @@ namespace Chimera
 
         private void HotKeyInput_Cancel(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -39,6 +40,7 @@ namespace Chimera
                 if (ProcessHotKeyInput(e))
                 {
                     ClearUI();
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
 
@@ -125,6 +127,11 @@ namespace Chimera
                 ModifierCount++;
 
             return ModifierCount;
+        }
+
+        public KeyCombo GetKeyCombo()
+        {
+            return this.keyCombo;
         }
     }
 }

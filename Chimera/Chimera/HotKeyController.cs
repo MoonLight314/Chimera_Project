@@ -45,7 +45,7 @@ namespace Chimera
         /// <param name="win7Key">String representation of what Windows 7 uses for this hotkey 
         /// - again for display to the user when they are changing the hotkey</param>
         /// <param name="handler">The delegate to handle events for this hotkey</param>
-        public HotKeyController(Form form, int id, string propertyName, string description, string win7Key, HotKey.HotKeyHandler handler)
+        public HotKeyController(Form form, int id, string propertyName, string description, string win7Key, HotKey.HotKeyHandler handler , ConfigValues cv)
         {
             // remember these for use later on
             this.propertyName = propertyName;
@@ -54,7 +54,7 @@ namespace Chimera
 
             // now create the hotkey and hook it up with the handler
             hotKey = new HotKey(form, id);
-            hotKey.RegisterHotKey(GetSavedKeyCombo());
+            hotKey.RegisterHotKey( GetSavedKeyCombo(cv) ) ;
             hotKey.HotKeyPressed += handler;
         }
 
@@ -77,6 +77,7 @@ namespace Chimera
             }
         }
 
+#if TEST
         /// <summary>
         /// Show the HotKeyFrom to allow the hotkey to be chnaged.
         /// </summary>
@@ -102,7 +103,6 @@ namespace Chimera
                 }
             }
 
-#if TEST
             HotKeyForm dlg = new HotKeyForm(hotKey, description, note);
 
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -117,9 +117,13 @@ namespace Chimera
                 // indicate OK has been pressed
                 edited = true;
             }
-#endif
+
             return edited;
         }
+#endif
+
+
+
 
         /// <summary>
         /// Checks if the hotkey is enabled
@@ -132,16 +136,80 @@ namespace Chimera
         }
 
 
+
+
+
         public KeyCombo GetHotKeyCombo()
         {
             //return hotKey.HotKeyCombo.ToPropertyValue() != KeyCombo.DisabledComboValue;
             return hotKey.HotKeyCombo;
         }
 
+
+
+
+
+
+        private uint ConvertKeyCombo(string HotkeyValueString)
+        {
+            uint Ret;
+
+            if (string.Compare("Not Defined", HotkeyValueString) == 0)
+                Ret = KeyCombo.DisabledComboValue;
+            else
+                Ret = UInt32.Parse(HotkeyValueString);
+
+            return Ret;
+        }
+
+
+
+
+
+
+
+
         // Gets the HotKey combo value from the persisted value in Poperties.Settings
-        private KeyCombo GetSavedKeyCombo()
+        private KeyCombo GetSavedKeyCombo(ConfigValues cv)
         {
             KeyCombo keyCombo = new KeyCombo();
+
+            if (cv.EnableCursorFeature)
+            {
+                /* Hotkey Feature가 Enable된 상태일때만 */
+                switch (this.propertyName)
+                {
+                    case "CursorNextScreenHotKey":
+                        if (cv.EnableMoveCursorNextScreen)
+                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyMoveCursorNextScreen));
+                        else
+                            keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                        break;
+
+                    case "CursorPrevScreenHotKey":
+                        if (cv.EnableMoveCursorPrevScreen)
+                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyMoveCursorPrevScreen));
+                        else
+                            keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                        break;
+
+                    case "StickyCursorHotKey":
+                        if (cv.EnableStickCursorToScreen)
+                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyStickCursorToScreen));
+                        else
+                            keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                        break;
+
+                    default:
+                        keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                        break;
+                }
+            }
+            else
+            {
+                keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+            }
+#if TEST
             // if we have any trouble accessing the saved value of the KeyCombo
             // we default to disabling it
             uint hotKeyValue = KeyCombo.DisabledComboValue;
@@ -155,8 +223,12 @@ namespace Chimera
                 Debug.Assert(true, ex.Message);
             }
             keyCombo.FromPropertyValue(hotKeyValue);
+#endif
             return keyCombo;
         }
+
+
+
 
         // Persists the hotkey combo value to Properties.Settings
         private void SaveKeyCombo()
@@ -172,6 +244,9 @@ namespace Chimera
                 Debug.Assert(true, ex.Message);
             }
         }
+
+
+
 
         /// <summary>
         /// Gets a user displayable string of the key combination of this hotkey.

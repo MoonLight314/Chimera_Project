@@ -31,6 +31,11 @@ namespace Chimera
             HotkeyMoveCursorPrevScreen = "";
             EnableStickCursorToScreen = true;
             HotkeyStickCursorToScreen = "";
-    }
+        }
+
+        public ConfigValues ShallowCopy()
+        {
+            return (ConfigValues)this.MemberwiseClone();
+        }
     }
 }

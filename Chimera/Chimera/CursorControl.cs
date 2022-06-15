@@ -15,7 +15,12 @@ namespace Chimera
 {
     public partial class CursorControl : Form
     {
-        ConfigValues configValues;
+        ConfigValues configValues = new ConfigValues();
+        ConfigValues backupConfigValue = new ConfigValues();
+
+        KeyCombo CurNextkeyCombo = new KeyCombo();
+        KeyCombo CurPrevkeyCombo = new KeyCombo();
+        KeyCombo StickCurkeyCombo = new KeyCombo();
 
         //public CursorControl()
         public CursorControl(Form form , ConfigValues cv)
@@ -26,13 +31,34 @@ namespace Chimera
             /* 나중에 활용할 때가 있을지도... */
             /* Screen.AllScreens; */
 
-            //CursorController.Instance.Init(this);
-            CursorController.Instance.Init(form);
+            configValues = cv;            
 
-            configValues = cv;
+            CursorController.Instance.Init(form , cv);
+
             ApplyConfigSettingToUI();
 
+            InitKeyCombos();            
+
             SystemEvents.DisplaySettingsChanged += new EventHandler(SystemEvents_DisplaySettingsChanged);
+        }
+
+
+        public void BackupConfigValue()
+        {
+            backupConfigValue = configValues.ShallowCopy();
+        }
+
+        public void RestoreConfigValue()
+        {
+            configValues = backupConfigValue.ShallowCopy(); ;
+        }
+
+
+        private void InitKeyCombos()
+        {
+            CurNextkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+            CurPrevkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+            StickCurkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
         }
 
 
@@ -77,11 +103,13 @@ namespace Chimera
                 {
                     txtBox_Hotkey_MovCurNextScreen.Enabled = false;
                     btn_CursorMov_Next_Screen_KeyChange.Enabled = false;
+                    cb_MovCursorNextScreen.Checked = false;
                 }
                 else
                 {
                     txtBox_Hotkey_MovCurNextScreen.Enabled = true;
                     btn_CursorMov_Next_Screen_KeyChange.Enabled = true;
+                    cb_MovCursorNextScreen.Checked = true;
                 }
 
                 /*  */
@@ -89,11 +117,13 @@ namespace Chimera
                 {
                     txtBox_Hotkey_MovCurPrevScreen.Enabled = false;
                     btn_CursorMov_Prev_Screen_KeyChange.Enabled = false;
+                    cb_MovCursorPrevScreen.Checked = false;
                 }
                 else
                 {
                     txtBox_Hotkey_MovCurPrevScreen.Enabled = true;
                     btn_CursorMov_Prev_Screen_KeyChange.Enabled = true;
+                    cb_MovCursorPrevScreen.Checked = true;
                 }
 
                 /*  */
@@ -101,11 +131,13 @@ namespace Chimera
                 {
                     txtBox_Hotkey_StickToScreen.Enabled = false;
                     btn_Cursor_Stick_Screen_KeyChange.Enabled = false;
+                    cb_StickToScreen.Checked = false;
                 }
                 else
                 {
                     txtBox_Hotkey_StickToScreen.Enabled = true;
                     btn_Cursor_Stick_Screen_KeyChange.Enabled = true;
+                    cb_StickToScreen.Checked = true;
                 }
             }
                         
@@ -135,21 +167,21 @@ namespace Chimera
 
 
 
-        private void moveNext_Button_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /* SET 버튼 처리 함수 */
         private void cursorControl_Set_click(object sender, EventArgs e)
         {
-            
+            //CursorController.Instance.CursorNextScreenHotKeyController.
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
 
         /* CANCEL 버튼 처리 함수 */
         private void cursorControl_Cancel_click(object sender, EventArgs e)
         {
+            InitKeyCombos();
+            //ApplyConfigSettingToUI();
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -206,16 +238,18 @@ namespace Chimera
         /* Move Cursor To Next Screen key 변경 Button */
         private void btn_Click_CursorMov_Next_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput();
+            HotKeyInput hotKeyInput = new HotKeyInput();           
 
             /* Show()는 Form이 시작되고 바로 다음 Line으로 실행이 넘어간다. */
             /* ShowDialog()를 사용하면, Form이 닫힌 다음에 다음 Line으로 실행이 넘어간다. */
-            hotKeyInput.ShowDialog();
-            KeyCombo a = CursorController.Instance.CursorNextScreenHotKeyController.GetHotKeyCombo();
+            DialogResult Ret = hotKeyInput.ShowDialog();
 
-            /* hotKeyInput에 KeyCombo를 Return할 수 있는 함수를 하나 만들고
-             * CursorController.Instance.CursorNextScreenHotKeyController에 HotKey Class의 RegisterHotKey를 호출할 수 있는 함수를 하나 만들자 */
-            ;
+            if( Ret == DialogResult.OK )
+            {
+                CurNextkeyCombo = hotKeyInput.GetKeyCombo();
+                txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();                
+            }
+
         }
 
 
@@ -223,14 +257,30 @@ namespace Chimera
         /* Move Cursor To Prev Screen key 변경 Button */
         private void btn_Click_CursorMov_Prev_Screen_KeyChange(object sender, EventArgs e)
         {
+            HotKeyInput hotKeyInput = new HotKeyInput();
 
+            DialogResult Ret = hotKeyInput.ShowDialog();
+
+            if (Ret == DialogResult.OK)
+            {
+                CurPrevkeyCombo = hotKeyInput.GetKeyCombo();
+                txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
+            }
         }
 
 
         /* Stick To Screen key 변경 Button */
         private void btn_Click_Cursor_Stick_Screen_KeyChange(object sender, EventArgs e)
         {
+            HotKeyInput hotKeyInput = new HotKeyInput();
 
+            DialogResult Ret = hotKeyInput.ShowDialog();
+
+            if (Ret == DialogResult.OK)
+            {
+                StickCurkeyCombo = hotKeyInput.GetKeyCombo();
+                txtBox_Hotkey_StickToScreen.Text = StickCurkeyCombo.ToString();
+            }
         }
     }
 }

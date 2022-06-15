@@ -258,11 +258,11 @@ namespace Chimera
         /// This will initialise all of the hotkeys and setup hooks for those 
         /// that are not disabled.
         /// </summary>
-        public void Init(Form form)
+        public void Init(Form form , ConfigValues cv)
         {
             CursorHelper.Init((CursorHelper.CursorType)Properties.Settings.Default.DefaultCursorType);
 
-            InitHotKeys(form);
+            InitHotKeys(form , cv);
 
             #if UDA
             InitUdaHotKeys(form);
@@ -287,7 +287,7 @@ namespace Chimera
         }
 
         // fully initialise all of the hotkeys
-        private void InitHotKeys(Form form)
+        private void InitHotKeys(Form form , ConfigValues cv)
         {
 #if NOT_IMPLEMENTED
             nextScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_NEXTSCREEN,
@@ -366,20 +366,23 @@ namespace Chimera
                 "StickyCursorHotKey",
                 Properties.Resources.StickyCursorDescription,
                 Properties.Resources.StickyCursorWin7,
-                new HotKey.HotKeyHandler(CursorHelper.StickyCursor));
+                new HotKey.HotKeyHandler(CursorHelper.StickyCursor),
+                cv);
 
             cursorNextScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORNEXTSCREEN,
                 "CursorNextScreenHotKey",
                 Properties.Resources.CursorNextScreenDescription,
                 Properties.Resources.CursorNextScreenWin7,
-                new HotKey.HotKeyHandler(CursorHelper.CursorToNextScreen));
+                new HotKey.HotKeyHandler(CursorHelper.CursorToNextScreen),
+                cv);
 
 
             cursorPrevScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORPREVSCREEN,
                 "CursorPrevScreenHotKey",
                 Properties.Resources.CursorPrevScreenDescription,
                 Properties.Resources.CursorPrevScreenWin7,
-                new HotKey.HotKeyHandler(CursorHelper.CursorToPrevScreen));
+                new HotKey.HotKeyHandler(CursorHelper.CursorToPrevScreen),
+                cv);
 
 
 #if NOT_IMPLEMENTED            

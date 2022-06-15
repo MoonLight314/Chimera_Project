@@ -131,6 +131,22 @@ namespace Chimera
             return KeyValue;
         }
 
+        public static string GetKeyCodeString(Keys key)
+        {
+            string KeyValue;
+
+            try
+            {
+                KeyValue = KeyCodeValueSet[key];
+            }
+            catch (Exception ex)
+            {
+                KeyValue = "Not Support";
+            }
+
+            return KeyValue;
+        }
+
 
         public static bool IsNormalKeyPressed( KeyEventArgs e )
         {

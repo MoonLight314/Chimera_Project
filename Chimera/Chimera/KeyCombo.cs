@@ -203,7 +203,7 @@ namespace Chimera
                 {
                     if (ret.Length > 0)
                     {
-                        ret += "+";
+                        ret += " + ";
                     }
                     ret += "Ctrl";
                 }
@@ -211,7 +211,7 @@ namespace Chimera
                 {
                     if (ret.Length > 0)
                     {
-                        ret += "+";
+                        ret += " + ";
                     }
                     ret += "Shift";
                 }
@@ -219,17 +219,17 @@ namespace Chimera
                 {
                     if (ret.Length > 0)
                     {
-                        ret += "+";
+                        ret += " + ";
                     }
                     ret += "Alt";
                 }
                 if (ret.Length > 0)
                 {
-                    ret += "+";
+                    ret += " + ";
                 }
-#if TEST
-                ret += KeyComboPanel.KeyCodeToName(KeyCode);
-#endif
+
+                ret += KeyCodeValues.GetKeyCodeString((Keys)(comboValue & 0xFFFF));
+
             }
             else
             {
