@@ -209,6 +209,7 @@
             this.Name = "CursorControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CursorControl";
+            this.Shown += new System.EventHandler(this.ShownForm);
             this.grpBox_Feature_Enable.ResumeLayout(false);
             this.grpBox_Feature_Enable.PerformLayout();
             this.grpBox_EachFeatures.ResumeLayout(false);

@@ -43,11 +43,6 @@ namespace Chimera
         }
 
 
-        public void BackupConfigValue()
-        {
-            backupConfigValue = configValues.ShallowCopy();
-        }
-
         public void RestoreConfigValue()
         {
             configValues = backupConfigValue.ShallowCopy(); ;
@@ -178,9 +173,7 @@ namespace Chimera
 
         /* CANCEL 버튼 처리 함수 */
         private void cursorControl_Cancel_click(object sender, EventArgs e)
-        {
-            InitKeyCombos();
-            //ApplyConfigSettingToUI();
+        {            
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
@@ -281,6 +274,15 @@ namespace Chimera
                 StickCurkeyCombo = hotKeyInput.GetKeyCombo();
                 txtBox_Hotkey_StickToScreen.Text = StickCurkeyCombo.ToString();
             }
+        }
+
+
+        /* Form이 Load될 때 호출된다. */
+        private void ShownForm(object sender, EventArgs e)
+        {
+            InitKeyCombos();
+            backupConfigValue = configValues.ShallowCopy();
+            ApplyConfigSettingToUI();
         }
     }
 }

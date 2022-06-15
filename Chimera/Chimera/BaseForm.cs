@@ -74,8 +74,6 @@ namespace Chimera
         {
             DialogResult Ret;
 
-            cursorControl.BackupConfigValue();
-
             Ret = cursorControl.ShowDialog();
 
             if (Ret == DialogResult.OK)
