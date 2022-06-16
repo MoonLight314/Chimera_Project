@@ -97,6 +97,15 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   EnableLockCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ConfigItem_EnableLockCursorToScreen {
+            get {
+                return ResourceManager.GetString("ConfigItem_EnableLockCursorToScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   EnableMoveCursorNextScreen과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ConfigItem_EnableMoveCursorNextScreen {
@@ -115,11 +124,11 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   EnableStickCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   HotkeyLockCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string ConfigItem_EnableStickCursorToScreen {
+        internal static string ConfigItem_HotkeyLockCursorToScreen {
             get {
-                return ResourceManager.GetString("ConfigItem_EnableStickCursorToScreen", resourceCulture);
+                return ResourceManager.GetString("ConfigItem_HotkeyLockCursorToScreen", resourceCulture);
             }
         }
         
@@ -138,15 +147,6 @@ namespace Chimera.Properties {
         internal static string ConfigItem_HotkeyMoveCursorPrevScreen {
             get {
                 return ResourceManager.GetString("ConfigItem_HotkeyMoveCursorPrevScreen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   HotkeyStickCursorToScreen과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string ConfigItem_HotkeyStickCursorToScreen {
-            get {
-                return ResourceManager.GetString("ConfigItem_HotkeyStickCursorToScreen", resourceCulture);
             }
         }
         
@@ -205,6 +205,24 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   Cursor movement between screens is lock과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LockCursorDescription {
+            get {
+                return ResourceManager.GetString("LockCursorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string LockCursorWin7 {
+            get {
+                return ResourceManager.GetString("LockCursorWin7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   You need to select a key from the drop down box과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string NoKey {
@@ -256,24 +274,6 @@ namespace Chimera.Properties {
         internal static string ShiftModifierKey {
             get {
                 return ResourceManager.GetString("ShiftModifierKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cursor movement between screens is sticky과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string StickyCursorDescription {
-            get {
-                return ResourceManager.GetString("StickyCursorDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string StickyCursorWin7 {
-            get {
-                return ResourceManager.GetString("StickyCursorWin7", resourceCulture);
             }
         }
         

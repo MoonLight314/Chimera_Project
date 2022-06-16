@@ -152,16 +152,6 @@ namespace Chimera
             get { return showDesktop2HotKeyController; }
         }
 
-        private HotKeyController lockCursorHotKeyController;
-        /// <summary>
-        /// HotKey to lock cursor onto current screen
-        /// </summary>
-        public HotKeyController LockCursorHotKeyController
-        {
-            get { return lockCursorHotKeyController; }
-        }
-#endif
-
         private HotKeyController stickyCursorHotKeyController;
         /// <summary>
         /// HotKey to make cursor movement sticky between screens
@@ -170,6 +160,17 @@ namespace Chimera
         {
             get { return stickyCursorHotKeyController; }
         }
+#endif
+
+        private HotKeyController lockCursorHotKeyController;
+        /// <summary>
+        /// HotKey to lock cursor onto current screen
+        /// </summary>
+        public HotKeyController LockCursorHotKeyController
+        {
+            get { return lockCursorHotKeyController; }
+        }
+        
 
         private HotKeyController freeCursorHotKeyController;
         /// <summary>
@@ -356,18 +357,20 @@ namespace Chimera
                 Properties.Resources.FreeCursorWin7,
                 new HotKey.HotKeyHandler(CursorHelper.FreeCursor));            
 
-            lockCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_LOCKCURSOR,
-                "LockCursorHotKey",
-                Properties.Resources.LockCursorDescription,
-                Properties.Resources.LockCursorWin7,
-                new HotKey.HotKeyHandler(CursorHelper.LockCursor));
-#endif
             stickyCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_STICKYCURSOR,
                 "StickyCursorHotKey",
                 Properties.Resources.StickyCursorDescription,
                 Properties.Resources.StickyCursorWin7,
                 new HotKey.HotKeyHandler(CursorHelper.StickyCursor),
+                cv);            
+#endif
+            lockCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_LOCKCURSOR,
+                "LockCursorHotKey",
+                Properties.Resources.LockCursorDescription,
+                Properties.Resources.LockCursorWin7,
+                new HotKey.HotKeyHandler(CursorHelper.LockCursor),
                 cv);
+
 
             cursorNextScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORNEXTSCREEN,
                 "CursorNextScreenHotKey",
@@ -427,9 +430,9 @@ namespace Chimera
             //snapRightHotKeyController.Dispose();
             //snapLeftHotKeyController.Dispose();
             //swapTop2HotKeyController.Dispose();
-            //cursorPrevScreenHotKeyController.Dispose();
+            cursorPrevScreenHotKeyController.Dispose();
             cursorNextScreenHotKeyController.Dispose();
-            //lockCursorHotKeyController.Dispose();
+            lockCursorHotKeyController.Dispose();
             //stickyCursorHotKeyController.Dispose();
             //freeCursorHotKeyController.Dispose();
             //showDesktop2HotKeyController.Dispose();

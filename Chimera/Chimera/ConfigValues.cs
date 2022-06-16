@@ -18,9 +18,9 @@ namespace Chimera
 
         public string HotkeyMoveCursorPrevScreen { get; set; }
 
-        public bool EnableStickCursorToScreen { get; set; }
+        public bool EnableLockCursorToScreen { get; set; }
 
-        public string HotkeyStickCursorToScreen { get; set; }
+        public string HotkeyLockCursorToScreen { get; set; }
 
         public ConfigValues()
         {
@@ -29,8 +29,8 @@ namespace Chimera
             HotkeyMoveCursorNextScreen = "";
             EnableMoveCursorPrevScreen = true;
             HotkeyMoveCursorPrevScreen = "";
-            EnableStickCursorToScreen = true;
-            HotkeyStickCursorToScreen = "";
+            EnableLockCursorToScreen = true;
+            HotkeyLockCursorToScreen = "";
         }
 
         public ConfigValues ShallowCopy()

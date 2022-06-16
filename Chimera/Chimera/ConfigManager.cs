@@ -69,7 +69,7 @@ namespace Chimera
             }
 
 
-            /* Hotkey MoveC ursor Next Screen  */
+            /* Hotkey Move Cursor Next Screen  */
             if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen))
             {
                 /* 값이 있는 경우, 값을 읽어온다. */
@@ -113,40 +113,95 @@ namespace Chimera
             }
 
 
-            /* Enable Stick Cursor To Screen */
-            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_EnableStickCursorToScreen))
+            /* Enable Lock Cursor To Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_EnableLockCursorToScreen))
             {
                 /* 값이 있는 경우, 값을 읽어온다. */
-                configValues.EnableStickCursorToScreen = string.Equals("false",
-                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableStickCursorToScreen].Value)
+                configValues.EnableLockCursorToScreen = string.Equals("false",
+                                                                 applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableLockCursorToScreen].Value)
                                                                  ? false : true;
 
             }
             else
             {
                 /* 값이 없으면 Default값으로 기록한다. */
-                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableStickCursorToScreen, "false");
-                configValues.EnableStickCursorToScreen = false;
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableLockCursorToScreen, "false");
+                configValues.EnableLockCursorToScreen = false;
             }
 
 
-            /* Hotkey Stick Cursor To Screen */
-            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyStickCursorToScreen))
+            /* Hotkey Lock Cursor To Screen */
+            if (applicationConfig.AppSettings.Settings.AllKeys.Contains(Properties.Resources.ConfigItem_HotkeyLockCursorToScreen))
             {
                 /* 값이 있는 경우, 값을 읽어온다. */
-                configValues.HotkeyStickCursorToScreen = applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyStickCursorToScreen].Value;
+                configValues.HotkeyLockCursorToScreen = applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyLockCursorToScreen].Value;
             }
             else
             {
                 /* 값이 없으면 Default값으로 기록한다. */
-                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyStickCursorToScreen, "Not Defined");
-                configValues.HotkeyStickCursorToScreen = "Not Defined";
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyLockCursorToScreen, "Not Defined");
+                configValues.HotkeyLockCursorToScreen = "Not Defined";
             }
 
             /*  */
             applicationConfig.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(applicationConfig.AppSettings.SectionInformation.Name);
         }
+
+
+
+        /// <summary>
+        /// ConfigValues 를 받아서 해당 내용을 설정 File에 저장합니다.
+        /// </summary>        
+        /// <param name="ConfigValues ">저장할 ConfigValues </param>
+        public void SaveConfigValuesToFile(ConfigValues cv)
+        {
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableCursorFeature] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableCursorFeature, cv.EnableCursorFeature ? "true" : "false");
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableCursorFeature].Value = cv.EnableCursorFeature ? "true" : "false";
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorNextScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableMoveCursorNextScreen, cv.EnableMoveCursorNextScreen ? "true" : "false");
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorNextScreen].Value = cv.EnableMoveCursorNextScreen ? "true" : "false";
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen, cv.HotkeyMoveCursorNextScreen);
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorNextScreen].Value = cv.HotkeyMoveCursorNextScreen;
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen, cv.EnableMoveCursorPrevScreen ? "true" : "false");
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableMoveCursorPrevScreen].Value = cv.EnableMoveCursorPrevScreen ? "true" : "false";
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen, cv.HotkeyMoveCursorPrevScreen);
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyMoveCursorPrevScreen].Value = cv.HotkeyMoveCursorPrevScreen;
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableLockCursorToScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_EnableLockCursorToScreen, cv.EnableLockCursorToScreen ? "true" : "false");
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_EnableLockCursorToScreen].Value = cv.EnableLockCursorToScreen ? "true" : "false";
+
+
+            if (applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyLockCursorToScreen] == null)
+                applicationConfig.AppSettings.Settings.Add(Properties.Resources.ConfigItem_HotkeyLockCursorToScreen, cv.HotkeyLockCursorToScreen);
+            else
+                applicationConfig.AppSettings.Settings[Properties.Resources.ConfigItem_HotkeyLockCursorToScreen].Value = cv.HotkeyLockCursorToScreen;
+
+            applicationConfig.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(applicationConfig.AppSettings.SectionInformation.Name);
+        }
+
+
 
 
 

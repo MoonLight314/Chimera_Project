@@ -33,9 +33,9 @@
             this.grpBox_Feature_Enable = new System.Windows.Forms.GroupBox();
             this.cb_FeatureEnable = new System.Windows.Forms.CheckBox();
             this.grpBox_EachFeatures = new System.Windows.Forms.GroupBox();
-            this.btn_Cursor_Stick_Screen_KeyChange = new System.Windows.Forms.Button();
-            this.txtBox_Hotkey_StickToScreen = new System.Windows.Forms.TextBox();
-            this.cb_StickToScreen = new System.Windows.Forms.CheckBox();
+            this.btn_Cursor_Lock_Screen_KeyChange = new System.Windows.Forms.Button();
+            this.txtBox_Hotkey_LockToScreen = new System.Windows.Forms.TextBox();
+            this.cb_LockToScreen = new System.Windows.Forms.CheckBox();
             this.btn_CursorMov_Prev_Screen_KeyChange = new System.Windows.Forms.Button();
             this.txtBox_Hotkey_MovCurPrevScreen = new System.Windows.Forms.TextBox();
             this.cb_MovCursorPrevScreen = new System.Windows.Forms.CheckBox();
@@ -89,9 +89,9 @@
             // 
             // grpBox_EachFeatures
             // 
-            this.grpBox_EachFeatures.Controls.Add(this.btn_Cursor_Stick_Screen_KeyChange);
-            this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_StickToScreen);
-            this.grpBox_EachFeatures.Controls.Add(this.cb_StickToScreen);
+            this.grpBox_EachFeatures.Controls.Add(this.btn_Cursor_Lock_Screen_KeyChange);
+            this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_LockToScreen);
+            this.grpBox_EachFeatures.Controls.Add(this.cb_LockToScreen);
             this.grpBox_EachFeatures.Controls.Add(this.btn_CursorMov_Prev_Screen_KeyChange);
             this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_MovCurPrevScreen);
             this.grpBox_EachFeatures.Controls.Add(this.cb_MovCursorPrevScreen);
@@ -105,35 +105,35 @@
             this.grpBox_EachFeatures.TabStop = false;
             this.grpBox_EachFeatures.Text = "Features";
             // 
-            // btn_Cursor_Stick_Screen_KeyChange
+            // btn_Cursor_Lock_Screen_KeyChange
             // 
-            this.btn_Cursor_Stick_Screen_KeyChange.Location = new System.Drawing.Point(396, 108);
-            this.btn_Cursor_Stick_Screen_KeyChange.Name = "btn_Cursor_Stick_Screen_KeyChange";
-            this.btn_Cursor_Stick_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
-            this.btn_Cursor_Stick_Screen_KeyChange.TabIndex = 10;
-            this.btn_Cursor_Stick_Screen_KeyChange.Text = "Change...";
-            this.btn_Cursor_Stick_Screen_KeyChange.UseVisualStyleBackColor = true;
-            this.btn_Cursor_Stick_Screen_KeyChange.Click += new System.EventHandler(this.btn_Click_Cursor_Stick_Screen_KeyChange);
+            this.btn_Cursor_Lock_Screen_KeyChange.Location = new System.Drawing.Point(396, 108);
+            this.btn_Cursor_Lock_Screen_KeyChange.Name = "btn_Cursor_Lock_Screen_KeyChange";
+            this.btn_Cursor_Lock_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
+            this.btn_Cursor_Lock_Screen_KeyChange.TabIndex = 10;
+            this.btn_Cursor_Lock_Screen_KeyChange.Text = "Change...";
+            this.btn_Cursor_Lock_Screen_KeyChange.UseVisualStyleBackColor = true;
+            this.btn_Cursor_Lock_Screen_KeyChange.Click += new System.EventHandler(this.btn_Click_Cursor_Lock_Screen_KeyChange);
             // 
-            // txtBox_Hotkey_StickToScreen
+            // txtBox_Hotkey_LockToScreen
             // 
-            this.txtBox_Hotkey_StickToScreen.Location = new System.Drawing.Point(237, 108);
-            this.txtBox_Hotkey_StickToScreen.Name = "txtBox_Hotkey_StickToScreen";
-            this.txtBox_Hotkey_StickToScreen.ReadOnly = true;
-            this.txtBox_Hotkey_StickToScreen.Size = new System.Drawing.Size(153, 21);
-            this.txtBox_Hotkey_StickToScreen.TabIndex = 9;
-            this.txtBox_Hotkey_StickToScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBox_Hotkey_LockToScreen.Location = new System.Drawing.Point(237, 108);
+            this.txtBox_Hotkey_LockToScreen.Name = "txtBox_Hotkey_StickToScreen";
+            this.txtBox_Hotkey_LockToScreen.ReadOnly = true;
+            this.txtBox_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 21);
+            this.txtBox_Hotkey_LockToScreen.TabIndex = 9;
+            this.txtBox_Hotkey_LockToScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cb_StickToScreen
+            // cb_LockToScreen
             // 
-            this.cb_StickToScreen.AutoSize = true;
-            this.cb_StickToScreen.Location = new System.Drawing.Point(18, 112);
-            this.cb_StickToScreen.Name = "cb_StickToScreen";
-            this.cb_StickToScreen.Size = new System.Drawing.Size(118, 16);
-            this.cb_StickToScreen.TabIndex = 8;
-            this.cb_StickToScreen.Text = " Stick To Screen";
-            this.cb_StickToScreen.UseVisualStyleBackColor = true;
-            this.cb_StickToScreen.CheckedChanged += new System.EventHandler(this.cb_StickScreen_ChangeCheck);
+            this.cb_LockToScreen.AutoSize = true;
+            this.cb_LockToScreen.Location = new System.Drawing.Point(18, 112);
+            this.cb_LockToScreen.Name = "cb_LockToScreen";
+            this.cb_LockToScreen.Size = new System.Drawing.Size(118, 16);
+            this.cb_LockToScreen.TabIndex = 8;
+            this.cb_LockToScreen.Text = " Lock / Unlock To Screen";
+            this.cb_LockToScreen.UseVisualStyleBackColor = true;
+            this.cb_LockToScreen.CheckedChanged += new System.EventHandler(this.cb_LockScreen_ChangeCheck);
             // 
             // btn_CursorMov_Prev_Screen_KeyChange
             // 
@@ -231,8 +231,8 @@
         private System.Windows.Forms.Button btn_CursorMov_Prev_Screen_KeyChange;
         private System.Windows.Forms.TextBox txtBox_Hotkey_MovCurPrevScreen;
         private System.Windows.Forms.CheckBox cb_MovCursorPrevScreen;
-        private System.Windows.Forms.Button btn_Cursor_Stick_Screen_KeyChange;
-        private System.Windows.Forms.TextBox txtBox_Hotkey_StickToScreen;
-        private System.Windows.Forms.CheckBox cb_StickToScreen;
+        private System.Windows.Forms.Button btn_Cursor_Lock_Screen_KeyChange;
+        private System.Windows.Forms.TextBox txtBox_Hotkey_LockToScreen;
+        private System.Windows.Forms.CheckBox cb_LockToScreen;
     }
 }

@@ -91,7 +91,8 @@ namespace Chimera
         /// </summary>
         public static void LockCursor()
         {
-            if (curCursorType == CursorType.Lock && !CursorController.Instance.FreeCursorHotKeyController.IsEnabled())
+            //if (curCursorType == CursorType.Lock && !CursorController.Instance.FreeCursorHotKeyController.IsEnabled())
+            if (curCursorType == CursorType.Lock )
             {
                 // force operation to toggle
                 FreeCursor();

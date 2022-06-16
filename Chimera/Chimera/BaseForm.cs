@@ -69,7 +69,11 @@ namespace Chimera
 
 
 
-        /*  */
+        /// <summary>
+        /// Cursor Control 관련 설정 Dialog Box
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="EventArgs ">EventArgs </param>
         private void cursorControlMenuItem_click(object sender, EventArgs e)
         {
             DialogResult Ret;
@@ -78,11 +82,20 @@ namespace Chimera
 
             if (Ret == DialogResult.OK)
             {
-                ;
+                /* Config File에 설정을 저장한다. */
+                configManager.SaveConfigValuesToFile( configValues );
+
+                /* Hotkey를 Regsiter 한다. */
+                /* 각 Feature가 Enable인지 Disable인지 확인 후 진행   */
+                /* Disable인 경우 Unreginster 한다. */
+                CursorController.Instance.CursorNextScreenHotKeyController.RegisterHotkey();
+                CursorController.Instance.CursorPrevScreenHotKeyController.RegisterHotkey();
+                CursorController.Instance.LockCursorHotKeyController.RegisterHotkey();                
+
             }
             else if(Ret == DialogResult.Cancel)
             {
-                cursorControl.RestoreConfigValue();
+                
             }
 
         }

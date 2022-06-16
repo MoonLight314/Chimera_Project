@@ -35,6 +35,7 @@ namespace Chimera
         /// </summary>
         public KeyCombo HotKeyCombo
         {
+            set { hotKeyCombo = value; }
             get { return hotKeyCombo; }
         }
 
@@ -149,6 +150,71 @@ namespace Chimera
                 return true;
             }
         }
+
+
+
+        /// <summary>
+        /// Class 내부 변수인 hotKeyCombo에 설정된 Hot Key를 등록한다.
+        /// </summary>
+        public bool RegisterHotKey()
+        {
+            if (form == null)
+            {
+                throw new ApplicationException("HotKey must be associated with a form before registering");
+            }
+            if (form.Handle == IntPtr.Zero)
+            {
+                throw new ApplicationException("HotKey must be associated with a window before registering");
+            }
+
+            if (isRegistered)
+            {
+                UnRegisterHotKey();
+            }
+
+
+            if (this.hotKeyCombo.Enabled)
+            {
+                isRegistered = Win32.RegisterHotKey(form.Handle, id,
+                                                    this.hotKeyCombo.Win32Modifier,
+                                                    this.hotKeyCombo.Win32KeyCode);
+                if (isRegistered)
+                {
+                    //hotKeyCombo = keyCombo;
+                    // new key combinaton as been succesfully registered as a hotkey
+                    return true;
+                }
+                else
+                {
+                    // failed to register new key combo 
+                    // - probably because it's already registered as a hotkey
+                    if (this.hotKeyCombo.Enabled)
+                    {
+                        // re-register old key combo to return to the state we were in when called
+                        isRegistered = Win32.RegisterHotKey(form.Handle, id,
+                                                    this.hotKeyCombo.Win32Modifier,
+                                                    this.hotKeyCombo.Win32KeyCode);
+                        // above should not fail 
+                        // but if it does, there is not much we can do about it
+                    }
+                    // failed to register new key combination as hot key
+                    return false;
+                }
+            }
+            else
+            {
+                // as the key asked to be disabled
+                // isRegistered will be false,
+                // but we return true as we have done what we were asked to do
+                isRegistered = false;
+                //hotKeyCombo = keyCombo;
+                return true;
+            }
+        }
+
+
+
+
 
         /// <summary>
         /// Unregisters the hot key with windows.

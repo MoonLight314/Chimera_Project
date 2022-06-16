@@ -193,9 +193,9 @@ namespace Chimera
                             keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
                         break;
 
-                    case "StickyCursorHotKey":
-                        if (cv.EnableStickCursorToScreen)
-                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyStickCursorToScreen));
+                    case "LockCursorHotKey":
+                        if (cv.EnableLockCursorToScreen)
+                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyLockCursorToScreen));
                         else
                             keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
                         break;
@@ -231,18 +231,9 @@ namespace Chimera
 
 
         // Persists the hotkey combo value to Properties.Settings
-        private void SaveKeyCombo()
+        public void SaveKeyCombo(KeyCombo keyCombo)
         {
-            uint hotKeyValue = hotKey.HotKeyCombo.ToPropertyValue();
-            try
-            {
-                Properties.Settings.Default[propertyName] = hotKeyValue;
-            }
-            catch (Exception ex)
-            {
-                // looks like the property name is mis-spelt or the wrong type
-                Debug.Assert(true, ex.Message);
-            }
+            hotKey.HotKeyCombo = keyCombo;
         }
 
 
@@ -255,6 +246,17 @@ namespace Chimera
         public override string ToString()
         {
             return hotKey.HotKeyCombo.ToString();
+        }
+
+
+
+        /// <summary>
+        /// 설정된 Hot Key를 등록한다.
+        /// </summary>
+        /// <returns>Hot Key 등록 성공 여부</returns>
+        public bool RegisterHotkey()
+        {
+            return hotKey.RegisterHotKey();
         }
 
     }
