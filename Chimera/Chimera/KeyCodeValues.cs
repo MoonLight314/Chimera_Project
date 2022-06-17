@@ -125,7 +125,7 @@ namespace Chimera
                     e.Shift )
                     KeyValue = "";
                 else
-                    KeyValue = "Not Support";
+                    KeyValue = "Not Defined";
             }
 
             return KeyValue;
@@ -141,7 +141,7 @@ namespace Chimera
             }
             catch (Exception ex)
             {
-                KeyValue = "Not Support";
+                KeyValue = "Not Defined";
             }
 
             return KeyValue;

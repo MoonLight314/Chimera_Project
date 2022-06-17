@@ -78,6 +78,10 @@ namespace Chimera
         {
             DialogResult Ret;
 
+            /* 등록된 전체 Hot Key를 Unregister하고 시작한다. */
+            /* 등록 과정에서  Hot Key를 입력하는 경우 꼬이는 경우를 미연에 방지하기 위함이다. */
+            CursorController.Instance.Term();
+
             Ret = cursorControl.ShowDialog();
 
             if (Ret == DialogResult.OK)
@@ -85,17 +89,16 @@ namespace Chimera
                 /* Config File에 설정을 저장한다. */
                 configManager.SaveConfigValuesToFile( configValues );
 
-                /* Hotkey를 Regsiter 한다. */
+                /* 변경된 Hotkey를 Regsiter 한다. */
                 /* 각 Feature가 Enable인지 Disable인지 확인 후 진행   */
                 /* Disable인 경우 Unreginster 한다. */
-                CursorController.Instance.CursorNextScreenHotKeyController.RegisterHotkey();
-                CursorController.Instance.CursorPrevScreenHotKeyController.RegisterHotkey();
-                CursorController.Instance.LockCursorHotKeyController.RegisterHotkey();                
+                CursorController.Instance.Init(this, configValues);
 
             }
             else if(Ret == DialogResult.Cancel)
             {
-                
+                /* Cancel하면 기존 Hot Key를 다시 등록 */
+                CursorController.Instance.Init(this , configValues);
             }
 
         }

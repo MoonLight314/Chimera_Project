@@ -270,6 +270,8 @@ namespace Chimera
             #endif
         }
 
+
+
         /// <summary>
         /// Terminate the use of the controller.
         /// We could use Dispose() instead of this, but instead we will
@@ -286,6 +288,7 @@ namespace Chimera
 
             CursorHelper.Term();
         }
+
 
         // fully initialise all of the hotkeys
         private void InitHotKeys(Form form , ConfigValues cv)

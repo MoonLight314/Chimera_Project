@@ -22,8 +22,10 @@ namespace Chimera
         KeyCombo CurPrevkeyCombo = new KeyCombo();
         KeyCombo LockCurkeyCombo = new KeyCombo();
 
+        Form form;
+
         //public CursorControl()
-        public CursorControl(Form form , ConfigValues cv)
+        public CursorControl(Form BaseForm , ConfigValues cv)
         {
             InitializeComponent();
 
@@ -32,8 +34,11 @@ namespace Chimera
             /* Screen.AllScreens; */
 
             configValues = cv;
+            this.form = BaseForm;
 
-            CursorController.Instance.Init(form , cv);               
+            InitKeyCombos(KeyCombo.DisabledComboValue);
+
+            CursorController.Instance.Init(form , cv);
 
             SystemEvents.DisplaySettingsChanged += new EventHandler(SystemEvents_DisplaySettingsChanged);
         }
@@ -45,11 +50,28 @@ namespace Chimera
         }
 
 
-        private void InitKeyCombos()
+        private void InitKeyCombos(uint keyComboValue)
         {
-            CurNextkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
-            CurPrevkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
-            LockCurkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+            CurNextkeyCombo.FromPropertyValue(keyComboValue);
+            CurPrevkeyCombo.FromPropertyValue(keyComboValue);
+            LockCurkeyCombo.FromPropertyValue(keyComboValue);
+        }
+
+        private void InitKeyCombos(ConfigValues cv)
+        {
+            CurNextkeyCombo.FromPropertyValue(  string.Compare(cv.HotkeyMoveCursorNextScreen,"Not Defined") == 0 ? 
+                                                   KeyCombo.DisabledComboValue : 
+                                                   UInt32.Parse(cv.HotkeyMoveCursorNextScreen) );
+
+
+            CurPrevkeyCombo.FromPropertyValue(  string.Compare(cv.HotkeyMoveCursorPrevScreen, "Not Defined") == 0 ?
+                                                    KeyCombo.DisabledComboValue :
+                                                    UInt32.Parse(cv.HotkeyMoveCursorPrevScreen));
+
+            
+            LockCurkeyCombo.FromPropertyValue(  string.Compare(cv.HotkeyLockCursorToScreen, "Not Defined") == 0 ?
+                                                    KeyCombo.DisabledComboValue :
+                                                    UInt32.Parse(cv.HotkeyLockCursorToScreen));
         }
 
 
@@ -80,9 +102,9 @@ namespace Chimera
             txtBox_Hotkey_MovCurPrevScreen.Text = CursorController.Instance.CursorPrevScreenHotKeyController.ToString();
             txtBox_Hotkey_LockToScreen.Text = CursorController.Instance.LockCursorHotKeyController.ToString();
 #else
-            txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
-            txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
-            txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
+            txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString(true);
+            txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString(true);
+            txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString(true);
 #endif
 
             /* 전체 Disable인 경우 */
@@ -164,27 +186,31 @@ namespace Chimera
 
 
 
-        /* 변경사항들을 Config Value에 Update한다. */
+        /// <summary>
+        /// 변경사항들을 Config Value에 Update한다.
+        /// </summary>        
         private void UpdateConfigValues()
-        {           
+        {
             if (CurNextkeyCombo.Enabled)
             {
-                configValues.HotkeyMoveCursorNextScreen = CurNextkeyCombo.ComboValue.ToString();
-                CursorController.Instance.CursorNextScreenHotKeyController.SaveKeyCombo(CurNextkeyCombo);
+                configValues.HotkeyMoveCursorNextScreen = CurNextkeyCombo.ComboValue.ToString();                
             }
+
+            CursorController.Instance.CursorNextScreenHotKeyController.SaveKeyCombo(CurNextkeyCombo);
 
             if (CurPrevkeyCombo.Enabled)
             {
-                configValues.HotkeyMoveCursorPrevScreen = CurPrevkeyCombo.ComboValue.ToString();
-                CursorController.Instance.CursorPrevScreenHotKeyController.SaveKeyCombo(CurPrevkeyCombo);
+                configValues.HotkeyMoveCursorPrevScreen = CurPrevkeyCombo.ComboValue.ToString();                
             }
+
+            CursorController.Instance.CursorPrevScreenHotKeyController.SaveKeyCombo(CurPrevkeyCombo);
 
             if (LockCurkeyCombo.Enabled)
             {
-                configValues.HotkeyLockCursorToScreen = LockCurkeyCombo.ComboValue.ToString();
-                CursorController.Instance.LockCursorHotKeyController.SaveKeyCombo(LockCurkeyCombo);
+                configValues.HotkeyLockCursorToScreen = LockCurkeyCombo.ComboValue.ToString();                
             }
 
+            CursorController.Instance.LockCursorHotKeyController.SaveKeyCombo(LockCurkeyCombo);
         }
 
 
@@ -224,7 +250,7 @@ namespace Chimera
         private void cb_FeatureEnable_ChangeCheck(object sender, EventArgs e)
         {
             if( cb_FeatureEnable.Checked )
-                configValues.EnableCursorFeature = true;                
+                configValues.EnableCursorFeature = true;
             else
                 configValues.EnableCursorFeature = false;
 
@@ -235,9 +261,15 @@ namespace Chimera
         private void cb_CursorNextScreen_ChangeCheck(object sender, EventArgs e)
         {
             if (cb_MovCursorNextScreen.Checked)
+            {
                 configValues.EnableMoveCursorNextScreen = true;
+                CurNextkeyCombo.Enabled = true;
+            }
             else
+            {
                 configValues.EnableMoveCursorNextScreen = false;
+                CurNextkeyCombo.Enabled = false;
+            }
 
             ApplyConfigSettingToUI();
         }
@@ -247,9 +279,15 @@ namespace Chimera
         private void cb_CursorPrevScreen_ChangeCheck(object sender, EventArgs e)
         {
             if (cb_MovCursorPrevScreen.Checked)
+            {
                 configValues.EnableMoveCursorPrevScreen = true;
+                CurPrevkeyCombo.Enabled = true;
+            }
             else
+            {
                 configValues.EnableMoveCursorPrevScreen = false;
+                CurPrevkeyCombo.Enabled = false;
+            }
 
             ApplyConfigSettingToUI();
         }
@@ -258,9 +296,15 @@ namespace Chimera
         private void cb_LockScreen_ChangeCheck(object sender, EventArgs e)
         {
             if (cb_LockToScreen.Checked)
+            {
                 configValues.EnableLockCursorToScreen = true;
+                LockCurkeyCombo.Enabled = true;
+            }
             else
+            {
                 configValues.EnableLockCursorToScreen = false;
+                LockCurkeyCombo.Enabled = false;
+            }
 
             ApplyConfigSettingToUI();
         }
@@ -282,6 +326,12 @@ namespace Chimera
                 configValues.HotkeyMoveCursorNextScreen = CurNextkeyCombo.ComboValue.ToString();
                 txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();                
             }
+            else if (Ret == DialogResult.Cancel )
+            {
+                CurNextkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                configValues.HotkeyMoveCursorNextScreen = "Not Defined";
+                txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
+            }
 
             ApplyConfigSettingToUI();
         }
@@ -299,6 +349,12 @@ namespace Chimera
             {
                 CurPrevkeyCombo = hotKeyInput.GetKeyCombo();
                 configValues.HotkeyMoveCursorPrevScreen = CurPrevkeyCombo.ComboValue.ToString();
+                txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
+            }
+            else if (Ret == DialogResult.Cancel)
+            {
+                CurPrevkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue); 
+                configValues.HotkeyMoveCursorPrevScreen = "Not Defined";
                 txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
             }
 
@@ -319,6 +375,12 @@ namespace Chimera
                 configValues.HotkeyLockCursorToScreen = LockCurkeyCombo.ComboValue.ToString();
                 txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
             }
+            else if (Ret == DialogResult.Cancel)
+            {
+                LockCurkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                configValues.HotkeyLockCursorToScreen = "Not Defined";
+                txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
+            }
 
             ApplyConfigSettingToUI();
         }
@@ -327,7 +389,7 @@ namespace Chimera
         /* Form이 Load될 때 호출된다. */
         private void ShownForm(object sender, EventArgs e)
         {
-            InitKeyCombos();
+            InitKeyCombos( this.configValues );
             backupConfigValue = configValues.ShallowCopy();
             ApplyConfigSettingToUI();
         }

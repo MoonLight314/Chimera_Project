@@ -238,5 +238,60 @@ namespace Chimera
 
             return ret;
         }
+
+
+        /// <summary>
+        /// Converts the key combination into a displayable string
+        /// </summary>
+        /// <returns></returns>
+        public string ToString(bool IgnoreEnableState)
+        {
+            string ret;
+
+            if (Enabled || IgnoreEnableState)
+            {
+                ret = "";
+                if (WinMod)
+                {
+                    ret += "Win";
+                }
+                if (ControlMod)
+                {
+                    if (ret.Length > 0)
+                    {
+                        ret += " + ";
+                    }
+                    ret += "Ctrl";
+                }
+                if (ShiftMod)
+                {
+                    if (ret.Length > 0)
+                    {
+                        ret += " + ";
+                    }
+                    ret += "Shift";
+                }
+                if (AltMod)
+                {
+                    if (ret.Length > 0)
+                    {
+                        ret += " + ";
+                    }
+                    ret += "Alt";
+                }
+                if (ret.Length > 0)
+                {
+                    ret += " + ";
+                }
+
+                ret += KeyCodeValues.GetKeyCodeString((Keys)(comboValue & 0xFFFF));
+            }
+            else
+            {
+                ret = "Not Defined";
+            }
+
+            return ret;
+        }
     }
 }
