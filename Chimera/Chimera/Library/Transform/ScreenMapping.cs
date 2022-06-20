@@ -24,35 +24,50 @@ namespace Chimera.Library.Transform
 	using System.Drawing;
 	using System.Text;
 	using System.Windows.Forms;
+    
 
-	/// <summary>
-	/// Provides a mapping between a rectangle within a source image and a rectangle on a single screen.
-	/// By adjusting this mapping it is possible to show different parts of the source image.
-	/// </summary>
-	public class ScreenMapping
+    /// <summary>
+    /// Provides a mapping between a rectangle within a source image and a rectangle on a single screen.
+    /// By adjusting this mapping it is possible to show different parts of the source image.
+    /// </summary>
+    public class ScreenMapping
 	{
 		Scaler scaleX = null;
 		Scaler scaleY = null;
+        
 
-		/// <summary>
-		/// Initialises a new instance of the <see cref="ScreenMapping" /> class.
-		/// This is an empty screen mapping for a particular screen.
-		/// </summary>
-		/// <param name="screenRect">Bounding rectangle of the screen</param>
-		/// <param name="primary">Indicates if this is the primary monitor</param>
-		public ScreenMapping(Rectangle screenRect, bool primary)
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="ScreenMapping" /> class.
+        /// This is an empty screen mapping for a particular screen.
+        /// </summary>
+        /// <param name="screenRect">Bounding rectangle of the screen</param>
+        /// <param name="primary">Indicates if this is the primary monitor</param>
+        public ScreenMapping(Rectangle screenRect, bool primary)
 		{
 			SourceImage = null;
 			SourceRect = Rectangle.Empty;
 			DestRect = Rectangle.Empty;
 			ScreenRect = screenRect;
 			Primary = primary;
-		}
+            ImageFilePath = "";
+            StetchType = "Center";
+        }
 
-		/// <summary>
-		/// Gets or sets the source image that we want to display
-		/// </summary>
-		public Image SourceImage { get; set; }
+        /// <summary>
+        /// Wallpaper Image File을 선택하는 경우 Path를 저장
+        /// </summary>
+        public string ImageFilePath { get; set; }
+
+        /// <summary>
+        /// Wallpaer Fit Type을 저장하는 변수
+        /// </summary>
+        public string StetchType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source image that we want to display
+        /// </summary>
+        public Image SourceImage { get; set; }
 
 		/// <summary>
 		/// Gets or sets the rectangle within the source image that we will be displaying

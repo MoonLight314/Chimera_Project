@@ -113,7 +113,7 @@ namespace Chimera
             // 
             // labelScreensSelected
             // 
-            this.labelScreensSelected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.labelScreensSelected.ForeColor = System.Drawing.Color.Black;
             this.labelScreensSelected.Location = new System.Drawing.Point(127, 371);
             this.labelScreensSelected.Name = "labelScreensSelected";
             this.labelScreensSelected.Size = new System.Drawing.Size(344, 12);

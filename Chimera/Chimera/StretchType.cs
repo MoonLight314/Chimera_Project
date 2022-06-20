@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Chimera
-//namespace SettingWallpaper
 {
 	/// <summary>
 	/// Specifies the stretch type to maintain aspect ratio
@@ -74,11 +73,39 @@ namespace Chimera
 			this.type = type;
 		}
 
-		/// <summary>
-		/// Converts the stretch type to a displayable string
-		/// </summary>
-		/// <returns></returns>
-		public override string ToString()
+
+        public Stretch(string type)
+        {
+            switch(type)
+            {
+                case "StretchToFit":
+                    this.type = Fit.StretchToFit;
+                    break;
+
+                case "OverStretch":
+                    this.type = Fit.OverStretch;
+                    break;
+
+                case "UnderStretch":
+                    this.type = Fit.UnderStretch;
+                    break;
+
+                case "Center":
+                    this.type = Fit.Center;
+                    break;
+
+                default:
+                    this.type = Fit.Center;
+                    break;
+            }
+        }
+
+
+        /// <summary>
+        /// Converts the stretch type to a displayable string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
 		{
 			string ret;
 
@@ -107,5 +134,65 @@ namespace Chimera
 
 			return ret;
 		}
-	}
+
+
+        /**/
+        public string ToString(bool ReturnAsTypeString)
+        {
+            string ret;
+
+            if (ReturnAsTypeString == false)
+            {
+                switch (type)
+                {
+                    case Fit.StretchToFit:
+                        ret = Properties.Resources.Stretch;
+                        break;
+
+                    case Fit.OverStretch:
+                        ret = Properties.Resources.OverStretch;
+                        break;
+
+                    case Fit.UnderStretch:
+                        ret = Properties.Resources.UnderStretch;
+                        break;
+
+                    case Fit.Center:
+                        ret = Properties.Resources.Center;
+                        break;
+
+                    default:
+                        ret = "?";
+                        break;
+                }
+            }
+            else
+            {
+                switch (type)
+                {
+                    case Fit.StretchToFit:
+                        ret = "StretchToFit";
+                        break;
+
+                    case Fit.OverStretch:
+                        ret = "OverStretch";
+                        break;
+
+                    case Fit.UnderStretch:
+                        ret = "UnderStretch";
+                        break;
+
+                    case Fit.Center:
+                        ret = "Center";
+                        break;
+
+                    default:
+                        ret = "?";
+                        break;
+                }
+            }
+
+            return ret;
+        }
+    }
 }

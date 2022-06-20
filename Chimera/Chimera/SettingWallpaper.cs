@@ -26,6 +26,7 @@ namespace Chimera
         private Rectangle previewRect;
 
         private Point point;
+        private int clickedScreenIndex;     /* Picture Preview 화면에서 선택된 Screen의 Index */
 
         IList<DisplayDevice> allMonitorInfo;
 
@@ -39,11 +40,11 @@ namespace Chimera
             CalcPreviewRect();
             CreateWallpaper();
 
-            // automatically select the first screen
-            AddSelectedScreen(0);
+            /*  */
+            clickedScreenIndex = 0;
 
-            //this.Paint += new PaintEventHandler(set_background);
-            
+            // automatically select the first screen
+            AddSelectedScreen( clickedScreenIndex );
         }
 
 
@@ -68,6 +69,7 @@ namespace Chimera
         }
 
 
+#if TEST
         /*  */
         private void set_background(Object sender, PaintEventArgs e)
         {
@@ -87,7 +89,7 @@ namespace Chimera
             //graphics.FillRectangle(b, gradient_rectangle);
 
         }
-
+#endif
 
 
 
@@ -122,7 +124,9 @@ namespace Chimera
 
 
 
-
+        /// <summary>
+		/// Screen 번호와 Friendly Name을 출력
+		/// </summary>
         private void DisplaySelectedScreens()
         {
             string screenText = "";
@@ -130,6 +134,7 @@ namespace Chimera
 
             foreach (int screen in selectedScreens)
             {
+                /* Friendly Name */
                 FriendlyName = GetMonitorFriendlyName( Screen.AllScreens[screen] );
 
                 if (screenText.Length > 0)
@@ -139,13 +144,16 @@ namespace Chimera
                 screenText += String.Format("{0} : {1}", screen + 1 , FriendlyName );
             }
 
+            /* Friendly Name */
             labelScreensSelected.Text = screenText;
             
         }
 
 
 
-        /*  */
+        /// <summary>
+		/// 
+		/// </summary>
         string GetMonitorFriendlyName( Screen selectedscreen )
         {
             foreach( DisplayDevice dd in allMonitorInfo )
@@ -220,11 +228,27 @@ namespace Chimera
 
 
 
+        /// <summary>
+		/// 현재 선택된 Screen의 Image File Path와 Stretch Type을 Update
+		/// </summary>
+        private void UpdateUIInfo()
+        {
+            TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].ImageFilePath;
+
+            Stretch stretch = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);
+            int idx = comboBoxFit.FindString(stretch.ToString());
+            comboBoxFit.SelectedIndex = idx;
+        }
+
 
 
         private void UpdatePreview()
         {
+            /* Screen 번호와 Friendly Name을 출력 */
             DisplaySelectedScreens();
+
+            /* 현재 선택된 Screen의 Image File Path와 Stretch Type을 Update */
+            UpdateUIInfo();
 
             Image preview = new Bitmap(previewRect.Width, previewRect.Height);
 
@@ -233,6 +257,8 @@ namespace Chimera
                 g.DrawImage(wallpaper, 0, 0, preview.Width, preview.Height);
 
                 // now indicate the positions of the monitors
+                /* Preview Picture Box에 Screen 각 사각형을 그린다. */
+                /* Selected Screen은 다른 색깔로 그린다. */
                 DisplayMonitors(g, preview.Size);
 
             }
@@ -289,13 +315,11 @@ namespace Chimera
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                TextBox_Image_File_Path.Text = dlg.FileName;
+                controller.AllScreens[clickedScreenIndex].ImageFilePath = dlg.FileName;
+                TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].ImageFilePath;
 
                 try
                 {                    
-                    //picSource.Image = LoadImageFromFile( TextBox_Image_File_Path.Text );
-                    //picSource.SizeMode = PictureBoxSizeMode.Zoom;
-
                     ApplyImage();
                 }
                 catch (Exception ex)
@@ -354,14 +378,16 @@ namespace Chimera
 
 
         private void ApplyImage()
-        {
-            if( TextBox_Image_File_Path.Text.Length > 0 )
+        {            
+            if(controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0 )
             {
                 // load image file
                 try
                 {
-                    Image image = LoadImageFromFile(TextBox_Image_File_Path.Text);
-                    Stretch stretchType = comboBoxFit.SelectedItem as Stretch;
+                    Image image = LoadImageFromFile( controller.AllScreens[clickedScreenIndex].ImageFilePath );
+
+                    Stretch stretchType = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);                    
+
                     //Debug.Assert(stretchType != null);
                     controller.AddImage(image, stretchType.Type);
 
@@ -433,11 +459,13 @@ namespace Chimera
 
         private void picPreview_MouseClick(object sender, MouseEventArgs e)
         {
-            // check if the area clicked belongs to one of the screens
-            int screenIndex = PosnToScreen(e.X, e.Y);
+            // check if the area clicked belongs to one of the screens            
+            clickedScreenIndex = PosnToScreen(e.X, e.Y);
+            //int screenIndex = PosnToScreen(e.X, e.Y);
 
-            if (screenIndex >= 0)
+            if (clickedScreenIndex >= 0)
             {
+#if SUPPORT_MULTIFUL_SCREEN_SELECTION
                 if ((Control.ModifierKeys & Keys.Control) != 0)
                 {
                     // control pressed down - add screen to current list
@@ -452,10 +480,11 @@ namespace Chimera
                     }
                 }
                 else
+#endif
                 {
                     // replace current screen list with screen just clicked
                     selectedScreens.Clear();
-                    AddSelectedScreen(screenIndex);
+                    AddSelectedScreen(clickedScreenIndex);
                 }
             }
         }
@@ -469,6 +498,8 @@ namespace Chimera
 
             if ( comboBoxFit.SelectedIndex >= 0 )
             {
+                Stretch stretchType = comboBoxFit.SelectedItem as Stretch;
+                controller.AllScreens[clickedScreenIndex].StetchType = stretchType.ToString(true);
                 ApplyImage();
             }
         }
