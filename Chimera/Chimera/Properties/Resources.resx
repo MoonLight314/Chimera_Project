@@ -124,7 +124,7 @@
     <value>Multi Monitor Manager</value>
   </data>
   <data name="Center" xml:space="preserve">
-    <value>Center image and do not stretch</value>
+    <value>Center</value>
   </data>
   <data name="ConfigItem_EnableCursorFeature" xml:space="preserve">
     <value>EnableCursorFeature</value>
@@ -181,7 +181,7 @@
     <value>Image Files (*.bmp, *.jpg, *.jpeg, *.png, *.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif</value>
   </data>
   <data name="OverStretch" xml:space="preserve">
-    <value>Over stretch and clip to maintain aspect ratio</value>
+    <value>Fill</value>
   </data>
   <data name="RegisterFail" xml:space="preserve">
     <value>The registration of this hotkey has failed.
@@ -191,13 +191,13 @@ Try another hot key combination.</value>
     <value>Shift</value>
   </data>
   <data name="Stretch" xml:space="preserve">
-    <value>Stretch ignoring aspect ratio</value>
+    <value>Stretch</value>
   </data>
   <data name="Test" xml:space="preserve">
     <value>Test</value>
   </data>
   <data name="UnderStretch" xml:space="preserve">
-    <value>Under stretch and add bars to maintain aspect ratio</value>
+    <value>Fit</value>
   </data>
   <data name="Win7" xml:space="preserve">
     <value>This functionality is already provided by Windows 7 using {0}, so there is no need to enable this unless you want SwapScreen to handle it using a different hotkey.</value>

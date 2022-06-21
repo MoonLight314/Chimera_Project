@@ -393,5 +393,16 @@ namespace Chimera
             backupConfigValue = configValues.ShallowCopy();
             ApplyConfigSettingToUI();
         }
+
+
+        /// <summary>
+        /// Cursor Dialog의 Reset Button 처리.
+        /// 현재 설정값 값들을 모두 Reset한다.
+        /// </summary>        
+        /// <param name="ConfigValues ">저장할 ConfigValues </param>
+        private void cursorControl_Reset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

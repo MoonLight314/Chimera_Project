@@ -381,7 +381,7 @@ namespace Chimera
         {            
             if(controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0 )
             {
-                // load image file
+                /* load image file */
                 try
                 {
                     Image image = LoadImageFromFile( controller.AllScreens[clickedScreenIndex].ImageFilePath );
@@ -459,9 +459,9 @@ namespace Chimera
 
         private void picPreview_MouseClick(object sender, MouseEventArgs e)
         {
-            // check if the area clicked belongs to one of the screens            
+            /* check if the area clicked belongs to one of the screens */
+            /* Click한 위치가 몇 번 Screen에 해당하는지 확인 */
             clickedScreenIndex = PosnToScreen(e.X, e.Y);
-            //int screenIndex = PosnToScreen(e.X, e.Y);
 
             if (clickedScreenIndex >= 0)
             {

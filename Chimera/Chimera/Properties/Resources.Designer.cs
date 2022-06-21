@@ -79,7 +79,7 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   Center image and do not stretch과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Center과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Center {
             get {
@@ -250,7 +250,7 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   Over stretch and clip to maintain aspect ratio과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Fill과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string OverStretch {
             get {
@@ -278,7 +278,7 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   Stretch ignoring aspect ratio과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Stretch과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Stretch {
             get {
@@ -296,7 +296,7 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
-        ///   Under stretch and add bars to maintain aspect ratio과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Fit과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string UnderStretch {
             get {

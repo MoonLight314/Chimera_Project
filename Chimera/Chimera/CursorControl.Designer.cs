@@ -42,6 +42,7 @@
             this.btn_CursorMov_Next_Screen_KeyChange = new System.Windows.Forms.Button();
             this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
             this.cb_MovCursorNextScreen = new System.Windows.Forms.CheckBox();
+            this.cursorControl_Reset = new System.Windows.Forms.Button();
             this.grpBox_Feature_Enable.SuspendLayout();
             this.grpBox_EachFeatures.SuspendLayout();
             this.SuspendLayout();
@@ -118,7 +119,7 @@
             // txtBox_Hotkey_LockToScreen
             // 
             this.txtBox_Hotkey_LockToScreen.Location = new System.Drawing.Point(237, 108);
-            this.txtBox_Hotkey_LockToScreen.Name = "txtBox_Hotkey_StickToScreen";
+            this.txtBox_Hotkey_LockToScreen.Name = "txtBox_Hotkey_LockToScreen";
             this.txtBox_Hotkey_LockToScreen.ReadOnly = true;
             this.txtBox_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 21);
             this.txtBox_Hotkey_LockToScreen.TabIndex = 9;
@@ -129,7 +130,7 @@
             this.cb_LockToScreen.AutoSize = true;
             this.cb_LockToScreen.Location = new System.Drawing.Point(18, 112);
             this.cb_LockToScreen.Name = "cb_LockToScreen";
-            this.cb_LockToScreen.Size = new System.Drawing.Size(118, 16);
+            this.cb_LockToScreen.Size = new System.Drawing.Size(170, 16);
             this.cb_LockToScreen.TabIndex = 8;
             this.cb_LockToScreen.Text = " Lock / Unlock To Screen";
             this.cb_LockToScreen.UseVisualStyleBackColor = true;
@@ -195,11 +196,22 @@
             this.cb_MovCursorNextScreen.UseVisualStyleBackColor = true;
             this.cb_MovCursorNextScreen.CheckedChanged += new System.EventHandler(this.cb_CursorNextScreen_ChangeCheck);
             // 
+            // cursorControl_Reset
+            // 
+            this.cursorControl_Reset.Location = new System.Drawing.Point(12, 304);
+            this.cursorControl_Reset.Name = "cursorControl_Reset";
+            this.cursorControl_Reset.Size = new System.Drawing.Size(102, 34);
+            this.cursorControl_Reset.TabIndex = 4;
+            this.cursorControl_Reset.Text = "RESET";
+            this.cursorControl_Reset.UseVisualStyleBackColor = true;
+            this.cursorControl_Reset.Click += new System.EventHandler(this.cursorControl_Reset_Click);
+            // 
             // CursorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 356);
+            this.Controls.Add(this.cursorControl_Reset);
             this.Controls.Add(this.grpBox_EachFeatures);
             this.Controls.Add(this.grpBox_Feature_Enable);
             this.Controls.Add(this.cursorControl_Cancel);
@@ -234,5 +246,6 @@
         private System.Windows.Forms.Button btn_Cursor_Lock_Screen_KeyChange;
         private System.Windows.Forms.TextBox txtBox_Hotkey_LockToScreen;
         private System.Windows.Forms.CheckBox cb_LockToScreen;
+        private System.Windows.Forms.Button cursorControl_Reset;
     }
 }
