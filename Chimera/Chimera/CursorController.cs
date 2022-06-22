@@ -37,6 +37,7 @@ namespace Chimera
         private const int ID_HOTKEY_SNAPRIGHT = 0x212;
         private const int ID_HOTKEY_SNAPUP = 0x213;
         private const int ID_HOTKEY_SNAPDOWN = 0x214;
+        private const int ID_HOTKEY_CURSORPRIMARYSCREEN = 0x215;
 
         private const int ID_HOTKEY_UDA_START = 0x1000;
         // area above this reserved for dynamic (user) user hotkeys
@@ -161,6 +162,8 @@ namespace Chimera
             get { return stickyCursorHotKeyController; }
         }
 #endif
+        /* Hot Key Add Part */
+
 
         private HotKeyController lockCursorHotKeyController;
         /// <summary>
@@ -179,6 +182,15 @@ namespace Chimera
         public HotKeyController FreeCursorHotKeyController
         {
             get { return freeCursorHotKeyController; }
+        }        
+        
+        private HotKeyController cursorPrimaryScreenHotKeyController;
+        /// <summary>
+        /// Hotkey to move cursor to Primary Screen
+        /// </summary>
+        public HotKeyController CursorPrimaryScreenHotKeyController
+        {
+            get { return cursorPrimaryScreenHotKeyController; }
         }
 
         private HotKeyController cursorNextScreenHotKeyController;
@@ -367,6 +379,16 @@ namespace Chimera
                 new HotKey.HotKeyHandler(CursorHelper.StickyCursor),
                 cv);            
 #endif
+            /* Hot Key Add Part */
+
+            cursorPrimaryScreenHotKeyController = new HotKeyController(form, ID_HOTKEY_CURSORPRIMARYSCREEN,
+                "CursorPrimaryScreenHotKey",
+                Properties.Resources.CursorPrimaryScreenDescription,
+                Properties.Resources.CursorPrimaryScreenWin7,
+                new HotKey.HotKeyHandler(CursorHelper.CursorToPrimaryScreen),
+                cv);
+
+
             lockCursorHotKeyController = new HotKeyController(form, ID_HOTKEY_LOCKCURSOR,
                 "LockCursorHotKey",
                 Properties.Resources.LockCursorDescription,
@@ -427,7 +449,9 @@ namespace Chimera
 
         // terminates all of the hotkeys
         private void TermHotKeys()
-        {            
+        {
+            /* Hot Key Add Part */
+
             //snapDownHotKeyController.Dispose();
             //snapUpHotKeyController.Dispose();
             //snapRightHotKeyController.Dispose();
@@ -436,6 +460,7 @@ namespace Chimera
             cursorPrevScreenHotKeyController.Dispose();
             cursorNextScreenHotKeyController.Dispose();
             lockCursorHotKeyController.Dispose();
+            cursorPrimaryScreenHotKeyController.Dispose();
             //stickyCursorHotKeyController.Dispose();
             //freeCursorHotKeyController.Dispose();
             //showDesktop2HotKeyController.Dispose();

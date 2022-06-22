@@ -138,6 +138,9 @@
   <data name="ConfigItem_EnableMoveCursorPrevScreen" xml:space="preserve">
     <value>EnableMoveCursorPrevScreen</value>
   </data>
+  <data name="ConfigItem_EnableMoveCursorPrimaryScreen" xml:space="preserve">
+    <value>EnableMoveCursorPrimaryScreen</value>
+  </data>
   <data name="ConfigItem_HotkeyLockCursorToScreen" xml:space="preserve">
     <value>HotkeyLockCursorToScreen</value>
   </data>
@@ -147,26 +150,35 @@
   <data name="ConfigItem_HotkeyMoveCursorPrevScreen" xml:space="preserve">
     <value>HotkeyMoveCursorPrevScreen</value>
   </data>
+  <data name="ConfigItem_HotkeyMoveCursorPrimaryScreen" xml:space="preserve">
+    <value>HotkeyMoveCursorPrimaryScreen</value>
+  </data>
   <data name="CtrlModifierKey" xml:space="preserve">
     <value>Ctrl</value>
   </data>
   <data name="CursorNextScreenDescription" xml:space="preserve">
-    <value>Move cursor to next screen</value>
+    <value>Move Cursor To Next Screen</value>
   </data>
   <data name="CursorNextScreenWin7" xml:space="preserve">
     <value />
   </data>
   <data name="CursorPrevScreenDescription" xml:space="preserve">
-    <value>Move cursor to previous screen</value>
+    <value>Move Cursor To Previous Screen</value>
   </data>
   <data name="CursorPrevScreenWin7" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CursorPrimaryScreenDescription" xml:space="preserve">
+    <value>Move Cursor to Primary Screen</value>
+  </data>
+  <data name="CursorPrimaryScreenWin7" xml:space="preserve">
     <value />
   </data>
   <data name="DisabledHotKey" xml:space="preserve">
     <value>--DISABLED--</value>
   </data>
   <data name="LockCursorDescription" xml:space="preserve">
-    <value>Cursor movement between screens is lock</value>
+    <value>Cursor Movement Between Screens is Lock</value>
   </data>
   <data name="LockCursorWin7" xml:space="preserve">
     <value />

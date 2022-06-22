@@ -168,8 +168,10 @@ namespace Chimera
 
 
 
-
-        // Gets the HotKey combo value from the persisted value in Poperties.Settings
+        /* Hot Key Add Part */
+        /// <summary>
+        /// Gets the HotKey combo value from the persisted value in Poperties.Settings
+        /// </summary>
         private KeyCombo GetSavedKeyCombo(ConfigValues cv)
         {
             KeyCombo keyCombo = new KeyCombo();
@@ -192,6 +194,15 @@ namespace Chimera
                         else
                             keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
                         break;
+
+
+                    case "CursorPrimaryScreenHotKey":
+                        if (cv.EnableMoveCursorPrimaryScreen)
+                            keyCombo.FromPropertyValue(ConvertKeyCombo(cv.HotkeyMoveCursorPrimaryScreen));
+                        else
+                            keyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
+                        break;
+
 
                     case "LockCursorHotKey":
                         if (cv.EnableLockCursorToScreen)

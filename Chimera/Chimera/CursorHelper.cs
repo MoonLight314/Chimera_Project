@@ -125,6 +125,18 @@ namespace Chimera
             CursorToDeltaScreen(-1);
         }
 
+
+
+        /// <summary>
+        /// Move the cursor to the primary screen.
+        /// </summary>
+        public static void CursorToPrimaryScreen()
+        {
+            int DeltaIndexToPrimary = GetDeltaToPrimary();
+            CursorToDeltaScreen( DeltaIndexToPrimary );
+        }
+        
+
         /// <summary>
         /// Called when display settings have changed.
         /// We need to capture this as the screen co-ords may have
@@ -357,6 +369,36 @@ namespace Chimera
                 llMouseHook = IntPtr.Zero;
             }
         }
+
+
+
+
+
+        /// <summary>
+        /// 현재 Cursor가 있는 Screen에서 Primary Screen까지의 Index 차이를 구한다.
+        /// </summary>
+        private static int GetDeltaToPrimary()
+        {
+            int Delta = 0;
+
+            Point oldCursorPosition = Cursor.Position;
+            Screen curScreen = Screen.FromPoint(oldCursorPosition);
+            int curScreenIndex = ScreenHelper.FindScreenIndex(curScreen);
+
+            for(int i=0; i<Monitor.AllMonitors.Count; i++)
+            {
+                if (Screen.AllScreens[curScreenIndex % Monitor.AllMonitors.Count].Primary)
+                    break;
+
+                Delta++;
+                curScreenIndex++;
+            }
+
+            return Delta;
+        }
+
+
+
 
         // Move the cursor to another screen
         private static void CursorToDeltaScreen(int deltaScreenIndex)

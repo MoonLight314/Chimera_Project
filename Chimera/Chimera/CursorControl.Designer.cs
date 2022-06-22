@@ -43,13 +43,16 @@
             this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
             this.cb_MovCursorNextScreen = new System.Windows.Forms.CheckBox();
             this.cursorControl_Reset = new System.Windows.Forms.Button();
+            this.btn_Cursor_Move_Primary_KeyChange = new System.Windows.Forms.Button();
+            this.txtBox_Hotkey_MoveCurPrimary = new System.Windows.Forms.TextBox();
+            this.cb_MovCursorPrimary = new System.Windows.Forms.CheckBox();
             this.grpBox_Feature_Enable.SuspendLayout();
             this.grpBox_EachFeatures.SuspendLayout();
             this.SuspendLayout();
             // 
             // cursorControl_Set
             // 
-            this.cursorControl_Set.Location = new System.Drawing.Point(307, 304);
+            this.cursorControl_Set.Location = new System.Drawing.Point(307, 405);
             this.cursorControl_Set.Name = "cursorControl_Set";
             this.cursorControl_Set.Size = new System.Drawing.Size(102, 34);
             this.cursorControl_Set.TabIndex = 0;
@@ -59,7 +62,7 @@
             // 
             // cursorControl_Cancel
             // 
-            this.cursorControl_Cancel.Location = new System.Drawing.Point(415, 304);
+            this.cursorControl_Cancel.Location = new System.Drawing.Point(415, 405);
             this.cursorControl_Cancel.Name = "cursorControl_Cancel";
             this.cursorControl_Cancel.Size = new System.Drawing.Size(102, 34);
             this.cursorControl_Cancel.TabIndex = 1;
@@ -90,6 +93,9 @@
             // 
             // grpBox_EachFeatures
             // 
+            this.grpBox_EachFeatures.Controls.Add(this.btn_Cursor_Move_Primary_KeyChange);
+            this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_MoveCurPrimary);
+            this.grpBox_EachFeatures.Controls.Add(this.cb_MovCursorPrimary);
             this.grpBox_EachFeatures.Controls.Add(this.btn_Cursor_Lock_Screen_KeyChange);
             this.grpBox_EachFeatures.Controls.Add(this.txtBox_Hotkey_LockToScreen);
             this.grpBox_EachFeatures.Controls.Add(this.cb_LockToScreen);
@@ -101,14 +107,14 @@
             this.grpBox_EachFeatures.Controls.Add(this.cb_MovCursorNextScreen);
             this.grpBox_EachFeatures.Location = new System.Drawing.Point(12, 88);
             this.grpBox_EachFeatures.Name = "grpBox_EachFeatures";
-            this.grpBox_EachFeatures.Size = new System.Drawing.Size(505, 191);
+            this.grpBox_EachFeatures.Size = new System.Drawing.Size(505, 219);
             this.grpBox_EachFeatures.TabIndex = 3;
             this.grpBox_EachFeatures.TabStop = false;
             this.grpBox_EachFeatures.Text = "Features";
             // 
             // btn_Cursor_Lock_Screen_KeyChange
             // 
-            this.btn_Cursor_Lock_Screen_KeyChange.Location = new System.Drawing.Point(396, 108);
+            this.btn_Cursor_Lock_Screen_KeyChange.Location = new System.Drawing.Point(396, 147);
             this.btn_Cursor_Lock_Screen_KeyChange.Name = "btn_Cursor_Lock_Screen_KeyChange";
             this.btn_Cursor_Lock_Screen_KeyChange.Size = new System.Drawing.Size(95, 21);
             this.btn_Cursor_Lock_Screen_KeyChange.TabIndex = 10;
@@ -118,7 +124,7 @@
             // 
             // txtBox_Hotkey_LockToScreen
             // 
-            this.txtBox_Hotkey_LockToScreen.Location = new System.Drawing.Point(237, 108);
+            this.txtBox_Hotkey_LockToScreen.Location = new System.Drawing.Point(237, 147);
             this.txtBox_Hotkey_LockToScreen.Name = "txtBox_Hotkey_LockToScreen";
             this.txtBox_Hotkey_LockToScreen.ReadOnly = true;
             this.txtBox_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 21);
@@ -128,7 +134,7 @@
             // cb_LockToScreen
             // 
             this.cb_LockToScreen.AutoSize = true;
-            this.cb_LockToScreen.Location = new System.Drawing.Point(18, 112);
+            this.cb_LockToScreen.Location = new System.Drawing.Point(18, 151);
             this.cb_LockToScreen.Name = "cb_LockToScreen";
             this.cb_LockToScreen.Size = new System.Drawing.Size(170, 16);
             this.cb_LockToScreen.TabIndex = 8;
@@ -198,7 +204,7 @@
             // 
             // cursorControl_Reset
             // 
-            this.cursorControl_Reset.Location = new System.Drawing.Point(12, 304);
+            this.cursorControl_Reset.Location = new System.Drawing.Point(12, 405);
             this.cursorControl_Reset.Name = "cursorControl_Reset";
             this.cursorControl_Reset.Size = new System.Drawing.Size(102, 34);
             this.cursorControl_Reset.TabIndex = 4;
@@ -206,11 +212,41 @@
             this.cursorControl_Reset.UseVisualStyleBackColor = true;
             this.cursorControl_Reset.Click += new System.EventHandler(this.cursorControl_Reset_Click);
             // 
+            // btn_Cursor_Move_Primary_KeyChange
+            // 
+            this.btn_Cursor_Move_Primary_KeyChange.Location = new System.Drawing.Point(396, 109);
+            this.btn_Cursor_Move_Primary_KeyChange.Name = "btn_Cursor_Move_Primary_KeyChange";
+            this.btn_Cursor_Move_Primary_KeyChange.Size = new System.Drawing.Size(95, 21);
+            this.btn_Cursor_Move_Primary_KeyChange.TabIndex = 13;
+            this.btn_Cursor_Move_Primary_KeyChange.Text = "Change...";
+            this.btn_Cursor_Move_Primary_KeyChange.UseVisualStyleBackColor = true;
+            this.btn_Cursor_Move_Primary_KeyChange.MouseCaptureChanged += new System.EventHandler(this.btn_Click_CursorMov_Primary_Screen_KeyChange);
+            // 
+            // txtBox_Hotkey_MoveCurPrimary
+            // 
+            this.txtBox_Hotkey_MoveCurPrimary.Location = new System.Drawing.Point(237, 109);
+            this.txtBox_Hotkey_MoveCurPrimary.Name = "txtBox_Hotkey_MoveCurPrimary";
+            this.txtBox_Hotkey_MoveCurPrimary.ReadOnly = true;
+            this.txtBox_Hotkey_MoveCurPrimary.Size = new System.Drawing.Size(153, 21);
+            this.txtBox_Hotkey_MoveCurPrimary.TabIndex = 12;
+            this.txtBox_Hotkey_MoveCurPrimary.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cb_MovCursorPrimary
+            // 
+            this.cb_MovCursorPrimary.AutoSize = true;
+            this.cb_MovCursorPrimary.Location = new System.Drawing.Point(18, 113);
+            this.cb_MovCursorPrimary.Name = "cb_MovCursorPrimary";
+            this.cb_MovCursorPrimary.Size = new System.Drawing.Size(212, 16);
+            this.cb_MovCursorPrimary.TabIndex = 11;
+            this.cb_MovCursorPrimary.Text = " Move Cursor To Primary Screen";
+            this.cb_MovCursorPrimary.UseVisualStyleBackColor = true;
+            this.cb_MovCursorPrimary.CheckedChanged += new System.EventHandler(this.cb_CursorPrimaryScreen_ChangeCheck);
+            // 
             // CursorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 356);
+            this.ClientSize = new System.Drawing.Size(536, 469);
             this.Controls.Add(this.cursorControl_Reset);
             this.Controls.Add(this.grpBox_EachFeatures);
             this.Controls.Add(this.grpBox_Feature_Enable);
@@ -247,5 +283,8 @@
         private System.Windows.Forms.TextBox txtBox_Hotkey_LockToScreen;
         private System.Windows.Forms.CheckBox cb_LockToScreen;
         private System.Windows.Forms.Button cursorControl_Reset;
+        private System.Windows.Forms.Button btn_Cursor_Move_Primary_KeyChange;
+        private System.Windows.Forms.TextBox txtBox_Hotkey_MoveCurPrimary;
+        private System.Windows.Forms.CheckBox cb_MovCursorPrimary;
     }
 }

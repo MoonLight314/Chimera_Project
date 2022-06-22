@@ -18,6 +18,9 @@ namespace Chimera
 
         public string HotkeyMoveCursorPrevScreen { get; set; }
 
+        public bool EnableMoveCursorPrimaryScreen { get; set; }
+        public string HotkeyMoveCursorPrimaryScreen { get; set; }
+
         public bool EnableLockCursorToScreen { get; set; }
 
         public string HotkeyLockCursorToScreen { get; set; }
@@ -25,10 +28,13 @@ namespace Chimera
         public ConfigValues()
         {
             EnableCursorFeature = true;
+
             EnableMoveCursorNextScreen = true;
             HotkeyMoveCursorNextScreen = "";
             EnableMoveCursorPrevScreen = true;
             HotkeyMoveCursorPrevScreen = "";
+            EnableMoveCursorPrimaryScreen = true;
+            HotkeyMoveCursorPrimaryScreen = "";
             EnableLockCursorToScreen = true;
             HotkeyLockCursorToScreen = "";
         }
