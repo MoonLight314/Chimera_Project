@@ -282,5 +282,11 @@ namespace Chimera
 
         [DllImport("Dxva2.dll")]
         public static extern bool SetMonitorBrightness(IntPtr hMonitor, uint dwNewBrightness);
+
+        [DllImport("Dxva2.dll")]
+        public static extern bool SetMonitorContrast(IntPtr hMonitor, uint dwNewContrast);
+
+        [DllImport("Dxva2.dll")]
+        public static extern bool GetMonitorContrast(IntPtr hMonitor, out uint pdwMinimumContrast , out uint pdwCurrentContrast, out uint pdwMaximumContrast);
     }
 }

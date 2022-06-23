@@ -508,7 +508,7 @@ namespace Chimera
 
         /// <summary>
         /// Cursor Primary Screen Key Combo Cancel Button 처리
-        /// </summary>        
+        /// </summary>
         private void CurPrimarykeyCombo_Cancel()
         {
             CurPrimarykeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);

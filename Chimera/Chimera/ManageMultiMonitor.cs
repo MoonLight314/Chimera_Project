@@ -39,7 +39,8 @@ namespace Chimera
 
 
         void GetOnlyActiveMonitors(IList<DisplayDevice> allMonitorProperties)
-        {           
+        {
+            uint pdwMinimumContrast = 0, pdwCurrentContrast = 0, pdwMaximumContrast = 0;
 
             foreach (DisplayDevice dd in allMonitorProperties)
             {
@@ -54,6 +55,12 @@ namespace Chimera
                     /* MonitorIndex를 Display Device의 Path Index를 사용하지만,  */
                     /* 추후 Issue 발생시 추가검토 필요성 있음  */
                     msi.MonitorIndex = dd.PathIndex;
+
+                    /* 각 Monitor의 Contrast 값을 가져옵니다. */
+                    _displayDevices.GetMonitorContrast(msi.MonitorIndex, ref pdwMinimumContrast, ref pdwCurrentContrast, ref pdwMaximumContrast);
+                    msi.MinimumContrast = pdwMinimumContrast;
+                    msi.CurrentContrast = pdwCurrentContrast;
+                    msi.MaximumContrast = pdwMaximumContrast;
 
                     MonitorSettingInfo.Add(msi);
                     msi = null;
@@ -123,6 +130,14 @@ namespace Chimera
                 cb_MonitorOff.Enabled = false;
             else
                 cb_MonitorOff.Enabled = true;
+
+            /* Brightness */
+            trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness , (int)msi.displaydevice.MaxBrightness);
+            trackBar_Brightness.Value = (int)msi.displaydevice.CurBrightness;
+
+            /* Contrast */
+            trackBar_Contrast.SetRange((int)msi.MinimumContrast, (int)msi.MaximumContrast);
+            trackBar_Contrast.Value = (int)msi.CurrentContrast;
         }
 
 
@@ -288,6 +303,18 @@ namespace Chimera
 
             tv_Monitor_List.Select();
         }
+
+
+        /**/
+        private void trackBar_Brightness_Scroll(object sender, EventArgs e)
+        {
+            _displayDevices.ChangeMonitorBrightness(tv_Monitor_List.SelectedNode.Index, (uint)trackBar_Brightness.Value);
+        }
+
+        private void trackBar_Contrast_Scroll(object sender, EventArgs e)
+        {
+            _displayDevices.ChangeMonitorContrast(tv_Monitor_List.SelectedNode.Index,(uint)trackBar_Contrast.Value);
+        }
     }
 
 
@@ -300,12 +327,20 @@ namespace Chimera
 
         public int MonitorIndex { get; set; }
 
+        public uint MinimumContrast { get; set; }
+        public uint CurrentContrast { get; set; }
+        public uint MaximumContrast { get; set; }
+
         public MonitorSetInfo()
         {
             displaydevice = null;
             SetAsPrimary = false;
             Off = false;
             MonitorIndex = -1;
+
+            MinimumContrast = 0;
+            CurrentContrast = 0;
+            MaximumContrast = 0;
         }
 
     }

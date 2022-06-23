@@ -45,10 +45,16 @@
             this.button_OK = new System.Windows.Forms.Button();
             this.button_Exit = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trackBar_Contrast = new System.Windows.Forms.TrackBar();
+            this.trackBar_Brightness = new System.Windows.Forms.TrackBar();
             this.cb_MonitorOff = new System.Windows.Forms.CheckBox();
             this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).BeginInit();
             this.SuspendLayout();
             // 
             // tv_Monitor_List
@@ -184,7 +190,7 @@
             // 
             // button_OK
             // 
-            this.button_OK.Location = new System.Drawing.Point(365, 380);
+            this.button_OK.Location = new System.Drawing.Point(365, 478);
             this.button_OK.Name = "button_OK";
             this.button_OK.Size = new System.Drawing.Size(111, 39);
             this.button_OK.TabIndex = 14;
@@ -194,7 +200,7 @@
             // 
             // button_Exit
             // 
-            this.button_Exit.Location = new System.Drawing.Point(502, 380);
+            this.button_Exit.Location = new System.Drawing.Point(502, 478);
             this.button_Exit.Name = "button_Exit";
             this.button_Exit.Size = new System.Drawing.Size(111, 39);
             this.button_Exit.TabIndex = 15;
@@ -204,19 +210,60 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.trackBar_Contrast);
+            this.groupBox2.Controls.Add(this.trackBar_Brightness);
             this.groupBox2.Controls.Add(this.cb_MonitorOff);
             this.groupBox2.Controls.Add(this.cb_SetAsPrimary);
             this.groupBox2.Location = new System.Drawing.Point(233, 253);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(380, 102);
+            this.groupBox2.Size = new System.Drawing.Size(380, 210);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Setting";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 12);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Contrast";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Brightness";
+            // 
+            // trackBar_Contrast
+            // 
+            this.trackBar_Contrast.Location = new System.Drawing.Point(83, 162);
+            this.trackBar_Contrast.Maximum = 100;
+            this.trackBar_Contrast.Name = "trackBar_Contrast";
+            this.trackBar_Contrast.Size = new System.Drawing.Size(286, 45);
+            this.trackBar_Contrast.TabIndex = 18;
+            this.trackBar_Contrast.Scroll += new System.EventHandler(this.trackBar_Contrast_Scroll);
+            // 
+            // trackBar_Brightness
+            // 
+            this.trackBar_Brightness.Location = new System.Drawing.Point(83, 105);
+            this.trackBar_Brightness.Maximum = 100;
+            this.trackBar_Brightness.Name = "trackBar_Brightness";
+            this.trackBar_Brightness.Size = new System.Drawing.Size(286, 45);
+            this.trackBar_Brightness.TabIndex = 17;
+            this.trackBar_Brightness.Scroll += new System.EventHandler(this.trackBar_Brightness_Scroll);
             // 
             // cb_MonitorOff
             // 
             this.cb_MonitorOff.AutoSize = true;
             this.cb_MonitorOff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_MonitorOff.Enabled = false;
             this.cb_MonitorOff.Location = new System.Drawing.Point(20, 67);
             this.cb_MonitorOff.Name = "cb_MonitorOff";
             this.cb_MonitorOff.Size = new System.Drawing.Size(105, 16);
@@ -224,12 +271,12 @@
             this.cb_MonitorOff.Text = "Monitor Off     ";
             this.cb_MonitorOff.UseVisualStyleBackColor = true;
             this.cb_MonitorOff.Click += new System.EventHandler(this.click_MonitorOff);
-            this.cb_MonitorOff.Enabled = false;
             // 
             // cb_SetAsPrimary
             // 
             this.cb_SetAsPrimary.AutoSize = true;
             this.cb_SetAsPrimary.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_SetAsPrimary.Enabled = false;
             this.cb_SetAsPrimary.Location = new System.Drawing.Point(16, 34);
             this.cb_SetAsPrimary.Name = "cb_SetAsPrimary";
             this.cb_SetAsPrimary.Size = new System.Drawing.Size(109, 16);
@@ -237,13 +284,12 @@
             this.cb_SetAsPrimary.Text = "Set As Primary";
             this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
             this.cb_SetAsPrimary.Click += new System.EventHandler(this.click_SetAsPrimary);
-            this.cb_SetAsPrimary.Enabled = false;
             // 
             // ManageMultiMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 445);
+            this.ClientSize = new System.Drawing.Size(635, 529);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button_Exit);
             this.Controls.Add(this.button_OK);
@@ -255,6 +301,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +328,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox cb_MonitorOff;
         private System.Windows.Forms.CheckBox cb_SetAsPrimary;
+        private System.Windows.Forms.TrackBar trackBar_Contrast;
+        private System.Windows.Forms.TrackBar trackBar_Brightness;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

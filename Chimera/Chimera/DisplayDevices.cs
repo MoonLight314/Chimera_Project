@@ -88,6 +88,11 @@ namespace Chimera
             }
         }
 
+        /// <summary>
+        /// Monitor의 Brightness 변경
+        /// </summary>
+        /// <param name="monitorIndex">monitorIndex</param>
+        /// <param name="brightness">brightness</param>
         public void ChangeMonitorBrightness(int monitorIndex, uint brightness)
         {
             if (monitorIndex >= 0 && monitorIndex < _displayDevices.Count)
@@ -114,6 +119,90 @@ namespace Chimera
                 }
             }
         }
+
+
+
+
+
+
+        /// <summary>
+        /// Monitor의 Contrast 변경
+        /// </summary>
+        /// <param name="monitorIndex">monitorIndex</param>
+        /// <param name="contrast">contrast</param>
+        public void ChangeMonitorContrast(int monitorIndex, uint contrast)
+        {
+            if (monitorIndex >= 0 && monitorIndex < _displayDevices.Count)
+            {
+                IntPtr hMonitor = _displayDevices[monitorIndex].MonitorHandle;
+
+                uint numPhysicalMonitors = 0;
+                NativeMethods.GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, ref numPhysicalMonitors);
+
+                // we just handle the simple case for now, 
+                // otherwise we will have difficulty mapping between the physical monitors
+                // and our display devices
+                if (numPhysicalMonitors == 1)
+                {
+                    NativeMethods.PHYSICAL_MONITOR[] physicalMonitors = new NativeMethods.PHYSICAL_MONITOR[numPhysicalMonitors];
+                    if (NativeMethods.GetPhysicalMonitorsFromHMONITOR(hMonitor, numPhysicalMonitors, physicalMonitors))
+                    {
+                        NativeDisplayMethods.SetMonitorContrast(physicalMonitors[0].hPhysicalMonitor, contrast);
+                    }
+
+                    // release any resources used while looking at this virtual monitor
+                    // TODO: do we really need to call this if GetPhysicalMonitorsFromHMONITOR fails?
+                    NativeMethods.DestroyPhysicalMonitors(numPhysicalMonitors, physicalMonitors);
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Monitor의 현재 Contrast 값을 가져온다
+        /// </summary>
+        /// <param name="monitorIndex">monitorIndex</param>
+        /// <param name="pdwMinimumContrast">pdwMinimumContrast</param>
+        /// <param name="pdwCurrentContrast">pdwCurrentContrast</param>
+        /// <param name="pdwMaximumContrast">pdwMaximumContrast</param>
+        public void GetMonitorContrast(int monitorIndex, ref uint pdwMinimumContrast, ref uint pdwCurrentContrast, ref uint pdwMaximumContrast)
+        {
+            uint min = 0, current = 0, max = 0;
+
+            if (monitorIndex >= 0 && monitorIndex < _displayDevices.Count)
+            {
+                IntPtr hMonitor = _displayDevices[monitorIndex].MonitorHandle;
+
+                uint numPhysicalMonitors = 0;
+                NativeMethods.GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, ref numPhysicalMonitors);
+
+                // we just handle the simple case for now, 
+                // otherwise we will have difficulty mapping between the physical monitors
+                // and our display devices
+                if (numPhysicalMonitors == 1)
+                {
+                    NativeMethods.PHYSICAL_MONITOR[] physicalMonitors = new NativeMethods.PHYSICAL_MONITOR[numPhysicalMonitors];
+                    if (NativeMethods.GetPhysicalMonitorsFromHMONITOR(hMonitor, numPhysicalMonitors, physicalMonitors))
+                    {
+                        NativeDisplayMethods.GetMonitorContrast(physicalMonitors[0].hPhysicalMonitor, 
+                                                                out min, out current, out max);
+                    }
+
+                    // release any resources used while looking at this virtual monitor
+                    // TODO: do we really need to call this if GetPhysicalMonitorsFromHMONITOR fails?
+                    NativeMethods.DestroyPhysicalMonitors(numPhysicalMonitors, physicalMonitors);
+                }
+            }
+
+            pdwMinimumContrast = min;
+            pdwCurrentContrast = current;
+            pdwMaximumContrast = max;
+        }
+
+
+
+
 
 
         // initialises _pathInfos and _modeInfos
