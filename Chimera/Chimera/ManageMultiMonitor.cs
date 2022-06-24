@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chimera.Resources;
 
 namespace Chimera
 {
@@ -23,6 +24,10 @@ namespace Chimera
         public ManageMultiMonitor(IList<DisplayDevice> allMonitorProperties , DisplayDevices displayDevices)
         {
             InitializeComponent();
+
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
 
             MonitorSettingInfo = new List<MonitorSetInfo>();
 
@@ -97,7 +102,9 @@ namespace Chimera
             else
             {
                 cb_SetAsPrimary.Enabled = true;
+                #if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = true;
+                #endif
 
                 foreach (MonitorSetInfo msi in MonitorSettingInfo)
                 {
@@ -124,12 +131,15 @@ namespace Chimera
             textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees );
 
             cb_SetAsPrimary.Checked = msi.SetAsPrimary;
+#if SUPPORT_MONITOR_OFF_FEATURE
             cb_MonitorOff.Checked = msi.Off;
+
 
             if (msi.SetAsPrimary)
                 cb_MonitorOff.Enabled = false;
             else
                 cb_MonitorOff.Enabled = true;
+#endif
 
             /* Brightness */
             trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness , (int)msi.displaydevice.MaxBrightness);
@@ -153,12 +163,16 @@ namespace Chimera
             textBox_Rotation.Text = "";
 
             cb_SetAsPrimary.Checked = false;
+            #if SUPPORT_MONITOR_OFF_FEATURE
             cb_MonitorOff.Checked = false;
+            #endif
 
             if (CurrentSelMonitorName == "All Monitors")
             {
                 cb_SetAsPrimary.Enabled = false;
+                #if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = false;
+                #endif
             }
         }
 
@@ -182,6 +196,7 @@ namespace Chimera
             {
                 //throw new ApplicationException(string.Format("Setting Error : The number of primary monitor must be one."));
                 MessageBox.Show("The number of primary monitor must be one.", "Setting Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             _displayDevices.Reset();            
@@ -262,13 +277,15 @@ namespace Chimera
                 {
                     /* Primary로 선택된 Monitor는 끌 수 없게 한다. */
                     msi.SetAsPrimary = cb_SetAsPrimary.Checked;
-                    cb_MonitorOff.Enabled = msi.SetAsPrimary ? false : true;
+#if SUPPORT_MONITOR_OFF_FEATURE
+                    cb_MonitorOff.Enabled = msi.SetAsPrimary ? false : true;                    
 
                     if(msi.SetAsPrimary && cb_MonitorOff.Checked)
                     {
                         cb_MonitorOff.Checked = false;
                         msi.Off = false;
                     }
+#endif
 
                     DisplaySelectedMonitorInfo(msi);
                     break;
@@ -284,17 +301,21 @@ namespace Chimera
         /* 'Monitor Off' Button Click 처리 */
         private void click_MonitorOff(object sender, EventArgs e)
         {
+            #if SUPPORT_MONITOR_OFF_FEATURE
             if (CurrentSelMonitorName == "All Monitors")
             {
                 cb_MonitorOff.Checked = false;
             }
+            #endif
 
             /*  */
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
                 {
+                    #if SUPPORT_MONITOR_OFF_FEATURE
                     msi.Off = cb_MonitorOff.Checked;
+                    #endif
 
                     DisplaySelectedMonitorInfo(msi);
                     break;

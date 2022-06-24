@@ -43,5 +43,18 @@ namespace Chimera
         {
             return (ConfigValues)this.MemberwiseClone();
         }
+
+
+        /* Hot Key Add Part */
+        public bool CheckHotKeyDuplicated(string keyComboValue)
+        {
+            if (string.Compare(HotkeyMoveCursorNextScreen, keyComboValue) == 0 ||
+                string.Compare(HotkeyMoveCursorPrevScreen, keyComboValue) == 0 ||
+                string.Compare(HotkeyMoveCursorPrimaryScreen, keyComboValue) == 0 ||
+                string.Compare(HotkeyLockCursorToScreen, keyComboValue) == 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

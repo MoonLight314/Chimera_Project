@@ -379,7 +379,7 @@ namespace Chimera
         /* Move Cursor To Next Screen key 변경 Button */
         private void btn_Click_CursorMov_Next_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput();           
+            HotKeyInput hotKeyInput = new HotKeyInput(configValues);
 
             /* Show()는 Form이 시작되고 바로 다음 Line으로 실행이 넘어간다. */
             /* ShowDialog()를 사용하면, Form이 닫힌 다음에 다음 Line으로 실행이 넘어간다. */
@@ -404,7 +404,7 @@ namespace Chimera
         /* Move Cursor To Prev Screen key 변경 Button */
         private void btn_Click_CursorMov_Prev_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput();
+            HotKeyInput hotKeyInput = new HotKeyInput(configValues);
 
             DialogResult Ret = hotKeyInput.ShowDialog();
 
@@ -427,7 +427,7 @@ namespace Chimera
         /* Move Cursor To Primary Screen key 변경 Button */
         private void btn_Click_CursorMov_Primary_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput();
+            HotKeyInput hotKeyInput = new HotKeyInput(configValues);
 
             DialogResult Ret = hotKeyInput.ShowDialog();
 
@@ -452,7 +452,7 @@ namespace Chimera
         /* Lock To Screen key 변경 Button */
         private void btn_Click_Cursor_Lock_Screen_KeyChange(object sender, EventArgs e)
         {
-            HotKeyInput hotKeyInput = new HotKeyInput();
+            HotKeyInput hotKeyInput = new HotKeyInput(configValues);
 
             DialogResult Ret = hotKeyInput.ShowDialog();
 

@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button_Test = new System.Windows.Forms.Button();
+            this.Log = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +77,33 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "License Info";
             // 
+            // button_Test
+            // 
+            this.button_Test.Location = new System.Drawing.Point(287, 38);
+            this.button_Test.Name = "button_Test";
+            this.button_Test.Size = new System.Drawing.Size(104, 30);
+            this.button_Test.TabIndex = 4;
+            this.button_Test.Text = "TEST";
+            this.button_Test.UseVisualStyleBackColor = true;
+            this.button_Test.Click += new System.EventHandler(this.button_Test_Click);
+            // 
+            // Log
+            // 
+            this.Log.Location = new System.Drawing.Point(197, 120);
+            this.Log.Multiline = true;
+            this.Log.Name = "Log";
+            this.Log.ReadOnly = true;
+            this.Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Log.Size = new System.Drawing.Size(214, 79);
+            this.Log.TabIndex = 5;
+            // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 328);
+            this.Controls.Add(this.Log);
+            this.Controls.Add(this.button_Test);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -102,5 +126,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button_Test;
+        private System.Windows.Forms.TextBox Log;
     }
 }

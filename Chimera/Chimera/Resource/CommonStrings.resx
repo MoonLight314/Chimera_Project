@@ -184,4 +184,5 @@ This is free software, and you are welcome to redistribute it under certain cond
   <data name="X2MouseButton" xml:space="preserve">
     <value>X2 Mouse Button</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 </root>

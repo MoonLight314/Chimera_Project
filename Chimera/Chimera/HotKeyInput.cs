@@ -12,12 +12,13 @@ namespace Chimera
 {
     public partial class HotKeyInput : Form
     {
-
         KeyCombo keyCombo;
+        ConfigValues configValues;
 
-        public HotKeyInput()
+        public HotKeyInput(ConfigValues cv)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            configValues = cv;
         }
 
         private void HotKeyInput_Cancel(object sender, EventArgs e)
@@ -37,6 +38,14 @@ namespace Chimera
             /*  */
             if( KeyCodeValues.IsNormalKeyPressed(e) )
             {
+                /* 이미 등록된 Key가 있는지 확인 */
+                if( CheckKeyComboDuplicated(e) == true)
+                {
+                    MessageBox.Show("This keys are already registered.", "Setting Hotkey", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ClearUI();
+                    return;
+                }
+
                 if (ProcessHotKeyInput(e))
                 {
                     ClearUI();
@@ -49,6 +58,35 @@ namespace Chimera
 
 
 
+        /// <summary>
+        /// User가 입력한 Key가 이미 사용중인지 확인. 
+        /// </summary>
+        /// <param name="KeyEventArgs ">KeyEventArgs </param>
+        private bool CheckKeyComboDuplicated(KeyEventArgs e)
+        {
+            KeyCombo tmpKey = new KeyCombo();
+
+            tmpKey.AltMod = cb_Alt.Checked;
+            tmpKey.ControlMod = cb_Ctrl.Checked;
+            tmpKey.ShiftMod = cb_Shift.Checked;
+            tmpKey.KeyCode = e.KeyCode;
+
+            if (configValues.CheckHotKeyDuplicated(tmpKey.ComboValue.ToString()))
+                return true;
+            else
+                return false;
+
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// ProcessHotKeyInput
+        /// </summary>
+        /// <param name="KeyEventArgs ">KeyEventArgs </param>
         private bool ProcessHotKeyInput(KeyEventArgs e)
         {
             string Hotkey = "Do you want to set Hotkey to " + GetHotkeyString() + " ?";

@@ -49,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar_Contrast = new System.Windows.Forms.TrackBar();
             this.trackBar_Brightness = new System.Windows.Forms.TrackBar();
-            this.cb_MonitorOff = new System.Windows.Forms.CheckBox();
             this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -214,7 +213,6 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.trackBar_Contrast);
             this.groupBox2.Controls.Add(this.trackBar_Brightness);
-            this.groupBox2.Controls.Add(this.cb_MonitorOff);
             this.groupBox2.Controls.Add(this.cb_SetAsPrimary);
             this.groupBox2.Location = new System.Drawing.Point(233, 253);
             this.groupBox2.Name = "groupBox2";
@@ -259,19 +257,6 @@
             this.trackBar_Brightness.TabIndex = 17;
             this.trackBar_Brightness.Scroll += new System.EventHandler(this.trackBar_Brightness_Scroll);
             // 
-            // cb_MonitorOff
-            // 
-            this.cb_MonitorOff.AutoSize = true;
-            this.cb_MonitorOff.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cb_MonitorOff.Enabled = false;
-            this.cb_MonitorOff.Location = new System.Drawing.Point(20, 67);
-            this.cb_MonitorOff.Name = "cb_MonitorOff";
-            this.cb_MonitorOff.Size = new System.Drawing.Size(105, 16);
-            this.cb_MonitorOff.TabIndex = 16;
-            this.cb_MonitorOff.Text = "Monitor Off     ";
-            this.cb_MonitorOff.UseVisualStyleBackColor = true;
-            this.cb_MonitorOff.Click += new System.EventHandler(this.click_MonitorOff);
-            // 
             // cb_SetAsPrimary
             // 
             this.cb_SetAsPrimary.AutoSize = true;
@@ -296,7 +281,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tv_Monitor_List);
             this.Name = "ManageMultiMonitor";
-            this.Text = "ManageMultiMonitor";
+            this.Text = "LG USB-Hub Manager";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -307,7 +292,7 @@
 
         }
 
-        #endregion
+#endregion
 
         private System.Windows.Forms.TreeView tv_Monitor_List;
         private System.Windows.Forms.Label label_Primary;
@@ -326,7 +311,11 @@
         private System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_Exit;
         private System.Windows.Forms.GroupBox groupBox2;
+
+#if SUPPORT_MONITOR_OFF_FEATURE
         private System.Windows.Forms.CheckBox cb_MonitorOff;
+#endif
+
         private System.Windows.Forms.CheckBox cb_SetAsPrimary;
         private System.Windows.Forms.TrackBar trackBar_Contrast;
         private System.Windows.Forms.TrackBar trackBar_Brightness;

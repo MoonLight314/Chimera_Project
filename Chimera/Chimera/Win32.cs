@@ -148,6 +148,9 @@ namespace Chimera
         [DllImport("user32.dll")]
         public static extern IntPtr GetForegroundWindow();
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetActiveWindow();
+
         [DllImport("kernel32.dll")]     // winbase.h
         public static extern IntPtr GetModuleHandle(string lpModuleName);
 
@@ -211,7 +214,8 @@ namespace Chimera
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr WindowFromPoint(Win32.POINT point);
+        public static extern IntPtr WindowFromPoint(Win32.POINT point);        
+
 
     }
 }
