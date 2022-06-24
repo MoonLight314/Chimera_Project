@@ -29,6 +29,8 @@ namespace Chimera
             Bitmap bmp = Properties.Resources.Manager_Form_Icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
 
+            this.BackColor = Color.FromArgb(255, 255, 255); 
+
             MonitorSettingInfo = new List<MonitorSetInfo>();
 
             _displayDevices = displayDevices;
@@ -124,7 +126,7 @@ namespace Chimera
         private void DisplaySelectedMonitorInfo(MonitorSetInfo msi )
         {
             textBox_Primary.Text = msi.displaydevice.IsPrimary ? "Yes" : "No";            
-            textBox_FriendlyName.Text = msi.displaydevice.FriendlyName;
+            //textBox_FriendlyName.Text = msi.displaydevice.FriendlyName;
             textBox_Resolution.Text = string.Format("{0} X {1}", msi.displaydevice.Bounds.Size.Width , msi.displaydevice.Bounds.Size.Height );
             textBox_BitPerPixel.Text = string.Format("{0}", msi.displaydevice.BitsPerPixel );
             textBox_OutputTech.Text = msi.displaydevice.OutputTechnology;
@@ -156,7 +158,7 @@ namespace Chimera
         private void ClearMonitorInfo()
         {
             textBox_Primary.Text = "";
-            textBox_FriendlyName.Text = "";
+            //textBox_FriendlyName.Text = "";
             textBox_Resolution.Text = "";
             textBox_BitPerPixel.Text = "";
             textBox_OutputTech.Text = "";
@@ -336,6 +338,8 @@ namespace Chimera
         {
             _displayDevices.ChangeMonitorContrast(tv_Monitor_List.SelectedNode.Index,(uint)trackBar_Contrast.Value);
         }
+
+
     }
 
 
