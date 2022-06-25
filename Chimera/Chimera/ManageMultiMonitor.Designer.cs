@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tv_Monitor_List = new System.Windows.Forms.TreeView();
             this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.trackBar_Brightness = new System.Windows.Forms.TrackBar();
             this.trackBar_Contrast = new System.Windows.Forms.TrackBar();
@@ -45,7 +44,7 @@
             this.textBox_BitPerPixel = new System.Windows.Forms.TextBox();
             this.textBox_Resolution = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lv_Monitors = new System.Windows.Forms.ListView();
             this.label_FriendlyName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,15 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tv_Monitor_List
-            // 
-            this.tv_Monitor_List.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tv_Monitor_List.Location = new System.Drawing.Point(12, 377);
-            this.tv_Monitor_List.Name = "tv_Monitor_List";
-            this.tv_Monitor_List.Size = new System.Drawing.Size(225, 112);
-            this.tv_Monitor_List.TabIndex = 0;
-            this.tv_Monitor_List.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_NodeMouseClick);
             // 
             // cb_SetAsPrimary
             // 
@@ -241,16 +231,19 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Multi-Monitor";
             // 
-            // listView1
+            // lv_Monitors
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView1.Location = new System.Drawing.Point(24, 93);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(199, 127);
-            this.listView1.TabIndex = 22;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lv_Monitors.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lv_Monitors.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_Monitors.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lv_Monitors.Location = new System.Drawing.Point(24, 93);
+            this.lv_Monitors.MultiSelect = false;
+            this.lv_Monitors.Name = "lv_Monitors";
+            this.lv_Monitors.Scrollable = false;
+            this.lv_Monitors.Size = new System.Drawing.Size(245, 324);
+            this.lv_Monitors.TabIndex = 22;
+            this.lv_Monitors.UseCompatibleStateImageBehavior = false;
+            this.lv_Monitors.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label_FriendlyName
             // 
@@ -268,7 +261,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(304, 243);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(428, 1);
+            this.pictureBox2.Size = new System.Drawing.Size(428, 2);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
@@ -288,7 +281,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(304, 349);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(428, 1);
+            this.pictureBox3.Size = new System.Drawing.Size(428, 3);
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
@@ -318,7 +311,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(272, 6);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(496, 1);
+            this.pictureBox1.Size = new System.Drawing.Size(496, 2);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
@@ -328,7 +321,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(272, 6);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(1, 506);
+            this.pictureBox4.Size = new System.Drawing.Size(2, 506);
             this.pictureBox4.TabIndex = 29;
             this.pictureBox4.TabStop = false;
             // 
@@ -344,9 +337,8 @@
             this.Controls.Add(this.label_Brightness_Value);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label_FriendlyName);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lv_Monitors);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tv_Monitor_List);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar_Contrast);
@@ -365,6 +357,8 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManageMultiMonitor";
             this.Opacity = 0.94D;
             this.Text = "LG USB-Hub Manager";
@@ -381,7 +375,7 @@
 
 #endregion
 
-        private System.Windows.Forms.TreeView tv_Monitor_List;
+        //private System.Windows.Forms.TreeView tv_Monitor_List;
         //private System.Windows.Forms.Button button_OK;
         //private System.Windows.Forms.Button button_Exit;
         private System.Windows.Forms.CheckBox cb_SetAsPrimary;
@@ -402,7 +396,7 @@
         private System.Windows.Forms.TextBox textBox_Resolution;
         //private System.Windows.Forms.TextBox textBox_FriendlyName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lv_Monitors;
         private System.Windows.Forms.Label label_FriendlyName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

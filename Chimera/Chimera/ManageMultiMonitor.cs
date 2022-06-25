@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
 using Chimera.Resources;
 
 namespace Chimera
@@ -14,22 +15,23 @@ namespace Chimera
     public partial class ManageMultiMonitor : Form
     {
 
-        IList<MonitorSetInfo>   MonitorSettingInfo;
-        DisplayDevices          _displayDevices;
-        String                  CurrentSelMonitorName;
+        IList<MonitorSetInfo> MonitorSettingInfo;
+        DisplayDevices _displayDevices;
+        String CurrentSelMonitorName;
 
 
 
         /*   */
-        public ManageMultiMonitor(IList<DisplayDevice> allMonitorProperties , DisplayDevices displayDevices)
+        public ManageMultiMonitor(IList<DisplayDevice> allMonitorProperties, DisplayDevices displayDevices)
         {
+
             InitializeComponent();
 
             /*  */
             Bitmap bmp = Properties.Resources.Manager_Form_Icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
 
-            this.BackColor = Color.FromArgb(255, 255, 255); 
+            this.BackColor = Color.FromArgb(255, 255, 255);
 
             MonitorSettingInfo = new List<MonitorSetInfo>();
 
@@ -37,7 +39,7 @@ namespace Chimera
 
             CurrentSelMonitorName = "All Monitors";
 
-            GetOnlyActiveMonitors( allMonitorProperties );
+            GetOnlyActiveMonitors(allMonitorProperties);
 
             /*  */
             InitUI();
@@ -71,7 +73,7 @@ namespace Chimera
 
                     MonitorSettingInfo.Add(msi);
                     msi = null;
-                    
+
                 }
             }
         }
@@ -79,20 +81,62 @@ namespace Chimera
 
 
 
-
+        /// <summary>
+        /// UI 초기화
+        /// </summary>
         void InitUI()
         {
+#if TEST
             tv_Monitor_List.Nodes.Add("All Monitors");
 
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 tv_Monitor_List.Nodes[0].Nodes.Add(msi.displaydevice.FriendlyName);
-            }            
+            }
+#endif
+
+            lv_Monitors.View = View.Tile;
+
+            lv_Monitors.Columns.Add("Column1Name");
+
+            ImageList ilt = new ImageList();
+            ListViewItem item;
+            ilt.ImageSize = new Size(32, 32);
+
+            Image[] img = { Properties.Resources.Monitor_No_01,
+                            Properties.Resources.Monitor_No_02,
+                            Properties.Resources.Monitor_No_03};
+
+            foreach (Image i in img)
+                ilt.Images.Add(i);
+
+            lv_Monitors.LargeImageList = ilt;
+
+            /**/
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                item = new ListViewItem(msi.displaydevice.FriendlyName, 0);
+                lv_Monitors.Items.Add(item);
+            }
+
+
+            foreach (ColumnHeader column in lv_Monitors.Columns)
+            {
+                column.Width = -1;
+            }
+
+            lv_Monitors.Select();
+            lv_Monitors.Items[0].Selected = true;
+
         }
 
 
 
-        /* 모니터 정보 Tree View 선택시 */
+
+#if SUPPORT_MONITOR_OFF_FEATURE
+        /// <summary>
+        /// 모니터 정보 Tree View 선택시
+        /// </summary>
         private void tv_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             CurrentSelMonitorName = e.Node.Text;
@@ -104,14 +148,14 @@ namespace Chimera
             else
             {
                 cb_SetAsPrimary.Enabled = true;
-                #if SUPPORT_MONITOR_OFF_FEATURE
+#if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = true;
-                #endif
+#endif
 
                 foreach (MonitorSetInfo msi in MonitorSettingInfo)
                 {
                     /* 선택한 Monitor에 대한 정보를 표시한다. */
-                    if (msi.displaydevice.FriendlyName == e.Node.Text)
+                        if (msi.displaydevice.FriendlyName == e.Node.Text)
                     {
                         DisplaySelectedMonitorInfo(msi);
                         return;
@@ -119,18 +163,18 @@ namespace Chimera
                 }
             }
         }
+#endif
 
 
 
-
-        private void DisplaySelectedMonitorInfo(MonitorSetInfo msi )
+        private void DisplaySelectedMonitorInfo(MonitorSetInfo msi)
         {
-            textBox_Primary.Text = msi.displaydevice.IsPrimary ? "Yes" : "No";            
+            textBox_Primary.Text = msi.displaydevice.IsPrimary ? "Yes" : "No";
             //textBox_FriendlyName.Text = msi.displaydevice.FriendlyName;
-            textBox_Resolution.Text = string.Format("{0} X {1}", msi.displaydevice.Bounds.Size.Width , msi.displaydevice.Bounds.Size.Height );
-            textBox_BitPerPixel.Text = string.Format("{0}", msi.displaydevice.BitsPerPixel );
+            textBox_Resolution.Text = string.Format("{0} X {1}", msi.displaydevice.Bounds.Size.Width, msi.displaydevice.Bounds.Size.Height);
+            textBox_BitPerPixel.Text = string.Format("{0}", msi.displaydevice.BitsPerPixel);
             textBox_OutputTech.Text = msi.displaydevice.OutputTechnology;
-            textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees );
+            textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees);
 
             cb_SetAsPrimary.Checked = msi.SetAsPrimary;
 #if SUPPORT_MONITOR_OFF_FEATURE
@@ -144,10 +188,12 @@ namespace Chimera
 #endif
 
             /* Brightness */
-            trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness , (int)msi.displaydevice.MaxBrightness);
+            trackBar_Brightness.Enabled = true;
+            trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness, (int)msi.displaydevice.MaxBrightness);
             trackBar_Brightness.Value = (int)msi.displaydevice.CurBrightness;
 
             /* Contrast */
+            trackBar_Contrast.Enabled = true;
             trackBar_Contrast.SetRange((int)msi.MinimumContrast, (int)msi.MaximumContrast);
             trackBar_Contrast.Value = (int)msi.CurrentContrast;
         }
@@ -165,22 +211,26 @@ namespace Chimera
             textBox_Rotation.Text = "";
 
             cb_SetAsPrimary.Checked = false;
-            #if SUPPORT_MONITOR_OFF_FEATURE
+#if SUPPORT_MONITOR_OFF_FEATURE
             cb_MonitorOff.Checked = false;
-            #endif
+#endif
 
-            if (CurrentSelMonitorName == "All Monitors")
+            if (CurrentSelMonitorName == "")
             {
                 cb_SetAsPrimary.Enabled = false;
-                #if SUPPORT_MONITOR_OFF_FEATURE
+                label_FriendlyName.Text = "";
+                trackBar_Brightness.Enabled = false;
+                trackBar_Contrast.Enabled = false;
+
+#if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = false;
-                #endif
+#endif
             }
         }
 
 
-        
-        
+
+
         /* 종료 버튼 */
         private void manage_exit(object sender, EventArgs e)
         {
@@ -201,20 +251,20 @@ namespace Chimera
                 return;
             }
 
-            _displayDevices.Reset();            
+            _displayDevices.Reset();
 
             /* Monitor Off 설정 */
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
-                if ( msi.Off )
+                if (msi.Off)
                 {
-                    _displayDevices.MakeAsDisabled(msi.MonitorIndex , false);
+                    _displayDevices.MakeAsDisabled(msi.MonitorIndex, false);
                 }
-                    
+
             }
 
             /* Primary Monitor */
-            _displayDevices.MakePrimary( GetPrimaryMonitorIndex() );
+            _displayDevices.MakePrimary(GetPrimaryMonitorIndex());
 
             /* 변경된 설정 적용 */
             _displayDevices.ApplyDisplayChange();
@@ -251,7 +301,7 @@ namespace Chimera
             }
 
             if (TotalPrimaryMonitorNo != 1)
-            {                
+            {
                 return false;
             }
             else
@@ -267,15 +317,15 @@ namespace Chimera
         /* 'Set As Primary' Button Click 처리 */
         private void click_SetAsPrimary(object sender, EventArgs e)
         {
-            if( CurrentSelMonitorName == "All Monitors")
+            if (CurrentSelMonitorName == "All Monitors")
             {
                 cb_SetAsPrimary.Checked = false;
             }
 
             /*  */
-            foreach(MonitorSetInfo msi in MonitorSettingInfo)
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
-                if( msi.displaydevice.FriendlyName == CurrentSelMonitorName )
+                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
                 {
                     /* Primary로 선택된 Monitor는 끌 수 없게 한다. */
                     msi.SetAsPrimary = cb_SetAsPrimary.Checked;
@@ -294,30 +344,28 @@ namespace Chimera
                 }
             }
 
-            tv_Monitor_List.Select();            
+            //tv_Monitor_List.Select();
         }
 
 
 
-
+#if SUPPORT_MONITOR_OFF_FEATURE
         /* 'Monitor Off' Button Click 처리 */
         private void click_MonitorOff(object sender, EventArgs e)
-        {
-            #if SUPPORT_MONITOR_OFF_FEATURE
+        {            
             if (CurrentSelMonitorName == "All Monitors")
             {
                 cb_MonitorOff.Checked = false;
-            }
-            #endif
+            }            
 
             /*  */
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
                 {
-                    #if SUPPORT_MONITOR_OFF_FEATURE
+#if SUPPORT_MONITOR_OFF_FEATURE
                     msi.Off = cb_MonitorOff.Checked;
-                    #endif
+#endif
 
                     DisplaySelectedMonitorInfo(msi);
                     break;
@@ -326,22 +374,63 @@ namespace Chimera
 
             tv_Monitor_List.Select();
         }
+#endif
+
+
+
 
 
         /**/
         private void trackBar_Brightness_Scroll(object sender, EventArgs e)
         {
-            _displayDevices.ChangeMonitorBrightness(tv_Monitor_List.SelectedNode.Index, (uint)trackBar_Brightness.Value);
+            _displayDevices.ChangeMonitorBrightness(lv_Monitors.SelectedIndices[0], (uint)trackBar_Brightness.Value);
         }
 
         private void trackBar_Contrast_Scroll(object sender, EventArgs e)
         {
-            _displayDevices.ChangeMonitorContrast(tv_Monitor_List.SelectedNode.Index,(uint)trackBar_Contrast.Value);
+            _displayDevices.ChangeMonitorContrast(lv_Monitors.SelectedIndices[0], (uint)trackBar_Contrast.Value);
         }
 
 
-    }
 
+
+
+        /*  */
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_Monitors.SelectedIndices.Count > 0)
+            {
+                label_FriendlyName.Text = lv_Monitors.SelectedItems[0].Text;
+                CurrentSelMonitorName = lv_Monitors.SelectedItems[0].Text;
+
+                cb_SetAsPrimary.Enabled = true;
+#if SUPPORT_MONITOR_OFF_FEATURE
+                cb_MonitorOff.Enabled = true;
+#endif
+
+                foreach (MonitorSetInfo msi in MonitorSettingInfo)
+                {
+                    /* 선택한 Monitor에 대한 정보를 표시한다. */
+                    if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                    {
+                        DisplaySelectedMonitorInfo(msi);
+                        return;
+                    }
+                }
+
+            }
+            else
+            {
+                CurrentSelMonitorName = "";
+                ClearMonitorInfo();
+            }
+
+        }
+
+
+
+
+    }
 
 
     public class MonitorSetInfo

@@ -269,6 +269,36 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Monitor_No_01 {
+            get {
+                object obj = ResourceManager.GetObject("Monitor_No_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Monitor_No_02 {
+            get {
+                object obj = ResourceManager.GetObject("Monitor_No_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Monitor_No_03 {
+            get {
+                object obj = ResourceManager.GetObject("Monitor_No_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   You need to select a key from the drop down box과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string NoKey {
