@@ -91,6 +91,7 @@
     <Compile Include="CursorHelper.cs" />
     <Compile Include="DisplayDevice.cs" />
     <Compile Include="DisplayDevices.cs" />
+    <Compile Include="FontManager.cs" />
     <Compile Include="HotKey.cs" />
     <Compile Include="HotKeyController.cs" />
     <Compile Include="HotKeyInput.cs">
@@ -101,9 +102,6 @@
     </Compile>
     <Compile Include="KeyCodeValues.cs" />
     <Compile Include="KeyCombo.cs" />
-    <Compile Include="KeyComboPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Library\Binding\PropertyComparer.cs" />
     <Compile Include="Library\Binding\SortableBindingList.cs" />
     <Compile Include="Library\Command\CommandMessaging.cs" />
@@ -293,6 +291,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resource\LGSmHaB.ttf" />
+    <None Include="Resource\LGSmHaL.ttf" />
+    <None Include="Resource\LGSmHaR.ttf" />
+    <None Include="Resource\LGSmHaSB.ttf" />
     <None Include="Resource\Manager_Form_Icon.png" />
   </ItemGroup>
   <ItemGroup>

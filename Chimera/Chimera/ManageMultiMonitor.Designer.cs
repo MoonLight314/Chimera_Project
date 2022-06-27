@@ -31,8 +31,8 @@
             this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.trackBar_Brightness = new System.Windows.Forms.TrackBar();
             this.trackBar_Contrast = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_Brightness = new System.Windows.Forms.Label();
+            this.label_Contrast = new System.Windows.Forms.Label();
             this.label_Primary = new System.Windows.Forms.Label();
             this.label_Resolution = new System.Windows.Forms.Label();
             this.label_BitPerPixel = new System.Windows.Forms.Label();
@@ -43,16 +43,17 @@
             this.textBox_OutputTech = new System.Windows.Forms.TextBox();
             this.textBox_BitPerPixel = new System.Windows.Forms.TextBox();
             this.textBox_Resolution = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_Multi_Monitor = new System.Windows.Forms.Label();
             this.lv_Monitors = new System.Windows.Forms.ListView();
             this.label_FriendlyName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_Setting = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label_Contrast_Value = new System.Windows.Forms.Label();
-            this.label_Brightness_Value = new System.Windows.Forms.Label();
+            this.label_Current_Contrast_Value = new System.Windows.Forms.Label();
+            this.label_Current_Brightness_Value = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label_Warning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -65,10 +66,11 @@
             // 
             this.cb_SetAsPrimary.AutoSize = true;
             this.cb_SetAsPrimary.Enabled = false;
-            this.cb_SetAsPrimary.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_SetAsPrimary.Location = new System.Drawing.Point(304, 306);
+            this.cb_SetAsPrimary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_SetAsPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.cb_SetAsPrimary.Location = new System.Drawing.Point(311, 306);
             this.cb_SetAsPrimary.Name = "cb_SetAsPrimary";
-            this.cb_SetAsPrimary.Size = new System.Drawing.Size(132, 24);
+            this.cb_SetAsPrimary.Size = new System.Drawing.Size(125, 22);
             this.cb_SetAsPrimary.TabIndex = 15;
             this.cb_SetAsPrimary.Text = "Set As Primary";
             this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
@@ -77,7 +79,7 @@
             // trackBar_Brightness
             // 
             this.trackBar_Brightness.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trackBar_Brightness.Location = new System.Drawing.Point(394, 372);
+            this.trackBar_Brightness.Location = new System.Drawing.Point(434, 372);
             this.trackBar_Brightness.Maximum = 100;
             this.trackBar_Brightness.Name = "trackBar_Brightness";
             this.trackBar_Brightness.Size = new System.Drawing.Size(200, 45);
@@ -87,7 +89,7 @@
             // 
             // trackBar_Contrast
             // 
-            this.trackBar_Contrast.Location = new System.Drawing.Point(394, 419);
+            this.trackBar_Contrast.Location = new System.Drawing.Point(434, 412);
             this.trackBar_Contrast.Maximum = 100;
             this.trackBar_Contrast.Name = "trackBar_Contrast";
             this.trackBar_Contrast.Size = new System.Drawing.Size(200, 45);
@@ -95,74 +97,80 @@
             this.trackBar_Contrast.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar_Contrast.Scroll += new System.EventHandler(this.trackBar_Contrast_Scroll);
             // 
-            // label1
+            // label_Brightness
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(304, 374);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Brightness";
+            this.label_Brightness.AutoSize = true;
+            this.label_Brightness.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Brightness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Brightness.Location = new System.Drawing.Point(304, 374);
+            this.label_Brightness.Name = "label_Brightness";
+            this.label_Brightness.Size = new System.Drawing.Size(78, 18);
+            this.label_Brightness.TabIndex = 13;
+            this.label_Brightness.Text = "Brightness";
             // 
-            // label2
+            // label_Contrast
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(304, 421);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Contrast";
+            this.label_Contrast.AutoSize = true;
+            this.label_Contrast.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Contrast.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Contrast.Location = new System.Drawing.Point(304, 414);
+            this.label_Contrast.Name = "label_Contrast";
+            this.label_Contrast.Size = new System.Drawing.Size(65, 18);
+            this.label_Contrast.TabIndex = 19;
+            this.label_Contrast.Text = "Contrast";
             // 
             // label_Primary
             // 
             this.label_Primary.AutoSize = true;
-            this.label_Primary.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Primary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Primary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Primary.Location = new System.Drawing.Point(304, 109);
             this.label_Primary.Name = "label_Primary";
-            this.label_Primary.Size = new System.Drawing.Size(66, 22);
+            this.label_Primary.Size = new System.Drawing.Size(63, 17);
             this.label_Primary.TabIndex = 1;
             this.label_Primary.Text = "Primary";
             // 
             // label_Resolution
             // 
             this.label_Resolution.AutoSize = true;
-            this.label_Resolution.Font = new System.Drawing.Font("LG Smart", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Resolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Resolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Resolution.Location = new System.Drawing.Point(304, 132);
             this.label_Resolution.Name = "label_Resolution";
-            this.label_Resolution.Size = new System.Drawing.Size(80, 19);
+            this.label_Resolution.Size = new System.Drawing.Size(85, 17);
             this.label_Resolution.TabIndex = 3;
             this.label_Resolution.Text = "Resolution";
             // 
             // label_BitPerPixel
             // 
             this.label_BitPerPixel.AutoSize = true;
-            this.label_BitPerPixel.Font = new System.Drawing.Font("LG Smart", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_BitPerPixel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_BitPerPixel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_BitPerPixel.Location = new System.Drawing.Point(304, 155);
             this.label_BitPerPixel.Name = "label_BitPerPixel";
-            this.label_BitPerPixel.Size = new System.Drawing.Size(39, 19);
+            this.label_BitPerPixel.Size = new System.Drawing.Size(38, 17);
             this.label_BitPerPixel.TabIndex = 4;
             this.label_BitPerPixel.Text = "BPP";
             // 
             // label_Output
             // 
             this.label_Output.AutoSize = true;
-            this.label_Output.Font = new System.Drawing.Font("LG Smart", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Output.Location = new System.Drawing.Point(304, 178);
             this.label_Output.Name = "label_Output";
-            this.label_Output.Size = new System.Drawing.Size(55, 19);
+            this.label_Output.Size = new System.Drawing.Size(57, 17);
             this.label_Output.TabIndex = 5;
             this.label_Output.Text = "Output";
             // 
             // label_Rotation
             // 
             this.label_Rotation.AutoSize = true;
-            this.label_Rotation.Font = new System.Drawing.Font("LG Smart", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Rotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Rotation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Rotation.Location = new System.Drawing.Point(304, 201);
             this.label_Rotation.Name = "label_Rotation";
-            this.label_Rotation.Size = new System.Drawing.Size(67, 19);
+            this.label_Rotation.Size = new System.Drawing.Size(69, 17);
             this.label_Rotation.TabIndex = 6;
             this.label_Rotation.Text = "Rotation";
             // 
@@ -170,71 +178,77 @@
             // 
             this.textBox_Primary.BackColor = System.Drawing.Color.White;
             this.textBox_Primary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Primary.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Primary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Primary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Primary.Location = new System.Drawing.Point(434, 109);
             this.textBox_Primary.Name = "textBox_Primary";
             this.textBox_Primary.ReadOnly = true;
-            this.textBox_Primary.Size = new System.Drawing.Size(203, 23);
+            this.textBox_Primary.Size = new System.Drawing.Size(203, 16);
             this.textBox_Primary.TabIndex = 7;
             // 
             // textBox_Rotation
             // 
             this.textBox_Rotation.BackColor = System.Drawing.Color.White;
             this.textBox_Rotation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Rotation.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Rotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Rotation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Rotation.Location = new System.Drawing.Point(434, 201);
             this.textBox_Rotation.Name = "textBox_Rotation";
             this.textBox_Rotation.ReadOnly = true;
-            this.textBox_Rotation.Size = new System.Drawing.Size(203, 23);
+            this.textBox_Rotation.Size = new System.Drawing.Size(203, 16);
             this.textBox_Rotation.TabIndex = 8;
             // 
             // textBox_OutputTech
             // 
             this.textBox_OutputTech.BackColor = System.Drawing.Color.White;
             this.textBox_OutputTech.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_OutputTech.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_OutputTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_OutputTech.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_OutputTech.Location = new System.Drawing.Point(434, 178);
             this.textBox_OutputTech.Name = "textBox_OutputTech";
             this.textBox_OutputTech.ReadOnly = true;
-            this.textBox_OutputTech.Size = new System.Drawing.Size(203, 23);
+            this.textBox_OutputTech.Size = new System.Drawing.Size(203, 16);
             this.textBox_OutputTech.TabIndex = 9;
             // 
             // textBox_BitPerPixel
             // 
             this.textBox_BitPerPixel.BackColor = System.Drawing.Color.White;
             this.textBox_BitPerPixel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_BitPerPixel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_BitPerPixel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_BitPerPixel.Location = new System.Drawing.Point(434, 155);
             this.textBox_BitPerPixel.Name = "textBox_BitPerPixel";
             this.textBox_BitPerPixel.ReadOnly = true;
-            this.textBox_BitPerPixel.Size = new System.Drawing.Size(203, 23);
+            this.textBox_BitPerPixel.Size = new System.Drawing.Size(203, 16);
             this.textBox_BitPerPixel.TabIndex = 10;
             // 
             // textBox_Resolution
             // 
             this.textBox_Resolution.BackColor = System.Drawing.Color.White;
             this.textBox_Resolution.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Resolution.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Resolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Resolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Resolution.Location = new System.Drawing.Point(434, 132);
             this.textBox_Resolution.Name = "textBox_Resolution";
             this.textBox_Resolution.ReadOnly = true;
-            this.textBox_Resolution.Size = new System.Drawing.Size(203, 23);
+            this.textBox_Resolution.Size = new System.Drawing.Size(203, 16);
             this.textBox_Resolution.TabIndex = 11;
             // 
-            // label3
+            // label_Multi_Monitor
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LG Smart", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 27);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Multi-Monitor";
+            this.label_Multi_Monitor.AutoSize = true;
+            this.label_Multi_Monitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Multi_Monitor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Multi_Monitor.Location = new System.Drawing.Point(33, 45);
+            this.label_Multi_Monitor.Name = "label_Multi_Monitor";
+            this.label_Multi_Monitor.Size = new System.Drawing.Size(131, 24);
+            this.label_Multi_Monitor.TabIndex = 20;
+            this.label_Multi_Monitor.Text = "Multi-Monitor";
             // 
             // lv_Monitors
             // 
             this.lv_Monitors.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lv_Monitors.Font = new System.Drawing.Font("LG Smart", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_Monitors.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_Monitors.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lv_Monitors.Location = new System.Drawing.Point(24, 93);
             this.lv_Monitors.MultiSelect = false;
@@ -248,10 +262,11 @@
             // label_FriendlyName
             // 
             this.label_FriendlyName.AutoSize = true;
-            this.label_FriendlyName.Font = new System.Drawing.Font("LG Smart", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FriendlyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_FriendlyName.Location = new System.Drawing.Point(304, 42);
             this.label_FriendlyName.Name = "label_FriendlyName";
-            this.label_FriendlyName.Size = new System.Drawing.Size(196, 35);
+            this.label_FriendlyName.Size = new System.Drawing.Size(184, 29);
             this.label_FriendlyName.TabIndex = 23;
             this.label_FriendlyName.Text = "Friendly Name";
             // 
@@ -265,15 +280,16 @@
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
-            // label4
+            // label_Setting
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("LG Smart", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(304, 268);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 23);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Setting";
+            this.label_Setting.AutoSize = true;
+            this.label_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Setting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Setting.Location = new System.Drawing.Point(304, 268);
+            this.label_Setting.Name = "label_Setting";
+            this.label_Setting.Size = new System.Drawing.Size(67, 20);
+            this.label_Setting.TabIndex = 25;
+            this.label_Setting.Text = "Setting";
             // 
             // pictureBox3
             // 
@@ -285,25 +301,27 @@
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
-            // label_Contrast_Value
+            // label_Current_Contrast_Value
             // 
-            this.label_Contrast_Value.AutoSize = true;
-            this.label_Contrast_Value.Font = new System.Drawing.Font("LG Smart", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Contrast_Value.Location = new System.Drawing.Point(621, 421);
-            this.label_Contrast_Value.Name = "label_Contrast_Value";
-            this.label_Contrast_Value.Size = new System.Drawing.Size(61, 18);
-            this.label_Contrast_Value.TabIndex = 27;
-            this.label_Contrast_Value.Text = "Contrast";
+            this.label_Current_Contrast_Value.AutoSize = true;
+            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Current_Contrast_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Current_Contrast_Value.Location = new System.Drawing.Point(672, 414);
+            this.label_Current_Contrast_Value.Name = "label_Current_Contrast_Value";
+            this.label_Current_Contrast_Value.Size = new System.Drawing.Size(61, 17);
+            this.label_Current_Contrast_Value.TabIndex = 27;
+            this.label_Current_Contrast_Value.Text = "Contrast";
             // 
-            // label_Brightness_Value
+            // label_Current_Brightness_Value
             // 
-            this.label_Brightness_Value.AutoSize = true;
-            this.label_Brightness_Value.Font = new System.Drawing.Font("LG Smart", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Brightness_Value.Location = new System.Drawing.Point(621, 374);
-            this.label_Brightness_Value.Name = "label_Brightness_Value";
-            this.label_Brightness_Value.Size = new System.Drawing.Size(71, 18);
-            this.label_Brightness_Value.TabIndex = 26;
-            this.label_Brightness_Value.Text = "Brightness";
+            this.label_Current_Brightness_Value.AutoSize = true;
+            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Current_Brightness_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Current_Brightness_Value.Location = new System.Drawing.Point(672, 374);
+            this.label_Current_Brightness_Value.Name = "label_Current_Brightness_Value";
+            this.label_Current_Brightness_Value.Size = new System.Drawing.Size(75, 17);
+            this.label_Current_Brightness_Value.TabIndex = 26;
+            this.label_Current_Brightness_Value.Text = "Brightness";
             // 
             // pictureBox1
             // 
@@ -325,22 +343,33 @@
             this.pictureBox4.TabIndex = 29;
             this.pictureBox4.TabStop = false;
             // 
+            // label_Warning
+            // 
+            this.label_Warning.AutoSize = true;
+            this.label_Warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Warning.Location = new System.Drawing.Point(306, 475);
+            this.label_Warning.Name = "label_Warning";
+            this.label_Warning.Size = new System.Drawing.Size(83, 17);
+            this.label_Warning.TabIndex = 30;
+            this.label_Warning.Text = "Warning...";
+            // 
             // ManageMultiMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(752, 501);
+            this.Controls.Add(this.label_Warning);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label_Contrast_Value);
-            this.Controls.Add(this.label_Brightness_Value);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label_Current_Contrast_Value);
+            this.Controls.Add(this.label_Current_Brightness_Value);
+            this.Controls.Add(this.label_Setting);
             this.Controls.Add(this.label_FriendlyName);
             this.Controls.Add(this.lv_Monitors);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Multi_Monitor);
+            this.Controls.Add(this.label_Contrast);
+            this.Controls.Add(this.label_Brightness);
             this.Controls.Add(this.trackBar_Contrast);
             this.Controls.Add(this.trackBar_Brightness);
             this.Controls.Add(this.cb_SetAsPrimary);
@@ -381,8 +410,8 @@
         private System.Windows.Forms.CheckBox cb_SetAsPrimary;
         private System.Windows.Forms.TrackBar trackBar_Brightness;
         private System.Windows.Forms.TrackBar trackBar_Contrast;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_Brightness;
+        private System.Windows.Forms.Label label_Contrast;
         private System.Windows.Forms.Label label_Primary;
         //private System.Windows.Forms.Label label_ProductName;
         private System.Windows.Forms.Label label_Resolution;
@@ -395,16 +424,17 @@
         private System.Windows.Forms.TextBox textBox_BitPerPixel;
         private System.Windows.Forms.TextBox textBox_Resolution;
         //private System.Windows.Forms.TextBox textBox_FriendlyName;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_Multi_Monitor;
         private System.Windows.Forms.ListView lv_Monitors;
         private System.Windows.Forms.Label label_FriendlyName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label_Contrast_Value;
-        private System.Windows.Forms.Label label_Brightness_Value;
+        private System.Windows.Forms.Label label_Setting;
+        private System.Windows.Forms.Label label_Current_Contrast_Value;
+        private System.Windows.Forms.Label label_Current_Brightness_Value;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label_Warning;
 
 #if SUPPORT_MONITOR_OFF_FEATURE
         private System.Windows.Forms.CheckBox cb_MonitorOff;

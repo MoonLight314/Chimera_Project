@@ -177,13 +177,25 @@
   <data name="DisabledHotKey" xml:space="preserve">
     <value>--DISABLED--</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LGSmHaB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\LGSmHaB.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LGSmHaL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\LGSmHaL.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LGSmHaR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\LGSmHaR.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LGSmHaSB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\LGSmHaSB.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="LockCursorDescription" xml:space="preserve">
     <value>Cursor Movement Between Screens is Lock</value>
   </data>
   <data name="LockCursorWin7" xml:space="preserve">
     <value />
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Manager_Form_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Manager_Form_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

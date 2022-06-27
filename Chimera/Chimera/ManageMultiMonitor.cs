@@ -100,8 +100,8 @@ namespace Chimera
             lv_Monitors.Columns.Add("Column1Name");
 
             ImageList ilt = new ImageList();
-            ListViewItem item;
-            ilt.ImageSize = new Size(32, 32);
+            ListViewItem item;            
+            ilt.ImageSize = new Size(48, 48);
 
             Image[] img = { Properties.Resources.Monitor_No_01,
                             Properties.Resources.Monitor_No_02,
@@ -191,11 +191,13 @@ namespace Chimera
             trackBar_Brightness.Enabled = true;
             trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness, (int)msi.displaydevice.MaxBrightness);
             trackBar_Brightness.Value = (int)msi.displaydevice.CurBrightness;
+            label_Current_Brightness_Value.Text = msi.displaydevice.CurBrightness.ToString();
 
             /* Contrast */
             trackBar_Contrast.Enabled = true;
             trackBar_Contrast.SetRange((int)msi.MinimumContrast, (int)msi.MaximumContrast);
             trackBar_Contrast.Value = (int)msi.CurrentContrast;
+            label_Current_Contrast_Value.Text = msi.CurrentContrast.ToString();
         }
 
 
@@ -380,15 +382,105 @@ namespace Chimera
 
 
 
-        /**/
+
+        /// <summary>
+        /// Brightness Track Bar 변경시 Brightness 값 변경 및 UI Update
+        /// </summary>
         private void trackBar_Brightness_Scroll(object sender, EventArgs e)
         {
             _displayDevices.ChangeMonitorBrightness(lv_Monitors.SelectedIndices[0], (uint)trackBar_Brightness.Value);
+            UpdateBrightness();
         }
 
-        private void trackBar_Contrast_Scroll(object sender, EventArgs e)
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateBrightness()
         {
+            uint minBrightness = 0, maxBrightness = 0, curBrightness = 0;
+
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                /* 선택한 Monitor에 대한 정보를 표시한다. */
+                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                {
+                    DisplayDevice displayDevice = msi.displaydevice;
+
+                    if (displayDevice != null)
+                    {
+                        uint numPhysicalMonitors = 0;
+
+                        IntPtr hMonitor = _displayDevices.Items[lv_Monitors.SelectedIndices[0]].MonitorHandle;
+
+                        NativeMethods.GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, ref numPhysicalMonitors);
+
+                        // we just handle the simple case for now, 
+                        // otherwise we will have difficulty mapping between the physical monitors
+                        // and out display devices
+                        if (numPhysicalMonitors == 1)
+                        {
+                            NativeMethods.PHYSICAL_MONITOR[] physicalMonitors = new NativeMethods.PHYSICAL_MONITOR[numPhysicalMonitors];
+                            if (NativeMethods.GetPhysicalMonitorsFromHMONITOR(hMonitor, numPhysicalMonitors, physicalMonitors))
+                            {
+                                for (int i = 0; i < numPhysicalMonitors; i++)
+                                {
+                                    bool ret = NativeMethods.GetMonitorBrightness(physicalMonitors[i].hPhysicalMonitor, out minBrightness, out curBrightness, out maxBrightness);
+                                }
+                            }
+
+                            // release any resources used while looking at this virtual monitor
+                            // TODO: do we really need to call this if GetPhysicalMonitorsFromHMONITOR fails?
+                            NativeMethods.DestroyPhysicalMonitors(numPhysicalMonitors, physicalMonitors);
+                        }
+                    }
+
+                    msi.displaydevice.CurBrightness = curBrightness;
+                    DisplaySelectedMonitorInfo(msi);
+                    return;
+                }
+            }
+        }
+
+
+
+
+
+        /// <summary>
+        /// Contrast Track Bar 변경시 Contrast 값 변경 및 UI Update
+        /// </summary>
+        private void trackBar_Contrast_Scroll(object sender, EventArgs e)
+        {            
             _displayDevices.ChangeMonitorContrast(lv_Monitors.SelectedIndices[0], (uint)trackBar_Contrast.Value);
+            UpdateContrast();
+        }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateContrast()
+        {
+            uint pdwMinimumContrast = 0, pdwCurrentContrast = 0, pdwMaximumContrast = 0;
+
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                /* 선택한 Monitor에 대한 정보를 표시한다. */
+                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                {
+                    _displayDevices.GetMonitorContrast(lv_Monitors.SelectedIndices[0], ref pdwMinimumContrast, ref pdwCurrentContrast, ref pdwMaximumContrast);
+                    msi.CurrentContrast = pdwCurrentContrast;
+                    DisplaySelectedMonitorInfo(msi);
+                    return;
+                }
+            }       
+            
         }
 
 

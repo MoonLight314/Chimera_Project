@@ -241,6 +241,46 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] LGSmHaB {
+            get {
+                object obj = ResourceManager.GetObject("LGSmHaB", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] LGSmHaL {
+            get {
+                object obj = ResourceManager.GetObject("LGSmHaL", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] LGSmHaR {
+            get {
+                object obj = ResourceManager.GetObject("LGSmHaR", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] LGSmHaSB {
+            get {
+                object obj = ResourceManager.GetObject("LGSmHaSB", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cursor Movement Between Screens is Lock과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string LockCursorDescription {

@@ -187,6 +187,10 @@ namespace Chimera
                     {
                         NativeDisplayMethods.GetMonitorContrast(physicalMonitors[0].hPhysicalMonitor, 
                                                                 out min, out current, out max);
+
+                        //uint dwMonitorCapabilities = 0;
+                        //uint dwSupportedColorTemperatures = 0;
+                        //NativeDisplayMethods.GetMonitorCapabilities(physicalMonitors[0].hPhysicalMonitor, out dwMonitorCapabilities, out dwSupportedColorTemperatures);
                     }
 
                     // release any resources used while looking at this virtual monitor
