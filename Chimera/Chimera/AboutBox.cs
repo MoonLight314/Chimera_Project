@@ -47,6 +47,9 @@ namespace Chimera
         public AboutBox()
         {
             InitializeComponent();
+
+            InitUI();
+
             dele = new WinEventDelegate(WinEventProc);
             IntPtr m_hhook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_MINIMIZEEND,//EVENT_SYSTEM_FOREGROUND, 
                                                 IntPtr.Zero, 
@@ -57,10 +60,25 @@ namespace Chimera
         }
 
 
-        private void aboutBox_OK_click(object sender, EventArgs e)
+        private void InitUI()
         {
-            this.Close();
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            /*  */
+            this.BackColor = Color.FromArgb(255, 255, 255);
+
+            /*  */
+            pictureBox_Product_Image.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox_Product_Image.Image = Properties.Resources.About_Box_Logo_Image;
+
+            /*  */
+            this.label_AboutBox.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Monitor_Manager.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
+
+
 
 
         private string GetActiveWindowTitle()

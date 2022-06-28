@@ -66,11 +66,10 @@
             // 
             this.cb_SetAsPrimary.AutoSize = true;
             this.cb_SetAsPrimary.Enabled = false;
-            this.cb_SetAsPrimary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_SetAsPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.cb_SetAsPrimary.Location = new System.Drawing.Point(311, 306);
             this.cb_SetAsPrimary.Name = "cb_SetAsPrimary";
-            this.cb_SetAsPrimary.Size = new System.Drawing.Size(125, 22);
+            this.cb_SetAsPrimary.Size = new System.Drawing.Size(109, 16);
             this.cb_SetAsPrimary.TabIndex = 15;
             this.cb_SetAsPrimary.Text = "Set As Primary";
             this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
@@ -100,77 +99,70 @@
             // label_Brightness
             // 
             this.label_Brightness.AutoSize = true;
-            this.label_Brightness.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Brightness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Brightness.Location = new System.Drawing.Point(304, 374);
             this.label_Brightness.Name = "label_Brightness";
-            this.label_Brightness.Size = new System.Drawing.Size(78, 18);
+            this.label_Brightness.Size = new System.Drawing.Size(65, 12);
             this.label_Brightness.TabIndex = 13;
             this.label_Brightness.Text = "Brightness";
             // 
             // label_Contrast
             // 
             this.label_Contrast.AutoSize = true;
-            this.label_Contrast.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Contrast.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Contrast.Location = new System.Drawing.Point(304, 414);
             this.label_Contrast.Name = "label_Contrast";
-            this.label_Contrast.Size = new System.Drawing.Size(65, 18);
+            this.label_Contrast.Size = new System.Drawing.Size(52, 12);
             this.label_Contrast.TabIndex = 19;
             this.label_Contrast.Text = "Contrast";
             // 
             // label_Primary
             // 
             this.label_Primary.AutoSize = true;
-            this.label_Primary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Primary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Primary.Location = new System.Drawing.Point(304, 109);
             this.label_Primary.Name = "label_Primary";
-            this.label_Primary.Size = new System.Drawing.Size(63, 17);
+            this.label_Primary.Size = new System.Drawing.Size(49, 12);
             this.label_Primary.TabIndex = 1;
             this.label_Primary.Text = "Primary";
             // 
             // label_Resolution
             // 
             this.label_Resolution.AutoSize = true;
-            this.label_Resolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Resolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Resolution.Location = new System.Drawing.Point(304, 132);
             this.label_Resolution.Name = "label_Resolution";
-            this.label_Resolution.Size = new System.Drawing.Size(85, 17);
+            this.label_Resolution.Size = new System.Drawing.Size(64, 12);
             this.label_Resolution.TabIndex = 3;
             this.label_Resolution.Text = "Resolution";
             // 
             // label_BitPerPixel
             // 
             this.label_BitPerPixel.AutoSize = true;
-            this.label_BitPerPixel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_BitPerPixel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_BitPerPixel.Location = new System.Drawing.Point(304, 155);
             this.label_BitPerPixel.Name = "label_BitPerPixel";
-            this.label_BitPerPixel.Size = new System.Drawing.Size(38, 17);
+            this.label_BitPerPixel.Size = new System.Drawing.Size(29, 12);
             this.label_BitPerPixel.TabIndex = 4;
             this.label_BitPerPixel.Text = "BPP";
             // 
             // label_Output
             // 
             this.label_Output.AutoSize = true;
-            this.label_Output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Output.Location = new System.Drawing.Point(304, 178);
             this.label_Output.Name = "label_Output";
-            this.label_Output.Size = new System.Drawing.Size(57, 17);
+            this.label_Output.Size = new System.Drawing.Size(41, 12);
             this.label_Output.TabIndex = 5;
             this.label_Output.Text = "Output";
             // 
             // label_Rotation
             // 
             this.label_Rotation.AutoSize = true;
-            this.label_Rotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Rotation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Rotation.Location = new System.Drawing.Point(304, 201);
             this.label_Rotation.Name = "label_Rotation";
-            this.label_Rotation.Size = new System.Drawing.Size(69, 17);
+            this.label_Rotation.Size = new System.Drawing.Size(50, 12);
             this.label_Rotation.TabIndex = 6;
             this.label_Rotation.Text = "Rotation";
             // 
@@ -178,77 +170,70 @@
             // 
             this.textBox_Primary.BackColor = System.Drawing.Color.White;
             this.textBox_Primary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Primary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Primary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Primary.Location = new System.Drawing.Point(434, 109);
             this.textBox_Primary.Name = "textBox_Primary";
             this.textBox_Primary.ReadOnly = true;
-            this.textBox_Primary.Size = new System.Drawing.Size(203, 16);
+            this.textBox_Primary.Size = new System.Drawing.Size(203, 14);
             this.textBox_Primary.TabIndex = 7;
             // 
             // textBox_Rotation
             // 
             this.textBox_Rotation.BackColor = System.Drawing.Color.White;
             this.textBox_Rotation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Rotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Rotation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Rotation.Location = new System.Drawing.Point(434, 201);
             this.textBox_Rotation.Name = "textBox_Rotation";
             this.textBox_Rotation.ReadOnly = true;
-            this.textBox_Rotation.Size = new System.Drawing.Size(203, 16);
+            this.textBox_Rotation.Size = new System.Drawing.Size(203, 14);
             this.textBox_Rotation.TabIndex = 8;
             // 
             // textBox_OutputTech
             // 
             this.textBox_OutputTech.BackColor = System.Drawing.Color.White;
             this.textBox_OutputTech.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_OutputTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_OutputTech.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_OutputTech.Location = new System.Drawing.Point(434, 178);
             this.textBox_OutputTech.Name = "textBox_OutputTech";
             this.textBox_OutputTech.ReadOnly = true;
-            this.textBox_OutputTech.Size = new System.Drawing.Size(203, 16);
+            this.textBox_OutputTech.Size = new System.Drawing.Size(203, 14);
             this.textBox_OutputTech.TabIndex = 9;
             // 
             // textBox_BitPerPixel
             // 
             this.textBox_BitPerPixel.BackColor = System.Drawing.Color.White;
             this.textBox_BitPerPixel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_BitPerPixel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_BitPerPixel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_BitPerPixel.Location = new System.Drawing.Point(434, 155);
             this.textBox_BitPerPixel.Name = "textBox_BitPerPixel";
             this.textBox_BitPerPixel.ReadOnly = true;
-            this.textBox_BitPerPixel.Size = new System.Drawing.Size(203, 16);
+            this.textBox_BitPerPixel.Size = new System.Drawing.Size(203, 14);
             this.textBox_BitPerPixel.TabIndex = 10;
             // 
             // textBox_Resolution
             // 
             this.textBox_Resolution.BackColor = System.Drawing.Color.White;
             this.textBox_Resolution.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Resolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Resolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.textBox_Resolution.Location = new System.Drawing.Point(434, 132);
             this.textBox_Resolution.Name = "textBox_Resolution";
             this.textBox_Resolution.ReadOnly = true;
-            this.textBox_Resolution.Size = new System.Drawing.Size(203, 16);
+            this.textBox_Resolution.Size = new System.Drawing.Size(203, 14);
             this.textBox_Resolution.TabIndex = 11;
             // 
             // label_Multi_Monitor
             // 
             this.label_Multi_Monitor.AutoSize = true;
-            this.label_Multi_Monitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Multi_Monitor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Multi_Monitor.Location = new System.Drawing.Point(33, 45);
             this.label_Multi_Monitor.Name = "label_Multi_Monitor";
-            this.label_Multi_Monitor.Size = new System.Drawing.Size(131, 24);
+            this.label_Multi_Monitor.Size = new System.Drawing.Size(80, 12);
             this.label_Multi_Monitor.TabIndex = 20;
             this.label_Multi_Monitor.Text = "Multi-Monitor";
             // 
             // lv_Monitors
             // 
             this.lv_Monitors.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lv_Monitors.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_Monitors.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lv_Monitors.Location = new System.Drawing.Point(24, 93);
             this.lv_Monitors.MultiSelect = false;
@@ -262,11 +247,10 @@
             // label_FriendlyName
             // 
             this.label_FriendlyName.AutoSize = true;
-            this.label_FriendlyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_FriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_FriendlyName.Location = new System.Drawing.Point(304, 42);
             this.label_FriendlyName.Name = "label_FriendlyName";
-            this.label_FriendlyName.Size = new System.Drawing.Size(184, 29);
+            this.label_FriendlyName.Size = new System.Drawing.Size(88, 12);
             this.label_FriendlyName.TabIndex = 23;
             this.label_FriendlyName.Text = "Friendly Name";
             // 
@@ -283,11 +267,10 @@
             // label_Setting
             // 
             this.label_Setting.AutoSize = true;
-            this.label_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Setting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.label_Setting.Location = new System.Drawing.Point(304, 268);
             this.label_Setting.Name = "label_Setting";
-            this.label_Setting.Size = new System.Drawing.Size(67, 20);
+            this.label_Setting.Size = new System.Drawing.Size(43, 12);
             this.label_Setting.TabIndex = 25;
             this.label_Setting.Text = "Setting";
             // 
@@ -304,22 +287,20 @@
             // label_Current_Contrast_Value
             // 
             this.label_Current_Contrast_Value.AutoSize = true;
-            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Current_Contrast_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Contrast_Value.Location = new System.Drawing.Point(672, 414);
             this.label_Current_Contrast_Value.Name = "label_Current_Contrast_Value";
-            this.label_Current_Contrast_Value.Size = new System.Drawing.Size(61, 17);
+            this.label_Current_Contrast_Value.Size = new System.Drawing.Size(52, 12);
             this.label_Current_Contrast_Value.TabIndex = 27;
             this.label_Current_Contrast_Value.Text = "Contrast";
             // 
             // label_Current_Brightness_Value
             // 
             this.label_Current_Brightness_Value.AutoSize = true;
-            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Current_Brightness_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Brightness_Value.Location = new System.Drawing.Point(672, 374);
             this.label_Current_Brightness_Value.Name = "label_Current_Brightness_Value";
-            this.label_Current_Brightness_Value.Size = new System.Drawing.Size(75, 17);
+            this.label_Current_Brightness_Value.Size = new System.Drawing.Size(65, 12);
             this.label_Current_Brightness_Value.TabIndex = 26;
             this.label_Current_Brightness_Value.Text = "Brightness";
             // 
@@ -355,8 +336,7 @@
             // 
             // ManageMultiMonitor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(752, 501);
             this.Controls.Add(this.label_Warning);
@@ -390,6 +370,7 @@
             this.MinimizeBox = false;
             this.Name = "ManageMultiMonitor";
             this.Opacity = 0.94D;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).EndInit();

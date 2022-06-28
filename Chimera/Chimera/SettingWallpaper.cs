@@ -25,16 +25,17 @@ namespace Chimera
         private List<int> selectedScreens = new List<int>();
         private Rectangle previewRect;
 
-        private Point point;
         private int clickedScreenIndex;     /* Picture Preview 화면에서 선택된 Screen의 Index */
 
         IList<DisplayDevice> allMonitorInfo;
 
-        public SettingWallpaper( IList<DisplayDevice> allMonitorProperties)
+        public SettingWallpaper(IList<DisplayDevice> allMonitorProperties)
         {
             InitializeComponent();
 
             allMonitorInfo = allMonitorProperties;
+
+            InitUI();
 
             FillFitCombo();
             CalcPreviewRect();
@@ -44,8 +45,24 @@ namespace Chimera
             clickedScreenIndex = 0;
 
             // automatically select the first screen
-            AddSelectedScreen( clickedScreenIndex );
+            AddSelectedScreen(clickedScreenIndex);
         }
+
+
+
+
+
+        private void InitUI()
+        {
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            /*  */
+            this.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+
 
 
 
@@ -95,7 +112,7 @@ namespace Chimera
 
         private void CreateWallpaper()
         {
-            if( wallpaper != null )
+            if (wallpaper != null)
             {
                 wallpaper.Dispose();
             }
@@ -135,18 +152,18 @@ namespace Chimera
             foreach (int screen in selectedScreens)
             {
                 /* Friendly Name */
-                FriendlyName = GetMonitorFriendlyName( Screen.AllScreens[screen] );
+                FriendlyName = GetMonitorFriendlyName(Screen.AllScreens[screen]);
 
                 if (screenText.Length > 0)
                 {
                     screenText += ", ";
                 }
-                screenText += String.Format("{0} : {1}", screen + 1 , FriendlyName );
+                screenText += String.Format("{0} : {1}", screen + 1, FriendlyName);
             }
 
             /* Friendly Name */
             labelScreensSelected.Text = screenText;
-            
+
         }
 
 
@@ -154,11 +171,11 @@ namespace Chimera
         /// <summary>
 		/// 
 		/// </summary>
-        string GetMonitorFriendlyName( Screen selectedscreen )
+        string GetMonitorFriendlyName(Screen selectedscreen)
         {
-            foreach( DisplayDevice dd in allMonitorInfo )
+            foreach (DisplayDevice dd in allMonitorInfo)
             {
-                if( dd.IsActive )
+                if (dd.IsActive)
                 {
                     if (dd.SourceName == selectedscreen.DeviceName)
                         return dd.FriendlyName;
@@ -264,7 +281,7 @@ namespace Chimera
             }
 
             // display preview
-            if(Preview_PictureBox.Image != null )
+            if (Preview_PictureBox.Image != null)
             {
                 Preview_PictureBox.Image.Dispose();
             }
@@ -285,9 +302,9 @@ namespace Chimera
 
         private void AddSelectedScreen(int screenIndex)
         {
-            if( !IsScreenSelected( screenIndex ) )
+            if (!IsScreenSelected(screenIndex))
             {
-                selectedScreens.Add( screenIndex );
+                selectedScreens.Add(screenIndex);
                 OnSeclectedScreensChanged();
             }
         }
@@ -309,8 +326,8 @@ namespace Chimera
 
             /* Resource 추가 방법
              * https://dlwodus.tistory.com/211
-             *  */           
-            
+             *  */
+
             dlg.Filter = Properties.Resources.OpenImageFilter;
 
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -319,7 +336,7 @@ namespace Chimera
                 TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].ImageFilePath;
 
                 try
-                {                    
+                {
                     ApplyImage();
                 }
                 catch (Exception ex)
@@ -341,7 +358,7 @@ namespace Chimera
             // if we try to save the wallpaper back here later on
 
             //image = Bitmap.FromFile( TextBox_Image_File_Path.Text );
-            image = Bitmap.FromFile( imageFilename );
+            image = Bitmap.FromFile(imageFilename);
 
             // Solution 2
             //// the following seems to work, but is not recommened as the documentation
@@ -378,15 +395,15 @@ namespace Chimera
 
 
         private void ApplyImage()
-        {            
-            if(controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0 )
+        {
+            if (controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0)
             {
                 /* load image file */
                 try
                 {
-                    Image image = LoadImageFromFile( controller.AllScreens[clickedScreenIndex].ImageFilePath );
+                    Image image = LoadImageFromFile(controller.AllScreens[clickedScreenIndex].ImageFilePath);
 
-                    Stretch stretchType = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);                    
+                    Stretch stretchType = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);
 
                     //Debug.Assert(stretchType != null);
                     controller.AddImage(image, stretchType.Type);
@@ -496,7 +513,7 @@ namespace Chimera
         private void ChangedStretchMode(object sender, EventArgs e)
         {
 
-            if ( comboBoxFit.SelectedIndex >= 0 )
+            if (comboBoxFit.SelectedIndex >= 0)
             {
                 Stretch stretchType = comboBoxFit.SelectedItem as Stretch;
                 controller.AllScreens[clickedScreenIndex].StetchType = stretchType.ToString(true);
@@ -504,37 +521,5 @@ namespace Chimera
             }
         }
 
-        private void titlebar_panel_MouseDown(object sender, MouseEventArgs e)
-        {
-            point = new Point(e.X, e.Y);
-        }
-
-
-        private void titlebar_panel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
-            {
-                this.Location = new Point(this.Left - (point.X - e.X), this.Top - (point.Y - e.Y));
-            }
-        }
-
-
-
-
-
-        private void titlebar_label_MouseDown(object sender, MouseEventArgs e)
-        {
-            point = new Point(e.X, e.Y);
-        }
-
-
-
-        private void titlebar_label_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
-            {
-                this.Location = new Point(this.Left - (point.X - e.X), this.Top - (point.Y - e.Y));
-            }
-        }
     }
 }

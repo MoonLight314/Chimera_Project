@@ -28,49 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
-            this.aboutBox_OK = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_AboutBox = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button_Test = new System.Windows.Forms.Button();
             this.Log = new System.Windows.Forms.TextBox();
+            this.label_Monitor_Manager = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Product_Image = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product_Image)).BeginInit();
             this.SuspendLayout();
             // 
-            // aboutBox_OK
+            // label_AboutBox
             // 
-            this.aboutBox_OK.Location = new System.Drawing.Point(318, 286);
-            this.aboutBox_OK.Name = "aboutBox_OK";
-            this.aboutBox_OK.Size = new System.Drawing.Size(104, 30);
-            this.aboutBox_OK.TabIndex = 0;
-            this.aboutBox_OK.Text = "OK";
-            this.aboutBox_OK.UseVisualStyleBackColor = true;
-            this.aboutBox_OK.Click += new System.EventHandler(this.aboutBox_OK_click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Multi Monitor Manager";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(27, 121);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 132);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.label_AboutBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_AboutBox.Location = new System.Drawing.Point(35, 40);
+            this.label_AboutBox.Name = "label_AboutBox";
+            this.label_AboutBox.Size = new System.Drawing.Size(83, 24);
+            this.label_AboutBox.TabIndex = 1;
+            this.label_AboutBox.Text = "About...";
             // 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(337, 234);
+            this.linkLabel1.Location = new System.Drawing.Point(43, 457);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(74, 12);
             this.linkLabel1.TabIndex = 3;
@@ -79,7 +61,7 @@
             // 
             // button_Test
             // 
-            this.button_Test.Location = new System.Drawing.Point(287, 38);
+            this.button_Test.Location = new System.Drawing.Point(12, 320);
             this.button_Test.Name = "button_Test";
             this.button_Test.Size = new System.Drawing.Size(104, 30);
             this.button_Test.TabIndex = 4;
@@ -89,7 +71,7 @@
             // 
             // Log
             // 
-            this.Log.Location = new System.Drawing.Point(197, 120);
+            this.Log.Location = new System.Drawing.Point(12, 356);
             this.Log.Multiline = true;
             this.Log.Name = "Log";
             this.Log.ReadOnly = true;
@@ -97,36 +79,79 @@
             this.Log.Size = new System.Drawing.Size(214, 79);
             this.Log.TabIndex = 5;
             // 
+            // label_Monitor_Manager
+            // 
+            this.label_Monitor_Manager.AutoSize = true;
+            this.label_Monitor_Manager.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Monitor_Manager.Location = new System.Drawing.Point(35, 95);
+            this.label_Monitor_Manager.Name = "label_Monitor_Manager";
+            this.label_Monitor_Manager.Size = new System.Drawing.Size(132, 12);
+            this.label_Monitor_Manager.TabIndex = 6;
+            this.label_Monitor_Manager.Text = "Multi Monitor Manager";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pictureBox1.Location = new System.Drawing.Point(272, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(496, 2);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pictureBox4.Location = new System.Drawing.Point(272, 6);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(2, 506);
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox_Product_Image
+            // 
+            this.pictureBox_Product_Image.Location = new System.Drawing.Point(303, 72);
+            this.pictureBox_Product_Image.Name = "pictureBox_Product_Image";
+            this.pictureBox_Product_Image.Size = new System.Drawing.Size(448, 317);
+            this.pictureBox_Product_Image.TabIndex = 7;
+            this.pictureBox_Product_Image.TabStop = false;
+            // 
             // AboutBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 328);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.pictureBox_Product_Image);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label_Monitor_Manager);
             this.Controls.Add(this.Log);
             this.Controls.Add(this.button_Test);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.aboutBox_OK);
+            this.Controls.Add(this.label_AboutBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";
-            this.Text = "AboutBox";
+            this.Opacity = 0.9D;
+            this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product_Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button aboutBox_OK;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label_AboutBox;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button_Test;
         private System.Windows.Forms.TextBox Log;
+        private System.Windows.Forms.Label label_Monitor_Manager;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox_Product_Image;
     }
 }

@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Drawing.Drawing2D;
 using Chimera.Resources;
+
 
 namespace Chimera
 {
@@ -19,6 +21,11 @@ namespace Chimera
         DisplayDevices _displayDevices;
         String CurrentSelMonitorName;
 
+        #if SUPPORT_CUSTOM_TRACKBAR
+        float cusTrackBar_Min, cusTrackBar_Max;
+        float Default_value = 0.1f;
+        bool cusTrackBar_Mouse_Pushed;
+        #endif
 
 
         /*   */
@@ -28,10 +35,7 @@ namespace Chimera
             InitializeComponent();
 
             /*  */
-            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
-            this.BackColor = Color.FromArgb(255, 255, 255);
+            
 
             MonitorSettingInfo = new List<MonitorSetInfo>();
 
@@ -44,6 +48,11 @@ namespace Chimera
             /*  */
             InitUI();
 
+            #if SUPPORT_CUSTOM_TRACKBAR
+            cusTrackBar_Min = 0.0f;
+            cusTrackBar_Max = 1.0f;
+            cusTrackBar_Mouse_Pushed = false;
+            #endif
         }
 
 
@@ -86,17 +95,15 @@ namespace Chimera
         /// </summary>
         void InitUI()
         {
-#if TEST
-            tv_Monitor_List.Nodes.Add("All Monitors");
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
 
-            foreach (MonitorSetInfo msi in MonitorSettingInfo)
-            {
-                tv_Monitor_List.Nodes[0].Nodes.Add(msi.displaydevice.FriendlyName);
-            }
-#endif
+            /*  */
+            this.BackColor = Color.FromArgb(255, 255, 255);
 
+            /*  */
             lv_Monitors.View = View.Tile;
-
             lv_Monitors.Columns.Add("Column1Name");
 
             ImageList ilt = new ImageList();
@@ -111,6 +118,7 @@ namespace Chimera
                 ilt.Images.Add(i);
 
             lv_Monitors.LargeImageList = ilt;
+
 
             /**/
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
@@ -127,6 +135,28 @@ namespace Chimera
 
             lv_Monitors.Select();
             lv_Monitors.Items[0].Selected = true;
+
+            /*  */
+            this.cb_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Brightness.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Contrast.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Primary.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Resolution.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Output.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Rotation.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Primary.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Rotation.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_OutputTech.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Resolution.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Multi_Monitor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_Monitors.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FriendlyName.Font = new System.Drawing.Font("LG스마트체 Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Setting.Font = new System.Drawing.Font("LG스마트체 SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
 
         }
 
@@ -519,9 +549,71 @@ namespace Chimera
 
         }
 
+#if SUPPORT_CUSTOM_TRACKBAR
+        private void cusTrackbar_Brightness_Paint(object sender, PaintEventArgs e)
+        {
+            float bar_size = 0.45f;
+            float x = ConversionValueToXPosition( Default_value );
+            int y = (int)(cusTrackbar_Brightness.Height * bar_size);
+
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.FillRectangle(Brushes.DimGray, 0, y, cusTrackbar_Brightness.Width, y / 2);
+            e.Graphics.FillRectangle(Brushes.Red, 0, y, x, cusTrackbar_Brightness.Height - 2 * y);
+
+            using (Pen pen = new Pen(Color.Black, 8))
+            {
+                e.Graphics.DrawEllipse(pen, x + 4, y - 2, cusTrackbar_Brightness.Height / 2, cusTrackbar_Brightness.Height / 2);
+                e.Graphics.FillEllipse(Brushes.Red, x + 4, y - 6, cusTrackbar_Brightness.Height / 2, cusTrackbar_Brightness.Height / 2);
+            }
+
+            //using (Pen pen = new Pen(Color.White, 5))
+            //{
+            //    e.Graphics.DrawEllipse(pen, x + 4, y - 6, cusTrackbar_Brightness.Height / 2, cusTrackbar_Brightness.Height / 2);
+            //}
+        }
 
 
+        public float ConversionValueToXPosition(float value)
+        {
+            return (cusTrackbar_Brightness.Width - 12) * (value - cusTrackBar_Min) / (float)(cusTrackBar_Max - cusTrackBar_Min);
+        }
 
+
+        public float slider_width(int x)
+        {
+            return cusTrackBar_Min + (cusTrackBar_Max - cusTrackBar_Min) * x / (float)(cusTrackbar_Brightness.Width);
+        }
+
+        private void cusTrackbar_Brightness_MouseDown(object sender, MouseEventArgs e)
+        {
+            cusTrackBar_Mouse_Pushed = true;
+            float a = slider_width(e.X);
+            thumb(a);
+        }
+
+        private void cusTrackbar_Brightness_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ( !cusTrackBar_Mouse_Pushed )
+                return;
+
+            float a = slider_width(e.X);
+            thumb(a);
+        }
+
+        private void cusTrackbar_Brightness_MouseUp(object sender, MouseEventArgs e)
+        {
+            cusTrackBar_Mouse_Pushed = false;
+        }
+
+        public void thumb(float value)
+        {
+            if (value < cusTrackBar_Min) value = cusTrackBar_Min;
+            if (value > cusTrackBar_Max) value = cusTrackBar_Max;
+
+            Default_value = value;
+            cusTrackbar_Brightness.Refresh();
+        }
+#endif
     }
 
 
@@ -548,8 +640,9 @@ namespace Chimera
             CurrentContrast = 0;
             MaximumContrast = 0;
         }
-
     }
+
+
 
 
 }

@@ -1,4 +1,6 @@
-﻿namespace Chimera
+﻿using System.Drawing;
+
+namespace Chimera
 {
     partial class BaseForm
     {
@@ -49,8 +51,9 @@
             this.notifyIcon1.BalloonTipText = "Moon";
             this.notifyIcon1.BalloonTipTitle = "MoonLight";
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Chimera";
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.notifyIcon1.Icon = Icon.FromHandle(bmp.GetHicon());
+            this.notifyIcon1.Text = "Multi-Monitor Manager";
             this.notifyIcon1.Visible = true;
             // 
             // contextMenuStrip1
@@ -87,7 +90,6 @@
             // 
             // manageToolStripMenuItem
             // 
-            this.manageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageToolStripMenuItem.Image")));
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             this.manageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.manageToolStripMenuItem.Text = "Manage";

@@ -42,35 +42,25 @@ namespace Chimera
             this.labelScreensSelected = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxFit = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label_titlebar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Preview_PictureBox)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ID_Exit
             // 
-            this.ID_Exit.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ID_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ID_Exit.BackgroundImage")));
-            this.ID_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ID_Exit.Location = new System.Drawing.Point(547, 440);
             this.ID_Exit.Name = "ID_Exit";
             this.ID_Exit.Size = new System.Drawing.Size(180, 72);
             this.ID_Exit.TabIndex = 0;
             this.ID_Exit.Text = "Exit";
-            this.ID_Exit.UseVisualStyleBackColor = false;
             this.ID_Exit.Click += new System.EventHandler(this.ID_Exit_Click);
             // 
             // Set_Wallpaper
             // 
-            this.Set_Wallpaper.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Set_Wallpaper.BackgroundImage")));
-            this.Set_Wallpaper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Set_Wallpaper.Location = new System.Drawing.Point(361, 440);
             this.Set_Wallpaper.Name = "Set_Wallpaper";
             this.Set_Wallpaper.Size = new System.Drawing.Size(180, 72);
             this.Set_Wallpaper.TabIndex = 1;
             this.Set_Wallpaper.Text = "Set Wallpaper";
-            this.Set_Wallpaper.UseVisualStyleBackColor = true;
             this.Set_Wallpaper.Click += new System.EventHandler(this.Set_Wallpaper_Click);
             // 
             // Preview_PictureBox
@@ -139,36 +129,11 @@ namespace Chimera
             this.comboBoxFit.TabIndex = 9;
             this.comboBoxFit.SelectedIndexChanged += new System.EventHandler(this.ChangedStretchMode);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.label_titlebar);
-            this.panel1.Location = new System.Drawing.Point(0, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(741, 44);
-            this.panel1.TabIndex = 10;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlebar_panel_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlebar_panel_MouseMove);
-            // 
-            // label_titlebar
-            // 
-            this.label_titlebar.AutoSize = true;
-            this.label_titlebar.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label_titlebar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_titlebar.Location = new System.Drawing.Point(3, 13);
-            this.label_titlebar.Name = "label_titlebar";
-            this.label_titlebar.Size = new System.Drawing.Size(190, 16);
-            this.label_titlebar.TabIndex = 11;
-            this.label_titlebar.Text = "Multi Monitor Manager";
-            this.label_titlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlebar_label_MouseDown);
-            this.label_titlebar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlebar_label_MouseMove);
-            // 
             // SettingWallpaper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 524);
-            this.Controls.Add(this.panel1);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(769, 506);
             this.Controls.Add(this.comboBoxFit);
             this.Controls.Add(this.labelScreensSelected);
             this.Controls.Add(this.label1);
@@ -178,15 +143,13 @@ namespace Chimera
             this.Controls.Add(this.Preview_PictureBox);
             this.Controls.Add(this.Set_Wallpaper);
             this.Controls.Add(this.ID_Exit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingWallpaper";
             this.ShowInTaskbar = false;
             this.Text = "Set Wallpaper";
             ((System.ComponentModel.ISupportInitialize)(this.Preview_PictureBox)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +165,6 @@ namespace Chimera
         private System.Windows.Forms.Button Button_Browse_Wallpaper;
         private System.Windows.Forms.Label labelScreensSelected;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxFit;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label_titlebar;
+        private System.Windows.Forms.ComboBox comboBoxFit;        
     }
 }
