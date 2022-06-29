@@ -327,18 +327,18 @@
             // label_Warning
             // 
             this.label_Warning.AutoSize = true;
-            this.label_Warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Warning.Location = new System.Drawing.Point(306, 475);
+            this.label_Warning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Warning.Location = new System.Drawing.Point(304, 460);
             this.label_Warning.Name = "label_Warning";
-            this.label_Warning.Size = new System.Drawing.Size(83, 17);
+            this.label_Warning.Size = new System.Drawing.Size(448, 12);
             this.label_Warning.TabIndex = 30;
-            this.label_Warning.Text = "Warning...";
+            this.label_Warning.Text = "This function might not be applicable depending on the capabilities of monitor.";
             // 
             // ManageMultiMonitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(752, 501);
+            this.ClientSize = new System.Drawing.Size(769, 506);
             this.Controls.Add(this.label_Warning);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);

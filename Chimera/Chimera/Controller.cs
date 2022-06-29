@@ -52,7 +52,7 @@ namespace Chimera
 			get { return desktopRect; }
 		}
 
-        private Color _desktopRectBackColor = Color.Black;
+        private Color _desktopRectBackColor = Color.FromArgb(0xF5 , 0xF5, 0xF5);
         /// <summary>
         /// The backgroundcolor of the rectangle that covers all of the screens
         /// </summary>

@@ -31,6 +31,8 @@ namespace Chimera
         {
             InitializeComponent();
 
+            InitUI();
+
             /* 참고. Screen.AllScreens는 현재 Active되어 있는 Screen 정보만 보여준다. */
             /* 나중에 활용할 때가 있을지도... */
             /* Screen.AllScreens; */
@@ -44,6 +46,19 @@ namespace Chimera
 
             SystemEvents.DisplaySettingsChanged += new EventHandler(SystemEvents_DisplaySettingsChanged);
         }
+
+
+
+        private void InitUI()
+        {
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            /*  */
+            this.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
 
 
         public void RestoreConfigValue()

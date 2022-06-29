@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
 
-
 namespace Chimera
 {
     public partial class SettingWallpaper : Form
@@ -37,10 +36,6 @@ namespace Chimera
 
             InitUI();
 
-            FillFitCombo();
-            CalcPreviewRect();
-            CreateWallpaper();
-
             /*  */
             clickedScreenIndex = 0;
 
@@ -60,6 +55,22 @@ namespace Chimera
 
             /*  */
             this.BackColor = Color.FromArgb(255, 255, 255);
+
+            FillFitCombo();
+            CalcPreviewRect();
+            CreateWallpaper();
+
+            /*  */
+            this.label_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Browse_Wallpaper.BackColor = Color.FromArgb(255, 255, 255);
+            this.Label_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Choose_Fit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            
+            this.labelScreensSelected.BackColor = Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.labelScreensSelected.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.TextBox_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
 
@@ -142,10 +153,15 @@ namespace Chimera
 
 
         /// <summary>
-		/// Screen 번호와 Friendly Name을 출력
-		/// </summary>
-        private void DisplaySelectedScreens()
+        /// Screen 번호와 Friendly Name을 출력
+        /// </summary>
+        /// 
+        private void DisplaySelectedScreens(Rectangle previewScreen , Point Preview_PictureBox_Location)
         {
+            Rectangle previewRect = new Rectangle(new Point(0, 0), new Size(previewScreen.Width , previewScreen.Height));
+            
+            Rectangle Selected_previewScreen = Controller.CalcDestRect(controller.DesktopRect, previewRect, controller.AllScreens[clickedScreenIndex].ScreenRect);
+
             string screenText = "";
             string FriendlyName = "";
 
@@ -162,7 +178,10 @@ namespace Chimera
             }
 
             /* Friendly Name */
-            labelScreensSelected.Text = screenText;
+            this.labelScreensSelected.Text = FriendlyName;
+
+            this.labelScreensSelected.Location = new System.Drawing.Point(Preview_PictureBox_Location.X + Selected_previewScreen.X + (Selected_previewScreen.Width - this.labelScreensSelected.Width ) / 2,
+                                                                          Preview_PictureBox_Location.Y + previewScreen.Y - ( this.labelScreensSelected.Height + 1));
 
         }
 
@@ -191,36 +210,54 @@ namespace Chimera
 
         private void DisplayMonitor(Graphics g, Size previewSize, Rectangle screenRect, int screenIndex, string screenName)
         {
+            int FONT_SIZE = 10;
             Rectangle previewRect = new Rectangle(new Point(0, 0), previewSize);
 
             // need to determine position of screen rect in the preview
             Rectangle previewScreen = Controller.CalcDestRect(controller.DesktopRect, previewRect, screenRect);
 
-            // TODO: look into this!
-            previewScreen = new Rectangle(previewScreen.Left, previewScreen.Top, previewScreen.Width - 1, previewScreen.Height - 1);
+            Rectangle Center_Rect = new Rectangle(new Point(previewScreen.X + (previewScreen.Width - FONT_SIZE)/2,
+                                                            previewScreen.Y + (previewScreen.Height - FONT_SIZE) /2), 
+                                                            new Size((int)(FONT_SIZE*1.5),(int)(FONT_SIZE*1.5)));
 
-            // draw border around screen
-            Pen borderPen1 = Pens.Black;
-            Pen borderPen2 = Pens.White;
-            Brush textBrush = Brushes.White;
+            // TODO: look into this!
+            previewScreen = new Rectangle(previewScreen.Left, previewScreen.Top, previewScreen.Width - 1, previewScreen.Height - 1);            
+
+            /*  */
+            Pen Selected_Border = new Pen(Color.FromArgb((int)(0.24 * 0xFF), 202, 0, 76));
+            Brush Selected_Screen = new SolidBrush(Color.FromArgb((int)(0.08 * 0xFF), 202, 0, 76));
+            Brush Selected_No = new SolidBrush(Color.FromArgb((int)(0xFF), 0xCA, 0x00, 0x4C));
+
+            Pen Non_Selected_Border = new Pen(Color.FromArgb((int)(0.08 * 0xFF), 1, 1, 1));
+            Brush Non_Selected_Screen = new SolidBrush(Color.FromArgb((int)(0xFF), 0xE8 , 0xE8, 0xE8));
+            Brush Non_Selected_No = new SolidBrush(Color.FromArgb((int)(0xFF), 0x86 , 0x86 , 0x86)); 
+
+             /*  */
+            Pen BorderPenColor = Non_Selected_Border;
+            Brush TextColor = Non_Selected_No;
+            Brush BackColor = Non_Selected_Screen;
+
 
             if (IsScreenSelected(screenIndex))
             {
-                borderPen1 = Pens.Yellow;
-                borderPen2 = Pens.Yellow;
-                textBrush = Brushes.Yellow;
+                BorderPenColor = Selected_Border;
+                TextColor = Selected_No;
+                BackColor = Selected_Screen;
             }
-            // leave outermost pixels of image visible
+
+            /* leave outermost pixels of image visible */
             previewScreen.Inflate(-1, -1);
-            g.DrawRectangle(borderPen1, previewScreen);
+            g.DrawRectangle(BorderPenColor, previewScreen);
+
             previewScreen.Inflate(-1, -1);
-            g.DrawRectangle(borderPen2, previewScreen);
+            g.FillRectangle(BackColor, previewScreen);            
 
             // display the screen name centered in the screen
-            using (Font font = new Font("Arial", 24, FontStyle.Bold, GraphicsUnit.Point))
+            using (Font font = new Font(FontManager.LG_Smart_H_Bold(), FONT_SIZE, FontStyle.Bold, GraphicsUnit.Point))
             {
-                g.DrawString(screenName, font, textBrush, previewScreen);
+                g.DrawString(screenName, font, TextColor, Center_Rect);
             }
+            
         }
 
 
@@ -237,7 +274,7 @@ namespace Chimera
                 string screenName = string.Format("{0}", screenIndex + 1);
                 if (controller.AllScreens[screenIndex].Primary)
                 {
-                    screenName += "P";
+                    //screenName += "P";
                 }
                 DisplayMonitor(g, previewSize, controller.AllScreens[screenIndex].ScreenRect, screenIndex, screenName);
             }
@@ -262,7 +299,7 @@ namespace Chimera
         private void UpdatePreview()
         {
             /* Screen 번호와 Friendly Name을 출력 */
-            DisplaySelectedScreens();
+            DisplaySelectedScreens(previewRect , Preview_PictureBox.Location);
 
             /* 현재 선택된 Screen의 Image File Path와 Stretch Type을 Update */
             UpdateUIInfo();
@@ -521,5 +558,10 @@ namespace Chimera
             }
         }
 
+        private void TextBox_Image_File_Path_Enter(object sender, EventArgs e)
+        {
+            TextBox_Image_File_Path.Enabled = false;
+            TextBox_Image_File_Path.Enabled = true;
+        }
     }
 }
