@@ -38,7 +38,6 @@ namespace Chimera
             this.upperSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.cursorControlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowerSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +50,9 @@ namespace Chimera
             this.notifyIcon1.BalloonTipText = "Moon";
             this.notifyIcon1.BalloonTipTitle = "MoonLight";
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            //this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             Bitmap bmp = Properties.Resources.Manager_Form_Icon;
-            this.notifyIcon1.Icon = Icon.FromHandle(bmp.GetHicon());
+            this.notifyIcon1.Icon = Icon.FromHandle(bmp.GetHicon());            
             this.notifyIcon1.Text = "Multi-Monitor Manager";
             this.notifyIcon1.Visible = true;
             // 
@@ -63,7 +63,7 @@ namespace Chimera
             this.upperSeparator,
             this.cursorControlMenuItem,
             this.manageToolStripMenuItem,
-            this.wallpaperToolStripMenuItem,
+            this.SettingWallpaperToolStripMenuItem,
             this.lowerSeparator,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -95,19 +95,11 @@ namespace Chimera
             this.manageToolStripMenuItem.Text = "Manage";
             this.manageToolStripMenuItem.Click += new System.EventHandler(this.ManageItemClick);
             // 
-            // wallpaperToolStripMenuItem
-            // 
-            this.wallpaperToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingWallpaperToolStripMenuItem});
-            this.wallpaperToolStripMenuItem.Name = "wallpaperToolStripMenuItem";
-            this.wallpaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.wallpaperToolStripMenuItem.Text = "Wallpaper";
-            // 
             // SettingWallpaperToolStripMenuItem
             // 
             this.SettingWallpaperToolStripMenuItem.Name = "SettingWallpaperToolStripMenuItem";
-            this.SettingWallpaperToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.SettingWallpaperToolStripMenuItem.Text = "Setting Wallpaper";
+            this.SettingWallpaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SettingWallpaperToolStripMenuItem.Text = "Wallpaper";
             this.SettingWallpaperToolStripMenuItem.Click += new System.EventHandler(this.settingWallpaper_Click);
             // 
             // lowerSeparator
@@ -136,14 +128,13 @@ namespace Chimera
 
         }
 
-        #endregion
+#endregion
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 
         private System.Windows.Forms.ToolStripMenuItem aboutBoxMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursorControlMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wallpaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingWallpaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
@@ -152,4 +143,5 @@ namespace Chimera
         private System.Windows.Forms.ToolStripSeparator lowerSeparator;
     }
 }
+
 

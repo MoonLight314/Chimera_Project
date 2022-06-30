@@ -53,6 +53,7 @@ namespace Chimera
 		}
 
         private Color _desktopRectBackColor = Color.FromArgb(0xF5 , 0xF5, 0xF5);
+        private Color _desktopRectBackColor_Black = Color.FromArgb(0x00, 0x00, 0x00);
         /// <summary>
         /// The backgroundcolor of the rectangle that covers all of the screens
         /// </summary>
@@ -110,9 +111,11 @@ namespace Chimera
 			{
 				// use best interpolation mode available
 				g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-				g.Clear(_desktopRectBackColor);
 
-				foreach (ScreenMapping screenMapping in allScreens)
+                g.Clear(_desktopRectBackColor);
+                //g.Clear(_desktopRectBackColor_Black);
+
+                foreach (ScreenMapping screenMapping in allScreens)
 				{
 					if (screenMapping.SourceImage != null)
 					{

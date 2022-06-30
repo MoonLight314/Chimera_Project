@@ -34,12 +34,14 @@
             this.txtBox_NormalKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_CANCEL = new System.Windows.Forms.Button();
+            this.label_Hotkey_Input = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cb_Shift
             // 
             this.cb_Shift.AutoSize = true;
-            this.cb_Shift.Location = new System.Drawing.Point(28, 22);
+            this.cb_Shift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.cb_Shift.Location = new System.Drawing.Point(40, 83);
             this.cb_Shift.Name = "cb_Shift";
             this.cb_Shift.Size = new System.Drawing.Size(48, 16);
             this.cb_Shift.TabIndex = 0;
@@ -49,7 +51,8 @@
             // cb_Ctrl
             // 
             this.cb_Ctrl.AutoSize = true;
-            this.cb_Ctrl.Location = new System.Drawing.Point(28, 60);
+            this.cb_Ctrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.cb_Ctrl.Location = new System.Drawing.Point(40, 119);
             this.cb_Ctrl.Name = "cb_Ctrl";
             this.cb_Ctrl.Size = new System.Drawing.Size(43, 16);
             this.cb_Ctrl.TabIndex = 1;
@@ -59,7 +62,8 @@
             // cb_Alt
             // 
             this.cb_Alt.AutoSize = true;
-            this.cb_Alt.Location = new System.Drawing.Point(28, 97);
+            this.cb_Alt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.cb_Alt.Location = new System.Drawing.Point(40, 155);
             this.cb_Alt.Name = "cb_Alt";
             this.cb_Alt.Size = new System.Drawing.Size(38, 16);
             this.cb_Alt.TabIndex = 2;
@@ -68,17 +72,19 @@
             // 
             // txtBox_NormalKey
             // 
-            this.txtBox_NormalKey.Location = new System.Drawing.Point(126, 55);
+            this.txtBox_NormalKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.txtBox_NormalKey.Location = new System.Drawing.Point(200, 117);
             this.txtBox_NormalKey.Name = "txtBox_NormalKey";
             this.txtBox_NormalKey.ReadOnly = true;
-            this.txtBox_NormalKey.Size = new System.Drawing.Size(135, 21);
+            this.txtBox_NormalKey.Size = new System.Drawing.Size(140, 21);
             this.txtBox_NormalKey.TabIndex = 3;
             this.txtBox_NormalKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBox_NormalKey.Enter += new System.EventHandler(this.txtBox_NormalKey_Enter);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(91, 58);
+            this.label1.Location = new System.Drawing.Point(143, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(11, 12);
             this.label1.TabIndex = 4;
@@ -86,29 +92,44 @@
             // 
             // btn_CANCEL
             // 
-            this.btn_CANCEL.Location = new System.Drawing.Point(187, 133);
+            this.btn_CANCEL.Location = new System.Drawing.Point(283, 200);
             this.btn_CANCEL.Name = "btn_CANCEL";
-            this.btn_CANCEL.Size = new System.Drawing.Size(93, 39);
+            this.btn_CANCEL.Size = new System.Drawing.Size(57, 22);
             this.btn_CANCEL.TabIndex = 5;
-            this.btn_CANCEL.Text = "CANCEL";
+            this.btn_CANCEL.Text = "Reset";
             this.btn_CANCEL.UseVisualStyleBackColor = true;
             this.btn_CANCEL.Click += new System.EventHandler(this.HotKeyInput_Cancel);
+            // 
+            // label_Hotkey_Input
+            // 
+            this.label_Hotkey_Input.AutoSize = true;
+            this.label_Hotkey_Input.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Hotkey_Input.Location = new System.Drawing.Point(35, 40);
+            this.label_Hotkey_Input.Name = "label_Hotkey_Input";
+            this.label_Hotkey_Input.Size = new System.Drawing.Size(74, 12);
+            this.label_Hotkey_Input.TabIndex = 15;
+            this.label_Hotkey_Input.Text = "Hotkey Input";
             // 
             // HotKeyInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 185);
+            this.ClientSize = new System.Drawing.Size(379, 271);
+            this.Controls.Add(this.label_Hotkey_Input);
             this.Controls.Add(this.btn_CANCEL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBox_NormalKey);
             this.Controls.Add(this.cb_Alt);
             this.Controls.Add(this.cb_Ctrl);
             this.Controls.Add(this.cb_Shift);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HotKeyInput";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HotKeyInput";
+            this.Text = "Hotkey Input";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.key_up);
             this.ResumeLayout(false);
@@ -124,5 +145,6 @@
         private System.Windows.Forms.TextBox txtBox_NormalKey;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_CANCEL;
+        private System.Windows.Forms.Label label_Hotkey_Input;
     }
 }

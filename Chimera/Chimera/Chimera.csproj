@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Manager_Form_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resource\Manager_Form_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -96,6 +96,12 @@
     <Compile Include="DisplayDevices.cs" />
     <Compile Include="FontManager.cs" />
     <Compile Include="HotKey.cs" />
+    <Compile Include="HotKeyConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotKeyConfirm.Designer.cs">
+      <DependentUpon>HotKeyConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotKeyController.cs" />
     <Compile Include="HotKeyInput.cs">
       <SubType>Form</SubType>
@@ -234,6 +240,9 @@
     <EmbeddedResource Include="CursorControl.resx">
       <DependentUpon>CursorControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HotKeyConfirm.resx">
+      <DependentUpon>HotKeyConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HotKeyInput.resx">
       <DependentUpon>HotKeyInput.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Cursor_Control_Text.png" />
     <None Include="Resource\Browse.png" />
     <None Include="Resource\Manager_Form_Icon.ico" />
   </ItemGroup>

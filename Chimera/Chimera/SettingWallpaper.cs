@@ -19,7 +19,7 @@ namespace Chimera
 
         /*  */
         private Controller controller = new Controller();
-        private Image wallpaper = null;
+        private Image Wallpaper = null;
 
         private List<int> selectedScreens = new List<int>();
         private Rectangle previewRect;
@@ -123,13 +123,14 @@ namespace Chimera
 
         private void CreateWallpaper()
         {
-            if (wallpaper != null)
+            if (Wallpaper != null)
             {
-                wallpaper.Dispose();
+                Wallpaper.Dispose();
             }
-            wallpaper = controller.CreateWallpaperImage();
 
-            wallpaper.Save("wallpaper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            Wallpaper = controller.CreateWallpaperImage();
+
+            Wallpaper.Save("wallpaper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
 
@@ -308,7 +309,7 @@ namespace Chimera
 
             using (Graphics g = Graphics.FromImage(preview))
             {
-                g.DrawImage(wallpaper, 0, 0, preview.Width, preview.Height);
+                g.DrawImage(Wallpaper, 0, 0, preview.Width, preview.Height);
 
                 // now indicate the positions of the monitors
                 /* Preview Picture Box에 Screen 각 사각형을 그린다. */
@@ -447,6 +448,8 @@ namespace Chimera
 
                     CreateWallpaper();
                     UpdatePreview();
+
+                    SetWallpaer();
                 }
                 catch (Exception ex)
                 {
@@ -460,14 +463,20 @@ namespace Chimera
 
 
 
-
+#if TEST
         private void Set_Wallpaper_Click(object sender, EventArgs e)
         {
             ILocalEnvironment localEnvironment = new LocalEnvironment();
             WindowsWallpaper windowsWallpaper = new WindowsWallpaper(localEnvironment, wallpaper, controller.DesktopRect);
             windowsWallpaper.SetWallpaper(false);
         }
-
+#endif
+        private void SetWallpaer()
+        {
+            ILocalEnvironment localEnvironment = new LocalEnvironment();
+            WindowsWallpaper windowsWallpaper = new WindowsWallpaper(localEnvironment, Wallpaper, controller.DesktopRect);
+            windowsWallpaper.SetWallpaper(false);
+        }
 
 
 

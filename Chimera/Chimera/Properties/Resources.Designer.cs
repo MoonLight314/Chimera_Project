@@ -198,6 +198,16 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cursor_Control_Text {
+            get {
+                object obj = ResourceManager.GetObject("Cursor_Control_Text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Move Cursor To Next Screen과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string CursorNextScreenDescription {

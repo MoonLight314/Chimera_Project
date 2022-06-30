@@ -22,13 +22,14 @@ namespace Chimera
         private const uint EVENT_SYSTEM_FOREGROUND = 3;
         private const uint EVENT_SYSTEM_MINIMIZEEND = 0x17;
 
-        delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
+        //delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
 
-        WinEventDelegate dele = null;
+//WinEventDelegate dele = null;
 
+#if TEST
         [DllImport("user32.dll")]
         static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventDelegate lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
-
+#endif
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         static extern bool QueryFullProcessImageName(IntPtr hProcess, uint dwFlags,[Out, MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpExeName,ref int lpdwSize);
 
@@ -49,7 +50,7 @@ namespace Chimera
             InitializeComponent();
 
             InitUI();
-
+#if TEST
             dele = new WinEventDelegate(WinEventProc);
             IntPtr m_hhook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_MINIMIZEEND,//EVENT_SYSTEM_FOREGROUND, 
                                                 IntPtr.Zero, 
@@ -57,6 +58,7 @@ namespace Chimera
                                                 0, 
                                                 0, 
                                                 WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS);
+#endif
         }
 
 
@@ -126,7 +128,8 @@ namespace Chimera
 
         private void button_Test_Click(object sender, EventArgs e)
         {
-
+            HotKeyConfirm h = new HotKeyConfirm();
+            h.ShowDialog();
         }
 
 

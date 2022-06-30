@@ -57,7 +57,15 @@ namespace Chimera
 
             /*  */
             this.BackColor = Color.FromArgb(255, 255, 255);
+
+            this.label_CursorControl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pictureBox_CursorControl_Comment.Image = Properties.Resources.Cursor_Control_Text;
+            this.label_Feature_Enable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_FeatureEnable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Features.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            
         }
+        
 
 
 
@@ -559,6 +567,28 @@ namespace Chimera
             ApplyConfigSettingToUI();
         }
 
-        
+        private void txtBox_Hotkey_MovCurNextScreen_Enter(object sender, EventArgs e)
+        {
+            txtBox_Hotkey_MovCurNextScreen.Enabled = false;
+            txtBox_Hotkey_MovCurNextScreen.Enabled = true;
+        }
+
+        private void txtBox_Hotkey_MovCurPrevScreen_Enter(object sender, EventArgs e)
+        {
+            txtBox_Hotkey_MovCurPrevScreen.Enabled = false;
+            txtBox_Hotkey_MovCurPrevScreen.Enabled = true;
+        }
+
+        private void txtBox_Hotkey_MoveCurPrimary_Enter(object sender, EventArgs e)
+        {
+            txtBox_Hotkey_MoveCurPrimary.Enabled = false;
+            txtBox_Hotkey_MoveCurPrimary.Enabled = true;
+        }
+
+        private void txtBox_Hotkey_LockToScreen_Enter(object sender, EventArgs e)
+        {
+            txtBox_Hotkey_LockToScreen.Enabled = false;
+            txtBox_Hotkey_LockToScreen.Enabled = true;
+        }
     }
 }
