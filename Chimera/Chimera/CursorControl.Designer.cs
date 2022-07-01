@@ -42,7 +42,6 @@
             this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
             this.cb_MovCursorNextScreen = new System.Windows.Forms.CheckBox();
             this.cursorControl_Reset = new System.Windows.Forms.Button();
-            this.cb_FeatureEnable = new System.Windows.Forms.CheckBox();
             this.label_CursorControl = new System.Windows.Forms.Label();
             this.pictureBox_CursorControl_Comment = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,10 +49,25 @@
             this.label_Feature_Enable = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label_Features = new System.Windows.Forms.Label();
+            this.label_FeatureEnable = new System.Windows.Forms.Label();
+            this.pb_CheckBox_FeatureEnable = new System.Windows.Forms.PictureBox();
+            this.pb_CheckBox_MovCursorNextScreen = new System.Windows.Forms.PictureBox();
+            this.label_MovCursorNextScreen = new System.Windows.Forms.Label();
+            this.pb_CheckBox_MovCursorPrevScreen = new System.Windows.Forms.PictureBox();
+            this.label_MovCursorPrevScreen = new System.Windows.Forms.Label();
+            this.pb_CheckBox_MovCursorPrimary = new System.Windows.Forms.PictureBox();
+            this.label_MovCursorPrimary = new System.Windows.Forms.Label();
+            this.pb_CheckBox_LockToScreen = new System.Windows.Forms.PictureBox();
+            this.label_LockToScreen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CursorControl_Comment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_FeatureEnable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorNextScreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorPrevScreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorPrimary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_LockToScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // cursorControl_Set
@@ -204,18 +218,6 @@
             this.cursorControl_Reset.UseVisualStyleBackColor = true;
             this.cursorControl_Reset.Click += new System.EventHandler(this.cursorControl_Reset_Click);
             // 
-            // cb_FeatureEnable
-            // 
-            this.cb_FeatureEnable.AutoSize = true;
-            this.cb_FeatureEnable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
-            this.cb_FeatureEnable.Location = new System.Drawing.Point(304, 83);
-            this.cb_FeatureEnable.Name = "cb_FeatureEnable";
-            this.cb_FeatureEnable.Size = new System.Drawing.Size(162, 16);
-            this.cb_FeatureEnable.TabIndex = 0;
-            this.cb_FeatureEnable.Text = " Enable Cursor Features";
-            this.cb_FeatureEnable.UseVisualStyleBackColor = true;
-            this.cb_FeatureEnable.CheckedChanged += new System.EventHandler(this.cb_FeatureEnable_ChangeCheck);
-            // 
             // label_CursorControl
             // 
             this.label_CursorControl.AutoSize = true;
@@ -286,10 +288,116 @@
             this.label_Features.TabIndex = 26;
             this.label_Features.Text = "Features";
             // 
+            // label_FeatureEnable
+            // 
+            this.label_FeatureEnable.AutoSize = true;
+            this.label_FeatureEnable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_FeatureEnable.Location = new System.Drawing.Point(323, 76);
+            this.label_FeatureEnable.Name = "label_FeatureEnable";
+            this.label_FeatureEnable.Size = new System.Drawing.Size(139, 12);
+            this.label_FeatureEnable.TabIndex = 27;
+            this.label_FeatureEnable.Text = "Enable Cursor Features";
+            // 
+            // pb_CheckBox_FeatureEnable
+            // 
+            this.pb_CheckBox_FeatureEnable.Location = new System.Drawing.Point(304, 75);
+            this.pb_CheckBox_FeatureEnable.Name = "pb_CheckBox_FeatureEnable";
+            this.pb_CheckBox_FeatureEnable.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_FeatureEnable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_FeatureEnable.TabIndex = 28;
+            this.pb_CheckBox_FeatureEnable.TabStop = false;
+            this.pb_CheckBox_FeatureEnable.Click += new System.EventHandler(this.pb_CheckBox_FeatureEnable_Click);
+            // 
+            // pb_CheckBox_MovCursorNextScreen
+            // 
+            this.pb_CheckBox_MovCursorNextScreen.Location = new System.Drawing.Point(358, 168);
+            this.pb_CheckBox_MovCursorNextScreen.Name = "pb_CheckBox_MovCursorNextScreen";
+            this.pb_CheckBox_MovCursorNextScreen.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_MovCursorNextScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_MovCursorNextScreen.TabIndex = 30;
+            this.pb_CheckBox_MovCursorNextScreen.TabStop = false;
+            // 
+            // label_MovCursorNextScreen
+            // 
+            this.label_MovCursorNextScreen.AutoSize = true;
+            this.label_MovCursorNextScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_MovCursorNextScreen.Location = new System.Drawing.Point(377, 169);
+            this.label_MovCursorNextScreen.Name = "label_MovCursorNextScreen";
+            this.label_MovCursorNextScreen.Size = new System.Drawing.Size(171, 12);
+            this.label_MovCursorNextScreen.TabIndex = 29;
+            this.label_MovCursorNextScreen.Text = "Move Cursor To Next Screen";
+            // 
+            // pb_CheckBox_MovCursorPrevScreen
+            // 
+            this.pb_CheckBox_MovCursorPrevScreen.Location = new System.Drawing.Point(358, 208);
+            this.pb_CheckBox_MovCursorPrevScreen.Name = "pb_CheckBox_MovCursorPrevScreen";
+            this.pb_CheckBox_MovCursorPrevScreen.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_MovCursorPrevScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_MovCursorPrevScreen.TabIndex = 32;
+            this.pb_CheckBox_MovCursorPrevScreen.TabStop = false;
+            // 
+            // label_MovCursorPrevScreen
+            // 
+            this.label_MovCursorPrevScreen.AutoSize = true;
+            this.label_MovCursorPrevScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_MovCursorPrevScreen.Location = new System.Drawing.Point(377, 209);
+            this.label_MovCursorPrevScreen.Name = "label_MovCursorPrevScreen";
+            this.label_MovCursorPrevScreen.Size = new System.Drawing.Size(194, 12);
+            this.label_MovCursorPrevScreen.TabIndex = 31;
+            this.label_MovCursorPrevScreen.Text = "Move Cursor To Previous Screen";
+            // 
+            // pb_CheckBox_MovCursorPrimary
+            // 
+            this.pb_CheckBox_MovCursorPrimary.Location = new System.Drawing.Point(358, 248);
+            this.pb_CheckBox_MovCursorPrimary.Name = "pb_CheckBox_MovCursorPrimary";
+            this.pb_CheckBox_MovCursorPrimary.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_MovCursorPrimary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_MovCursorPrimary.TabIndex = 34;
+            this.pb_CheckBox_MovCursorPrimary.TabStop = false;
+            // 
+            // label_MovCursorPrimary
+            // 
+            this.label_MovCursorPrimary.AutoSize = true;
+            this.label_MovCursorPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_MovCursorPrimary.Location = new System.Drawing.Point(377, 249);
+            this.label_MovCursorPrimary.Name = "label_MovCursorPrimary";
+            this.label_MovCursorPrimary.Size = new System.Drawing.Size(189, 12);
+            this.label_MovCursorPrimary.TabIndex = 33;
+            this.label_MovCursorPrimary.Text = "Move Cursor To Primary Screen";
+            // 
+            // pb_CheckBox_LockToScreen
+            // 
+            this.pb_CheckBox_LockToScreen.Location = new System.Drawing.Point(358, 287);
+            this.pb_CheckBox_LockToScreen.Name = "pb_CheckBox_LockToScreen";
+            this.pb_CheckBox_LockToScreen.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_LockToScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_LockToScreen.TabIndex = 36;
+            this.pb_CheckBox_LockToScreen.TabStop = false;
+            // 
+            // label_LockToScreen
+            // 
+            this.label_LockToScreen.AutoSize = true;
+            this.label_LockToScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_LockToScreen.Location = new System.Drawing.Point(377, 288);
+            this.label_LockToScreen.Name = "label_LockToScreen";
+            this.label_LockToScreen.Size = new System.Drawing.Size(147, 12);
+            this.label_LockToScreen.TabIndex = 35;
+            this.label_LockToScreen.Text = "Lock / Unlock To Screen";
+            // 
             // CursorControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.pb_CheckBox_LockToScreen);
+            this.Controls.Add(this.label_LockToScreen);
+            this.Controls.Add(this.pb_CheckBox_MovCursorPrimary);
+            this.Controls.Add(this.label_MovCursorPrimary);
+            this.Controls.Add(this.pb_CheckBox_MovCursorPrevScreen);
+            this.Controls.Add(this.label_MovCursorPrevScreen);
+            this.Controls.Add(this.pb_CheckBox_MovCursorNextScreen);
+            this.Controls.Add(this.label_MovCursorNextScreen);
+            this.Controls.Add(this.pb_CheckBox_FeatureEnable);
+            this.Controls.Add(this.label_FeatureEnable);
             this.Controls.Add(this.label_Features);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label_Feature_Enable);
@@ -298,7 +406,6 @@
             this.Controls.Add(this.pictureBox_CursorControl_Comment);
             this.Controls.Add(this.label_CursorControl);
             this.Controls.Add(this.cursorControl_Reset);
-            this.Controls.Add(this.cb_FeatureEnable);
             this.Controls.Add(this.btn_Cursor_Move_Primary_KeyChange);
             this.Controls.Add(this.txtBox_Hotkey_MoveCurPrimary);
             this.Controls.Add(this.cb_MovCursorPrimary);
@@ -323,6 +430,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_FeatureEnable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorNextScreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorPrevScreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_MovCursorPrimary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_LockToScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,7 +458,7 @@
         private System.Windows.Forms.Button btn_Cursor_Move_Primary_KeyChange;
         private System.Windows.Forms.TextBox txtBox_Hotkey_MoveCurPrimary;
         private System.Windows.Forms.CheckBox cb_MovCursorPrimary;
-        private System.Windows.Forms.CheckBox cb_FeatureEnable;
+        //private System.Windows.Forms.CheckBox cb_FeatureEnable;
         private System.Windows.Forms.Label label_CursorControl;
         private System.Windows.Forms.PictureBox pictureBox_CursorControl_Comment;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -354,6 +466,16 @@
         private System.Windows.Forms.Label label_Feature_Enable;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label_Features;
+        private System.Windows.Forms.Label label_FeatureEnable;
+        private System.Windows.Forms.PictureBox pb_CheckBox_FeatureEnable;
+        private System.Windows.Forms.PictureBox pb_CheckBox_MovCursorNextScreen;
+        private System.Windows.Forms.Label label_MovCursorNextScreen;
+        private System.Windows.Forms.PictureBox pb_CheckBox_MovCursorPrevScreen;
+        private System.Windows.Forms.Label label_MovCursorPrevScreen;
+        private System.Windows.Forms.PictureBox pb_CheckBox_MovCursorPrimary;
+        private System.Windows.Forms.Label label_MovCursorPrimary;
+        private System.Windows.Forms.PictureBox pb_CheckBox_LockToScreen;
+        private System.Windows.Forms.Label label_LockToScreen;
         //private System.Windows.Forms.GroupBox grpBox_Feature_Enable;
     }
 }

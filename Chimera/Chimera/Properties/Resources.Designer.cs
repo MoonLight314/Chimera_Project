@@ -108,6 +108,26 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Checkbox_Checked {
+            get {
+                object obj = ResourceManager.GetObject("Checkbox_Checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Checkbox_Not_Checked {
+            get {
+                object obj = ResourceManager.GetObject("Checkbox_Not_Checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   EnableCursorFeature과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ConfigItem_EnableCursorFeature {
@@ -267,6 +287,16 @@ namespace Chimera.Properties {
         internal static string DisabledHotKey {
             get {
                 return ResourceManager.GetString("DisabledHotKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exclamation_Mark {
+            get {
+                object obj = ResourceManager.GetObject("Exclamation_Mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -448,6 +478,26 @@ namespace Chimera.Properties {
         internal static string Test {
             get {
                 return ResourceManager.GetString("Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Toggle_Switch_Off {
+            get {
+                object obj = ResourceManager.GetObject("Toggle_Switch_Off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Toggle_Switch_On {
+            get {
+                object obj = ResourceManager.GetObject("Toggle_Switch_On", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -74,6 +74,7 @@ namespace Chimera
             this.button_Set.Name = "button_Set";
             this.button_Set.Size = new System.Drawing.Size(196, 32);
             this.button_Set.TabIndex = 0;
+            this.button_Set.TabStop = false;
             this.button_Set.Text = "Set";
             this.button_Set.UseVisualStyleBackColor = true;
             this.button_Set.Click += new System.EventHandler(this.button_Set_Click);
@@ -90,6 +91,7 @@ namespace Chimera
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(196, 32);
             this.button_Cancel.TabIndex = 1;
+            this.button_Cancel.TabStop = false;
             this.button_Cancel.Text = "Cancel";
             this.button_Cancel.UseVisualStyleBackColor = true;
             this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
@@ -113,7 +115,6 @@ namespace Chimera
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HotKeyConfirm";
-            this.Opacity = 1.00;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -26,6 +26,14 @@ namespace Chimera
 
         Form form;
 
+        /* 각 항목별 Check Box 설정 저장 */
+        bool FeatureEnable;
+        bool MovCursorNextScreen;
+        bool MovCursorPrevScreen;
+        bool MovCursorPrimary;
+        bool LockToScreen;
+
+
         //public CursorControl()
         public CursorControl(Form BaseForm , ConfigValues cv)
         {
@@ -61,7 +69,10 @@ namespace Chimera
             this.label_CursorControl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pictureBox_CursorControl_Comment.Image = Properties.Resources.Cursor_Control_Text;
             this.label_Feature_Enable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_FeatureEnable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            //this.cb_FeatureEnable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FeatureEnable.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label_Features.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             
         }
@@ -114,11 +125,21 @@ namespace Chimera
         /* Hot Key Add Part */
         private void UIControlAll(bool Value)
         {
-            cb_FeatureEnable.Checked = Value;
-            cb_MovCursorNextScreen.Enabled = Value;
+            //cb_FeatureEnable.Checked = Value;
+            //cb_MovCursorNextScreen.Enabled = Value;
             cb_MovCursorPrevScreen.Enabled = Value;
             cb_MovCursorPrimary.Enabled = Value;
             cb_LockToScreen.Enabled = Value;
+
+            FeatureEnable = Value;
+            pb_CheckBox_FeatureEnable.Image = FeatureEnable ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            MovCursorNextScreen = Value;
+            pb_CheckBox_MovCursorNextScreen.Image = MovCursorNextScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            MovCursorPrevScreen = Value;
+            MovCursorPrimary = Value;
+            LockToScreen = Value;
 
             txtBox_Hotkey_MovCurNextScreen.Enabled = Value;
             txtBox_Hotkey_MovCurPrevScreen.Enabled = Value;
@@ -163,13 +184,15 @@ namespace Chimera
                 {
                     txtBox_Hotkey_MovCurNextScreen.Enabled = false;
                     btn_CursorMov_Next_Screen_KeyChange.Enabled = false;
-                    cb_MovCursorNextScreen.Checked = false;
+                    //cb_MovCursorNextScreen.Checked = false;
+                    MovCursorNextScreen = false;
                 }
                 else
                 {
                     txtBox_Hotkey_MovCurNextScreen.Enabled = true;
                     btn_CursorMov_Next_Screen_KeyChange.Enabled = true;
-                    cb_MovCursorNextScreen.Checked = true;
+                    //cb_MovCursorNextScreen.Checked = true;
+                    MovCursorNextScreen = true;
                 }
 
                 /*  */
@@ -215,6 +238,10 @@ namespace Chimera
                     btn_Cursor_Lock_Screen_KeyChange.Enabled = true;
                     cb_LockToScreen.Checked = true;
                 }
+
+                /*  */
+                pb_CheckBox_MovCursorNextScreen.Image = MovCursorNextScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
             }
                         
         }
@@ -309,7 +336,7 @@ namespace Chimera
 
 
 
-
+#if TEST
         /// <summary>
         /// Enable Cursor Features CheckBox 상태 변경
         /// </summary>
@@ -324,6 +351,7 @@ namespace Chimera
 
             ApplyConfigSettingToUI();
         }
+#endif
 
         /* Move Cursor To Next Screen CheckBox 상태 변경 */
         private void cb_CursorNextScreen_ChangeCheck(object sender, EventArgs e)
@@ -589,6 +617,25 @@ namespace Chimera
         {
             txtBox_Hotkey_LockToScreen.Enabled = false;
             txtBox_Hotkey_LockToScreen.Enabled = true;
+        }
+
+        /*  */
+        private void pb_CheckBox_FeatureEnable_Click(object sender, EventArgs e)
+        {
+            FeatureEnable = !FeatureEnable;
+
+            if (FeatureEnable)
+            {
+                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Checkbox_Checked;
+                configValues.EnableCursorFeature = true;
+            }
+            else
+            {
+                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Checkbox_Not_Checked;
+                configValues.EnableCursorFeature = false;
+            }
+
+            ApplyConfigSettingToUI();
         }
     }
 }
