@@ -19,7 +19,9 @@ namespace Chimera
 
         /*  */
         private Controller controller = new Controller();
+
         private Image Wallpaper = null;
+        private Image Wallpaper_Preview = null;
 
         private List<int> selectedScreens = new List<int>();
         private Rectangle previewRect;
@@ -128,9 +130,18 @@ namespace Chimera
                 Wallpaper.Dispose();
             }
 
-            Wallpaper = controller.CreateWallpaperImage();
+            if (Wallpaper_Preview != null)
+            {
+                Wallpaper_Preview.Dispose();
+            }
 
-            Wallpaper.Save("wallpaper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            Wallpaper = controller.CreateWallpaperImage(true);
+
+            Wallpaper_Preview = controller.CreateWallpaperImage(false);
+
+            /* 화면 저장 Test */
+            //Wallpaper.Save("wallpaper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //Wallpaper_Preview.Save("wallpaper_preview.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
 
@@ -225,7 +236,7 @@ namespace Chimera
             previewScreen = new Rectangle(previewScreen.Left, previewScreen.Top, previewScreen.Width - 1, previewScreen.Height - 1);            
 
             /*  */
-            Pen Selected_Border = new Pen(Color.FromArgb((int)(0.24 * 0xFF), 202, 0, 76));
+            Pen Selected_Border = new Pen(Color.FromArgb((int)(0.24 * 0xFF), 202, 0, 76),5);
             Brush Selected_Screen = new SolidBrush(Color.FromArgb((int)(0.08 * 0xFF), 202, 0, 76));
             Brush Selected_No = new SolidBrush(Color.FromArgb((int)(0xFF), 0xCA, 0x00, 0x4C));
 
@@ -251,7 +262,9 @@ namespace Chimera
             g.DrawRectangle(BorderPenColor, previewScreen);
 
             previewScreen.Inflate(-1, -1);
-            g.FillRectangle(BackColor, previewScreen);            
+
+            /* 미리 보기 화면에서 이미 선택된 그림이 배경색으로 덮여버리는 문제 */
+            //g.FillRectangle(BackColor, previewScreen);
 
             // display the screen name centered in the screen
             using (Font font = new Font(FontManager.LG_Smart_H_Bold(), FONT_SIZE, FontStyle.Bold, GraphicsUnit.Point))
@@ -277,6 +290,7 @@ namespace Chimera
                 {
                     //screenName += "P";
                 }
+
                 DisplayMonitor(g, previewSize, controller.AllScreens[screenIndex].ScreenRect, screenIndex, screenName);
             }
         }
@@ -309,7 +323,7 @@ namespace Chimera
 
             using (Graphics g = Graphics.FromImage(preview))
             {
-                g.DrawImage(Wallpaper, 0, 0, preview.Width, preview.Height);
+                g.DrawImage(Wallpaper_Preview, 0, 0, preview.Width, preview.Height);
 
                 // now indicate the positions of the monitors
                 /* Preview Picture Box에 Screen 각 사각형을 그린다. */
@@ -333,6 +347,9 @@ namespace Chimera
         private void OnSeclectedScreensChanged()
         {
             controller.SetActiveScreens(selectedScreens);
+
+            CreateWallpaper();
+
             UpdatePreview();
         }
 
@@ -447,6 +464,7 @@ namespace Chimera
                     controller.AddImage(image, stretchType.Type);
 
                     CreateWallpaper();
+
                     UpdatePreview();
 
                     SetWallpaer();

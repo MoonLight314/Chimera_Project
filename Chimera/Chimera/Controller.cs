@@ -103,7 +103,7 @@ namespace Chimera
 		/// Note this image is laid out the same way as the monitors are laid out.
 		/// </summary>
 		/// <returns>Image containing the wallpaper</returns>
-		public Image CreateWallpaperImage()
+		public Image CreateWallpaperImage(bool Wallpaper)
 		{
 			Bitmap image = new Bitmap(desktopRect.Width, desktopRect.Height);
 
@@ -112,8 +112,10 @@ namespace Chimera
 				// use best interpolation mode available
 				g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-                g.Clear(_desktopRectBackColor);
-                //g.Clear(_desktopRectBackColor_Black);
+                if(Wallpaper)
+                    g.Clear(_desktopRectBackColor_Black);
+                else
+                    g.Clear(_desktopRectBackColor);                
 
                 foreach (ScreenMapping screenMapping in allScreens)
 				{
