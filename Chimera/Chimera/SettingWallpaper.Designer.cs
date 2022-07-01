@@ -186,7 +186,6 @@ namespace Chimera
             this.MinimizeBox = false;
             this.Name = "SettingWallpaper";
             this.Opacity = 0.94D;
-            this.ShowInTaskbar = false;
             this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.Preview_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
