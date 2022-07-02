@@ -128,11 +128,7 @@ namespace Chimera
 
         private void button_Test_Click(object sender, EventArgs e)
         {
-            //HotKeyConfirm h = new HotKeyConfirm();            
-            //h.ShowDialog();
-
-            WarningDuplicatedHotkey w = new WarningDuplicatedHotkey();
-            w.ShowDialog();
+            
         }
 
 

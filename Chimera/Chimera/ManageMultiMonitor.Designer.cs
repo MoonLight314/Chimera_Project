@@ -176,6 +176,7 @@
             this.textBox_Primary.ReadOnly = true;
             this.textBox_Primary.Size = new System.Drawing.Size(203, 14);
             this.textBox_Primary.TabIndex = 7;
+            this.textBox_Primary.Enter += new System.EventHandler(this.textBox_Primary_Enter);
             // 
             // textBox_Rotation
             // 
@@ -187,6 +188,7 @@
             this.textBox_Rotation.ReadOnly = true;
             this.textBox_Rotation.Size = new System.Drawing.Size(203, 14);
             this.textBox_Rotation.TabIndex = 8;
+            this.textBox_Rotation.Enter += new System.EventHandler(this.textBox_Rotation_Enter);
             // 
             // textBox_OutputTech
             // 
@@ -198,6 +200,7 @@
             this.textBox_OutputTech.ReadOnly = true;
             this.textBox_OutputTech.Size = new System.Drawing.Size(203, 14);
             this.textBox_OutputTech.TabIndex = 9;
+            this.textBox_OutputTech.Enter += new System.EventHandler(this.textBox_OutputTech_Enter);
             // 
             // textBox_BitPerPixel
             // 
@@ -209,6 +212,7 @@
             this.textBox_BitPerPixel.ReadOnly = true;
             this.textBox_BitPerPixel.Size = new System.Drawing.Size(203, 14);
             this.textBox_BitPerPixel.TabIndex = 10;
+            this.textBox_BitPerPixel.Enter += new System.EventHandler(this.textBox_BitPerPixel_Enter);
             // 
             // textBox_Resolution
             // 
@@ -220,6 +224,7 @@
             this.textBox_Resolution.ReadOnly = true;
             this.textBox_Resolution.Size = new System.Drawing.Size(203, 14);
             this.textBox_Resolution.TabIndex = 11;
+            this.textBox_Resolution.Enter += new System.EventHandler(this.textBox_Resolution_Enter);
             // 
             // label_Multi_Monitor
             // 

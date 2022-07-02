@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            //this.cb_Shift = new System.Windows.Forms.CheckBox();
-            //this.cb_Ctrl = new System.Windows.Forms.CheckBox();
-            //this.cb_Alt = new System.Windows.Forms.CheckBox();
             this.txtBox_NormalKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_CANCEL = new System.Windows.Forms.Button();
@@ -45,43 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Ctrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Alt)).BeginInit();
             this.SuspendLayout();
-
-#if TEST
-            // 
-            // cb_Shift
-            // 
-            this.cb_Shift.AutoSize = true;
-            this.cb_Shift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.cb_Shift.Location = new System.Drawing.Point(40, 83);
-            this.cb_Shift.Name = "cb_Shift";
-            this.cb_Shift.Size = new System.Drawing.Size(48, 16);
-            this.cb_Shift.TabIndex = 0;
-            this.cb_Shift.Text = "Shift";
-            this.cb_Shift.UseVisualStyleBackColor = true;
-            // 
-            // cb_Ctrl
-            // 
-            this.cb_Ctrl.AutoSize = true;
-            this.cb_Ctrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.cb_Ctrl.Location = new System.Drawing.Point(40, 119);
-            this.cb_Ctrl.Name = "cb_Ctrl";
-            this.cb_Ctrl.Size = new System.Drawing.Size(43, 16);
-            this.cb_Ctrl.TabIndex = 1;
-            this.cb_Ctrl.Text = "Ctrl";
-            this.cb_Ctrl.UseVisualStyleBackColor = true;
-            // 
-            // cb_Alt
-            // 
-            this.cb_Alt.AutoSize = true;
-            this.cb_Alt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.cb_Alt.Location = new System.Drawing.Point(40, 155);
-            this.cb_Alt.Name = "cb_Alt";
-            this.cb_Alt.Size = new System.Drawing.Size(38, 16);
-            this.cb_Alt.TabIndex = 2;
-            this.cb_Alt.Text = "Alt";
-            this.cb_Alt.UseVisualStyleBackColor = true;
-#endif
-
             // 
             // txtBox_NormalKey
             // 
@@ -91,6 +51,7 @@
             this.txtBox_NormalKey.ReadOnly = true;
             this.txtBox_NormalKey.Size = new System.Drawing.Size(140, 21);
             this.txtBox_NormalKey.TabIndex = 3;
+            this.txtBox_NormalKey.TabStop = false;
             this.txtBox_NormalKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBox_NormalKey.Enter += new System.EventHandler(this.txtBox_NormalKey_Enter);
             // 
@@ -195,9 +156,6 @@
             this.Controls.Add(this.btn_CANCEL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBox_NormalKey);
-            //this.Controls.Add(this.cb_Alt);
-            //this.Controls.Add(this.cb_Ctrl);
-            //this.Controls.Add(this.cb_Shift);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;

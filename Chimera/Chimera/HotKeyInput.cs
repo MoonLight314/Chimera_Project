@@ -78,7 +78,9 @@ namespace Chimera
                 /* 이미 등록된 Key가 있는지 확인 */
                 if( CheckKeyComboDuplicated(e) == true)
                 {
-                    MessageBox.Show("This keys are already registered.", "Setting Hotkey", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    WarningDuplicatedHotkey w = new WarningDuplicatedHotkey();
+                    w.ShowDialog();
+
                     ClearUI();
                     return;
                 }
@@ -135,11 +137,14 @@ namespace Chimera
 
             if (CountModifierKey() >= 2)
             {
-                DialogResult Ret = MessageBox.Show(Hotkey, "Setting Hotkey",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);                
+                //DialogResult Ret = MessageBox.Show(Hotkey, "Setting Hotkey",
+                //            MessageBoxButtons.YesNo,
+                //            MessageBoxIcon.Question);                
 
-                if (Ret == DialogResult.Yes)
+                HotKeyConfirm h = new HotKeyConfirm(Hotkey);
+                DialogResult Ret = h.ShowDialog();
+
+                if (Ret == DialogResult.OK)
                 {
                     //this.keyCombo.AltMod = cb_Alt.Checked;
                     //this.keyCombo.ControlMod = cb_Ctrl.Checked;

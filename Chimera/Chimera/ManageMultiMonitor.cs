@@ -549,6 +549,36 @@ namespace Chimera
 
         }
 
+        private void textBox_Primary_Enter(object sender, EventArgs e)
+        {
+            textBox_Primary.Enabled = false;
+            textBox_Primary.Enabled = true;
+        }
+
+        private void textBox_Resolution_Enter(object sender, EventArgs e)
+        {
+            textBox_Resolution.Enabled = false;
+            textBox_Resolution.Enabled = true;
+        }
+
+        private void textBox_BitPerPixel_Enter(object sender, EventArgs e)
+        {
+            textBox_BitPerPixel.Enabled = false;
+            textBox_BitPerPixel.Enabled = true;
+        }
+
+        private void textBox_OutputTech_Enter(object sender, EventArgs e)
+        {
+            textBox_OutputTech.Enabled = false;
+            textBox_OutputTech.Enabled = true;
+        }
+
+        private void textBox_Rotation_Enter(object sender, EventArgs e)
+        {
+            textBox_Rotation.Enabled = false;
+            textBox_Rotation.Enabled = true;
+        }
+
 #if SUPPORT_CUSTOM_TRACKBAR
         private void cusTrackbar_Brightness_Paint(object sender, PaintEventArgs e)
         {
