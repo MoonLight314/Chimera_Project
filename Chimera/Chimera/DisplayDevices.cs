@@ -504,7 +504,11 @@ namespace Chimera
 
                     //displayDevice.AdapterName = AdapterName(adapterId, outletId);
                     displayDevice.SourceName = SourceName(adapterId, outletId);
-                    displayDevice.FriendlyName = MonitorFriendlyName(adapterId, targetId);
+
+                    if (pathInfo.targetInfo.outputTechnology == NativeDisplayMethods.DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL)
+                        displayDevice.FriendlyName = displayDevice.OutputTechnology;
+                    else
+                        displayDevice.FriendlyName = MonitorFriendlyName(adapterId, targetId);
 
                     displayDevice.BitsPerPixel = NativeDisplayHelper.PixelFormatToBits(sourceMode.pixelFormat);
                 }

@@ -53,6 +53,9 @@ namespace Chimera
                 case NativeDisplayMethods.DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST:
                     return "Miracast";
 
+                case NativeDisplayMethods.DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL:
+                    return "Internal Connection";
+
                 default:
                     return "Other/Unknown";
             }

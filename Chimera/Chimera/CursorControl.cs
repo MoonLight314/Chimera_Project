@@ -127,19 +127,24 @@ namespace Chimera
         {
             //cb_FeatureEnable.Checked = Value;
             //cb_MovCursorNextScreen.Enabled = Value;
-            cb_MovCursorPrevScreen.Enabled = Value;
-            cb_MovCursorPrimary.Enabled = Value;
-            cb_LockToScreen.Enabled = Value;
+            //cb_MovCursorPrevScreen.Enabled = Value;
+            //cb_MovCursorPrimary.Enabled = Value;
+            //cb_LockToScreen.Enabled = Value;
 
             FeatureEnable = Value;
-            pb_CheckBox_FeatureEnable.Image = FeatureEnable ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_FeatureEnable.Image = FeatureEnable ? Properties.Resources.Toggle_Switch_On : Properties.Resources.Toggle_Switch_Off;
 
             MovCursorNextScreen = Value;
             pb_CheckBox_MovCursorNextScreen.Image = MovCursorNextScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
 
             MovCursorPrevScreen = Value;
+            pb_CheckBox_MovCursorPrevScreen.Image = MovCursorPrevScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
             MovCursorPrimary = Value;
+            pb_CheckBox_MovCursorPrimary.Image = MovCursorPrimary ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
             LockToScreen = Value;
+            pb_CheckBox_LockToScreen.Image = LockToScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
 
             txtBox_Hotkey_MovCurNextScreen.Enabled = Value;
             txtBox_Hotkey_MovCurPrevScreen.Enabled = Value;
@@ -200,13 +205,15 @@ namespace Chimera
                 {
                     txtBox_Hotkey_MovCurPrevScreen.Enabled = false;
                     btn_CursorMov_Prev_Screen_KeyChange.Enabled = false;
-                    cb_MovCursorPrevScreen.Checked = false;
+                    //cb_MovCursorPrevScreen.Checked = false;
+                    MovCursorPrevScreen = false;
                 }
                 else
                 {
                     txtBox_Hotkey_MovCurPrevScreen.Enabled = true;
                     btn_CursorMov_Prev_Screen_KeyChange.Enabled = true;
-                    cb_MovCursorPrevScreen.Checked = true;
+                    //cb_MovCursorPrevScreen.Checked = true;
+                    MovCursorPrevScreen = true;
                 }
 
 
@@ -215,13 +222,15 @@ namespace Chimera
                 {
                     txtBox_Hotkey_MoveCurPrimary.Enabled = false;
                     btn_Cursor_Move_Primary_KeyChange.Enabled = false;
-                    cb_MovCursorPrimary.Checked = false;
+                    //cb_MovCursorPrimary.Checked = false;
+                    MovCursorPrimary = false;
                 }
                 else
                 {
                     txtBox_Hotkey_MoveCurPrimary.Enabled = true;
                     btn_Cursor_Move_Primary_KeyChange.Enabled = true;
-                    cb_MovCursorPrimary.Checked = true;
+                    //cb_MovCursorPrimary.Checked = true;
+                    MovCursorPrimary = true;
                 }
 
 
@@ -230,17 +239,22 @@ namespace Chimera
                 {
                     txtBox_Hotkey_LockToScreen.Enabled = false;
                     btn_Cursor_Lock_Screen_KeyChange.Enabled = false;
-                    cb_LockToScreen.Checked = false;
+                    //cb_LockToScreen.Checked = false;
+                    LockToScreen = false;
                 }
                 else
                 {
                     txtBox_Hotkey_LockToScreen.Enabled = true;
                     btn_Cursor_Lock_Screen_KeyChange.Enabled = true;
-                    cb_LockToScreen.Checked = true;
+                    //cb_LockToScreen.Checked = true;
+                    LockToScreen = true;
                 }
 
                 /*  */
                 pb_CheckBox_MovCursorNextScreen.Image = MovCursorNextScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+                pb_CheckBox_MovCursorPrevScreen.Image = MovCursorPrevScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+                pb_CheckBox_MovCursorPrimary.Image = MovCursorPrimary ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+                pb_CheckBox_LockToScreen.Image = LockToScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
 
             }
                         
@@ -351,7 +365,7 @@ namespace Chimera
 
             ApplyConfigSettingToUI();
         }
-#endif
+
 
         /* Move Cursor To Next Screen CheckBox 상태 변경 */
         private void cb_CursorNextScreen_ChangeCheck(object sender, EventArgs e)
@@ -369,6 +383,8 @@ namespace Chimera
 
             ApplyConfigSettingToUI();
         }
+
+
 
 
         /* Move Cursor To Prev Screen CheckBox 상태 변경 */
@@ -407,7 +423,6 @@ namespace Chimera
         }
 
 
-
         /* Lock To Screen CheckBox 상태 변경 */
         private void cb_LockScreen_ChangeCheck(object sender, EventArgs e)
         {
@@ -424,7 +439,7 @@ namespace Chimera
 
             ApplyConfigSettingToUI();
         }
-
+#endif
 
 
         /* Move Cursor To Next Screen key 변경 Button */
@@ -626,13 +641,95 @@ namespace Chimera
 
             if (FeatureEnable)
             {
-                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Checkbox_Checked;
+                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Toggle_Switch_On;
                 configValues.EnableCursorFeature = true;
             }
             else
             {
-                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Checkbox_Not_Checked;
+                pb_CheckBox_FeatureEnable.Image = Properties.Resources.Toggle_Switch_Off;
                 configValues.EnableCursorFeature = false;
+            }
+
+            ApplyConfigSettingToUI();
+        }
+
+
+        /*  */
+        private void pb_CheckBox_MovCursorNextScreen_Click(object sender, EventArgs e)
+        {
+            MovCursorNextScreen = !MovCursorNextScreen;
+
+            if (MovCursorNextScreen)
+            {
+                pb_CheckBox_MovCursorNextScreen.Image = Properties.Resources.Checkbox_Checked;
+                configValues.EnableMoveCursorNextScreen = true;
+            }
+            else
+            {
+                pb_CheckBox_MovCursorNextScreen.Image = Properties.Resources.Checkbox_Not_Checked;
+                configValues.EnableMoveCursorNextScreen = false;
+            }
+
+            ApplyConfigSettingToUI();
+        }
+
+        /*  */
+        private void pb_CheckBox_MovCursorPrevScreen_Click(object sender, EventArgs e)
+        {
+            MovCursorPrevScreen = !MovCursorPrevScreen;
+
+            if (MovCursorPrevScreen)
+            {
+                pb_CheckBox_MovCursorPrevScreen.Image = Properties.Resources.Checkbox_Checked;
+                configValues.EnableMoveCursorPrevScreen = true;
+            }
+            else
+            {
+                pb_CheckBox_MovCursorPrevScreen.Image = Properties.Resources.Checkbox_Not_Checked;
+                configValues.EnableMoveCursorPrevScreen = false;
+            }
+
+            ApplyConfigSettingToUI();
+        }
+
+
+
+        /*  */
+        private void pb_CheckBox_MovCursorPrimary_Click(object sender, EventArgs e)
+        {
+            MovCursorPrimary = !MovCursorPrimary;
+
+            if (MovCursorPrimary)
+            {
+                pb_CheckBox_MovCursorPrimary.Image = Properties.Resources.Checkbox_Checked;
+                configValues.EnableMoveCursorPrimaryScreen = true;
+            }
+            else
+            {
+                pb_CheckBox_MovCursorPrimary.Image = Properties.Resources.Checkbox_Not_Checked;
+                configValues.EnableMoveCursorPrimaryScreen = false;
+            }
+
+            ApplyConfigSettingToUI();
+        }
+
+
+
+
+        /*  */
+        private void pb_CheckBox_LockToScreen_Click(object sender, EventArgs e)
+        {
+            LockToScreen = !LockToScreen;
+
+            if (LockToScreen)
+            {
+                pb_CheckBox_LockToScreen.Image = Properties.Resources.Checkbox_Checked;
+                configValues.EnableLockCursorToScreen = true;
+            }
+            else
+            {
+                pb_CheckBox_LockToScreen.Image = Properties.Resources.Checkbox_Not_Checked;
+                configValues.EnableLockCursorToScreen = false;
             }
 
             ApplyConfigSettingToUI();
