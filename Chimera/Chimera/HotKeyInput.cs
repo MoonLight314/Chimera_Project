@@ -15,6 +15,11 @@ namespace Chimera
         KeyCombo keyCombo;
         ConfigValues configValues;
 
+        /* */
+        bool ShiftKeyDown;
+        bool CtrlKeyDown;
+        bool AltKeyDown;
+
         public HotKeyInput(ConfigValues cv)
         {
             InitializeComponent();
@@ -32,10 +37,12 @@ namespace Chimera
             this.BackColor = Color.FromArgb(255, 255, 255);
 
             this.label_Hotkey_Input.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Shift.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Alt.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Ctrl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Shift.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Ctrl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Alt.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBox_NormalKey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            ClearUI();
 
         }
 
@@ -49,9 +56,19 @@ namespace Chimera
 
         private void key_down(object sender, KeyEventArgs e)
         {
-            cb_Ctrl.Checked = e.Control;
-            cb_Alt.Checked = e.Alt;
-            cb_Shift.Checked = e.Shift;
+            //cb_Ctrl.Checked = e.Control;
+            //cb_Alt.Checked = e.Alt;
+            //cb_Shift.Checked = e.Shift;
+
+            CtrlKeyDown = e.Control;
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            AltKeyDown = e.Alt;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            ShiftKeyDown = e.Shift;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
 
             txtBox_NormalKey.Text = KeyCodeValues.GetKeyCodeString( e );
 
@@ -86,9 +103,14 @@ namespace Chimera
         {
             KeyCombo tmpKey = new KeyCombo();
 
-            tmpKey.AltMod = cb_Alt.Checked;
-            tmpKey.ControlMod = cb_Ctrl.Checked;
-            tmpKey.ShiftMod = cb_Shift.Checked;
+            //tmpKey.AltMod = cb_Alt.Checked;
+            //tmpKey.ControlMod = cb_Ctrl.Checked;
+            //tmpKey.ShiftMod = cb_Shift.Checked;
+
+            tmpKey.AltMod = AltKeyDown;
+            tmpKey.ControlMod = CtrlKeyDown;
+            tmpKey.ShiftMod = ShiftKeyDown;
+
             tmpKey.KeyCode = e.KeyCode;
 
             if (configValues.CheckHotKeyDuplicated(tmpKey.ComboValue.ToString()))
@@ -119,9 +141,14 @@ namespace Chimera
 
                 if (Ret == DialogResult.Yes)
                 {
-                    this.keyCombo.AltMod = cb_Alt.Checked;
-                    this.keyCombo.ControlMod = cb_Ctrl.Checked;
-                    this.keyCombo.ShiftMod = cb_Shift.Checked;
+                    //this.keyCombo.AltMod = cb_Alt.Checked;
+                    //this.keyCombo.ControlMod = cb_Ctrl.Checked;
+                    //this.keyCombo.ShiftMod = cb_Shift.Checked;
+
+                    this.keyCombo.AltMod = AltKeyDown;
+                    this.keyCombo.ControlMod = CtrlKeyDown;
+                    this.keyCombo.ShiftMod = ShiftKeyDown;
+
                     this.keyCombo.KeyCode = e.KeyCode;
                     return true;
                 }
@@ -134,9 +161,18 @@ namespace Chimera
 
         private void ClearUI()
         {
-            cb_Ctrl.Checked = false;
-            cb_Alt.Checked = false;
-            cb_Shift.Checked = false;
+            //cb_Ctrl.Checked = false;
+            //cb_Alt.Checked = false;
+            //cb_Shift.Checked = false;
+
+            CtrlKeyDown = false;
+            AltKeyDown = false;
+            ShiftKeyDown = false;
+
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
             txtBox_NormalKey.Text = "";
         }
 
@@ -145,13 +181,22 @@ namespace Chimera
         {
             string Ret = "";
 
-            if (cb_Ctrl.Checked)
+            //if (cb_Ctrl.Checked)
+            //    Ret += "Ctrl + ";
+
+            //if (cb_Alt.Checked)
+            //    Ret += "Alt + ";
+
+            //if (cb_Shift.Checked)
+            //    Ret += "Shift + ";
+
+            if (CtrlKeyDown)
                 Ret += "Ctrl + ";
 
-            if (cb_Alt.Checked)
+            if (AltKeyDown)
                 Ret += "Alt + ";
 
-            if (cb_Shift.Checked)
+            if (ShiftKeyDown)
                 Ret += "Shift + ";
 
             Ret += txtBox_NormalKey.Text;
@@ -163,9 +208,18 @@ namespace Chimera
 
         private void key_up(object sender, KeyEventArgs e)
         {
-            cb_Ctrl.Checked = e.Control;
-            cb_Alt.Checked = e.Alt;
-            cb_Shift.Checked = e.Shift;
+            //cb_Ctrl.Checked = e.Control;
+            //cb_Alt.Checked = e.Alt;
+            //cb_Shift.Checked = e.Shift;
+
+            CtrlKeyDown = e.Control;
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            AltKeyDown = e.Alt;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+
+            ShiftKeyDown = e.Shift;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
 
             txtBox_NormalKey.Text = "";
         }
@@ -175,13 +229,22 @@ namespace Chimera
         {
             int ModifierCount = 0;
 
-            if (cb_Ctrl.Checked)
+            //if (cb_Ctrl.Checked)
+            //    ModifierCount++;
+
+            //if (cb_Alt.Checked)
+            //    ModifierCount++;
+
+            //if (cb_Shift.Checked)
+            //    ModifierCount++;
+
+            if (CtrlKeyDown)
                 ModifierCount++;
 
-            if (cb_Alt.Checked)
+            if (AltKeyDown)
                 ModifierCount++;
 
-            if (cb_Shift.Checked)
+            if (ShiftKeyDown)
                 ModifierCount++;
 
             return ModifierCount;

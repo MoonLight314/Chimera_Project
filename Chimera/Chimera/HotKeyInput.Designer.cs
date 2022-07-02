@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cb_Shift = new System.Windows.Forms.CheckBox();
-            this.cb_Ctrl = new System.Windows.Forms.CheckBox();
-            this.cb_Alt = new System.Windows.Forms.CheckBox();
+            //this.cb_Shift = new System.Windows.Forms.CheckBox();
+            //this.cb_Ctrl = new System.Windows.Forms.CheckBox();
+            //this.cb_Alt = new System.Windows.Forms.CheckBox();
             this.txtBox_NormalKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_CANCEL = new System.Windows.Forms.Button();
             this.label_Hotkey_Input = new System.Windows.Forms.Label();
+            this.pb_CheckBox_Shift = new System.Windows.Forms.PictureBox();
+            this.label_Shift = new System.Windows.Forms.Label();
+            this.pb_CheckBox_Ctrl = new System.Windows.Forms.PictureBox();
+            this.label_Ctrl = new System.Windows.Forms.Label();
+            this.pb_CheckBox_Alt = new System.Windows.Forms.PictureBox();
+            this.label_Alt = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Shift)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Ctrl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Alt)).BeginInit();
             this.SuspendLayout();
+
+#if TEST
             // 
             // cb_Shift
             // 
@@ -69,6 +80,8 @@
             this.cb_Alt.TabIndex = 2;
             this.cb_Alt.Text = "Alt";
             this.cb_Alt.UseVisualStyleBackColor = true;
+#endif
+
             // 
             // txtBox_NormalKey
             // 
@@ -110,18 +123,81 @@
             this.label_Hotkey_Input.TabIndex = 15;
             this.label_Hotkey_Input.Text = "Hotkey Input";
             // 
+            // pb_CheckBox_Shift
+            // 
+            this.pb_CheckBox_Shift.Location = new System.Drawing.Point(55, 67);
+            this.pb_CheckBox_Shift.Name = "pb_CheckBox_Shift";
+            this.pb_CheckBox_Shift.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_Shift.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_Shift.TabIndex = 32;
+            this.pb_CheckBox_Shift.TabStop = false;
+            // 
+            // label_Shift
+            // 
+            this.label_Shift.AutoSize = true;
+            this.label_Shift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Shift.Location = new System.Drawing.Point(74, 68);
+            this.label_Shift.Name = "label_Shift";
+            this.label_Shift.Size = new System.Drawing.Size(29, 12);
+            this.label_Shift.TabIndex = 31;
+            this.label_Shift.Text = "Shift";
+            // 
+            // pb_CheckBox_Ctrl
+            // 
+            this.pb_CheckBox_Ctrl.Location = new System.Drawing.Point(55, 101);
+            this.pb_CheckBox_Ctrl.Name = "pb_CheckBox_Ctrl";
+            this.pb_CheckBox_Ctrl.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_Ctrl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_Ctrl.TabIndex = 34;
+            this.pb_CheckBox_Ctrl.TabStop = false;
+            // 
+            // label_Ctrl
+            // 
+            this.label_Ctrl.AutoSize = true;
+            this.label_Ctrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Ctrl.Location = new System.Drawing.Point(74, 102);
+            this.label_Ctrl.Name = "label_Ctrl";
+            this.label_Ctrl.Size = new System.Drawing.Size(24, 12);
+            this.label_Ctrl.TabIndex = 33;
+            this.label_Ctrl.Text = "Ctrl";
+            // 
+            // pb_CheckBox_Alt
+            // 
+            this.pb_CheckBox_Alt.Location = new System.Drawing.Point(55, 141);
+            this.pb_CheckBox_Alt.Name = "pb_CheckBox_Alt";
+            this.pb_CheckBox_Alt.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_Alt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_Alt.TabIndex = 36;
+            this.pb_CheckBox_Alt.TabStop = false;
+            // 
+            // label_Alt
+            // 
+            this.label_Alt.AutoSize = true;
+            this.label_Alt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
+            this.label_Alt.Location = new System.Drawing.Point(74, 142);
+            this.label_Alt.Name = "label_Alt";
+            this.label_Alt.Size = new System.Drawing.Size(19, 12);
+            this.label_Alt.TabIndex = 35;
+            this.label_Alt.Text = "Alt";
+            // 
             // HotKeyInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 271);
+            this.Controls.Add(this.pb_CheckBox_Alt);
+            this.Controls.Add(this.label_Alt);
+            this.Controls.Add(this.pb_CheckBox_Ctrl);
+            this.Controls.Add(this.label_Ctrl);
+            this.Controls.Add(this.pb_CheckBox_Shift);
+            this.Controls.Add(this.label_Shift);
             this.Controls.Add(this.label_Hotkey_Input);
             this.Controls.Add(this.btn_CANCEL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBox_NormalKey);
-            this.Controls.Add(this.cb_Alt);
-            this.Controls.Add(this.cb_Ctrl);
-            this.Controls.Add(this.cb_Shift);
+            //this.Controls.Add(this.cb_Alt);
+            //this.Controls.Add(this.cb_Ctrl);
+            //this.Controls.Add(this.cb_Shift);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -132,19 +208,28 @@
             this.Text = "Hotkey Input";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.key_up);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Shift)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Ctrl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Alt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
+#endregion
 
-        private System.Windows.Forms.CheckBox cb_Shift;
-        private System.Windows.Forms.CheckBox cb_Ctrl;
-        private System.Windows.Forms.CheckBox cb_Alt;
+        //private System.Windows.Forms.CheckBox cb_Shift;
+        //private System.Windows.Forms.CheckBox cb_Ctrl;
+        //private System.Windows.Forms.CheckBox cb_Alt;
         private System.Windows.Forms.TextBox txtBox_NormalKey;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_CANCEL;
         private System.Windows.Forms.Label label_Hotkey_Input;
+        private System.Windows.Forms.PictureBox pb_CheckBox_Shift;
+        private System.Windows.Forms.Label label_Shift;
+        private System.Windows.Forms.PictureBox pb_CheckBox_Ctrl;
+        private System.Windows.Forms.Label label_Ctrl;
+        private System.Windows.Forms.PictureBox pb_CheckBox_Alt;
+        private System.Windows.Forms.Label label_Alt;
     }
 }
