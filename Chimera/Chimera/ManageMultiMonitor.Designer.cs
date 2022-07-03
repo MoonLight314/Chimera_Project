@@ -248,6 +248,7 @@
             this.lv_Monitors.TabIndex = 22;
             this.lv_Monitors.UseCompatibleStateImageBehavior = false;
             this.lv_Monitors.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.lv_Monitors.Leave += new System.EventHandler(this.lv_Monitors_Leave);
             // 
             // label_FriendlyName
             // 
@@ -292,6 +293,7 @@
             // label_Current_Contrast_Value
             // 
             this.label_Current_Contrast_Value.AutoSize = true;
+            this.label_Current_Contrast_Value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label_Current_Contrast_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Contrast_Value.Location = new System.Drawing.Point(672, 414);
             this.label_Current_Contrast_Value.Name = "label_Current_Contrast_Value";
@@ -302,12 +304,14 @@
             // label_Current_Brightness_Value
             // 
             this.label_Current_Brightness_Value.AutoSize = true;
+            this.label_Current_Brightness_Value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label_Current_Brightness_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Brightness_Value.Location = new System.Drawing.Point(672, 374);
             this.label_Current_Brightness_Value.Name = "label_Current_Brightness_Value";
             this.label_Current_Brightness_Value.Size = new System.Drawing.Size(65, 12);
             this.label_Current_Brightness_Value.TabIndex = 26;
             this.label_Current_Brightness_Value.Text = "Brightness";
+            this.label_Current_Brightness_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 

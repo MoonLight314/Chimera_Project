@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows;
 using System.Drawing.Drawing2D;
@@ -485,7 +485,7 @@ namespace Chimera
         /// </summary>
         private void trackBar_Contrast_Scroll(object sender, EventArgs e)
         {            
-            _displayDevices.ChangeMonitorContrast(lv_Monitors.SelectedIndices[0], (uint)trackBar_Contrast.Value);
+            _displayDevices.ChangeMonitorContrast(lv_Monitors.SelectedIndices[0], (uint)trackBar_Contrast.Value);            
             UpdateContrast();
         }
 
@@ -504,6 +504,9 @@ namespace Chimera
                 /* 선택한 Monitor에 대한 정보를 표시한다. */
                 if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
                 {
+                    /* Contrast가 제대로 변경되지 않는 경우가 있어서 Delay를 준다. */
+                    Thread.Sleep(500);
+
                     _displayDevices.GetMonitorContrast(lv_Monitors.SelectedIndices[0], ref pdwMinimumContrast, ref pdwCurrentContrast, ref pdwMaximumContrast);
                     msi.CurrentContrast = pdwCurrentContrast;
                     DisplaySelectedMonitorInfo(msi);
@@ -577,6 +580,13 @@ namespace Chimera
         {
             textBox_Rotation.Enabled = false;
             textBox_Rotation.Enabled = true;
+        }
+
+        private void lv_Monitors_Leave(object sender, EventArgs e)
+        {
+            /* 다른 Control을 선택하는 경우 Focus가 없어져서 현재 선택중인 Monitor가 표시되지 않는 경우가 있다 */
+            lv_Monitors.Focus();
+
         }
 
 #if SUPPORT_CUSTOM_TRACKBAR
