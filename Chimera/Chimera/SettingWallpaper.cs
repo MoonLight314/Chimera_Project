@@ -72,7 +72,11 @@ namespace Chimera
             this.labelScreensSelected.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             this.TextBox_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.label_Introduction.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScreensSelected.ForeColor = Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            label_Introduction.Text = "This feature allows you to set\nan individual wallpaper for\neach display.\n\nFirst, select the display to change\nthe wallpaper and select a picture\nto set as the wallpaper.\n\nYou can also select the appropriate\n'Fit' to fit the screen.";
         }
 
 

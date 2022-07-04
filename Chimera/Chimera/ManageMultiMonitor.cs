@@ -19,7 +19,16 @@ namespace Chimera
 
         IList<MonitorSetInfo> MonitorSettingInfo;
         DisplayDevices _displayDevices;
+
+        /* Friendly Name으로 각 Monitor를 구분할 경우, 동일 Friendly Name이 발생할 경우 문제가 발생할 수 있다.
+           Friendly Name 대신, Monitor Handle로 구분하면 개선가능하기 때문에, 각 Monitor의 Handle을 저장하고,
+           현재 선택된 Monitor의 Handle을 저장할 변수도 추가한다.
+        */
+        IList<IntPtr> MonitorHandles;
+        IntPtr CurrentSelMonitorHandle;
+
         String CurrentSelMonitorName;
+        
 
         #if SUPPORT_CUSTOM_TRACKBAR
         float cusTrackBar_Min, cusTrackBar_Max;
@@ -38,10 +47,12 @@ namespace Chimera
             
 
             MonitorSettingInfo = new List<MonitorSetInfo>();
+            MonitorHandles = new List<IntPtr>();
 
             _displayDevices = displayDevices;
 
-            CurrentSelMonitorName = "All Monitors";
+            CurrentSelMonitorName = "";
+            CurrentSelMonitorHandle = IntPtr.Zero;
 
             GetOnlyActiveMonitors(allMonitorProperties);
 
@@ -107,12 +118,12 @@ namespace Chimera
             lv_Monitors.Columns.Add("Column1Name");
 
             ImageList ilt = new ImageList();
-            ListViewItem item;            
+            ListViewItem item;
+
             ilt.ImageSize = new Size(48, 48);
 
-            Image[] img = { Properties.Resources.Monitor_No_01,
-                            Properties.Resources.Monitor_No_02,
-                            Properties.Resources.Monitor_No_03};
+            Image[] img = { Properties.Resources.Icon_Laptop,                            
+                            Properties.Resources.Icon_Monitor};
 
             foreach (Image i in img)
                 ilt.Images.Add(i);
@@ -121,12 +132,20 @@ namespace Chimera
 
 
             /**/
-            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            MonitorSetInfo msi;
+            for (int Idx =0; Idx < MonitorSettingInfo.Count; Idx++)
             {
-                item = new ListViewItem(msi.displaydevice.FriendlyName, 0);
+                msi = MonitorSettingInfo[Idx];
+
+                /* Internal Connection은 노트북의 경우에 해당된다. */
+                item = new ListViewItem(msi.displaydevice.FriendlyName,
+                                        msi.displaydevice.OutputTechnology == "Internal Connection" ? 0 : 1);
                 lv_Monitors.Items.Add(item);
+
+                MonitorHandles.Add(msi.displaydevice.MonitorHandle);                   
             }
 
+            CurrentSelMonitorHandle = MonitorHandles[0];
 
             foreach (ColumnHeader column in lv_Monitors.Columns)
             {
@@ -206,16 +225,8 @@ namespace Chimera
             textBox_OutputTech.Text = msi.displaydevice.OutputTechnology;
             textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees);
 
-            cb_SetAsPrimary.Checked = msi.SetAsPrimary;
-#if SUPPORT_MONITOR_OFF_FEATURE
-            cb_MonitorOff.Checked = msi.Off;
-
-
-            if (msi.SetAsPrimary)
-                cb_MonitorOff.Enabled = false;
-            else
-                cb_MonitorOff.Enabled = true;
-#endif
+            if(msi.displaydevice.IsPrimary)
+                cb_SetAsPrimary.Checked = true;
 
             /* Brightness */
             trackBar_Brightness.Enabled = true;
@@ -247,16 +258,13 @@ namespace Chimera
             cb_MonitorOff.Checked = false;
 #endif
 
-            if (CurrentSelMonitorName == "")
+
+            if(CurrentSelMonitorHandle == IntPtr.Zero)
             {
                 cb_SetAsPrimary.Enabled = false;
                 label_FriendlyName.Text = "";
                 trackBar_Brightness.Enabled = false;
                 trackBar_Contrast.Enabled = false;
-
-#if SUPPORT_MONITOR_OFF_FEATURE
-                cb_MonitorOff.Enabled = false;
-#endif
             }
         }
 
@@ -275,31 +283,7 @@ namespace Chimera
         /* 설정 반영하기 */
         private void manage_Set(object sender, EventArgs e)
         {
-            /*  */
-            if (CheckSettingValidity() == false)
-            {
-                //throw new ApplicationException(string.Format("Setting Error : The number of primary monitor must be one."));
-                MessageBox.Show("The number of primary monitor must be one.", "Setting Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            _displayDevices.Reset();
-
-            /* Monitor Off 설정 */
-            foreach (MonitorSetInfo msi in MonitorSettingInfo)
-            {
-                if (msi.Off)
-                {
-                    _displayDevices.MakeAsDisabled(msi.MonitorIndex, false);
-                }
-
-            }
-
-            /* Primary Monitor */
-            _displayDevices.MakePrimary(GetPrimaryMonitorIndex());
-
-            /* 변경된 설정 적용 */
-            _displayDevices.ApplyDisplayChange();
         }
 
 
@@ -349,36 +333,68 @@ namespace Chimera
         /* 'Set As Primary' Button Click 처리 */
         private void click_SetAsPrimary(object sender, EventArgs e)
         {
-            if (CurrentSelMonitorName == "All Monitors")
+            int NewPrimaryMonitorIndex = -1;
+
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
-                cb_SetAsPrimary.Checked = false;
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
+                {
+                    cb_SetAsPrimary.Checked = true;
+
+                    if (msi.SetAsPrimary)
+                    {
+                        /* 선택한 Monitor가 이미 Primary라면 아무것도 하지 않는다. */                        
+                        return;
+                    }
+                    else
+                    {                        
+                        NewPrimaryMonitorIndex = msi.MonitorIndex;
+                        _displayDevices.MakePrimary(NewPrimaryMonitorIndex);
+                        break;
+                    }
+                }
             }
+
+            /*  Primary를 변경하면 displayDevices를 Update하게 되고, 
+                변경된 정보로 MonitorSettingInfo를 다시 구성한다.    */
+            MonitorSettingInfo = new List<MonitorSetInfo>();
+            GetOnlyActiveMonitors(_displayDevices.Items);
 
             /*  */
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
-                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
                 {
-                    /* Primary로 선택된 Monitor는 끌 수 없게 한다. */
-                    msi.SetAsPrimary = cb_SetAsPrimary.Checked;
-#if SUPPORT_MONITOR_OFF_FEATURE
-                    cb_MonitorOff.Enabled = msi.SetAsPrimary ? false : true;                    
+                    msi.SetAsPrimary = true;                    
+                }
+                else
+                {
+                    msi.SetAsPrimary = false;
+                }
 
-                    if(msi.SetAsPrimary && cb_MonitorOff.Checked)
-                    {
-                        cb_MonitorOff.Checked = false;
-                        msi.Off = false;
-                    }
-#endif
+                msi.MonitorIndex = GetMonitorIndexByHandle(msi.displaydevice.MonitorHandle);
 
-                    DisplaySelectedMonitorInfo(msi);
+                DisplaySelectedMonitorInfo(msi);
+            }
+            
+        }
+
+
+        private int GetMonitorIndexByHandle(IntPtr Handle)
+        {
+            int Index = -1;
+
+            for(int Idx = 0; Idx<_displayDevices.Count(); Idx++)
+            {
+                if(_displayDevices.Items[Idx].MonitorHandle == Handle)
+                {
+                    Index = Idx;
                     break;
                 }
             }
 
-            //tv_Monitor_List.Select();
+            return Index;
         }
-
 
 
 #if SUPPORT_MONITOR_OFF_FEATURE
@@ -437,7 +453,7 @@ namespace Chimera
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 /* 선택한 Monitor에 대한 정보를 표시한다. */
-                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)                
                 {
                     DisplayDevice displayDevice = msi.displaydevice;
 
@@ -502,7 +518,7 @@ namespace Chimera
             foreach (MonitorSetInfo msi in MonitorSettingInfo)
             {
                 /* 선택한 Monitor에 대한 정보를 표시한다. */
-                if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
                 {
                     /* Contrast가 제대로 변경되지 않는 경우가 있어서 Delay를 준다. */
                     Thread.Sleep(500);
@@ -527,6 +543,7 @@ namespace Chimera
             {
                 label_FriendlyName.Text = lv_Monitors.SelectedItems[0].Text;
                 CurrentSelMonitorName = lv_Monitors.SelectedItems[0].Text;
+                CurrentSelMonitorHandle = MonitorHandles[lv_Monitors.SelectedItems[0].Index];
 
                 cb_SetAsPrimary.Enabled = true;
 #if SUPPORT_MONITOR_OFF_FEATURE
@@ -536,7 +553,7 @@ namespace Chimera
                 foreach (MonitorSetInfo msi in MonitorSettingInfo)
                 {
                     /* 선택한 Monitor에 대한 정보를 표시한다. */
-                    if (msi.displaydevice.FriendlyName == CurrentSelMonitorName)
+                    if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
                     {
                         DisplaySelectedMonitorInfo(msi);
                         return;
@@ -546,6 +563,7 @@ namespace Chimera
             }
             else
             {
+                CurrentSelMonitorHandle = IntPtr.Zero;
                 CurrentSelMonitorName = "";
                 ClearMonitorInfo();
             }

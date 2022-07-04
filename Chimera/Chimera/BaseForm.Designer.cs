@@ -50,11 +50,10 @@ namespace Chimera
             this.notifyIcon1.BalloonTipText = "Moon";
             this.notifyIcon1.BalloonTipTitle = "MoonLight";
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            //this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
-            this.notifyIcon1.Icon = Icon.FromHandle(bmp.GetHicon());            
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Multi-Monitor Manager";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -67,50 +66,50 @@ namespace Chimera
             this.lowerSeparator,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 126);
             // 
             // aboutBoxMenuItem
             // 
             this.aboutBoxMenuItem.Name = "aboutBoxMenuItem";
-            this.aboutBoxMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutBoxMenuItem.Size = new System.Drawing.Size(127, 22);
             this.aboutBoxMenuItem.Text = "About...";
             this.aboutBoxMenuItem.Click += new System.EventHandler(this.aboutBoxMenuItem_click);
             // 
             // upperSeparator
             // 
             this.upperSeparator.Name = "upperSeparator";
-            this.upperSeparator.Size = new System.Drawing.Size(149, 6);
+            this.upperSeparator.Size = new System.Drawing.Size(124, 6);
             // 
             // cursorControlMenuItem
             // 
             this.cursorControlMenuItem.Name = "cursorControlMenuItem";
-            this.cursorControlMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cursorControlMenuItem.Size = new System.Drawing.Size(127, 22);
             this.cursorControlMenuItem.Text = "Cursor";
             this.cursorControlMenuItem.Click += new System.EventHandler(this.cursorControlMenuItem_click);
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.manageToolStripMenuItem.Text = "Manage";
             this.manageToolStripMenuItem.Click += new System.EventHandler(this.ManageItemClick);
             // 
             // SettingWallpaperToolStripMenuItem
             // 
             this.SettingWallpaperToolStripMenuItem.Name = "SettingWallpaperToolStripMenuItem";
-            this.SettingWallpaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SettingWallpaperToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.SettingWallpaperToolStripMenuItem.Text = "Wallpaper";
             this.SettingWallpaperToolStripMenuItem.Click += new System.EventHandler(this.settingWallpaper_Click);
             // 
             // lowerSeparator
             // 
             this.lowerSeparator.Name = "lowerSeparator";
-            this.lowerSeparator.Size = new System.Drawing.Size(149, 6);
+            this.lowerSeparator.Size = new System.Drawing.Size(124, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

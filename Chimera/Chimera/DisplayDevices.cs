@@ -84,6 +84,11 @@ namespace Chimera
                             ApplyDisplayConfig();
                         }
                     }
+
+
+                    GetDisplayConfig();
+                    
+                    GetAllDevices();
                 }
             }
         }

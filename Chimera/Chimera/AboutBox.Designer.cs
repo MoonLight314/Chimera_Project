@@ -30,8 +30,8 @@
         {
             this.label_AboutBox = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button_Test = new System.Windows.Forms.Button();
-            this.Log = new System.Windows.Forms.TextBox();
+            //this.button_Test = new System.Windows.Forms.Button();
+            //this.Log = new System.Windows.Forms.TextBox();
             this.label_Monitor_Manager = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -58,6 +58,7 @@
             this.linkLabel1.TabIndex = 3;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "License Info";
+#if TEST
             // 
             // button_Test
             // 
@@ -78,6 +79,8 @@
             this.Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Log.Size = new System.Drawing.Size(214, 79);
             this.Log.TabIndex = 5;
+#endif
+
             // 
             // label_Monitor_Manager
             // 
@@ -144,7 +147,7 @@
 
         }
 
-        #endregion
+#endregion
         private System.Windows.Forms.Label label_AboutBox;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button_Test;

@@ -332,6 +332,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Icon-Laptop.png" />
+    <None Include="Resource\Icon-Monitor.png" />
     <None Include="Resource\Toggle_Switch_On.png" />
     <None Include="Resource\Toggle_Switch_Off.png" />
     <None Include="Resource\Checkbox_Not_Checked.png" />

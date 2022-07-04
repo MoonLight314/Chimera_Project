@@ -24,10 +24,6 @@ namespace Chimera
         ConfigManager           configManager;
         ConfigValues            configValues;
 
-        ////IList<DisplayDevice> allMonitorProperties = displayDevices.Items;
-        // = displayDevices.Items();
-
-
 
         public BaseForm()
         {
@@ -138,6 +134,9 @@ namespace Chimera
             Application.Exit();
         }
 
-
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ;
+        }
     }
 }

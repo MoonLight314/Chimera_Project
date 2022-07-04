@@ -43,6 +43,7 @@ namespace Chimera
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label_Choose_Fit = new System.Windows.Forms.Label();
             this.pictureBox_Wrap = new System.Windows.Forms.PictureBox();
+            this.label_Introduction = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Preview_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -63,7 +64,7 @@ namespace Chimera
             // Label_Image_File_Path
             // 
             this.Label_Image_File_Path.AutoSize = true;
-            this.Label_Image_File_Path.Location = new System.Drawing.Point(300, 303);
+            this.Label_Image_File_Path.Location = new System.Drawing.Point(300, 304);
             this.Label_Image_File_Path.Name = "Label_Image_File_Path";
             this.Label_Image_File_Path.Size = new System.Drawing.Size(93, 12);
             this.Label_Image_File_Path.TabIndex = 3;
@@ -88,7 +89,7 @@ namespace Chimera
             this.Button_Browse_Wallpaper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Button_Browse_Wallpaper.Location = new System.Drawing.Point(667, 300);
             this.Button_Browse_Wallpaper.Name = "Button_Browse_Wallpaper";
-            this.Button_Browse_Wallpaper.Size = new System.Drawing.Size(20, 21);
+            this.Button_Browse_Wallpaper.Size = new System.Drawing.Size(21, 22);
             this.Button_Browse_Wallpaper.TabIndex = 5;
             this.Button_Browse_Wallpaper.TabStop = false;
             this.Button_Browse_Wallpaper.UseVisualStyleBackColor = false;
@@ -148,7 +149,7 @@ namespace Chimera
             // label_Choose_Fit
             // 
             this.label_Choose_Fit.AutoSize = true;
-            this.label_Choose_Fit.Location = new System.Drawing.Point(300, 347);
+            this.label_Choose_Fit.Location = new System.Drawing.Point(300, 344);
             this.label_Choose_Fit.Name = "label_Choose_Fit";
             this.label_Choose_Fit.Size = new System.Drawing.Size(73, 12);
             this.label_Choose_Fit.TabIndex = 13;
@@ -165,11 +166,21 @@ namespace Chimera
             this.pictureBox_Wrap.TabIndex = 14;
             this.pictureBox_Wrap.TabStop = false;
             // 
+            // label_Introduction
+            // 
+            this.label_Introduction.AutoSize = true;
+            this.label_Introduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_Introduction.Location = new System.Drawing.Point(40, 100);
+            this.label_Introduction.Name = "label_Introduction";
+            this.label_Introduction.Size = new System.Drawing.Size(0, 12);
+            this.label_Introduction.TabIndex = 38;
+            // 
             // SettingWallpaper
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.label_Introduction);
             this.Controls.Add(this.label_Choose_Fit);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
@@ -211,5 +222,6 @@ namespace Chimera
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label_Choose_Fit;
         private System.Windows.Forms.PictureBox pictureBox_Wrap;
+        private System.Windows.Forms.Label label_Introduction;
     }
 }

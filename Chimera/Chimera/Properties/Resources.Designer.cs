@@ -301,6 +301,26 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_Laptop {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Laptop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_Monitor {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Monitor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static byte[] LGSmHaB {
@@ -375,36 +395,6 @@ namespace Chimera.Properties {
             get {
                 object obj = ResourceManager.GetObject("Manager_Form_Icon1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Monitor_No_01 {
-            get {
-                object obj = ResourceManager.GetObject("Monitor_No_01", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Monitor_No_02 {
-            get {
-                object obj = ResourceManager.GetObject("Monitor_No_02", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Monitor_No_03 {
-            get {
-                object obj = ResourceManager.GetObject("Monitor_No_03", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
