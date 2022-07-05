@@ -246,7 +246,7 @@
             this.lv_Monitors.MultiSelect = false;
             this.lv_Monitors.Name = "lv_Monitors";
             this.lv_Monitors.Scrollable = false;
-            this.lv_Monitors.Size = new System.Drawing.Size(245, 324);
+            this.lv_Monitors.Size = new System.Drawing.Size(245, 170);
             this.lv_Monitors.TabIndex = 22;
             this.lv_Monitors.UseCompatibleStateImageBehavior = false;
             this.lv_Monitors.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -408,16 +408,13 @@
 
 #endregion
 
-        //private System.Windows.Forms.TreeView tv_Monitor_List;
-        //private System.Windows.Forms.Button button_OK;
-        //private System.Windows.Forms.Button button_Exit;
+
         private System.Windows.Forms.CheckBox cb_SetAsPrimary;
         private System.Windows.Forms.TrackBar trackBar_Brightness;
         private System.Windows.Forms.TrackBar trackBar_Contrast;
         private System.Windows.Forms.Label label_Brightness;
         private System.Windows.Forms.Label label_Contrast;
         private System.Windows.Forms.Label label_Primary;
-        //private System.Windows.Forms.Label label_ProductName;
         private System.Windows.Forms.Label label_Resolution;
         private System.Windows.Forms.Label label_BitPerPixel;
         private System.Windows.Forms.Label label_Output;
@@ -427,7 +424,6 @@
         private System.Windows.Forms.TextBox textBox_OutputTech;
         private System.Windows.Forms.TextBox textBox_BitPerPixel;
         private System.Windows.Forms.TextBox textBox_Resolution;
-        //private System.Windows.Forms.TextBox textBox_FriendlyName;
         private System.Windows.Forms.Label label_Multi_Monitor;
         private System.Windows.Forms.ListView lv_Monitors;
         private System.Windows.Forms.Label label_FriendlyName;

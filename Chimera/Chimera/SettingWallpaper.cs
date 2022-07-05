@@ -306,7 +306,7 @@ namespace Chimera
 		/// </summary>
         private void UpdateUIInfo()
         {
-            TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].ImageFilePath;
+            TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].OnlyFileName;
 
             Stretch stretch = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);
             int idx = comboBoxFit.FindString(stretch.ToString());
@@ -392,7 +392,10 @@ namespace Chimera
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 controller.AllScreens[clickedScreenIndex].ImageFilePath = dlg.FileName;
-                TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].ImageFilePath;
+
+                /* 실제 출력은 FileName만 한다. */
+                controller.AllScreens[clickedScreenIndex].OnlyFileName = dlg.SafeFileName;
+                TextBox_Image_File_Path.Text = controller.AllScreens[clickedScreenIndex].OnlyFileName;
 
                 try
                 {

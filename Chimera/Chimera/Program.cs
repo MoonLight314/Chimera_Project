@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,11 +15,23 @@ namespace Chimera
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            /* 중복 실행 방지 */
+            Process[] procs = Process.GetProcessesByName("MultiMonitorManager");
 
-            BaseForm form = new BaseForm();
-            Application.Run();
+            if (procs.Length > 0)
+            {
+                WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Warning", "The application is already running.");
+                w.ShowDialog();
+                return;
+            }
+            else
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                BaseForm form = new BaseForm();
+                Application.Run();
+            }
         }
     }
 }

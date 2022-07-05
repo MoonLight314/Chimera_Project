@@ -164,7 +164,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HotKeyInput";
-            this.Opacity = 0.5D;
+            this.Opacity = 0.96D;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down);

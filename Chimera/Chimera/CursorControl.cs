@@ -146,6 +146,8 @@ namespace Chimera
             txtBox_Hotkey_LockToScreen.Enabled = Value;
 
             cursorControl_Reset.Enabled = Value;
+            cursorControl_Reset.Image = cursorControl_Reset.Enabled ? Properties.Resources.Reset_Enabled : Properties.Resources.Reset_Disabled;
+
 
         }
 

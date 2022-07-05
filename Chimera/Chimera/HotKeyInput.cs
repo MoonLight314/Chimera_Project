@@ -56,9 +56,6 @@ namespace Chimera
 
         private void key_down(object sender, KeyEventArgs e)
         {
-            //cb_Ctrl.Checked = e.Control;
-            //cb_Alt.Checked = e.Alt;
-            //cb_Shift.Checked = e.Shift;
 
             CtrlKeyDown = e.Control;
             pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
@@ -78,7 +75,7 @@ namespace Chimera
                 /* 이미 등록된 Key가 있는지 확인 */
                 if( CheckKeyComboDuplicated(e) == true)
                 {
-                    WarningDuplicatedHotkey w = new WarningDuplicatedHotkey();
+                    WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Setting Hotkey", "This hotkey is already registed.");
                     w.ShowDialog();
 
                     ClearUI();

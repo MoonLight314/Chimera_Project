@@ -51,6 +51,7 @@ namespace Chimera.Library.Transform
 			ScreenRect = screenRect;
 			Primary = primary;
             ImageFilePath = "";
+            OnlyFileName = "";
             StetchType = "Center";
         }
 
@@ -58,6 +59,11 @@ namespace Chimera.Library.Transform
         /// Wallpaper Image File을 선택하는 경우 Path를 저장
         /// </summary>
         public string ImageFilePath { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OnlyFileName { get; set; }
 
         /// <summary>
         /// Wallpaer Fit Type을 저장하는 변수

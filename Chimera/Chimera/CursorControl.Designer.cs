@@ -119,13 +119,13 @@
             // 
             // cursorControl_Reset
             // 
-            this.cursorControl_Reset.BackColor = System.Drawing.Color.White;
+            this.cursorControl_Reset.BackColor = System.Drawing.Color.Transparent;
+            this.cursorControl_Reset.FlatAppearance.BorderSize = 0;
             this.cursorControl_Reset.Location = new System.Drawing.Point(671, 340);
             this.cursorControl_Reset.Name = "cursorControl_Reset";
             this.cursorControl_Reset.Size = new System.Drawing.Size(57, 22);
             this.cursorControl_Reset.TabIndex = 4;
             this.cursorControl_Reset.TabStop = false;
-            this.cursorControl_Reset.Text = "Reset";
             this.cursorControl_Reset.UseVisualStyleBackColor = false;
             this.cursorControl_Reset.Click += new System.EventHandler(this.cursorControl_Reset_Click);
             // 
@@ -144,7 +144,7 @@
             this.pictureBox_CursorControl_Comment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox_CursorControl_Comment.Location = new System.Drawing.Point(40, 100);
             this.pictureBox_CursorControl_Comment.Name = "pictureBox_CursorControl_Comment";
-            this.pictureBox_CursorControl_Comment.Size = new System.Drawing.Size(192, 120);
+            this.pictureBox_CursorControl_Comment.Size = new System.Drawing.Size(192, 225);
             this.pictureBox_CursorControl_Comment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_CursorControl_Comment.TabIndex = 15;
             this.pictureBox_CursorControl_Comment.TabStop = false;
@@ -238,6 +238,7 @@
             this.label_MovCursorNextScreen.Size = new System.Drawing.Size(171, 12);
             this.label_MovCursorNextScreen.TabIndex = 29;
             this.label_MovCursorNextScreen.Text = "Move Cursor To Next Screen";
+            this.label_MovCursorNextScreen.Click += new System.EventHandler(this.pb_CheckBox_MovCursorNextScreen_Click);
             // 
             // pb_CheckBox_MovCursorPrevScreen
             // 
@@ -258,6 +259,7 @@
             this.label_MovCursorPrevScreen.Size = new System.Drawing.Size(194, 12);
             this.label_MovCursorPrevScreen.TabIndex = 31;
             this.label_MovCursorPrevScreen.Text = "Move Cursor To Previous Screen";
+            this.label_MovCursorPrevScreen.Click += new System.EventHandler(this.pb_CheckBox_MovCursorPrevScreen_Click);
             // 
             // pb_CheckBox_MovCursorPrimary
             // 
@@ -278,6 +280,7 @@
             this.label_MovCursorPrimary.Size = new System.Drawing.Size(189, 12);
             this.label_MovCursorPrimary.TabIndex = 33;
             this.label_MovCursorPrimary.Text = "Move Cursor To Primary Screen";
+            this.label_MovCursorPrimary.Click += new System.EventHandler(this.pb_CheckBox_MovCursorPrimary_Click);
             // 
             // pb_CheckBox_LockToScreen
             // 
@@ -298,6 +301,7 @@
             this.label_LockToScreen.Size = new System.Drawing.Size(147, 12);
             this.label_LockToScreen.TabIndex = 35;
             this.label_LockToScreen.Text = "Lock / Unlock To Screen";
+            this.label_LockToScreen.Click += new System.EventHandler(this.pb_CheckBox_LockToScreen_Click);
             // 
             // pictureBox5
             // 

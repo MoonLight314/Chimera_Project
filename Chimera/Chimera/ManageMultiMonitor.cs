@@ -71,8 +71,11 @@ namespace Chimera
         {
             uint pdwMinimumContrast = 0, pdwCurrentContrast = 0, pdwMaximumContrast = 0;
 
-            foreach (DisplayDevice dd in allMonitorProperties)
+            for(int Index = 0; Index< allMonitorProperties.Count; Index++)
+            //foreach (DisplayDevice dd in allMonitorProperties)
             {
+                DisplayDevice dd = allMonitorProperties[Index];
+
                 if (dd.IsActive)
                 {
                     MonitorSetInfo msi = new MonitorSetInfo();
@@ -80,10 +83,13 @@ namespace Chimera
 
                     if (dd.IsPrimary)
                         msi.SetAsPrimary = true;
-
+#if TEST
                     /* MonitorIndex를 Display Device의 Path Index를 사용하지만,  */
                     /* 추후 Issue 발생시 추가검토 필요성 있음  */
                     msi.MonitorIndex = dd.PathIndex;
+#else
+                    msi.MonitorIndex = Index;
+#endif
 
                     /* 각 Monitor의 Contrast 값을 가져옵니다. */
                     _displayDevices.GetMonitorContrast(msi.MonitorIndex, ref pdwMinimumContrast, ref pdwCurrentContrast, ref pdwMaximumContrast);

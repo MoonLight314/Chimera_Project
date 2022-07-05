@@ -12,11 +12,14 @@ namespace Chimera
 {
     public partial class WarningDuplicatedHotkey : Form
     {
-        public WarningDuplicatedHotkey()
+        public WarningDuplicatedHotkey(string Title , string Message)
         {
             InitializeComponent();
 
             InitUI();
+
+            label_Setting_HotKey.Text = Title;
+            label_Message.Text = Message;
         }
 
 

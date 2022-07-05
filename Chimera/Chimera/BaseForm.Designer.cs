@@ -120,7 +120,7 @@ namespace Chimera
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "BaseForm";
             this.ShowInTaskbar = false;
-            this.Text = "Chimera";
+            this.Text = "Multi Monitor Manager";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -30,8 +30,6 @@
         {
             this.label_AboutBox = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            //this.button_Test = new System.Windows.Forms.Button();
-            //this.Log = new System.Windows.Forms.TextBox();
             this.label_Monitor_Manager = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -58,29 +56,6 @@
             this.linkLabel1.TabIndex = 3;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "License Info";
-#if TEST
-            // 
-            // button_Test
-            // 
-            this.button_Test.Location = new System.Drawing.Point(12, 320);
-            this.button_Test.Name = "button_Test";
-            this.button_Test.Size = new System.Drawing.Size(104, 30);
-            this.button_Test.TabIndex = 4;
-            this.button_Test.Text = "TEST";
-            this.button_Test.UseVisualStyleBackColor = true;
-            this.button_Test.Click += new System.EventHandler(this.button_Test_Click);
-            // 
-            // Log
-            // 
-            this.Log.Location = new System.Drawing.Point(12, 356);
-            this.Log.Multiline = true;
-            this.Log.Name = "Log";
-            this.Log.ReadOnly = true;
-            this.Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Log.Size = new System.Drawing.Size(214, 79);
-            this.Log.TabIndex = 5;
-#endif
-
             // 
             // label_Monitor_Manager
             // 
@@ -128,8 +103,6 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_Monitor_Manager);
-            this.Controls.Add(this.Log);
-            this.Controls.Add(this.button_Test);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label_AboutBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -137,7 +110,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.96D;
             this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
