@@ -108,10 +108,17 @@ namespace Chimera.Library.Settings
 		void LoadFileLocations()
 		{
 			ExecutableFilename = Assembly.GetExecutingAssembly().Location;
-			_homeDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-			// by default, we use the home directory as the data directory to simplify portable usage
-			DataDirectory = _homeDirectory;
+            /* Wallpaper 저장하는 위치를 LocalApp Application Folder로 변경한다. */
+#if NOT_USE
+            _homeDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);            
+#else
+            _homeDirectory = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+            _homeDirectory = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), _homeDirectory);
+#endif
+
+            // by default, we use the home directory as the data directory to simplify portable usage
+            DataDirectory = _homeDirectory;
 
 			// The Locations file ALWAYS lives in same directory as executable (if it is used)
 			string fileLocationsFilename = Path.Combine(_homeDirectory, "DmtFileLocations.xml");
@@ -143,14 +150,17 @@ namespace Chimera.Library.Settings
 				}
 			}
 
-			// set default locations of files - which are in same directory as executable
-			SettingsFilename = Path.Combine(DataDirectory, "DmtSettings.xml");
+            // set default locations of files - which are in same directory as executable
+#if TEST
+            SettingsFilename = Path.Combine(DataDirectory, "DmtSettings.xml");
 			MagicWordsFilename = Path.Combine(DataDirectory, "DmtMagicWords.xml");
 			WallpaperProvidersFilename = Path.Combine(DataDirectory, "DmtWallpaperProviders.xml");
-			WallpaperFilename = Path.Combine(DataDirectory, "DmtWallpaper.bmp");
+#endif
+            WallpaperFilename = Path.Combine(DataDirectory, Properties.Resources.CurrentWallPaperFileName);
 
-			// default is to to have no logfile, unless explicitly set
-			LogFilename = null;
+
+            // default is to to have no logfile, unless explicitly set
+            LogFilename = null;
 
 			if (locationRemaps != null)
 			{

@@ -123,7 +123,7 @@
 #endregion
         private System.Windows.Forms.Label label_AboutBox;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button_Test;
+        //private System.Windows.Forms.Button button_Test;
         private System.Windows.Forms.TextBox Log;
         private System.Windows.Forms.Label label_Monitor_Manager;
         private System.Windows.Forms.PictureBox pictureBox1;

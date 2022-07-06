@@ -140,10 +140,10 @@ namespace Chimera
             LockToScreen = Value;
             pb_CheckBox_LockToScreen.Image = LockToScreen ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
 
-            txtBox_Hotkey_MovCurNextScreen.Enabled = Value;
-            txtBox_Hotkey_MovCurPrevScreen.Enabled = Value;
-            txtBox_Hotkey_MoveCurPrimary.Enabled = Value;
-            txtBox_Hotkey_LockToScreen.Enabled = Value;
+            label_Hotkey_MovCurNextScreen.Enabled = Value;
+            label_Hotkey_MovCurPrevScreen.Enabled = Value;
+            label_Hotkey_MoveCurPrimary.Enabled = Value;
+            label_Hotkey_LockToScreen.Enabled = Value;
 
             cursorControl_Reset.Enabled = Value;
             cursorControl_Reset.Image = cursorControl_Reset.Enabled ? Properties.Resources.Reset_Enabled : Properties.Resources.Reset_Disabled;
@@ -157,10 +157,10 @@ namespace Chimera
         private void ApplyConfigSettingToUI()
         {
             /*  */
-            txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString(true);
-            txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString(true);
-            txtBox_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString(true);
-            txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString(true);
+            label_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString(true);
+            label_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString(true);
+            label_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString(true);
+            label_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString(true);
 
             /* 전체 Disable인 경우 */
             if (configValues.EnableCursorFeature == false )
@@ -175,24 +175,24 @@ namespace Chimera
                 /*  */
                 if (configValues.EnableMoveCursorNextScreen == false)
                 {
-                    txtBox_Hotkey_MovCurNextScreen.Enabled = false;
+                    label_Hotkey_MovCurNextScreen.Enabled = false;
                     MovCursorNextScreen = false;
                 }
                 else
                 {
-                    txtBox_Hotkey_MovCurNextScreen.Enabled = true;
+                    label_Hotkey_MovCurNextScreen.Enabled = true;
                     MovCursorNextScreen = true;
                 }
 
                 /*  */
                 if (configValues.EnableMoveCursorPrevScreen == false)
                 {
-                    txtBox_Hotkey_MovCurPrevScreen.Enabled = false;
+                    label_Hotkey_MovCurPrevScreen.Enabled = false;
                     MovCursorPrevScreen = false;
                 }
                 else
                 {
-                    txtBox_Hotkey_MovCurPrevScreen.Enabled = true;
+                    label_Hotkey_MovCurPrevScreen.Enabled = true;
                     MovCursorPrevScreen = true;
                 }
 
@@ -200,12 +200,12 @@ namespace Chimera
                 /*  */
                 if (configValues.EnableMoveCursorPrimaryScreen == false)
                 {
-                    txtBox_Hotkey_MoveCurPrimary.Enabled = false;
+                    label_Hotkey_MoveCurPrimary.Enabled = false;
                     MovCursorPrimary = false;
                 }
                 else
                 {
-                    txtBox_Hotkey_MoveCurPrimary.Enabled = true;
+                    label_Hotkey_MoveCurPrimary.Enabled = true;
                     MovCursorPrimary = true;
                 }
 
@@ -213,12 +213,12 @@ namespace Chimera
                 /*  */
                 if (configValues.EnableLockCursorToScreen == false)
                 {
-                    txtBox_Hotkey_LockToScreen.Enabled = false;
+                    label_Hotkey_LockToScreen.Enabled = false;
                     LockToScreen = false;
                 }
                 else
                 {
-                    txtBox_Hotkey_LockToScreen.Enabled = true;
+                    label_Hotkey_LockToScreen.Enabled = true;
                     LockToScreen = true;
                 }
 
@@ -349,7 +349,7 @@ namespace Chimera
         {
             CurNextkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
             configValues.HotkeyMoveCursorNextScreen = "Not Defined";
-            txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
+            label_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
         }
 
 
@@ -360,7 +360,7 @@ namespace Chimera
         {
             CurPrevkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
             configValues.HotkeyMoveCursorPrevScreen = "Not Defined";
-            txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
+            label_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
         }
 
 
@@ -371,7 +371,7 @@ namespace Chimera
         {
             CurPrimarykeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
             configValues.HotkeyMoveCursorPrimaryScreen = "Not Defined";
-            txtBox_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString();
+            label_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString();
         }
 
 
@@ -382,7 +382,7 @@ namespace Chimera
         {
             LockCurkeyCombo.FromPropertyValue(KeyCombo.DisabledComboValue);
             configValues.HotkeyLockCursorToScreen = "Not Defined";
-            txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
+            label_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
         }
 
 
@@ -399,32 +399,15 @@ namespace Chimera
             CurPrimarykeyCombo_Cancel();
             LockCurkeyCombo_Cancel();
 
+            /* CheckBox까지 Disable한다. configValues를 수정해야함 */
+            configValues.EnableMoveCursorNextScreen = false;
+            configValues.EnableMoveCursorPrevScreen = false;
+            configValues.EnableMoveCursorPrimaryScreen = false;
+            configValues.EnableLockCursorToScreen = false;
+
             ApplyConfigSettingToUI();
         }
 
-        private void txtBox_Hotkey_MovCurNextScreen_Enter(object sender, EventArgs e)
-        {
-            txtBox_Hotkey_MovCurNextScreen.Enabled = false;
-            txtBox_Hotkey_MovCurNextScreen.Enabled = true;
-        }
-
-        private void txtBox_Hotkey_MovCurPrevScreen_Enter(object sender, EventArgs e)
-        {
-            txtBox_Hotkey_MovCurPrevScreen.Enabled = false;
-            txtBox_Hotkey_MovCurPrevScreen.Enabled = true;
-        }
-
-        private void txtBox_Hotkey_MoveCurPrimary_Enter(object sender, EventArgs e)
-        {
-            txtBox_Hotkey_MoveCurPrimary.Enabled = false;
-            txtBox_Hotkey_MoveCurPrimary.Enabled = true;
-        }
-
-        private void txtBox_Hotkey_LockToScreen_Enter(object sender, EventArgs e)
-        {
-            txtBox_Hotkey_LockToScreen.Enabled = false;
-            txtBox_Hotkey_LockToScreen.Enabled = true;
-        }
 
         /*  */
         private void pb_CheckBox_FeatureEnable_Click(object sender, EventArgs e)
@@ -555,11 +538,12 @@ namespace Chimera
             {
                 CurNextkeyCombo = hotKeyInput.GetKeyCombo();
                 configValues.HotkeyMoveCursorNextScreen = CurNextkeyCombo.ComboValue.ToString();
-                txtBox_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
+                label_Hotkey_MovCurNextScreen.Text = CurNextkeyCombo.ToString();
             }
             else if (Ret == DialogResult.Cancel)
             {
-                CurNextkeyCombo_Cancel();
+                /* 'X'를 누르면 기존값을 그대로 유지 */
+                //CurNextkeyCombo_Cancel();
             }
 
             ApplyConfigSettingToUI();
@@ -575,11 +559,12 @@ namespace Chimera
             {
                 CurPrevkeyCombo = hotKeyInput.GetKeyCombo();
                 configValues.HotkeyMoveCursorPrevScreen = CurPrevkeyCombo.ComboValue.ToString();
-                txtBox_Hotkey_MovCurPrevScreen.Text = CurPrevkeyCombo.ToString();
+                label_Hotkey_MovCurNextScreen.Text = CurPrevkeyCombo.ToString();
             }
             else if (Ret == DialogResult.Cancel)
             {
-                CurPrevkeyCombo_Cancel();
+                /* 'X'를 누르면 기존값을 그대로 유지 */
+                //CurPrevkeyCombo_Cancel();
             }
 
             ApplyConfigSettingToUI();
@@ -595,11 +580,12 @@ namespace Chimera
             {
                 CurPrimarykeyCombo = hotKeyInput.GetKeyCombo();
                 configValues.HotkeyMoveCursorPrimaryScreen = CurPrimarykeyCombo.ComboValue.ToString();
-                txtBox_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString();
+                label_Hotkey_MoveCurPrimary.Text = CurPrimarykeyCombo.ToString();
             }
             else if (Ret == DialogResult.Cancel)
             {
-                CurPrimarykeyCombo_Cancel();
+                /* 'X'를 누르면 기존값을 그대로 유지 */
+                //CurPrimarykeyCombo_Cancel();
             }
 
             ApplyConfigSettingToUI();
@@ -615,11 +601,12 @@ namespace Chimera
             {
                 LockCurkeyCombo = hotKeyInput.GetKeyCombo();
                 configValues.HotkeyLockCursorToScreen = LockCurkeyCombo.ComboValue.ToString();
-                txtBox_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
+                label_Hotkey_LockToScreen.Text = LockCurkeyCombo.ToString();
             }
             else if (Ret == DialogResult.Cancel)
             {
-                LockCurkeyCombo_Cancel();
+                /* 'X'를 누르면 기존값을 그대로 유지 */
+                //LockCurkeyCombo_Cancel();
             }
 
             ApplyConfigSettingToUI();

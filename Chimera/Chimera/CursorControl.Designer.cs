@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBox_Hotkey_MoveCurPrimary = new System.Windows.Forms.TextBox();
-            this.txtBox_Hotkey_LockToScreen = new System.Windows.Forms.TextBox();
-            this.txtBox_Hotkey_MovCurPrevScreen = new System.Windows.Forms.TextBox();
-            this.txtBox_Hotkey_MovCurNextScreen = new System.Windows.Forms.TextBox();
             this.cursorControl_Reset = new System.Windows.Forms.Button();
             this.label_CursorControl = new System.Windows.Forms.Label();
             this.pictureBox_CursorControl_Comment = new System.Windows.Forms.PictureBox();
@@ -52,6 +48,10 @@
             this.label_LockToScreen = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label_Warning = new System.Windows.Forms.Label();
+            this.label_Hotkey_MovCurNextScreen = new System.Windows.Forms.Label();
+            this.label_Hotkey_MovCurPrevScreen = new System.Windows.Forms.Label();
+            this.label_Hotkey_MoveCurPrimary = new System.Windows.Forms.Label();
+            this.label_Hotkey_LockToScreen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CursorControl_Comment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -63,59 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_LockToScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtBox_Hotkey_MoveCurPrimary
-            // 
-            this.txtBox_Hotkey_MoveCurPrimary.BackColor = System.Drawing.Color.White;
-            this.txtBox_Hotkey_MoveCurPrimary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox_Hotkey_MoveCurPrimary.Location = new System.Drawing.Point(575, 261);
-            this.txtBox_Hotkey_MoveCurPrimary.Name = "txtBox_Hotkey_MoveCurPrimary";
-            this.txtBox_Hotkey_MoveCurPrimary.ReadOnly = true;
-            this.txtBox_Hotkey_MoveCurPrimary.Size = new System.Drawing.Size(153, 14);
-            this.txtBox_Hotkey_MoveCurPrimary.TabIndex = 12;
-            this.txtBox_Hotkey_MoveCurPrimary.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBox_Hotkey_MoveCurPrimary.Click += new System.EventHandler(this.txtBox_Hotkey_MoveCurPrimary_Click);
-            this.txtBox_Hotkey_MoveCurPrimary.Enter += new System.EventHandler(this.txtBox_Hotkey_MoveCurPrimary_Enter);
-            // 
-            // txtBox_Hotkey_LockToScreen
-            // 
-            this.txtBox_Hotkey_LockToScreen.BackColor = System.Drawing.Color.White;
-            this.txtBox_Hotkey_LockToScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox_Hotkey_LockToScreen.Location = new System.Drawing.Point(575, 297);
-            this.txtBox_Hotkey_LockToScreen.Name = "txtBox_Hotkey_LockToScreen";
-            this.txtBox_Hotkey_LockToScreen.ReadOnly = true;
-            this.txtBox_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 14);
-            this.txtBox_Hotkey_LockToScreen.TabIndex = 9;
-            this.txtBox_Hotkey_LockToScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBox_Hotkey_LockToScreen.Click += new System.EventHandler(this.txtBox_Hotkey_LockToScreen_Click);
-            this.txtBox_Hotkey_LockToScreen.Enter += new System.EventHandler(this.txtBox_Hotkey_LockToScreen_Enter);
-            // 
-            // txtBox_Hotkey_MovCurPrevScreen
-            // 
-            this.txtBox_Hotkey_MovCurPrevScreen.BackColor = System.Drawing.Color.White;
-            this.txtBox_Hotkey_MovCurPrevScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(575, 225);
-            this.txtBox_Hotkey_MovCurPrevScreen.Name = "txtBox_Hotkey_MovCurPrevScreen";
-            this.txtBox_Hotkey_MovCurPrevScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(153, 14);
-            this.txtBox_Hotkey_MovCurPrevScreen.TabIndex = 6;
-            this.txtBox_Hotkey_MovCurPrevScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBox_Hotkey_MovCurPrevScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurPrevScreen_Click);
-            this.txtBox_Hotkey_MovCurPrevScreen.Enter += new System.EventHandler(this.txtBox_Hotkey_MovCurPrevScreen_Enter);
-            // 
-            // txtBox_Hotkey_MovCurNextScreen
-            // 
-            this.txtBox_Hotkey_MovCurNextScreen.BackColor = System.Drawing.Color.White;
-            this.txtBox_Hotkey_MovCurNextScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBox_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(575, 189);
-            this.txtBox_Hotkey_MovCurNextScreen.Name = "txtBox_Hotkey_MovCurNextScreen";
-            this.txtBox_Hotkey_MovCurNextScreen.ReadOnly = true;
-            this.txtBox_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(153, 14);
-            this.txtBox_Hotkey_MovCurNextScreen.TabIndex = 1;
-            this.txtBox_Hotkey_MovCurNextScreen.TabStop = false;
-            this.txtBox_Hotkey_MovCurNextScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBox_Hotkey_MovCurNextScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurNextScreen_Click);
-            this.txtBox_Hotkey_MovCurNextScreen.Enter += new System.EventHandler(this.txtBox_Hotkey_MovCurNextScreen_Enter);
             // 
             // cursorControl_Reset
             // 
@@ -323,10 +270,50 @@
             this.label_Warning.TabIndex = 37;
             this.label_Warning.Text = "The \'Cursor Control\' feature is not operational while setting hot keys.";
             // 
+            // label_Hotkey_MovCurNextScreen
+            // 
+            this.label_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(575, 189);
+            this.label_Hotkey_MovCurNextScreen.Name = "label_Hotkey_MovCurNextScreen";
+            this.label_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MovCurNextScreen.TabIndex = 39;
+            this.label_Hotkey_MovCurNextScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Hotkey_MovCurNextScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurNextScreen_Click);
+            // 
+            // label_Hotkey_MovCurPrevScreen
+            // 
+            this.label_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(575, 225);
+            this.label_Hotkey_MovCurPrevScreen.Name = "label_Hotkey_MovCurPrevScreen";
+            this.label_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MovCurPrevScreen.TabIndex = 40;
+            this.label_Hotkey_MovCurPrevScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Hotkey_MovCurPrevScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurPrevScreen_Click);
+            // 
+            // label_Hotkey_MoveCurPrimary
+            // 
+            this.label_Hotkey_MoveCurPrimary.Location = new System.Drawing.Point(575, 261);
+            this.label_Hotkey_MoveCurPrimary.Name = "label_Hotkey_MoveCurPrimary";
+            this.label_Hotkey_MoveCurPrimary.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MoveCurPrimary.TabIndex = 41;
+            this.label_Hotkey_MoveCurPrimary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Hotkey_MoveCurPrimary.Click += new System.EventHandler(this.txtBox_Hotkey_MoveCurPrimary_Click);
+            // 
+            // label_Hotkey_LockToScreen
+            // 
+            this.label_Hotkey_LockToScreen.Location = new System.Drawing.Point(575, 297);
+            this.label_Hotkey_LockToScreen.Name = "label_Hotkey_LockToScreen";
+            this.label_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_LockToScreen.TabIndex = 42;
+            this.label_Hotkey_LockToScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Hotkey_LockToScreen.Click += new System.EventHandler(this.txtBox_Hotkey_LockToScreen_Click);
+            // 
             // CursorControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.label_Hotkey_LockToScreen);
+            this.Controls.Add(this.label_Hotkey_MoveCurPrimary);
+            this.Controls.Add(this.label_Hotkey_MovCurPrevScreen);
+            this.Controls.Add(this.label_Hotkey_MovCurNextScreen);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label_Warning);
             this.Controls.Add(this.pb_CheckBox_LockToScreen);
@@ -347,14 +334,11 @@
             this.Controls.Add(this.pictureBox_CursorControl_Comment);
             this.Controls.Add(this.label_CursorControl);
             this.Controls.Add(this.cursorControl_Reset);
-            this.Controls.Add(this.txtBox_Hotkey_MoveCurPrimary);
-            this.Controls.Add(this.txtBox_Hotkey_LockToScreen);
-            this.Controls.Add(this.txtBox_Hotkey_MovCurPrevScreen);
-            this.Controls.Add(this.txtBox_Hotkey_MovCurNextScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CursorControl";
-            this.Opacity = 0.94D;
+            this.Opacity = 0.96D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LG USB-Hub Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CursorControl_FormClosed);
@@ -375,13 +359,7 @@
         }
 
 #endregion
-
-
-        private System.Windows.Forms.TextBox txtBox_Hotkey_MovCurNextScreen;
-        private System.Windows.Forms.TextBox txtBox_Hotkey_MovCurPrevScreen;
-        private System.Windows.Forms.TextBox txtBox_Hotkey_LockToScreen;
         private System.Windows.Forms.Button cursorControl_Reset;
-        private System.Windows.Forms.TextBox txtBox_Hotkey_MoveCurPrimary;
         private System.Windows.Forms.Label label_CursorControl;
         private System.Windows.Forms.PictureBox pictureBox_CursorControl_Comment;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -401,6 +379,9 @@
         private System.Windows.Forms.Label label_LockToScreen;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label_Warning;
-
+        private System.Windows.Forms.Label label_Hotkey_MovCurNextScreen;
+        private System.Windows.Forms.Label label_Hotkey_MovCurPrevScreen;
+        private System.Windows.Forms.Label label_Hotkey_MoveCurPrimary;
+        private System.Windows.Forms.Label label_Hotkey_LockToScreen;
     }
 }

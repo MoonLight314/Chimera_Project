@@ -218,6 +218,15 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   Current_Wallpaper.bmp과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CurrentWallPaperFileName {
+            get {
+                return ResourceManager.GetString("CurrentWallPaperFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Bitmap Cursor_Control_Text {
@@ -435,6 +444,16 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon Program_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Program_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   The registration of this hotkey has failed.
         ///Try another hot key combination.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
@@ -479,15 +498,6 @@ namespace Chimera.Properties {
         internal static string Stretch {
             get {
                 return ResourceManager.GetString("Stretch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Test과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string Test {
-            get {
-                return ResourceManager.GetString("Test", resourceCulture);
             }
         }
         

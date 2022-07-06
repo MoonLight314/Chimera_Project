@@ -53,9 +53,9 @@ namespace Chimera
             // Preview_PictureBox
             // 
             this.Preview_PictureBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Preview_PictureBox.Location = new System.Drawing.Point(341, 54);
+            this.Preview_PictureBox.Location = new System.Drawing.Point(321, 54);
             this.Preview_PictureBox.Name = "Preview_PictureBox";
-            this.Preview_PictureBox.Size = new System.Drawing.Size(358, 192);
+            this.Preview_PictureBox.Size = new System.Drawing.Size(398, 192);
             this.Preview_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.Preview_PictureBox.TabIndex = 2;
             this.Preview_PictureBox.TabStop = false;

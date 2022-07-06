@@ -37,12 +37,18 @@ namespace Chimera
             allMonitorInfo = allMonitorProperties;
 
             InitUI();
-
+            
+#if TEST
             /*  */
             clickedScreenIndex = 0;
-
             // automatically select the first screen
             AddSelectedScreen(clickedScreenIndex);
+#else
+            /**
+            최초 실행시에 아무 Monitor도 선택되지 않도록 하기 위한 수정
+            **/
+            UpdatePreview();
+#endif
         }
 
 
@@ -62,7 +68,7 @@ namespace Chimera
             CalcPreviewRect();
             CreateWallpaper();
 
-            /*  */
+            /* Font & Color 설정 */
             this.label_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Browse_Wallpaper.BackColor = Color.FromArgb(255, 255, 255);
             this.Label_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,9 +82,22 @@ namespace Chimera
 
             this.label_Introduction.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScreensSelected.ForeColor = Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            label_Introduction.Text = "This feature allows you to set\nan individual wallpaper for\neach display.\n\nFirst, select the display to change\nthe wallpaper and select a picture\nto set as the wallpaper.\n\nYou can also select the appropriate\n'Fit' to fit the screen.";
+
+            /*  */
+            this.label_Introduction.Text = "This feature allows you to set\nan individual wallpaper for\neach display.\n\nFirst, select the display to change\nthe wallpaper and select a picture\nto set as the wallpaper.\n\nYou can also select the appropriate\n'Fit' to fit the screen.";
+
+            /* 최초 실행시에는 Monitor가 선택된 상황이 아니므로, Disable한다. */
+            EnableImageInputControl(false);
         }
 
+
+
+        private void EnableImageInputControl(bool Enable)
+        {
+            TextBox_Image_File_Path.Enabled = Enable;
+            Button_Browse_Wallpaper.Enabled = Enable;
+            comboBoxFit.Enabled = Enable;
+        }
 
 
 
@@ -101,29 +120,6 @@ namespace Chimera
             // reduce preview size if needed to maintain aspect ratio
             previewRect = Controller.UnderStretch(sourceSize, pictureBoxRect);
         }
-
-
-#if TEST
-        /*  */
-        private void set_background(Object sender, PaintEventArgs e)
-        {
-
-            this.BackColor = Color.FromArgb(35, 35, 35);
-
-            //Graphics graphics = e.Graphics;
-
-            ////the rectangle, the same size as our Form
-            //Rectangle gradient_rectangle = new Rectangle(0, 0, Width, Height);
-
-            ////define gradient's properties            
-            //Brush b = new LinearGradientBrush(gradient_rectangle, Color.FromArgb(255, 255, 255), Color.FromArgb(230, 230, 240), 65f);
-            ////Brush b = new LinearGradientBrush(gradient_rectangle, Color.FromArgb(255, 255, 255), Color.FromArgb(100, 100, 100), 65f);
-
-            ////apply gradient        
-            //graphics.FillRectangle(b, gradient_rectangle);
-
-        }
-#endif
 
 
 
@@ -196,8 +192,8 @@ namespace Chimera
             /* Friendly Name */
             this.labelScreensSelected.Text = FriendlyName;
 
-            this.labelScreensSelected.Location = new System.Drawing.Point(Preview_PictureBox_Location.X + Selected_previewScreen.X + (Selected_previewScreen.Width - this.labelScreensSelected.Width ) / 2,
-                                                                          Preview_PictureBox_Location.Y + previewScreen.Y - ( this.labelScreensSelected.Height + 1));
+            this.labelScreensSelected.Location = new System.Drawing.Point(Preview_PictureBox_Location.X + Selected_previewScreen.X + (Selected_previewScreen.Width - this.labelScreensSelected.Width) / 2,
+                                                                          Preview_PictureBox_Location.Y + previewScreen.Y + Selected_previewScreen.Height - (int)(this.labelScreensSelected.Height * 1.5));
 
         }
 
@@ -233,7 +229,7 @@ namespace Chimera
             Rectangle previewScreen = Controller.CalcDestRect(controller.DesktopRect, previewRect, screenRect);
 
             Rectangle Center_Rect = new Rectangle(new Point(previewScreen.X + (previewScreen.Width - FONT_SIZE)/2,
-                                                            previewScreen.Y + (previewScreen.Height - FONT_SIZE) /2), 
+                                                            previewScreen.Y + (previewScreen.Height - FONT_SIZE) /2),
                                                             new Size((int)(FONT_SIZE*1.5),(int)(FONT_SIZE*1.5)));
 
             // TODO: look into this!
@@ -275,7 +271,8 @@ namespace Chimera
             {
                 g.DrawString(screenName, font, TextColor, Center_Rect);
             }
-            
+
+
         }
 
 
@@ -290,6 +287,7 @@ namespace Chimera
             for (int screenIndex = 0; screenIndex < controller.AllScreens.Count; screenIndex++)
             {
                 string screenName = string.Format("{0}", screenIndex + 1);
+
                 if (controller.AllScreens[screenIndex].Primary)
                 {
                     //screenName += "P";
@@ -570,9 +568,10 @@ namespace Chimera
                 else
 #endif
                 {
-                    // replace current screen list with screen just clicked
+                    /* Monitor를 선택한 경우 */
                     selectedScreens.Clear();
                     AddSelectedScreen(clickedScreenIndex);
+                    EnableImageInputControl(true);
                 }
             }
         }

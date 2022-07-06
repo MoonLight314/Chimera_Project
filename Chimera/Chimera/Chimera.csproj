@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resource\Manager_Form_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Manager_Form_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -242,6 +242,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CursorControl.resx">
       <DependentUpon>CursorControl.cs</DependentUpon>
@@ -332,6 +333,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Program-Icon.ico" />
+    <None Include="Resource\Program Icon_2022-07-06\Program Icon.png" />
     <None Include="Resource\Reset_Enabled.png" />
     <None Include="Resource\Reset_Disabled.png" />
     <None Include="Resource\Icon-Laptop.png" />

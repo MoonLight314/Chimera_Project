@@ -24,6 +24,12 @@ namespace Chimera
         ConfigManager           configManager;
         ConfigValues            configValues;
 
+        AboutBox                aboutBox;
+        ManageMultiMonitor      managemultimonitor;
+        SettingWallpaper        settingwallpaper;
+
+        bool                    ShownOneForm;
+
 
         public BaseForm()
         {
@@ -38,7 +44,14 @@ namespace Chimera
             displayDevices = new DisplayDevices();
             allMonitorProperties = displayDevices.Items;
 
+            /*  */
             cursorControl = new CursorControl(this , configValues);
+            aboutBox = null;
+            managemultimonitor = null;
+            settingwallpaper = null;
+
+            /*  */
+            ShownOneForm = false;
         }
 
         
@@ -58,8 +71,16 @@ namespace Chimera
         /*  */
         private void aboutBoxMenuItem_click(object sender, EventArgs e)
         {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.ShowDialog();
+            if (aboutBox == null && ShownOneForm == false)
+            {
+                aboutBox = new AboutBox();
+                ShownOneForm = true;
+                aboutBox.ShowDialog();
+                aboutBox.Dispose();
+                aboutBox = null;
+                ShownOneForm = false;
+            }
+            
         }
 
 
@@ -74,27 +95,35 @@ namespace Chimera
         {
             DialogResult Ret;
 
-            /* 등록된 전체 Hot Key를 Unregister하고 시작한다. */
-            /* 등록 과정에서  Hot Key를 입력하는 경우 꼬이는 경우를 미연에 방지하기 위함이다. */
-            CursorController.Instance.Term();
-
-            Ret = cursorControl.ShowDialog();
-
-            if (Ret == DialogResult.OK)
+            /* 한 번에 하나의 Form만 표시되도록 하기 위함 */
+            if (cursorControl.Visible == false && ShownOneForm == false)
             {
-                /* Config File에 설정을 저장한다. */
-                configManager.SaveConfigValuesToFile( configValues );
+                /* 등록된 전체 Hot Key를 Unregister하고 시작한다. */
+                /* 등록 과정에서  Hot Key를 입력하는 경우 꼬이는 경우를 미연에 방지하기 위함이다. */
+                CursorController.Instance.Term();
 
-                /* 변경된 Hotkey를 Regsiter 한다. */
-                /* 각 Feature가 Enable인지 Disable인지 확인 후 진행   */
-                /* Disable인 경우 Unreginster 한다. */
-                CursorController.Instance.Init(this, configValues);
+                ShownOneForm = true;
 
-            }
-            else if(Ret == DialogResult.Cancel)
-            {
-                /* Cancel하면 기존 Hot Key를 다시 등록 */
-                CursorController.Instance.Init(this , configValues);
+                Ret = cursorControl.ShowDialog();
+
+                if (Ret == DialogResult.OK)
+                {
+                    /* Config File에 설정을 저장한다. */
+                    configManager.SaveConfigValuesToFile(configValues);
+
+                    /* 변경된 Hotkey를 Regsiter 한다. */
+                    /* 각 Feature가 Enable인지 Disable인지 확인 후 진행   */
+                    /* Disable인 경우 Unreginster 한다. */
+                    CursorController.Instance.Init(this, configValues);
+
+                }
+                else if (Ret == DialogResult.Cancel)
+                {
+                    /* Cancel하면 기존 Hot Key를 다시 등록 */
+                    CursorController.Instance.Init(this, configValues);
+                }
+
+                ShownOneForm = false;
             }
 
         }
@@ -107,8 +136,15 @@ namespace Chimera
         /*  */
         private void ManageItemClick(object sender, EventArgs e)
         {
-            ManageMultiMonitor managemultimonitor = new ManageMultiMonitor( allMonitorProperties , displayDevices );
-            managemultimonitor.ShowDialog();
+            if (managemultimonitor == null && ShownOneForm == false)
+            {
+                managemultimonitor = new ManageMultiMonitor(allMonitorProperties, displayDevices);
+                ShownOneForm = true;
+                managemultimonitor.ShowDialog();
+                managemultimonitor.Dispose();
+                managemultimonitor = null;
+                ShownOneForm = false;
+            }
         }
 
 
@@ -118,8 +154,15 @@ namespace Chimera
         /*  */
         private void settingWallpaper_Click(object sender, EventArgs e)
         {
-            SettingWallpaper settingwallpaper = new SettingWallpaper( allMonitorProperties );
-            settingwallpaper.ShowDialog();
+            if (settingwallpaper == null && ShownOneForm == false)
+            {
+                settingwallpaper = new SettingWallpaper(allMonitorProperties);
+                ShownOneForm = true;
+                settingwallpaper.ShowDialog();
+                settingwallpaper.Dispose();
+                settingwallpaper = null;
+                ShownOneForm = false;
+            }
         }
 
 

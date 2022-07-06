@@ -26,7 +26,6 @@ namespace Chimera
         */
         IList<IntPtr> MonitorHandles;
         IntPtr CurrentSelMonitorHandle;
-
         String CurrentSelMonitorName;
         
 
@@ -44,8 +43,6 @@ namespace Chimera
             InitializeComponent();
 
             /*  */
-            
-
             MonitorSettingInfo = new List<MonitorSetInfo>();
             MonitorHandles = new List<IntPtr>();
 
@@ -152,6 +149,9 @@ namespace Chimera
             }
 
             CurrentSelMonitorHandle = MonitorHandles[0];
+
+            //lv_Monitors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            //lv_Monitors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             foreach (ColumnHeader column in lv_Monitors.Columns)
             {
@@ -550,7 +550,7 @@ namespace Chimera
                 label_FriendlyName.Text = lv_Monitors.SelectedItems[0].Text;
                 CurrentSelMonitorName = lv_Monitors.SelectedItems[0].Text;
                 CurrentSelMonitorHandle = MonitorHandles[lv_Monitors.SelectedItems[0].Index];
-
+                
                 cb_SetAsPrimary.Enabled = true;
 #if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = true;
@@ -569,9 +569,12 @@ namespace Chimera
             }
             else
             {
-                CurrentSelMonitorHandle = IntPtr.Zero;
-                CurrentSelMonitorName = "";
-                ClearMonitorInfo();
+                /* List View 영역을 Click하였으나, 아무것도 선택되지 않는 공백 영역을 Click하면 Count가 0이 된다.*/
+
+                //CurrentSelMonitorHandle = IntPtr.Zero;
+                //CurrentSelMonitorName = "";
+                //ClearMonitorInfo();
+
             }
 
         }
@@ -610,8 +613,17 @@ namespace Chimera
         {
             /* 다른 Control을 선택하는 경우 Focus가 없어져서 현재 선택중인 Monitor가 표시되지 않는 경우가 있다 */
             lv_Monitors.Focus();
-
         }
+
+
+        private void lv_Monitors_MouseDown(object sender, MouseEventArgs e)
+        {            
+            //lv_Monitors.Items[0].Selected = true;
+            //lv_Monitors.Items[0].Focused = true;
+            //lv_Monitors.Select();
+            //lv_Monitors.Focus();
+        }
+
 
 #if SUPPORT_CUSTOM_TRACKBAR
         private void cusTrackbar_Brightness_Paint(object sender, PaintEventArgs e)

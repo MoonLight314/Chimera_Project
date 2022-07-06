@@ -18,7 +18,7 @@ namespace Chimera
             /* 중복 실행 방지 */
             Process[] procs = Process.GetProcessesByName("MultiMonitorManager");
 
-            if (procs.Length > 0)
+            if (procs.Length > 1)
             {
                 WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Warning", "The application is already running.");
                 w.ShowDialog();

@@ -169,6 +169,9 @@
   <data name="CtrlModifierKey" xml:space="preserve">
     <value>Ctrl</value>
   </data>
+  <data name="CurrentWallPaperFileName" xml:space="preserve">
+    <value>Current_Wallpaper.bmp</value>
+  </data>
   <data name="CursorNextScreenDescription" xml:space="preserve">
     <value>Move Cursor To Next Screen</value>
   </data>
@@ -238,6 +241,9 @@
   <data name="OverStretch" xml:space="preserve">
     <value>Fill</value>
   </data>
+  <data name="Program_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Program-Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RegisterFail" xml:space="preserve">
     <value>The registration of this hotkey has failed.
 Try another hot key combination.</value>
@@ -253,9 +259,6 @@ Try another hot key combination.</value>
   </data>
   <data name="Stretch" xml:space="preserve">
     <value>Stretch</value>
-  </data>
-  <data name="Test" xml:space="preserve">
-    <value>Test</value>
   </data>
   <data name="Toggle_Switch_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Toggle_Switch_Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -130,7 +130,7 @@ namespace Chimera.Library.Wallpaper
 					}
 
 					// save the location of the wallpaper bitmap so that the screen saver can pick it up
-					DmtRegistry.SetDmtWallpaperFilename(path);
+					//DmtRegistry.SetDmtWallpaperFilename(path);
 				}
 				else
 				{

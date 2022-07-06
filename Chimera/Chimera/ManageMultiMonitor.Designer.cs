@@ -242,15 +242,17 @@
             // 
             this.lv_Monitors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lv_Monitors.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lv_Monitors.HideSelection = false;
             this.lv_Monitors.Location = new System.Drawing.Point(24, 93);
             this.lv_Monitors.MultiSelect = false;
             this.lv_Monitors.Name = "lv_Monitors";
             this.lv_Monitors.Scrollable = false;
-            this.lv_Monitors.Size = new System.Drawing.Size(245, 170);
-            this.lv_Monitors.TabIndex = 22;
+            this.lv_Monitors.Size = new System.Drawing.Size(245, 333);
+            this.lv_Monitors.TabIndex = 0;
             this.lv_Monitors.UseCompatibleStateImageBehavior = false;
             this.lv_Monitors.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.lv_Monitors.Leave += new System.EventHandler(this.lv_Monitors_Leave);
+            this.lv_Monitors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lv_Monitors_MouseDown);
             // 
             // label_FriendlyName
             // 
