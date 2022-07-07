@@ -52,6 +52,7 @@ namespace Chimera.Library.Transform
 			Primary = primary;
             ImageFilePath = "";
             OnlyFileName = "";
+            UniqueDeviceID = "";
             StetchType = "Center";
         }
 
@@ -59,6 +60,11 @@ namespace Chimera.Library.Transform
         /// Wallpaper Image File을 선택하는 경우 Path를 저장
         /// </summary>
         public string ImageFilePath { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string UniqueDeviceID { get; set; }
 
         /// <summary>
         /// 

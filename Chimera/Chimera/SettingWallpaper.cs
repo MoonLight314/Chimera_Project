@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Chimera.Library.PInvoke;
 
 
 namespace Chimera
@@ -37,7 +38,7 @@ namespace Chimera
             allMonitorInfo = allMonitorProperties;
 
             InitUI();
-            
+
 #if TEST
             /*  */
             clickedScreenIndex = 0;
@@ -458,7 +459,7 @@ namespace Chimera
         {
             if (controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0)
             {
-                /* load image file */
+
                 try
                 {
                     Image image = LoadImageFromFile(controller.AllScreens[clickedScreenIndex].ImageFilePath);
@@ -473,6 +474,9 @@ namespace Chimera
                     UpdatePreview();
 
                     SetWallpaer();
+
+                    /* 설정한 Image File을 App. Folder에 복사한다 */
+
                 }
                 catch (Exception ex)
                 {
@@ -497,7 +501,7 @@ namespace Chimera
         private void SetWallpaer()
         {
             ILocalEnvironment localEnvironment = new LocalEnvironment();
-            WindowsWallpaper windowsWallpaper = new WindowsWallpaper(localEnvironment, Wallpaper, controller.DesktopRect);
+            WindowsWallpaper windowsWallpaper = new WindowsWallpaper(localEnvironment, Wallpaper, controller.DesktopRect);            
             windowsWallpaper.SetWallpaper(false);
         }
 

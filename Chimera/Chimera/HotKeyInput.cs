@@ -102,10 +102,6 @@ namespace Chimera
         {
             KeyCombo tmpKey = new KeyCombo();
 
-            //tmpKey.AltMod = cb_Alt.Checked;
-            //tmpKey.ControlMod = cb_Ctrl.Checked;
-            //tmpKey.ShiftMod = cb_Shift.Checked;
-
             tmpKey.AltMod = AltKeyDown;
             tmpKey.ControlMod = CtrlKeyDown;
             tmpKey.ShiftMod = ShiftKeyDown;
@@ -132,6 +128,7 @@ namespace Chimera
         {
             string Hotkey = "Do you want to set Hotkey to " + GetHotkeyString() + " ?";
 
+            /* Modifier Key는 최소 2개 이상이 눌려야 Hot Key로 인정한다. */
             if (CountModifierKey() >= 2)
             {
                 //DialogResult Ret = MessageBox.Show(Hotkey, "Setting Hotkey",
@@ -143,16 +140,17 @@ namespace Chimera
 
                 if (Ret == DialogResult.OK)
                 {
-                    //this.keyCombo.AltMod = cb_Alt.Checked;
-                    //this.keyCombo.ControlMod = cb_Ctrl.Checked;
-                    //this.keyCombo.ShiftMod = cb_Shift.Checked;
-
                     this.keyCombo.AltMod = AltKeyDown;
                     this.keyCombo.ControlMod = CtrlKeyDown;
                     this.keyCombo.ShiftMod = ShiftKeyDown;
 
                     this.keyCombo.KeyCode = e.KeyCode;
                     return true;
+                }
+                else if(Ret == DialogResult.Cancel)
+                {
+                    ClearUI();
+                    return false;
                 }
                 else
                     return false;                

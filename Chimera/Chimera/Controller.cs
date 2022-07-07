@@ -24,6 +24,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Chimera
 {
@@ -383,14 +385,30 @@ namespace Chimera
             foreach (Screen screen in Screen.AllScreens)
 			{
 				ScreenMapping screenMapping = new ScreenMapping(screen.Bounds, screen.Primary);
-				allScreens.Add(screenMapping);
-                String name = screen.DeviceName;
+
+                screenMapping.UniqueDeviceID = GetUniqueDeviceID(screen.DeviceName);
+
+                allScreens.Add(screenMapping);
+                //String name = screen.DeviceName;
             }
 
 			desktopRect = GetBoundingRect(allScreens);
-            
-
         }
+
+
+        private string GetUniqueDeviceID(string DisplayID)
+        {
+            bool Ret;
+            NativeDisplayMethods.DISPLAY_DEVICE d = new NativeDisplayMethods.DISPLAY_DEVICE();
+            d.cb = Marshal.SizeOf(d);
+
+            /* 각 Monitor를 Unique하게 구분하기 위한 값 */
+            Ret = NativeDisplayMethods.EnumDisplayDevices(DisplayID, 0, ref d, 1 /* EDD_GET_DEVICE_INTERFACE_NAME */);
+
+            /* Folder Name으로 사용하기 위해서 특수 문자를 삭제한 값으로 저장 */
+            return string.Join("_", d.DeviceID.Split(Path.GetInvalidFileNameChars()));
+        }
+
 
 		private Rectangle GetBoundingRect(List<ScreenMapping> screenMappingList)
 		{

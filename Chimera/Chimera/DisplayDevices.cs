@@ -837,5 +837,17 @@ namespace Chimera
             //EnumMonitors();
             CopyOriginalState();
         }
+
+
+
+        public string GetUniqueDeviceID(string DisplayID)
+        {
+            bool Ret;
+            NativeDisplayMethods.DISPLAY_DEVICE d = new NativeDisplayMethods.DISPLAY_DEVICE();
+            d.cb = Marshal.SizeOf(d);
+
+            Ret = NativeDisplayMethods.EnumDisplayDevices(DisplayID,0,ref d, 1 /* EDD_GET_DEVICE_INTERFACE_NAME */);
+            return d.DeviceID;
+        }
     }
 }

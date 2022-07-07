@@ -30,7 +30,7 @@
         {
             this.txtBox_NormalKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_CANCEL = new System.Windows.Forms.Button();
+            //this.btn_CANCEL = new System.Windows.Forms.Button();
             this.label_Hotkey_Input = new System.Windows.Forms.Label();
             this.pb_CheckBox_Shift = new System.Windows.Forms.PictureBox();
             this.label_Shift = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             this.label1.Size = new System.Drawing.Size(17, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "+";
+#if TEST
             // 
             // btn_CANCEL
             // 
@@ -76,6 +77,7 @@
             this.btn_CANCEL.Text = "Reset";
             this.btn_CANCEL.UseVisualStyleBackColor = true;
             this.btn_CANCEL.Click += new System.EventHandler(this.HotKeyInput_Cancel);
+#endif
             // 
             // label_Hotkey_Input
             // 
@@ -156,7 +158,7 @@
             this.Controls.Add(this.pb_CheckBox_Shift);
             this.Controls.Add(this.label_Shift);
             this.Controls.Add(this.label_Hotkey_Input);
-            this.Controls.Add(this.btn_CANCEL);
+            //this.Controls.Add(this.btn_CANCEL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBox_NormalKey);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -184,7 +186,7 @@
         //private System.Windows.Forms.CheckBox cb_Alt;
         private System.Windows.Forms.TextBox txtBox_NormalKey;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_CANCEL;
+        //private System.Windows.Forms.Button btn_CANCEL;
         private System.Windows.Forms.Label label_Hotkey_Input;
         private System.Windows.Forms.PictureBox pb_CheckBox_Shift;
         private System.Windows.Forms.Label label_Shift;

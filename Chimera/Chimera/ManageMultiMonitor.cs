@@ -69,14 +69,15 @@ namespace Chimera
             uint pdwMinimumContrast = 0, pdwCurrentContrast = 0, pdwMaximumContrast = 0;
 
             for(int Index = 0; Index< allMonitorProperties.Count; Index++)
-            //foreach (DisplayDevice dd in allMonitorProperties)
             {
                 DisplayDevice dd = allMonitorProperties[Index];
 
                 if (dd.IsActive)
                 {
                     MonitorSetInfo msi = new MonitorSetInfo();
+
                     msi.displaydevice = dd;
+                    msi.UniqueDeviceID = _displayDevices.GetUniqueDeviceID(dd.DeviceName);
 
                     if (dd.IsPrimary)
                         msi.SetAsPrimary = true;
@@ -705,12 +706,15 @@ namespace Chimera
         public uint CurrentContrast { get; set; }
         public uint MaximumContrast { get; set; }
 
+        public string UniqueDeviceID { get; set; }
+
         public MonitorSetInfo()
         {
             displaydevice = null;
             SetAsPrimary = false;
             Off = false;
             MonitorIndex = -1;
+            UniqueDeviceID = "";
 
             MinimumContrast = 0;
             CurrentContrast = 0;
