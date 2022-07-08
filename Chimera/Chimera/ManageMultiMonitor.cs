@@ -234,6 +234,8 @@ namespace Chimera
 
             if(msi.displaydevice.IsPrimary)
                 cb_SetAsPrimary.Checked = true;
+            else
+                cb_SetAsPrimary.Checked = false;
 
             /* Brightness */
             trackBar_Brightness.Enabled = true;
@@ -346,7 +348,7 @@ namespace Chimera
             {
                 if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
                 {
-                    cb_SetAsPrimary.Checked = true;
+                    //cb_SetAsPrimary.Checked = true;
 
                     if (msi.SetAsPrimary)
                     {
@@ -372,16 +374,19 @@ namespace Chimera
             {
                 if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
                 {
-                    msi.SetAsPrimary = true;                    
+                    /* 전체 Monitor 정보를 다 출력하면 마지막 Monitor의 정보가 남게되고
+                     * 이럴 경우, 실제 선택된 Monitor의 정보가 아닌 다른 Monitor의 정보가
+                     * 출력되는 경우가 생긴다.
+                     * 현재 선택된 Monitor의 정보를 출력하고 종료하도록 한다. */
+                    msi.SetAsPrimary = true;
+                    msi.MonitorIndex = GetMonitorIndexByHandle(msi.displaydevice.MonitorHandle);
+                    DisplaySelectedMonitorInfo(msi);
+                    break;
                 }
                 else
                 {
                     msi.SetAsPrimary = false;
-                }
-
-                msi.MonitorIndex = GetMonitorIndexByHandle(msi.displaydevice.MonitorHandle);
-
-                DisplaySelectedMonitorInfo(msi);
+                }                
             }
             
         }
