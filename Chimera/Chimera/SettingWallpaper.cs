@@ -7,11 +7,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Chimera.Library.PInvoke;
-
+using Chimera.Library.Settings;
 
 namespace Chimera
 {
@@ -37,20 +38,144 @@ namespace Chimera
 
             allMonitorInfo = allMonitorProperties;
 
+            /*  기존에 적용되었던 Wallpaper의 Image가 있으면 그 Image들을 읽어서 초기화 한다.   */
+            LoadPreviousWallpaper();
+
             InitUI();
 
-#if TEST
-            /*  */
-            clickedScreenIndex = 0;
-            // automatically select the first screen
-            AddSelectedScreen(clickedScreenIndex);
-#else
-            /**
-            최초 실행시에 아무 Monitor도 선택되지 않도록 하기 위한 수정
-            **/
+            /* 최초 실행시에 아무 Monitor도 선택되지 않도록 하기 위한 수정 */
             UpdatePreview();
-#endif
         }
+
+
+        private Image LockUnlockBitsExample(string Path)
+        {
+            // Create a new bitmap.
+            Bitmap bmp = new Bitmap(Path);
+
+            // Lock the bitmap's bits.  
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            System.Drawing.Imaging.BitmapData bmpData =
+                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+                bmp.PixelFormat);
+
+            // Get the address of the first line.
+            IntPtr ptr = bmpData.Scan0;
+
+            // Declare an array to hold the bytes of the bitmap.
+            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            // Copy the RGB values into the array.
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            // Copy the RGB values back to the bitmap
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+
+            // Unlock the bits.
+            bmp.UnlockBits(bmpData);
+
+            return (Image)bmp;
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// 기존에 적용되었던 Wallpaper의 Image가 있으면 그 Image들을 읽어서 초기화 한다
+        /// </summary>
+        /// <param name=""></param>
+        private void LoadPreviousWallpaper()
+        {
+            string FolderName , StretchType , ImageFilePath;
+            string AppDatgFolderPath = FileLocations.Instance.DataDirectory;
+            string[] WallPaperDirList = Directory.GetDirectories(AppDatgFolderPath);
+            Image image;
+            Stretch stretchType;
+
+            for (int screenIndex = 0; screenIndex < controller.AllScreens.Count; screenIndex++)
+            {
+                FolderName = Path.Combine(AppDatgFolderPath , controller.AllScreens[screenIndex].UniqueDeviceID);
+
+                /* 이미 만들어진 Folder가 있는가? */
+                if( WallPaperDirList.Contains(FolderName) )
+                {
+                    StretchType = GetStretchType( FolderName );
+                    ImageFilePath = GetWallpaperImageFileName( FolderName );
+
+                    controller.AllScreens[screenIndex].ImageFilePath = ImageFilePath;
+                    controller.AllScreens[screenIndex].StetchType = StretchType;
+
+                    string[] SplitFilePath= ImageFilePath.Split('\\');
+                    controller.AllScreens[screenIndex].OnlyFileName = SplitFilePath.Last();
+
+#if TEST
+                    image = LoadImageFromFile(controller.AllScreens[screenIndex].ImageFilePath);
+#else
+                    /* 이 방식으로 Image를 Load하면 Image 공유 문제를 해결 할 수 있다. */
+                    using (FileStream fs = new FileStream(controller.AllScreens[screenIndex].ImageFilePath, FileMode.Open))
+                    {
+                        image = Image.FromStream(fs);
+                        fs.Close();
+                    }
+#endif
+                    stretchType = new Stretch(controller.AllScreens[screenIndex].StetchType);
+                    
+                    controller.SetActiveScreens(screenIndex);
+                    controller.AddImage(image, stretchType.Type);
+                }
+            }
+            
+            image = null;
+            stretchType = null;
+            controller.ClearActiveScreen();
+        }
+
+
+
+        private string GetWallpaperImageFileName(string FolderName)
+        {
+            List<string> ImageExtensions = new List<string> { ".JPG", ".JPEG", ".JPE", ".BMP", ".GIF", ".PNG" };
+            string[] FileList = Directory.GetFiles(FolderName);
+
+            foreach (string FileName in FileList)
+            {
+                if (ImageExtensions.Contains(Path.GetExtension(FileName).ToUpperInvariant()))
+                {
+                    return FileName;
+                }
+            }
+
+            return "";
+        }
+
+
+
+
+
+
+
+        private string GetStretchType(string FolderName)
+        {
+            List<string> StretchTypes = new List<string>() { "StretchToFit", "OverStretch", "UnderStretch", "Center" };
+            string[] FileList = Directory.GetFiles(FolderName);
+
+            foreach(string FileName in FileList)
+            {
+                foreach(string Type in StretchTypes)
+                {
+                    if (FileName.Contains(Type))
+                        return Type;                        
+                }
+            }
+
+            return "";
+        }
+
+
+
 
 
 
@@ -419,6 +544,7 @@ namespace Chimera
             // if we try to save the wallpaper back here later on
 
             //image = Bitmap.FromFile( TextBox_Image_File_Path.Text );
+
             image = Bitmap.FromFile(imageFilename);
 
             // Solution 2
@@ -449,6 +575,8 @@ namespace Chimera
             // while the PictureBox is still using the Image in it.
 
             return image;
+            
+
         }
 
 
@@ -459,10 +587,15 @@ namespace Chimera
         {
             if (controller.AllScreens[clickedScreenIndex].ImageFilePath.Length > 0)
             {
-
                 try
                 {
-                    Image image = LoadImageFromFile(controller.AllScreens[clickedScreenIndex].ImageFilePath);
+                    //Image image = LoadImageFromFile(controller.AllScreens[clickedScreenIndex].ImageFilePath);
+                    Image image;
+                    using (FileStream fs = new FileStream(controller.AllScreens[clickedScreenIndex].ImageFilePath, FileMode.Open))
+                    {
+                        image = Image.FromStream(fs);
+                        fs.Close();
+                    }
 
                     Stretch stretchType = new Stretch(controller.AllScreens[clickedScreenIndex].StetchType);
 
@@ -475,7 +608,13 @@ namespace Chimera
 
                     SetWallpaer();
 
-                    /* 설정한 Image File을 App. Folder에 복사한다 */
+                    /* 이전에 설정한 Wallpaper는 .bmp로 저장되어 있으니
+                    처음 실행시에 보여줄 Wallpaper는 그 .bmp를 Load해서 보여주면 된다.*/
+                    /* 설정한 Image File을 App. Folder에 복사한다.. 이 과정이 필요할까??? 
+                    -> Current_Wallpaper.bmp를 Load해서 Preview화면에 보여주는 것은 내부 구조 활용에 더 복잡하게 만든다.
+                    controller.AllScreens에 각각의 Monitor Unique ID로 저장된 Folder의 Image File을 활용해 최초 Preview화면 및 내부 구조 
+                    활용이 더욱 효율적이다.                    */
+                    SaveOriginalWallpaperImageFile();
 
                 }
                 catch (Exception ex)
@@ -486,7 +625,71 @@ namespace Chimera
         }
 
 
+        private void SaveOriginalWallpaperImageFile()
+        {
+            string WallpaperFolder , DestFilePath , StretchTypeFileName;
+            string AppDatgFolderPath = FileLocations.Instance.DataDirectory;
+            FileStream StretchTypeFile;
 
+            for (int screenIndex = 0; screenIndex < controller.AllScreens.Count; screenIndex++)
+            {
+                if (controller.AllScreens[screenIndex].ImageFilePath.Length > 0)
+                {
+                    WallpaperFolder = Path.Combine(AppDatgFolderPath, controller.AllScreens[screenIndex].UniqueDeviceID);
+
+                    /* Wallpaper로 사용된 원본 Image File을 Monitor Unique값으로 만든 Folder에 복사해 놓는다. */
+                    DestFilePath = Path.Combine(WallpaperFolder, controller.AllScreens[screenIndex].OnlyFileName);
+
+                    if (Directory.Exists(WallpaperFolder) == true)
+                        DeleteStretchTypeFileOnly(WallpaperFolder);
+
+                    if (string.Compare(DestFilePath, controller.AllScreens[screenIndex].ImageFilePath) != 0)
+                    {
+                        /* Folder가 없으면 우선 만든다. */
+                        if (Directory.Exists(WallpaperFolder) == false)
+                        {
+                            Directory.CreateDirectory(WallpaperFolder);
+                        }
+                        /*  Folder가 있으면 그 안의 File들은 이전 Wallpaper들 정보들이기 때문에 모두 지운다. */
+                        else
+                        {
+                            DeleteAllFilesInFolder(WallpaperFolder);
+                        }
+
+                        File.Copy(controller.AllScreens[screenIndex].ImageFilePath, DestFilePath, true);
+                    }
+
+                    StretchTypeFileName = Path.Combine(WallpaperFolder, controller.AllScreens[screenIndex].StetchType);
+                    StretchTypeFile = File.Create(StretchTypeFileName);
+                    StretchTypeFile.Close();
+                }
+
+            }
+
+
+        }
+
+
+        private void DeleteAllFilesInFolder(string Path)
+        {
+            DirectoryInfo di = new DirectoryInfo(Path);
+            FileInfo[] files = di.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                file.Delete();
+            }
+        }
+
+        private void DeleteStretchTypeFileOnly(string Path)
+        {
+            DirectoryInfo di = new DirectoryInfo(Path);
+            FileInfo[] files = di.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                if(file.Extension == "")
+                    file.Delete();
+            }
+        }
 
 
 
@@ -591,7 +794,9 @@ namespace Chimera
             {
                 Stretch stretchType = comboBoxFit.SelectedItem as Stretch;
                 controller.AllScreens[clickedScreenIndex].StetchType = stretchType.ToString(true);
-                ApplyImage();
+
+                if( controller.ActiveScreensCount() > 0 )
+                    ApplyImage();
             }
         }
 

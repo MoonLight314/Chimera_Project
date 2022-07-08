@@ -88,13 +88,34 @@ namespace Chimera
 			}
 		}
 
-		/// <summary>
-		/// Adds the specified image to cover all active screens
-		/// </summary>
-		/// <param name="image">The image to add</param>
-		/// <param name="fit">What to do if the image size and rectangle covering all the
-		/// active screens have different aspect ratios.</param>
-		public void AddImage(Image image, Stretch.Fit fit)
+        public void SetActiveScreens(int screenIndex)
+        {
+            activeScreens.Clear();
+            Debug.Assert(screenIndex >= 0 && screenIndex < allScreens.Count);
+            activeScreens.Add(allScreens[screenIndex]);
+
+        }
+
+
+        public void ClearActiveScreen()
+        {
+            activeScreens.Clear();
+        }
+
+
+        public int ActiveScreensCount()
+        {
+            return activeScreens.Count;
+        }
+
+
+        /// <summary>
+        /// Adds the specified image to cover all active screens
+        /// </summary>
+        /// <param name="image">The image to add</param>
+        /// <param name="fit">What to do if the image size and rectangle covering all the
+        /// active screens have different aspect ratios.</param>
+        public void AddImage(Image image, Stretch.Fit fit)
 		{
 			Debug.Assert(activeScreens.Count > 0);
 			GenerateMappings(image, fit);
@@ -405,8 +426,12 @@ namespace Chimera
             /* 각 Monitor를 Unique하게 구분하기 위한 값 */
             Ret = NativeDisplayMethods.EnumDisplayDevices(DisplayID, 0, ref d, 1 /* EDD_GET_DEVICE_INTERFACE_NAME */);
 
+            string tmp = string.Join("_", d.DeviceID.Split(Path.GetInvalidFileNameChars()));
+            string[] SplitPath = tmp.Split('{');
+
             /* Folder Name으로 사용하기 위해서 특수 문자를 삭제한 값으로 저장 */
-            return string.Join("_", d.DeviceID.Split(Path.GetInvalidFileNameChars()));
+            return SplitPath[0];
+
         }
 
 

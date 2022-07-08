@@ -117,9 +117,9 @@ namespace Chimera.Library.Transform
 		/// <param name="virtualDestRect">The rectangle that the whole of the image maps to</param>
 		public void GenerateMapping(Image image, Rectangle virtualDestRect)
 		{
-			SourceImage = image;
+            SourceImage = image;
 
-			Rectangle imageRect = new Rectangle(new Point(0, 0), image.Size);
+            Rectangle imageRect = new Rectangle(new Point(0, 0), image.Size);
 
 			// if we are adding bars then we need to reduce screenRect accordingly
 			DestRect = Rectangle.Intersect(ScreenRect, virtualDestRect);
