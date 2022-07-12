@@ -43,6 +43,7 @@ namespace Chimera
 
         public int DeviceIndex { get; set; }
         public int ActiveDeviceIndex { get; set; }
+        public string UniqueDeviceID { get; set; }
 
 
 

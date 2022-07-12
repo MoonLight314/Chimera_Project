@@ -77,7 +77,6 @@ namespace Chimera
                     MonitorSetInfo msi = new MonitorSetInfo();
 
                     msi.displaydevice = dd;
-                    msi.UniqueDeviceID = _displayDevices.GetUniqueDeviceID(dd.DeviceName);
 
                     if (dd.IsPrimary)
                         msi.SetAsPrimary = true;

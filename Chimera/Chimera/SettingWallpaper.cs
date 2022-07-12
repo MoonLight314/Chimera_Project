@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Chimera.Library.PInvoke;
 using Chimera.Library.Settings;
+using Chimera.Library.Transform;
 
 namespace Chimera
 {
@@ -41,6 +42,9 @@ namespace Chimera
             /*  기존에 적용되었던 Wallpaper의 Image가 있으면 그 Image들을 읽어서 초기화 한다.   */
             LoadPreviousWallpaper();
 
+            /* Adjust Screen Rect */
+            AdjustScreenRect();
+
             InitUI();
 
             /* 최초 실행시에 아무 Monitor도 선택되지 않도록 하기 위한 수정 */
@@ -48,35 +52,31 @@ namespace Chimera
         }
 
 
-        private Image LockUnlockBitsExample(string Path)
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name=""></param>
+        private void AdjustScreenRect()
         {
-            // Create a new bitmap.
-            Bitmap bmp = new Bitmap(Path);
-
-            // Lock the bitmap's bits.  
-            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-            System.Drawing.Imaging.BitmapData bmpData =
-                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-                bmp.PixelFormat);
-
-            // Get the address of the first line.
-            IntPtr ptr = bmpData.Scan0;
-
-            // Declare an array to hold the bytes of the bitmap.
-            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
-            byte[] rgbValues = new byte[bytes];
-
-            // Copy the RGB values into the array.
-            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
-
-            // Copy the RGB values back to the bitmap
-            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
-
-            // Unlock the bits.
-            bmp.UnlockBits(bmpData);
-
-            return (Image)bmp;
+            foreach (ScreenMapping sm in controller.AllScreens )
+            {
+                foreach(DisplayDevice dd in allMonitorInfo)
+                {
+                    /* 크기가 다른 Screen의 경우에는 Screen Rect를 Update한다. */
+                    if(sm.UniqueDeviceID == dd.UniqueDeviceID)
+                    {
+                        ;
+                    }
+                    
+                }
+            }
         }
+
+
+
 
 
 

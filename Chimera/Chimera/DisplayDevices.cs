@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.IO;
+
+
 
 namespace Chimera
 {
@@ -467,8 +470,6 @@ namespace Chimera
             SrcInfoId = SrcInfoId.Distinct().ToList();
             TargetInfoId = TargetInfoId.Distinct().ToList();
 
-            /* Test */
-            ;
 
             for (int pathIndex = 0; pathIndex < _pathInfos.Length; pathIndex++)
             {
@@ -529,6 +530,9 @@ namespace Chimera
                         displayDevice.FriendlyName = MonitorFriendlyName(adapterId, targetId);
                     }
                 }
+
+                /* Unique ID */
+                displayDevice.UniqueDeviceID = GetUniqueDeviceID(displayDevice.SourceName);
             }
         }
 
@@ -846,8 +850,14 @@ namespace Chimera
             NativeDisplayMethods.DISPLAY_DEVICE d = new NativeDisplayMethods.DISPLAY_DEVICE();
             d.cb = Marshal.SizeOf(d);
 
-            Ret = NativeDisplayMethods.EnumDisplayDevices(DisplayID,0,ref d, 1 /* EDD_GET_DEVICE_INTERFACE_NAME */);
-            return d.DeviceID;
+            /* 각 Monitor를 Unique하게 구분하기 위한 값 */
+            Ret = NativeDisplayMethods.EnumDisplayDevices(DisplayID, 0, ref d, 1 /* EDD_GET_DEVICE_INTERFACE_NAME */);
+
+            string tmp = string.Join("_", d.DeviceID.Split(Path.GetInvalidFileNameChars()));
+            string[] SplitPath = tmp.Split('{');
+
+            /* Folder Name으로 사용하기 위해서 특수 문자를 삭제한 값으로 저장 */
+            return SplitPath[0];
         }
     }
 }
