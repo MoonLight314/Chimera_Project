@@ -333,6 +333,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Select.png" />
     <None Include="Resource\Program-Icon.ico" />
     <None Include="Resource\Program Icon_2022-07-06\Program Icon.png" />
     <None Include="Resource\Reset_Enabled.png" />

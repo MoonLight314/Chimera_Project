@@ -167,6 +167,80 @@ namespace Chimera
 
 
 
+        [Flags]
+        public enum MonitorCapabilities
+        {
+            MC_CAPS_NONE = 0x00000000,
+            MC_CAPS_MONITOR_TECHNOLOGY_TYPE = 0x00000001,
+            MC_CAPS_BRIGHTNESS = 0x00000002,
+            MC_CAPS_CONTRAST = 0x00000004,
+            MC_CAPS_COLOR_TEMPERATURE = 0x00000008,
+            MC_CAPS_RED_GREEN_BLUE_GAIN = 0x00000010,
+            MC_CAPS_RED_GREEN_BLUE_DRIVE = 0x00000020,
+            MC_CAPS_DEGAUSS = 0x00000040,
+            MC_CAPS_DISPLAY_AREA_POSITION = 0x00000080,
+            MC_CAPS_DISPLAY_AREA_SIZE = 0x00000100,
+            MC_CAPS_RESTORE_FACTORY_DEFAULTS = 0x00000400,
+            MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS = 0x00000800,
+            MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS = 0x00001000,
+        }
+
+
+
+
+
+        public void GetMonitorCapabilities(int monitorIndex, ref bool Brightness, ref bool Contrast)
+        {
+            bool Ret = false;
+            uint dwMonitorCapabilities = 0;
+            uint dwSupportedColorTemperatures = 0;
+
+            Brightness = false;
+            Contrast = false;
+
+            if (monitorIndex >= 0 && monitorIndex < _displayDevices.Count)
+            {
+                IntPtr hMonitor = _displayDevices[monitorIndex].MonitorHandle;
+
+                uint numPhysicalMonitors = 0;
+                NativeMethods.GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, ref numPhysicalMonitors);
+
+                if (numPhysicalMonitors == 1)
+                {
+                    NativeMethods.PHYSICAL_MONITOR[] physicalMonitors = new NativeMethods.PHYSICAL_MONITOR[numPhysicalMonitors];
+                    if (NativeMethods.GetPhysicalMonitorsFromHMONITOR(hMonitor, numPhysicalMonitors, physicalMonitors))
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Ret = NativeDisplayMethods.GetMonitorCapabilities(physicalMonitors[0].hPhysicalMonitor, out dwMonitorCapabilities, out dwSupportedColorTemperatures);
+
+                            if (Ret)
+                                break;
+                        }
+                    }
+
+                    NativeMethods.DestroyPhysicalMonitors(numPhysicalMonitors, physicalMonitors);
+                }
+            }
+
+            /*  */
+            if( Ret )
+            {
+                MonitorCapabilities Capabilities = (MonitorCapabilities)dwMonitorCapabilities;
+
+                if (Capabilities.HasFlag(MonitorCapabilities.MC_CAPS_BRIGHTNESS))
+                    Brightness = true;
+
+                if (Capabilities.HasFlag(MonitorCapabilities.MC_CAPS_CONTRAST))
+                    Contrast = true;
+            }
+        }
+
+
+
+
+
+
         /// <summary>
         /// Monitor의 현재 Contrast 값을 가져온다
         /// </summary>

@@ -45,6 +45,9 @@ namespace Chimera
         public int ActiveDeviceIndex { get; set; }
         public string UniqueDeviceID { get; set; }
 
+        public bool BrightnessControllable{ get; set; }
+        public bool ContrastControllable { get; set; }
+
 
 
         public DisplayDevice(int pathIndex, NativeDisplayMethods.LUID adapterId, uint outletId)

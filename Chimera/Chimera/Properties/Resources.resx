@@ -254,6 +254,9 @@ Try another hot key combination.</value>
   <data name="Reset_Enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Reset_Enabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ShiftModifierKey" xml:space="preserve">
     <value>Shift</value>
   </data>

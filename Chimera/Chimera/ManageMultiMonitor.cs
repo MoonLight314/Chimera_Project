@@ -27,13 +27,15 @@ namespace Chimera
         IList<IntPtr> MonitorHandles;
         IntPtr CurrentSelMonitorHandle;
         String CurrentSelMonitorName;
-        
 
-        #if SUPPORT_CUSTOM_TRACKBAR
+        IList<Label> MonitorNameList;
+
+
+#if SUPPORT_CUSTOM_TRACKBAR
         float cusTrackBar_Min, cusTrackBar_Max;
         float Default_value = 0.1f;
         bool cusTrackBar_Mouse_Pushed;
-        #endif
+#endif
 
 
         /*   */
@@ -45,6 +47,7 @@ namespace Chimera
             /*  */
             MonitorSettingInfo = new List<MonitorSetInfo>();
             MonitorHandles = new List<IntPtr>();
+            MonitorNameList = new List<Label>();
 
             _displayDevices = displayDevices;
 
@@ -52,6 +55,12 @@ namespace Chimera
             CurrentSelMonitorHandle = IntPtr.Zero;
 
             GetOnlyActiveMonitors(allMonitorProperties);
+
+            /**/
+            MonitorNameList.Add(label_Montor_List_00);
+            MonitorNameList.Add(label_Montor_List_01);
+            MonitorNameList.Add(label_Montor_List_02);
+            MonitorNameList.Add(label_Montor_List_03);
 
             /*  */
             InitUI();
@@ -67,6 +76,7 @@ namespace Chimera
         void GetOnlyActiveMonitors(IList<DisplayDevice> allMonitorProperties)
         {
             uint pdwMinimumContrast = 0, pdwCurrentContrast = 0, pdwMaximumContrast = 0;
+            bool Brightness =false , Contrast = false;
 
             for(int Index = 0; Index< allMonitorProperties.Count; Index++)
             {
@@ -88,6 +98,12 @@ namespace Chimera
                     msi.MonitorIndex = Index;
 #endif
 
+                    /* Brightness & Contrast 변경 가능 여부 확인 */
+                    _displayDevices.GetMonitorCapabilities(msi.MonitorIndex , ref Brightness, ref Contrast);
+                    msi.displaydevice.BrightnessControllable = Brightness;
+                    msi.displaydevice.ContrastControllable = Contrast;
+
+
                     /* 각 Monitor의 Contrast 값을 가져옵니다. */
                     _displayDevices.GetMonitorContrast(msi.MonitorIndex, ref pdwMinimumContrast, ref pdwCurrentContrast, ref pdwMaximumContrast);
                     msi.MinimumContrast = pdwMinimumContrast;
@@ -95,6 +111,7 @@ namespace Chimera
                     msi.MaximumContrast = pdwMaximumContrast;
 
                     MonitorSettingInfo.Add(msi);
+
                     msi = null;
 
                 }
@@ -183,6 +200,14 @@ namespace Chimera
             this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Warning.Font = new System.Drawing.Font("LG스마트체 Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
+            /*  */
+            this.label_Montor_List_00.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
+            this.label_Montor_List_00.BackColor = Color.Transparent;
+            this.label_Montor_List_00.Text = "LG FULL HD";
+            
+
+
         }
 
 
@@ -237,16 +262,34 @@ namespace Chimera
                 cb_SetAsPrimary.Checked = false;
 
             /* Brightness */
-            trackBar_Brightness.Enabled = true;
-            trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness, (int)msi.displaydevice.MaxBrightness);
-            trackBar_Brightness.Value = (int)msi.displaydevice.CurBrightness;
-            label_Current_Brightness_Value.Text = msi.displaydevice.CurBrightness.ToString();
+            if (msi.displaydevice.BrightnessControllable)
+            {                
+                trackBar_Brightness.Enabled = true;
+                trackBar_Brightness.SetRange((int)msi.displaydevice.MinBrightness, (int)msi.displaydevice.MaxBrightness);
+                trackBar_Brightness.Value = (int)msi.displaydevice.CurBrightness;
+                label_Current_Brightness_Value.Text = msi.displaydevice.CurBrightness.ToString();
+            }
+            else
+            {
+                trackBar_Brightness.Enabled = false;
+                trackBar_Brightness.Value = 0;
+                label_Current_Brightness_Value.Text = "";
+            }
 
             /* Contrast */
-            trackBar_Contrast.Enabled = true;
-            trackBar_Contrast.SetRange((int)msi.MinimumContrast, (int)msi.MaximumContrast);
-            trackBar_Contrast.Value = (int)msi.CurrentContrast;
-            label_Current_Contrast_Value.Text = msi.CurrentContrast.ToString();
+            if (msi.displaydevice.ContrastControllable)
+            {
+                trackBar_Contrast.Enabled = true;
+                trackBar_Contrast.SetRange((int)msi.MinimumContrast, (int)msi.MaximumContrast);
+                trackBar_Contrast.Value = (int)msi.CurrentContrast;
+                label_Current_Contrast_Value.Text = msi.CurrentContrast.ToString();
+            }
+            else
+            {
+                trackBar_Contrast.Enabled = false;
+                trackBar_Contrast.Value = 0;
+                label_Current_Contrast_Value.Text = "";
+            }
         }
 
 
@@ -630,6 +673,14 @@ namespace Chimera
         }
 
 
+
+
+        private void pb_Montor_List_00_Click(object sender, EventArgs e)
+        {
+            pb_Montor_List_00.BackgroundImage = Properties.Resources.Select;
+        }
+
+
 #if SUPPORT_CUSTOM_TRACKBAR
         private void cusTrackbar_Brightness_Paint(object sender, PaintEventArgs e)
         {
@@ -710,15 +761,12 @@ namespace Chimera
         public uint CurrentContrast { get; set; }
         public uint MaximumContrast { get; set; }
 
-        public string UniqueDeviceID { get; set; }
-
         public MonitorSetInfo()
         {
             displaydevice = null;
             SetAsPrimary = false;
             Off = false;
             MonitorIndex = -1;
-            UniqueDeviceID = "";
 
             MinimumContrast = 0;
             CurrentContrast = 0;

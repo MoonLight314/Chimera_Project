@@ -55,6 +55,15 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label_Warning = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_Montor_List_03 = new System.Windows.Forms.Label();
+            this.label_Montor_List_02 = new System.Windows.Forms.Label();
+            this.label_Montor_List_01 = new System.Windows.Forms.Label();
+            this.label_Montor_List_00 = new System.Windows.Forms.Label();
+            this.pb_Montor_List_03 = new System.Windows.Forms.PictureBox();
+            this.pb_Montor_List_02 = new System.Windows.Forms.PictureBox();
+            this.pb_Montor_List_01 = new System.Windows.Forms.PictureBox();
+            this.pb_Montor_List_00 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -62,6 +71,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_00)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_SetAsPrimary
@@ -247,7 +261,7 @@
             this.lv_Monitors.MultiSelect = false;
             this.lv_Monitors.Name = "lv_Monitors";
             this.lv_Monitors.Scrollable = false;
-            this.lv_Monitors.Size = new System.Drawing.Size(245, 333);
+            this.lv_Monitors.Size = new System.Drawing.Size(245, 195);
             this.lv_Monitors.TabIndex = 0;
             this.lv_Monitors.UseCompatibleStateImageBehavior = false;
             this.lv_Monitors.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -357,11 +371,98 @@
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label_Montor_List_03);
+            this.panel1.Controls.Add(this.label_Montor_List_02);
+            this.panel1.Controls.Add(this.label_Montor_List_01);
+            this.panel1.Controls.Add(this.label_Montor_List_00);
+            this.panel1.Controls.Add(this.pb_Montor_List_03);
+            this.panel1.Controls.Add(this.pb_Montor_List_02);
+            this.panel1.Controls.Add(this.pb_Montor_List_01);
+            this.panel1.Controls.Add(this.pb_Montor_List_00);
+            this.panel1.Location = new System.Drawing.Point(24, 286);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(224, 208);
+            this.panel1.TabIndex = 32;
+            // 
+            // label_Montor_List_03
+            // 
+            this.label_Montor_List_03.AutoSize = true;
+            this.label_Montor_List_03.Location = new System.Drawing.Point(20, 172);
+            this.label_Montor_List_03.Name = "label_Montor_List_03";
+            this.label_Montor_List_03.Size = new System.Drawing.Size(38, 12);
+            this.label_Montor_List_03.TabIndex = 36;
+            this.label_Montor_List_03.Text = "label3";
+            // 
+            // label_Montor_List_02
+            // 
+            this.label_Montor_List_02.AutoSize = true;
+            this.label_Montor_List_02.Location = new System.Drawing.Point(20, 119);
+            this.label_Montor_List_02.Name = "label_Montor_List_02";
+            this.label_Montor_List_02.Size = new System.Drawing.Size(38, 12);
+            this.label_Montor_List_02.TabIndex = 35;
+            this.label_Montor_List_02.Text = "label2";
+            // 
+            // label_Montor_List_01
+            // 
+            this.label_Montor_List_01.AutoSize = true;
+            this.label_Montor_List_01.Location = new System.Drawing.Point(20, 72);
+            this.label_Montor_List_01.Name = "label_Montor_List_01";
+            this.label_Montor_List_01.Size = new System.Drawing.Size(38, 12);
+            this.label_Montor_List_01.TabIndex = 34;
+            this.label_Montor_List_01.Text = "label1";
+            // 
+            // label_Montor_List_00
+            // 
+            this.label_Montor_List_00.AutoSize = true;
+            this.label_Montor_List_00.BackColor = System.Drawing.Color.Transparent;
+            this.label_Montor_List_00.Location = new System.Drawing.Point(66, 15);
+            this.label_Montor_List_00.Name = "label_Montor_List_00";
+            this.label_Montor_List_00.Size = new System.Drawing.Size(38, 12);
+            this.label_Montor_List_00.TabIndex = 33;
+            this.label_Montor_List_00.Text = "label1";
+            this.label_Montor_List_00.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pb_Montor_List_03
+            // 
+            this.pb_Montor_List_03.Location = new System.Drawing.Point(0, 150);
+            this.pb_Montor_List_03.Name = "pb_Montor_List_03";
+            this.pb_Montor_List_03.Size = new System.Drawing.Size(224, 48);
+            this.pb_Montor_List_03.TabIndex = 3;
+            this.pb_Montor_List_03.TabStop = false;
+            // 
+            // pb_Montor_List_02
+            // 
+            this.pb_Montor_List_02.Location = new System.Drawing.Point(0, 100);
+            this.pb_Montor_List_02.Name = "pb_Montor_List_02";
+            this.pb_Montor_List_02.Size = new System.Drawing.Size(224, 48);
+            this.pb_Montor_List_02.TabIndex = 2;
+            this.pb_Montor_List_02.TabStop = false;
+            // 
+            // pb_Montor_List_01
+            // 
+            this.pb_Montor_List_01.Location = new System.Drawing.Point(0, 50);
+            this.pb_Montor_List_01.Name = "pb_Montor_List_01";
+            this.pb_Montor_List_01.Size = new System.Drawing.Size(224, 48);
+            this.pb_Montor_List_01.TabIndex = 1;
+            this.pb_Montor_List_01.TabStop = false;
+            // 
+            // pb_Montor_List_00
+            // 
+            this.pb_Montor_List_00.Location = new System.Drawing.Point(0, 0);
+            this.pb_Montor_List_00.Name = "pb_Montor_List_00";
+            this.pb_Montor_List_00.Size = new System.Drawing.Size(224, 48);
+            this.pb_Montor_List_00.TabIndex = 0;
+            this.pb_Montor_List_00.TabStop = false;
+            this.pb_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
+            // 
             // ManageMultiMonitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label_Warning);
             this.Controls.Add(this.pictureBox4);
@@ -393,7 +494,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ManageMultiMonitor";
-            this.Opacity = 0.94D;
+            this.Opacity = 0.5D;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).EndInit();
@@ -403,6 +504,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_00)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,6 +545,15 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label_Warning;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pb_Montor_List_03;
+        private System.Windows.Forms.PictureBox pb_Montor_List_02;
+        private System.Windows.Forms.PictureBox pb_Montor_List_01;
+        private System.Windows.Forms.PictureBox pb_Montor_List_00;
+        private System.Windows.Forms.Label label_Montor_List_03;
+        private System.Windows.Forms.Label label_Montor_List_02;
+        private System.Windows.Forms.Label label_Montor_List_01;
+        private System.Windows.Forms.Label label_Montor_List_00;
 
 #if SUPPORT_MONITOR_OFF_FEATURE
         private System.Windows.Forms.CheckBox cb_MonitorOff;
