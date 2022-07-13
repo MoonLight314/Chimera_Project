@@ -417,6 +417,15 @@ namespace Chimera
         }
 
 
+
+
+        public void CalcDeskTopRect()
+        {
+            desktopRect = GetBoundingRect(allScreens);
+        }
+
+
+
         private string GetUniqueDeviceID(string DisplayID)
         {
             bool Ret;

@@ -39,11 +39,11 @@ namespace Chimera
 
             allMonitorInfo = allMonitorProperties;
 
-            /*  기존에 적용되었던 Wallpaper의 Image가 있으면 그 Image들을 읽어서 초기화 한다.   */
-            LoadPreviousWallpaper();
-
             /* Adjust Screen Rect */
             AdjustScreenRect();
+
+            /*  기존에 적용되었던 Wallpaper의 Image가 있으면 그 Image들을 읽어서 초기화 한다.   */
+            LoadPreviousWallpaper();            
 
             InitUI();
 
@@ -68,11 +68,21 @@ namespace Chimera
                     /* 크기가 다른 Screen의 경우에는 Screen Rect를 Update한다. */
                     if(sm.UniqueDeviceID == dd.UniqueDeviceID)
                     {
-                        ;
+                        /* 확대 비율이 100%가 아닌 경우, Screen Mapping은 확대된 비율만큼 줄어든 크기로 되어있다.
+                           이 값이 여러 값들의 계산에 영향을 주기 때문에 제대로 Wallpaper가 보이지 않는 문제 발생
+                           DisplayDevice의 값에는 실제 화면 비율이 저장되어 있기 때문에 이 값으로 대체한다. */
+                        if (sm.ScreenRect.Size.Height != dd.Bounds.Height ||
+                            sm.ScreenRect.Size.Width != dd.Bounds.Width)
+                        {
+                            sm.ScreenRect = dd.Bounds;
+                        }
                     }
                     
                 }
             }
+
+            /* controller의 DeskTopRect 변수도 Update한다. */
+            controller.CalcDeskTopRect();
         }
 
 
@@ -494,12 +504,13 @@ namespace Chimera
 
 
 
+#if MARK
         /*  종료 버튼 */
         private void ID_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+#endif
 
 
         /* Wallpaer Image File Browse 버튼 */
