@@ -167,9 +167,6 @@ namespace Chimera
 
             CurrentSelMonitorHandle = MonitorHandles[0];
 
-            //lv_Monitors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            //lv_Monitors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
             foreach (ColumnHeader column in lv_Monitors.Columns)
             {
                 column.Width = -1;

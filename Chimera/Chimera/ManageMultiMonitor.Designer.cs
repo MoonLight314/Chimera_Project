@@ -423,6 +423,7 @@
             this.label_Montor_List_00.TabIndex = 33;
             this.label_Montor_List_00.Text = "label1";
             this.label_Montor_List_00.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
             // 
             // pb_Montor_List_03
             // 

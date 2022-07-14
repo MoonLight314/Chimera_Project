@@ -210,13 +210,8 @@ namespace Chimera
                     NativeMethods.PHYSICAL_MONITOR[] physicalMonitors = new NativeMethods.PHYSICAL_MONITOR[numPhysicalMonitors];
                     if (NativeMethods.GetPhysicalMonitorsFromHMONITOR(hMonitor, numPhysicalMonitors, physicalMonitors))
                     {
-                        for (int i = 0; i < 3; i++)
-                        {
-                            Ret = NativeDisplayMethods.GetMonitorCapabilities(physicalMonitors[0].hPhysicalMonitor, out dwMonitorCapabilities, out dwSupportedColorTemperatures);
-
-                            if (Ret)
-                                break;
-                        }
+                        /*  */
+                        Ret = NativeDisplayMethods.GetMonitorCapabilities(physicalMonitors[0].hPhysicalMonitor, out dwMonitorCapabilities, out dwSupportedColorTemperatures);
                     }
 
                     NativeMethods.DestroyPhysicalMonitors(numPhysicalMonitors, physicalMonitors);
