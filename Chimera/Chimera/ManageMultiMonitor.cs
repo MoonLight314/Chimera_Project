@@ -61,6 +61,10 @@ namespace Chimera
             MonitorNameList.Add(label_Montor_List_01);
             MonitorNameList.Add(label_Montor_List_02);
             MonitorNameList.Add(label_Montor_List_03);
+            MonitorNameList.Add(label_Montor_List_04);
+            MonitorNameList.Add(label_Montor_List_05);
+            MonitorNameList.Add(label_Montor_List_06);
+            MonitorNameList.Add(label_Montor_List_07);
 
             /*  */
             InitUI();
@@ -202,7 +206,13 @@ namespace Chimera
             this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
             this.label_Montor_List_00.BackColor = Color.Transparent;
             this.label_Montor_List_00.Text = "LG FULL HD";
-            
+
+            this.label_Montor_List_01.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Montor_List_01.Parent = this.pb_Montor_List_01;
+            this.label_Montor_List_01.BackColor = Color.Transparent;
+            this.label_Montor_List_01.Text = "4K2KHDMI30";
+
+
 
 
         }
