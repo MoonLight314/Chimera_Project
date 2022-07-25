@@ -57,23 +57,25 @@ namespace Chimera
             GetOnlyActiveMonitors(allMonitorProperties);
 
             /**/
-            //MonitorNameList.Add(label_Montor_List_00);
-            //MonitorNameList.Add(label_Montor_List_01);
-            //MonitorNameList.Add(label_Montor_List_02);
-            //MonitorNameList.Add(label_Montor_List_03);
-            //MonitorNameList.Add(label_Montor_List_04);
-            //MonitorNameList.Add(label_Montor_List_05);
-            //MonitorNameList.Add(label_Montor_List_06);
-            //MonitorNameList.Add(label_Montor_List_07);
+            MonitorNameList.Add(label_Montor_List_00);
+            MonitorNameList.Add(label_Montor_List_01);
+            MonitorNameList.Add(label_Montor_List_02);
+            MonitorNameList.Add(label_Montor_List_03);
+            MonitorNameList.Add(label_Montor_List_04);
+            MonitorNameList.Add(label_Montor_List_05);
+            MonitorNameList.Add(label_Montor_List_06);
 
             /*  */
             InitUI();
 
-            #if SUPPORT_CUSTOM_TRACKBAR
+#if SUPPORT_CUSTOM_TRACKBAR
             cusTrackBar_Min = 0.0f;
             cusTrackBar_Max = 1.0f;
             cusTrackBar_Mouse_Pushed = false;
-            #endif
+#endif
+
+            /* 최초에 첫번째 Monitor 선택 */
+            pb_Montor_List_00_Click(this.pb_Montor_List_00, null);
         }
 
 
@@ -169,12 +171,8 @@ namespace Chimera
                 MonitorHandles.Add(msi.displaydevice.MonitorHandle);
 
                 /* Panel에 추가 */
-                //MonitorNameList[Idx].Text = msi.displaydevice.FriendlyName;
+                MonitorNameList[Idx].Text = msi.displaydevice.FriendlyName;
             }
-
-            //MonitorNameList[0].Text = "1";
-            //MonitorNameList[1].Text = "2";
-            //MonitorNameList[2].Text = "3";
 
             CurrentSelMonitorHandle = MonitorHandles[0];
 
@@ -210,16 +208,61 @@ namespace Chimera
 
             /*  */
             this.label_Montor_List_00.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            //this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
+            var pos = this.PointToScreen(this.label_Montor_List_00.Location);
+            pos = this.pb_Montor_List_00.PointToClient(pos);
+            this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
+            this.label_Montor_List_00.Location = pos;
             this.label_Montor_List_00.BackColor = Color.Transparent;
             this.label_Montor_List_00.ForeColor = Color.Black;
-            this.label_Montor_List_00.Text = "LG FULL HD";
 
-            //this.label_Montor_List_01.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            //this.label_Montor_List_01.Parent = this.pb_Montor_List_01;
-            //this.label_Montor_List_01.BackColor = Color.Transparent;
-            //this.label_Montor_List_01.ForeColor = Color.Black;
-            //this.label_Montor_List_01.Text = "4K2KHDMI30";
+            this.label_Montor_List_01.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_01.Location);
+            pos = this.pb_Montor_List_01.PointToClient(pos);
+            this.label_Montor_List_01.Parent = this.pb_Montor_List_01;
+            this.label_Montor_List_01.Location = pos;
+            this.label_Montor_List_01.BackColor = Color.Transparent;
+            this.label_Montor_List_01.ForeColor = Color.Black;
+
+            this.label_Montor_List_02.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_02.Location);
+            pos = this.pb_Montor_List_02.PointToClient(pos);
+            this.label_Montor_List_02.Parent = this.pb_Montor_List_02;
+            this.label_Montor_List_02.Location = pos;
+            this.label_Montor_List_02.BackColor = Color.Transparent;
+            this.label_Montor_List_02.ForeColor = Color.Black;
+
+            this.label_Montor_List_03.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_03.Location);
+            pos = this.pb_Montor_List_03.PointToClient(pos);
+            this.label_Montor_List_03.Parent = this.pb_Montor_List_03;
+            this.label_Montor_List_03.Location = pos;
+            this.label_Montor_List_03.BackColor = Color.Transparent;
+            this.label_Montor_List_03.ForeColor = Color.Black;
+
+            this.label_Montor_List_04.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_04.Location);
+            pos = this.pb_Montor_List_04.PointToClient(pos);
+            this.label_Montor_List_04.Parent = this.pb_Montor_List_04;
+            this.label_Montor_List_04.Location = pos;
+            this.label_Montor_List_04.BackColor = Color.Transparent;
+            this.label_Montor_List_04.ForeColor = Color.Black;
+
+
+            this.label_Montor_List_05.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_05.Location);
+            pos = this.pb_Montor_List_05.PointToClient(pos);
+            this.label_Montor_List_05.Parent = this.pb_Montor_List_05;
+            this.label_Montor_List_05.Location = pos;
+            this.label_Montor_List_05.BackColor = Color.Transparent;
+            this.label_Montor_List_05.ForeColor = Color.Black;
+
+            this.label_Montor_List_06.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            pos = this.PointToScreen(this.label_Montor_List_06.Location);
+            pos = this.pb_Montor_List_06.PointToClient(pos);
+            this.label_Montor_List_06.Parent = this.pb_Montor_List_06;
+            this.label_Montor_List_06.Location = pos;
+            this.label_Montor_List_06.BackColor = Color.Transparent;
+            this.label_Montor_List_06.ForeColor = Color.Black;
 
         }
 
