@@ -57,14 +57,14 @@ namespace Chimera
             GetOnlyActiveMonitors(allMonitorProperties);
 
             /**/
-            MonitorNameList.Add(label_Montor_List_00);
-            MonitorNameList.Add(label_Montor_List_01);
-            MonitorNameList.Add(label_Montor_List_02);
-            MonitorNameList.Add(label_Montor_List_03);
-            MonitorNameList.Add(label_Montor_List_04);
-            MonitorNameList.Add(label_Montor_List_05);
-            MonitorNameList.Add(label_Montor_List_06);
-            MonitorNameList.Add(label_Montor_List_07);
+            //MonitorNameList.Add(label_Montor_List_00);
+            //MonitorNameList.Add(label_Montor_List_01);
+            //MonitorNameList.Add(label_Montor_List_02);
+            //MonitorNameList.Add(label_Montor_List_03);
+            //MonitorNameList.Add(label_Montor_List_04);
+            //MonitorNameList.Add(label_Montor_List_05);
+            //MonitorNameList.Add(label_Montor_List_06);
+            //MonitorNameList.Add(label_Montor_List_07);
 
             /*  */
             InitUI();
@@ -166,8 +166,15 @@ namespace Chimera
                                         msi.displaydevice.OutputTechnology == "Internal Connection" ? 0 : 1);
                 lv_Monitors.Items.Add(item);
 
-                MonitorHandles.Add(msi.displaydevice.MonitorHandle);                   
+                MonitorHandles.Add(msi.displaydevice.MonitorHandle);
+
+                /* Panel에 추가 */
+                //MonitorNameList[Idx].Text = msi.displaydevice.FriendlyName;
             }
+
+            //MonitorNameList[0].Text = "1";
+            //MonitorNameList[1].Text = "2";
+            //MonitorNameList[2].Text = "3";
 
             CurrentSelMonitorHandle = MonitorHandles[0];
 
@@ -203,17 +210,16 @@ namespace Chimera
 
             /*  */
             this.label_Montor_List_00.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
+            //this.label_Montor_List_00.Parent = this.pb_Montor_List_00;
             this.label_Montor_List_00.BackColor = Color.Transparent;
+            this.label_Montor_List_00.ForeColor = Color.Black;
             this.label_Montor_List_00.Text = "LG FULL HD";
 
-            this.label_Montor_List_01.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Montor_List_01.Parent = this.pb_Montor_List_01;
-            this.label_Montor_List_01.BackColor = Color.Transparent;
-            this.label_Montor_List_01.Text = "4K2KHDMI30";
-
-
-
+            //this.label_Montor_List_01.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            //this.label_Montor_List_01.Parent = this.pb_Montor_List_01;
+            //this.label_Montor_List_01.BackColor = Color.Transparent;
+            //this.label_Montor_List_01.ForeColor = Color.Black;
+            //this.label_Montor_List_01.Text = "4K2KHDMI30";
 
         }
 

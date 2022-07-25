@@ -55,23 +55,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label_Warning = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label_Montor_List_03 = new System.Windows.Forms.Label();
-            this.label_Montor_List_02 = new System.Windows.Forms.Label();
-            this.label_Montor_List_01 = new System.Windows.Forms.Label();
-            this.label_Montor_List_00 = new System.Windows.Forms.Label();
-            this.pb_Montor_List_03 = new System.Windows.Forms.PictureBox();
-            this.pb_Montor_List_02 = new System.Windows.Forms.PictureBox();
-            this.pb_Montor_List_01 = new System.Windows.Forms.PictureBox();
             this.pb_Montor_List_00 = new System.Windows.Forms.PictureBox();
-            this.label_Montor_List_04 = new System.Windows.Forms.Label();
-            this.pb_Montor_List_04 = new System.Windows.Forms.PictureBox();
-            this.label_Montor_List_05 = new System.Windows.Forms.Label();
-            this.pb_Montor_List_05 = new System.Windows.Forms.PictureBox();
-            this.label_Montor_List_06 = new System.Windows.Forms.Label();
-            this.pb_Montor_List_06 = new System.Windows.Forms.PictureBox();
-            this.label_Montor_List_07 = new System.Windows.Forms.Label();
-            this.pb_Montor_List_07 = new System.Windows.Forms.PictureBox();
+            this.label_Montor_List_00 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,15 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_03)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_02)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_00)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_04)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_05)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_06)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_07)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_SetAsPrimary
@@ -383,182 +360,32 @@
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
             // 
-            // panel1
+            // pb_Montor_List_00
             // 
-            this.panel1.Controls.Add(this.label_Montor_List_07);
-            this.panel1.Controls.Add(this.pb_Montor_List_07);
-            this.panel1.Controls.Add(this.label_Montor_List_06);
-            this.panel1.Controls.Add(this.pb_Montor_List_06);
-            this.panel1.Controls.Add(this.label_Montor_List_05);
-            this.panel1.Controls.Add(this.pb_Montor_List_05);
-            this.panel1.Controls.Add(this.label_Montor_List_04);
-            this.panel1.Controls.Add(this.pb_Montor_List_04);
-            this.panel1.Controls.Add(this.label_Montor_List_03);
-            this.panel1.Controls.Add(this.label_Montor_List_02);
-            this.panel1.Controls.Add(this.label_Montor_List_01);
-            this.panel1.Controls.Add(this.label_Montor_List_00);
-            this.panel1.Controls.Add(this.pb_Montor_List_03);
-            this.panel1.Controls.Add(this.pb_Montor_List_02);
-            this.panel1.Controls.Add(this.pb_Montor_List_01);
-            this.panel1.Controls.Add(this.pb_Montor_List_00);
-            this.panel1.Location = new System.Drawing.Point(24, 92);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(224, 417);
-            this.panel1.TabIndex = 32;
-            // 
-            // label_Montor_List_03
-            // 
-            this.label_Montor_List_03.AutoSize = true;
-            this.label_Montor_List_03.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_03.Location = new System.Drawing.Point(20, 172);
-            this.label_Montor_List_03.Name = "label_Montor_List_03";
-            this.label_Montor_List_03.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_03.TabIndex = 36;
-            this.label_Montor_List_03.Text = "label3";
-            // 
-            // label_Montor_List_02
-            // 
-            this.label_Montor_List_02.AutoSize = true;
-            this.label_Montor_List_02.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_02.Location = new System.Drawing.Point(20, 119);
-            this.label_Montor_List_02.Name = "label_Montor_List_02";
-            this.label_Montor_List_02.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_02.TabIndex = 35;
-            this.label_Montor_List_02.Text = "label2";
-            // 
-            // label_Montor_List_01
-            // 
-            this.label_Montor_List_01.AutoSize = true;
-            this.label_Montor_List_01.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_01.Location = new System.Drawing.Point(66, 65);
-            this.label_Montor_List_01.Name = "label_Montor_List_01";
-            this.label_Montor_List_01.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_01.TabIndex = 34;
-            this.label_Montor_List_01.Text = "label1";
+            this.pb_Montor_List_00.Location = new System.Drawing.Point(35, 92);
+            this.pb_Montor_List_00.Name = "pb_Montor_List_00";
+            this.pb_Montor_List_00.Size = new System.Drawing.Size(213, 50);
+            this.pb_Montor_List_00.TabIndex = 32;
+            this.pb_Montor_List_00.TabStop = false;
+            this.pb_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
             // 
             // label_Montor_List_00
             // 
             this.label_Montor_List_00.AutoSize = true;
-            this.label_Montor_List_00.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_00.Location = new System.Drawing.Point(66, 15);
+            this.label_Montor_List_00.Location = new System.Drawing.Point(76, 109);
             this.label_Montor_List_00.Name = "label_Montor_List_00";
-            this.label_Montor_List_00.Size = new System.Drawing.Size(38, 12);
+            this.label_Montor_List_00.Size = new System.Drawing.Size(30, 12);
             this.label_Montor_List_00.TabIndex = 33;
-            this.label_Montor_List_00.Text = "label1";
-            this.label_Montor_List_00.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_00.Text = "Test";
             this.label_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
-            // 
-            // pb_Montor_List_03
-            // 
-            this.pb_Montor_List_03.Location = new System.Drawing.Point(0, 150);
-            this.pb_Montor_List_03.Name = "pb_Montor_List_03";
-            this.pb_Montor_List_03.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_03.TabIndex = 3;
-            this.pb_Montor_List_03.TabStop = false;
-            // 
-            // pb_Montor_List_02
-            // 
-            this.pb_Montor_List_02.Location = new System.Drawing.Point(0, 100);
-            this.pb_Montor_List_02.Name = "pb_Montor_List_02";
-            this.pb_Montor_List_02.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_02.TabIndex = 2;
-            this.pb_Montor_List_02.TabStop = false;
-            // 
-            // pb_Montor_List_01
-            // 
-            this.pb_Montor_List_01.Location = new System.Drawing.Point(0, 50);
-            this.pb_Montor_List_01.Name = "pb_Montor_List_01";
-            this.pb_Montor_List_01.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_01.TabIndex = 1;
-            this.pb_Montor_List_01.TabStop = false;
-            // 
-            // pb_Montor_List_00
-            // 
-            this.pb_Montor_List_00.Location = new System.Drawing.Point(0, 0);
-            this.pb_Montor_List_00.Name = "pb_Montor_List_00";
-            this.pb_Montor_List_00.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_00.TabIndex = 0;
-            this.pb_Montor_List_00.TabStop = false;
-            this.pb_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
-            // 
-            // label_Montor_List_04
-            // 
-            this.label_Montor_List_04.AutoSize = true;
-            this.label_Montor_List_04.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_04.Location = new System.Drawing.Point(20, 217);
-            this.label_Montor_List_04.Name = "label_Montor_List_04";
-            this.label_Montor_List_04.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_04.TabIndex = 38;
-            this.label_Montor_List_04.Text = "label3";
-            // 
-            // pb_Montor_List_04
-            // 
-            this.pb_Montor_List_04.Location = new System.Drawing.Point(0, 200);
-            this.pb_Montor_List_04.Name = "pb_Montor_List_04";
-            this.pb_Montor_List_04.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_04.TabIndex = 37;
-            this.pb_Montor_List_04.TabStop = false;
-            // 
-            // label_Montor_List_05
-            // 
-            this.label_Montor_List_05.AutoSize = true;
-            this.label_Montor_List_05.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_05.Location = new System.Drawing.Point(20, 272);
-            this.label_Montor_List_05.Name = "label_Montor_List_05";
-            this.label_Montor_List_05.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_05.TabIndex = 40;
-            this.label_Montor_List_05.Text = "label3";
-            // 
-            // pb_Montor_List_05
-            // 
-            this.pb_Montor_List_05.Location = new System.Drawing.Point(0, 250);
-            this.pb_Montor_List_05.Name = "pb_Montor_List_05";
-            this.pb_Montor_List_05.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_05.TabIndex = 39;
-            this.pb_Montor_List_05.TabStop = false;
-            // 
-            // label_Montor_List_06
-            // 
-            this.label_Montor_List_06.AutoSize = true;
-            this.label_Montor_List_06.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_06.Location = new System.Drawing.Point(20, 316);
-            this.label_Montor_List_06.Name = "label_Montor_List_06";
-            this.label_Montor_List_06.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_06.TabIndex = 42;
-            this.label_Montor_List_06.Text = "label3";
-            // 
-            // pb_Montor_List_06
-            // 
-            this.pb_Montor_List_06.Location = new System.Drawing.Point(0, 300);
-            this.pb_Montor_List_06.Name = "pb_Montor_List_06";
-            this.pb_Montor_List_06.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_06.TabIndex = 41;
-            this.pb_Montor_List_06.TabStop = false;
-            // 
-            // label_Montor_List_07
-            // 
-            this.label_Montor_List_07.AutoSize = true;
-            this.label_Montor_List_07.BackColor = System.Drawing.Color.Transparent;
-            this.label_Montor_List_07.Location = new System.Drawing.Point(20, 368);
-            this.label_Montor_List_07.Name = "label_Montor_List_07";
-            this.label_Montor_List_07.Size = new System.Drawing.Size(38, 12);
-            this.label_Montor_List_07.TabIndex = 44;
-            this.label_Montor_List_07.Text = "label4";
-            // 
-            // pb_Montor_List_07
-            // 
-            this.pb_Montor_List_07.Location = new System.Drawing.Point(0, 350);
-            this.pb_Montor_List_07.Name = "pb_Montor_List_07";
-            this.pb_Montor_List_07.Size = new System.Drawing.Size(224, 48);
-            this.pb_Montor_List_07.TabIndex = 43;
-            this.pb_Montor_List_07.TabStop = false;
             // 
             // ManageMultiMonitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(769, 506);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label_Montor_List_00);
+            this.Controls.Add(this.pb_Montor_List_00);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label_Warning);
             this.Controls.Add(this.pictureBox4);
@@ -600,16 +427,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_03)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_02)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_00)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_04)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_05)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_06)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_07)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,23 +463,8 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label_Warning;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pb_Montor_List_03;
-        private System.Windows.Forms.PictureBox pb_Montor_List_02;
-        private System.Windows.Forms.PictureBox pb_Montor_List_01;
         private System.Windows.Forms.PictureBox pb_Montor_List_00;
-        private System.Windows.Forms.Label label_Montor_List_03;
-        private System.Windows.Forms.Label label_Montor_List_02;
-        private System.Windows.Forms.Label label_Montor_List_01;
         private System.Windows.Forms.Label label_Montor_List_00;
-        private System.Windows.Forms.Label label_Montor_List_06;
-        private System.Windows.Forms.PictureBox pb_Montor_List_06;
-        private System.Windows.Forms.Label label_Montor_List_05;
-        private System.Windows.Forms.PictureBox pb_Montor_List_05;
-        private System.Windows.Forms.Label label_Montor_List_04;
-        private System.Windows.Forms.PictureBox pb_Montor_List_04;
-        private System.Windows.Forms.Label label_Montor_List_07;
-        private System.Windows.Forms.PictureBox pb_Montor_List_07;
 
 #if SUPPORT_MONITOR_OFF_FEATURE
         private System.Windows.Forms.CheckBox cb_MonitorOff;
