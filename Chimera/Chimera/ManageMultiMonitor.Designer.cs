@@ -264,7 +264,7 @@
             this.lv_Monitors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lv_Monitors.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lv_Monitors.HideSelection = false;
-            this.lv_Monitors.Location = new System.Drawing.Point(512, 20);
+            this.lv_Monitors.Location = new System.Drawing.Point(900, 20);
             this.lv_Monitors.MultiSelect = false;
             this.lv_Monitors.Name = "lv_Monitors";
             this.lv_Monitors.Scrollable = false;
@@ -385,7 +385,7 @@
             this.pb_Montor_List_00.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_00.TabIndex = 32;
             this.pb_Montor_List_00.TabStop = false;
-            this.pb_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
+            this.pb_Montor_List_00.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_00
             // 
@@ -395,7 +395,7 @@
             this.label_Montor_List_00.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_00.TabIndex = 33;
             this.label_Montor_List_00.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_Montor_List_00.Click += new System.EventHandler(this.pb_Montor_List_00_Click);
+            this.label_Montor_List_00.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_01
             // 
@@ -405,6 +405,7 @@
             this.label_Montor_List_01.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_01.TabIndex = 35;
             this.label_Montor_List_01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_01.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_01
             // 
@@ -413,6 +414,7 @@
             this.pb_Montor_List_01.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_01.TabIndex = 34;
             this.pb_Montor_List_01.TabStop = false;
+            this.pb_Montor_List_01.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_02
             // 
@@ -422,6 +424,7 @@
             this.label_Montor_List_02.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_02.TabIndex = 37;
             this.label_Montor_List_02.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_02.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_02
             // 
@@ -430,6 +433,7 @@
             this.pb_Montor_List_02.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_02.TabIndex = 36;
             this.pb_Montor_List_02.TabStop = false;
+            this.pb_Montor_List_02.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_03
             // 
@@ -439,6 +443,7 @@
             this.label_Montor_List_03.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_03.TabIndex = 39;
             this.label_Montor_List_03.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_03.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_03
             // 
@@ -447,6 +452,7 @@
             this.pb_Montor_List_03.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_03.TabIndex = 38;
             this.pb_Montor_List_03.TabStop = false;
+            this.pb_Montor_List_03.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_04
             // 
@@ -456,6 +462,7 @@
             this.label_Montor_List_04.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_04.TabIndex = 41;
             this.label_Montor_List_04.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_04.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_04
             // 
@@ -464,6 +471,7 @@
             this.pb_Montor_List_04.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_04.TabIndex = 40;
             this.pb_Montor_List_04.TabStop = false;
+            this.pb_Montor_List_04.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_05
             // 
@@ -473,6 +481,7 @@
             this.label_Montor_List_05.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_05.TabIndex = 43;
             this.label_Montor_List_05.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_05.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_05
             // 
@@ -481,6 +490,7 @@
             this.pb_Montor_List_05.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_05.TabIndex = 42;
             this.pb_Montor_List_05.TabStop = false;
+            this.pb_Montor_List_05.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // label_Montor_List_06
             // 
@@ -490,6 +500,7 @@
             this.label_Montor_List_06.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_06.TabIndex = 45;
             this.label_Montor_List_06.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Montor_List_06.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // pb_Montor_List_06
             // 
@@ -498,6 +509,7 @@
             this.pb_Montor_List_06.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_06.TabIndex = 44;
             this.pb_Montor_List_06.TabStop = false;
+            this.pb_Montor_List_06.Click += new System.EventHandler(this.Montor_List_Click);
             // 
             // ManageMultiMonitor
             // 

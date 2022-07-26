@@ -28,7 +28,8 @@ namespace Chimera
         IntPtr CurrentSelMonitorHandle;
         String CurrentSelMonitorName;
 
-        IList<Label> MonitorNameList;
+        IList<Label> MonitorNameLabelList;
+        IList<PictureBox> MonitorNamePbList;
 
 
 #if SUPPORT_CUSTOM_TRACKBAR
@@ -47,7 +48,8 @@ namespace Chimera
             /*  */
             MonitorSettingInfo = new List<MonitorSetInfo>();
             MonitorHandles = new List<IntPtr>();
-            MonitorNameList = new List<Label>();
+            MonitorNameLabelList = new List<Label>();
+            MonitorNamePbList = new List<PictureBox>();
 
             _displayDevices = displayDevices;
 
@@ -56,14 +58,8 @@ namespace Chimera
 
             GetOnlyActiveMonitors(allMonitorProperties);
 
-            /**/
-            MonitorNameList.Add(label_Montor_List_00);
-            MonitorNameList.Add(label_Montor_List_01);
-            MonitorNameList.Add(label_Montor_List_02);
-            MonitorNameList.Add(label_Montor_List_03);
-            MonitorNameList.Add(label_Montor_List_04);
-            MonitorNameList.Add(label_Montor_List_05);
-            MonitorNameList.Add(label_Montor_List_06);
+            /*  */
+            AddMinotorControlsToList();
 
             /*  */
             InitUI();
@@ -75,7 +71,26 @@ namespace Chimera
 #endif
 
             /* 최초에 첫번째 Monitor 선택 */
-            pb_Montor_List_00_Click(this.pb_Montor_List_00, null);
+            Montor_List_Click(this.pb_Montor_List_00, null);
+        }
+
+        private void AddMinotorControlsToList()
+        {
+            MonitorNameLabelList.Add(label_Montor_List_00);
+            MonitorNameLabelList.Add(label_Montor_List_01);
+            MonitorNameLabelList.Add(label_Montor_List_02);
+            MonitorNameLabelList.Add(label_Montor_List_03);
+            MonitorNameLabelList.Add(label_Montor_List_04);
+            MonitorNameLabelList.Add(label_Montor_List_05);
+            MonitorNameLabelList.Add(label_Montor_List_06);
+
+            MonitorNamePbList.Add(pb_Montor_List_00);
+            MonitorNamePbList.Add(pb_Montor_List_01);
+            MonitorNamePbList.Add(pb_Montor_List_02);
+            MonitorNamePbList.Add(pb_Montor_List_03);
+            MonitorNamePbList.Add(pb_Montor_List_04);
+            MonitorNamePbList.Add(pb_Montor_List_05);
+            MonitorNamePbList.Add(pb_Montor_List_06);
         }
 
 
@@ -127,18 +142,8 @@ namespace Chimera
 
 
 
-        /// <summary>
-        /// UI 초기화
-        /// </summary>
-        void InitUI()
+        private void InitListView()
         {
-            /*  */
-            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
-            /*  */
-            this.BackColor = Color.FromArgb(255, 255, 255);
-
             /*  */
             lv_Monitors.View = View.Tile;
             lv_Monitors.Columns.Add("Column1Name");
@@ -148,7 +153,7 @@ namespace Chimera
 
             ilt.ImageSize = new Size(48, 48);
 
-            Image[] img = { Properties.Resources.Icon_Laptop,                            
+            Image[] img = { Properties.Resources.Icon_Laptop,
                             Properties.Resources.Icon_Monitor};
 
             foreach (Image i in img)
@@ -159,7 +164,7 @@ namespace Chimera
 
             /**/
             MonitorSetInfo msi;
-            for (int Idx =0; Idx < MonitorSettingInfo.Count; Idx++)
+            for (int Idx = 0; Idx < MonitorSettingInfo.Count; Idx++)
             {
                 msi = MonitorSettingInfo[Idx];
 
@@ -171,7 +176,7 @@ namespace Chimera
                 MonitorHandles.Add(msi.displaydevice.MonitorHandle);
 
                 /* Panel에 추가 */
-                MonitorNameList[Idx].Text = msi.displaydevice.FriendlyName;
+                MonitorNameLabelList[Idx].Text = msi.displaydevice.FriendlyName;
             }
 
             CurrentSelMonitorHandle = MonitorHandles[0];
@@ -183,6 +188,24 @@ namespace Chimera
 
             lv_Monitors.Select();
             lv_Monitors.Items[0].Selected = true;
+        }
+
+
+
+        /// <summary>
+        /// UI 초기화
+        /// </summary>
+        void InitUI()
+        {            
+            /*  */
+            Bitmap bmp = Properties.Resources.Manager_Form_Icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            /*  */
+            this.BackColor = Color.FromArgb(255, 255, 255);
+
+            /*  */
+            InitListView();            
 
             /*  */
             this.cb_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -730,10 +753,72 @@ namespace Chimera
 
 
 
-
-        private void pb_Montor_List_00_Click(object sender, EventArgs e)
+        private int GetCurrentSelectedMonitorIndex(string Name)
         {
-            pb_Montor_List_00.BackgroundImage = Properties.Resources.Select;
+            int CurrentSelectedMonitorIndex = -1;
+
+            for(int i=0; i< MonitorNamePbList.Count; i++)
+            {
+                if (Name == MonitorNamePbList[i].Name)
+                {
+                    CurrentSelectedMonitorIndex = i;
+                    break;
+                }
+            }
+
+            if( CurrentSelectedMonitorIndex == -1 )
+            {
+                for (int i = 0; i < MonitorNameLabelList.Count; i++)
+                {
+                    if (Name == MonitorNameLabelList[i].Name)
+                    {
+                        CurrentSelectedMonitorIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            return CurrentSelectedMonitorIndex;
+        }
+
+
+        private void ClearAllMonitorPictureBox()
+        {
+            foreach (PictureBox pb in MonitorNamePbList)
+                pb.Image = null;
+        }
+
+
+
+        private void Montor_List_Click(object sender, EventArgs e)
+        {
+            int CurrentSelectedMonitorIndex = -1;
+
+            var Type = sender.GetType().Name;
+
+            /* PictureBox Click시에 */
+            if (Type == "PictureBox")
+            {
+                CurrentSelectedMonitorIndex = GetCurrentSelectedMonitorIndex(((PictureBox)sender).Name);
+            }
+
+            /* Label Click시에 */
+            else if (Type == "Label")
+            {
+                CurrentSelectedMonitorIndex = GetCurrentSelectedMonitorIndex(((Label)sender).Name);
+            }
+
+
+            if(CurrentSelectedMonitorIndex != -1 && _displayDevices.ActiveCount() >= CurrentSelectedMonitorIndex )
+            {
+                ClearAllMonitorPictureBox();
+                MonitorNamePbList[CurrentSelectedMonitorIndex].Image = Properties.Resources.Select;
+
+                lv_Monitors.Select();
+                lv_Monitors.Items[CurrentSelectedMonitorIndex].Selected = true;
+            }
+
+
         }
 
 
