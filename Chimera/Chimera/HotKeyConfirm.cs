@@ -28,11 +28,11 @@ namespace Chimera
         {
             this.BackColor = Color.FromArgb(255, 255, 255);
 
-            this.label_Setting_HotKey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Input_Hotkey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Setting_HotKey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Input_Hotkey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            this.button_Set.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Cancel.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Set.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.button_Cancel.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
             this.label_Input_Hotkey.Text = this.HotKey;
         }

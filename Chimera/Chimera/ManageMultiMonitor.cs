@@ -17,6 +17,7 @@ namespace Chimera
     public partial class ManageMultiMonitor : Form
     {
 
+
         IList<MonitorSetInfo> MonitorSettingInfo;
         DisplayDevices _displayDevices;
 
@@ -37,6 +38,9 @@ namespace Chimera
         float Default_value = 0.1f;
         bool cusTrackBar_Mouse_Pushed;
 #endif
+
+
+
 
 
         /*   */
@@ -208,26 +212,26 @@ namespace Chimera
             InitListView();            
 
             /*  */
-            this.cb_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Brightness.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Contrast.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Primary.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Resolution.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Output.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Rotation.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Primary.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Rotation.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_OutputTech.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Resolution.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Multi_Monitor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lv_Monitors.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_FriendlyName.Font = new System.Drawing.Font("LG스마트체 Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Setting.Font = new System.Drawing.Font("LG스마트체 SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Warning.Font = new System.Drawing.Font("LG스마트체 Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Brightness.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Contrast.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Primary.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Resolution.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Output.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Rotation.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Primary.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Rotation.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_OutputTech.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Resolution.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Multi_Monitor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lv_Monitors.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_FriendlyName.Font = new System.Drawing.Font("LG스마트체 Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Setting.Font = new System.Drawing.Font("LG스마트체 SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Warning.Font = new System.Drawing.Font("LG스마트체 Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
             /*  */
             this.label_Montor_List_00.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -335,10 +339,7 @@ namespace Chimera
             textBox_OutputTech.Text = msi.displaydevice.OutputTechnology;
             textBox_Rotation.Text = string.Format("{0}", msi.displaydevice.RotationDegrees);
 
-            if(msi.displaydevice.IsPrimary)
-                cb_SetAsPrimary.Checked = true;
-            else
-                cb_SetAsPrimary.Checked = false;
+            pb_CheckBox_SetAsPrimary.Image = msi.displaydevice.IsPrimary ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             /* Brightness */
             if (msi.displaydevice.BrightnessControllable)
@@ -383,7 +384,7 @@ namespace Chimera
             textBox_OutputTech.Text = "";
             textBox_Rotation.Text = "";
 
-            cb_SetAsPrimary.Checked = false;
+            pb_CheckBox_SetAsPrimary.Image = Properties.Resources.Checkbox_Unselected;
 #if SUPPORT_MONITOR_OFF_FEATURE
             cb_MonitorOff.Checked = false;
 #endif
@@ -391,7 +392,7 @@ namespace Chimera
 
             if(CurrentSelMonitorHandle == IntPtr.Zero)
             {
-                cb_SetAsPrimary.Enabled = false;
+                pb_CheckBox_SetAsPrimary.Enabled = false;
                 label_FriendlyName.Text = "";
                 trackBar_Brightness.Enabled = false;
                 trackBar_Contrast.Enabled = false;
@@ -457,60 +458,6 @@ namespace Chimera
 
 
 
-
-
-
-        /* 'Set As Primary' Button Click 처리 */
-        private void click_SetAsPrimary(object sender, EventArgs e)
-        {
-            int NewPrimaryMonitorIndex = -1;
-
-            foreach (MonitorSetInfo msi in MonitorSettingInfo)
-            {
-                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
-                {
-                    //cb_SetAsPrimary.Checked = true;
-
-                    if (msi.SetAsPrimary)
-                    {
-                        /* 선택한 Monitor가 이미 Primary라면 아무것도 하지 않는다. */                        
-                        return;
-                    }
-                    else
-                    {                        
-                        NewPrimaryMonitorIndex = msi.MonitorIndex;
-                        _displayDevices.MakePrimary(NewPrimaryMonitorIndex);
-                        break;
-                    }
-                }
-            }
-
-            /*  Primary를 변경하면 displayDevices를 Update하게 되고, 
-                변경된 정보로 MonitorSettingInfo를 다시 구성한다.    */
-            MonitorSettingInfo = new List<MonitorSetInfo>();
-            GetOnlyActiveMonitors(_displayDevices.Items);
-
-            /*  */
-            foreach (MonitorSetInfo msi in MonitorSettingInfo)
-            {
-                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
-                {
-                    /* 전체 Monitor 정보를 다 출력하면 마지막 Monitor의 정보가 남게되고
-                     * 이럴 경우, 실제 선택된 Monitor의 정보가 아닌 다른 Monitor의 정보가
-                     * 출력되는 경우가 생긴다.
-                     * 현재 선택된 Monitor의 정보를 출력하고 종료하도록 한다. */
-                    msi.SetAsPrimary = true;
-                    msi.MonitorIndex = GetMonitorIndexByHandle(msi.displaydevice.MonitorHandle);
-                    DisplaySelectedMonitorInfo(msi);
-                    break;
-                }
-                else
-                {
-                    msi.SetAsPrimary = false;
-                }                
-            }
-            
-        }
 
 
         private int GetMonitorIndexByHandle(IntPtr Handle)
@@ -678,7 +625,7 @@ namespace Chimera
                 CurrentSelMonitorName = lv_Monitors.SelectedItems[0].Text;
                 CurrentSelMonitorHandle = MonitorHandles[lv_Monitors.SelectedItems[0].Index];
                 
-                cb_SetAsPrimary.Enabled = true;
+                pb_CheckBox_SetAsPrimary.Enabled = true;
 #if SUPPORT_MONITOR_OFF_FEATURE
                 cb_MonitorOff.Enabled = true;
 #endif
@@ -819,6 +766,56 @@ namespace Chimera
             }
 
 
+        }
+
+        private void pb_CheckBox_SetAsPrimary_Click(object sender, EventArgs e)
+        {
+            int NewPrimaryMonitorIndex = -1;
+
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
+                {
+                    //cb_SetAsPrimary.Checked = true;
+
+                    if (msi.SetAsPrimary)
+                    {
+                        /* 선택한 Monitor가 이미 Primary라면 아무것도 하지 않는다. */
+                        return;
+                    }
+                    else
+                    {
+                        NewPrimaryMonitorIndex = msi.MonitorIndex;
+                        _displayDevices.MakePrimary(NewPrimaryMonitorIndex);
+                        break;
+                    }
+                }
+            }
+
+            /*  Primary를 변경하면 displayDevices를 Update하게 되고, 
+                변경된 정보로 MonitorSettingInfo를 다시 구성한다.    */
+            MonitorSettingInfo = new List<MonitorSetInfo>();
+            GetOnlyActiveMonitors(_displayDevices.Items);
+
+            /*  */
+            foreach (MonitorSetInfo msi in MonitorSettingInfo)
+            {
+                if (CurrentSelMonitorHandle == msi.displaydevice.MonitorHandle)
+                {
+                    /* 전체 Monitor 정보를 다 출력하면 마지막 Monitor의 정보가 남게되고
+                     * 이럴 경우, 실제 선택된 Monitor의 정보가 아닌 다른 Monitor의 정보가
+                     * 출력되는 경우가 생긴다.
+                     * 현재 선택된 Monitor의 정보를 출력하고 종료하도록 한다. */
+                    msi.SetAsPrimary = true;
+                    msi.MonitorIndex = GetMonitorIndexByHandle(msi.displaydevice.MonitorHandle);
+                    DisplaySelectedMonitorInfo(msi);
+                    break;
+                }
+                else
+                {
+                    msi.SetAsPrimary = false;
+                }
+            }
         }
 
 

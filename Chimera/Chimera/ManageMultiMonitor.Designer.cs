@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cb_SetAsPrimary = new System.Windows.Forms.CheckBox();
             this.trackBar_Brightness = new System.Windows.Forms.TrackBar();
             this.trackBar_Contrast = new System.Windows.Forms.TrackBar();
             this.label_Brightness = new System.Windows.Forms.Label();
@@ -69,6 +68,8 @@
             this.pb_Montor_List_05 = new System.Windows.Forms.PictureBox();
             this.label_Montor_List_06 = new System.Windows.Forms.Label();
             this.pb_Montor_List_06 = new System.Windows.Forms.PictureBox();
+            this.pb_CheckBox_SetAsPrimary = new System.Windows.Forms.PictureBox();
+            this.label_SetAsPrimary = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -83,20 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_04)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_05)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_SetAsPrimary)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cb_SetAsPrimary
-            // 
-            this.cb_SetAsPrimary.AutoSize = true;
-            this.cb_SetAsPrimary.Enabled = false;
-            this.cb_SetAsPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.cb_SetAsPrimary.Location = new System.Drawing.Point(311, 306);
-            this.cb_SetAsPrimary.Name = "cb_SetAsPrimary";
-            this.cb_SetAsPrimary.Size = new System.Drawing.Size(109, 16);
-            this.cb_SetAsPrimary.TabIndex = 15;
-            this.cb_SetAsPrimary.Text = "Set As Primary";
-            this.cb_SetAsPrimary.UseVisualStyleBackColor = true;
-            this.cb_SetAsPrimary.Click += new System.EventHandler(this.click_SetAsPrimary);
             // 
             // trackBar_Brightness
             // 
@@ -511,11 +500,33 @@
             this.pb_Montor_List_06.TabStop = false;
             this.pb_Montor_List_06.Click += new System.EventHandler(this.Montor_List_Click);
             // 
+            // pb_CheckBox_SetAsPrimary
+            // 
+            this.pb_CheckBox_SetAsPrimary.Location = new System.Drawing.Point(308, 306);
+            this.pb_CheckBox_SetAsPrimary.Name = "pb_CheckBox_SetAsPrimary";
+            this.pb_CheckBox_SetAsPrimary.Size = new System.Drawing.Size(16, 16);
+            this.pb_CheckBox_SetAsPrimary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_CheckBox_SetAsPrimary.TabIndex = 46;
+            this.pb_CheckBox_SetAsPrimary.TabStop = false;
+            this.pb_CheckBox_SetAsPrimary.Click += new System.EventHandler(this.pb_CheckBox_SetAsPrimary_Click);
+            // 
+            // label_SetAsPrimary
+            // 
+            this.label_SetAsPrimary.AutoSize = true;
+            this.label_SetAsPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.label_SetAsPrimary.Location = new System.Drawing.Point(328, 308);
+            this.label_SetAsPrimary.Name = "label_SetAsPrimary";
+            this.label_SetAsPrimary.Size = new System.Drawing.Size(90, 12);
+            this.label_SetAsPrimary.TabIndex = 47;
+            this.label_SetAsPrimary.Text = "Set As Primary";
+            // 
             // ManageMultiMonitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(769, 506);
+            this.Controls.Add(this.label_SetAsPrimary);
+            this.Controls.Add(this.pb_CheckBox_SetAsPrimary);
             this.Controls.Add(this.label_Montor_List_06);
             this.Controls.Add(this.pb_Montor_List_06);
             this.Controls.Add(this.label_Montor_List_05);
@@ -543,7 +554,6 @@
             this.Controls.Add(this.label_Brightness);
             this.Controls.Add(this.trackBar_Contrast);
             this.Controls.Add(this.trackBar_Brightness);
-            this.Controls.Add(this.cb_SetAsPrimary);
             this.Controls.Add(this.textBox_Resolution);
             this.Controls.Add(this.textBox_BitPerPixel);
             this.Controls.Add(this.textBox_OutputTech);
@@ -578,6 +588,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_04)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_05)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Montor_List_06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_SetAsPrimary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,8 +596,6 @@
 
 #endregion
 
-
-        private System.Windows.Forms.CheckBox cb_SetAsPrimary;
         private System.Windows.Forms.TrackBar trackBar_Brightness;
         private System.Windows.Forms.TrackBar trackBar_Contrast;
         private System.Windows.Forms.Label label_Brightness;
@@ -627,6 +636,8 @@
         private System.Windows.Forms.PictureBox pb_Montor_List_05;
         private System.Windows.Forms.Label label_Montor_List_06;
         private System.Windows.Forms.PictureBox pb_Montor_List_06;
+        private System.Windows.Forms.PictureBox pb_CheckBox_SetAsPrimary;
+        private System.Windows.Forms.Label label_SetAsPrimary;
 
 #if SUPPORT_MONITOR_OFF_FEATURE
         private System.Windows.Forms.CheckBox cb_MonitorOff;

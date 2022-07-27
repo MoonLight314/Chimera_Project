@@ -205,18 +205,18 @@ namespace Chimera
             CreateWallpaper();
 
             /* Font & Color 설정 */
-            this.label_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.Button_Browse_Wallpaper.BackColor = Color.FromArgb(255, 255, 255);
-            this.Label_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Choose_Fit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Choose_Fit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             
             this.labelScreensSelected.BackColor = Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelScreensSelected.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScreensSelected.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            this.TextBox_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox_Image_File_Path.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.comboBoxFit.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            this.label_Introduction.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Introduction.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.labelScreensSelected.ForeColor = Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
 
             /*  */
@@ -403,7 +403,7 @@ namespace Chimera
             //g.FillRectangle(BackColor, previewScreen);
 
             // display the screen name centered in the screen
-            using (Font font = new Font(FontManager.LG_Smart_H_Bold(), FONT_SIZE, FontStyle.Bold, GraphicsUnit.Point))
+            using (Font font = new Font(FontManager.LG_Smart_H_Bold(), FONT_SIZE, FontStyle.Bold, GraphicsUnit.Pixel))
             {
                 g.DrawString(screenName, font, TextColor, Center_Rect);
             }
