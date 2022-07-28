@@ -212,26 +212,26 @@ namespace Chimera
             InitListView();            
 
             /*  */
-            this.label_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Brightness.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Contrast.Font = new System.Drawing.Font("LG스마트체 Regular", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Primary.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Resolution.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Output.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Rotation.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox_Primary.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox_Rotation.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox_OutputTech.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox_Resolution.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Multi_Monitor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_SetAsPrimary.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Brightness.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Contrast.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Primary.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Resolution.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Output.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Rotation.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Primary.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Rotation.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_OutputTech.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_BitPerPixel.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Resolution.Font = new System.Drawing.Font("LG스마트체 Regular", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Multi_Monitor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Bold(), 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lv_Monitors.Font = new System.Drawing.Font("LG스마트체 SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_FriendlyName.Font = new System.Drawing.Font("LG스마트체 Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Setting.Font = new System.Drawing.Font("LG스마트체 SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Warning.Font = new System.Drawing.Font("LG스마트체 Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_FriendlyName.Font = new System.Drawing.Font("LG스마트체 Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Setting.Font = new System.Drawing.Font("LG스마트체 SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Current_Contrast_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Current_Brightness_Value.Font = new System.Drawing.Font("LG스마트체 Regular", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Warning.Font = new System.Drawing.Font("LG스마트체 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
             /*  */
             this.label_Montor_List_00.Font = new System.Drawing.Font("LG스마트체 SemiBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));

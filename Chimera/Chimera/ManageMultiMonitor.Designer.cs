@@ -242,7 +242,7 @@
             // 
             this.label_Multi_Monitor.AutoSize = true;
             this.label_Multi_Monitor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.label_Multi_Monitor.Location = new System.Drawing.Point(33, 45);
+            this.label_Multi_Monitor.Location = new System.Drawing.Point(35, 40);
             this.label_Multi_Monitor.Name = "label_Multi_Monitor";
             this.label_Multi_Monitor.Size = new System.Drawing.Size(80, 12);
             this.label_Multi_Monitor.TabIndex = 20;
@@ -307,25 +307,26 @@
             // label_Current_Contrast_Value
             // 
             this.label_Current_Contrast_Value.AutoSize = true;
-            this.label_Current_Contrast_Value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label_Current_Contrast_Value.BackColor = System.Drawing.Color.Transparent;
             this.label_Current_Contrast_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Contrast_Value.Location = new System.Drawing.Point(672, 414);
             this.label_Current_Contrast_Value.Name = "label_Current_Contrast_Value";
             this.label_Current_Contrast_Value.Size = new System.Drawing.Size(52, 12);
             this.label_Current_Contrast_Value.TabIndex = 27;
             this.label_Current_Contrast_Value.Text = "Contrast";
+            this.label_Current_Contrast_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_Current_Brightness_Value
             // 
             this.label_Current_Brightness_Value.AutoSize = true;
-            this.label_Current_Brightness_Value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label_Current_Brightness_Value.BackColor = System.Drawing.Color.Transparent;
             this.label_Current_Brightness_Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
             this.label_Current_Brightness_Value.Location = new System.Drawing.Point(672, 374);
             this.label_Current_Brightness_Value.Name = "label_Current_Brightness_Value";
             this.label_Current_Brightness_Value.Size = new System.Drawing.Size(65, 12);
             this.label_Current_Brightness_Value.TabIndex = 26;
             this.label_Current_Brightness_Value.Text = "Brightness";
-            this.label_Current_Brightness_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Current_Brightness_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBox1
             // 
@@ -361,7 +362,7 @@
             // 
             this.pictureBox5.BackgroundImage = global::Chimera.Properties.Resources.Exclamation_Mark;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(288, 458);
+            this.pictureBox5.Location = new System.Drawing.Point(288, 460);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(16, 16);
             this.pictureBox5.TabIndex = 31;
@@ -369,7 +370,7 @@
             // 
             // pb_Montor_List_00
             // 
-            this.pb_Montor_List_00.Location = new System.Drawing.Point(35, 92);
+            this.pb_Montor_List_00.Location = new System.Drawing.Point(25, 92);
             this.pb_Montor_List_00.Name = "pb_Montor_List_00";
             this.pb_Montor_List_00.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_00.TabIndex = 32;
@@ -379,7 +380,7 @@
             // label_Montor_List_00
             // 
             this.label_Montor_List_00.AutoSize = true;
-            this.label_Montor_List_00.Location = new System.Drawing.Point(76, 109);
+            this.label_Montor_List_00.Location = new System.Drawing.Point(90, 109);
             this.label_Montor_List_00.Name = "label_Montor_List_00";
             this.label_Montor_List_00.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_00.TabIndex = 33;
@@ -389,7 +390,7 @@
             // label_Montor_List_01
             // 
             this.label_Montor_List_01.AutoSize = true;
-            this.label_Montor_List_01.Location = new System.Drawing.Point(76, 165);
+            this.label_Montor_List_01.Location = new System.Drawing.Point(90, 165);
             this.label_Montor_List_01.Name = "label_Montor_List_01";
             this.label_Montor_List_01.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_01.TabIndex = 35;
@@ -398,7 +399,7 @@
             // 
             // pb_Montor_List_01
             // 
-            this.pb_Montor_List_01.Location = new System.Drawing.Point(35, 148);
+            this.pb_Montor_List_01.Location = new System.Drawing.Point(25, 148);
             this.pb_Montor_List_01.Name = "pb_Montor_List_01";
             this.pb_Montor_List_01.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_01.TabIndex = 34;
@@ -408,7 +409,7 @@
             // label_Montor_List_02
             // 
             this.label_Montor_List_02.AutoSize = true;
-            this.label_Montor_List_02.Location = new System.Drawing.Point(76, 221);
+            this.label_Montor_List_02.Location = new System.Drawing.Point(90, 221);
             this.label_Montor_List_02.Name = "label_Montor_List_02";
             this.label_Montor_List_02.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_02.TabIndex = 37;
@@ -417,7 +418,7 @@
             // 
             // pb_Montor_List_02
             // 
-            this.pb_Montor_List_02.Location = new System.Drawing.Point(35, 204);
+            this.pb_Montor_List_02.Location = new System.Drawing.Point(25, 204);
             this.pb_Montor_List_02.Name = "pb_Montor_List_02";
             this.pb_Montor_List_02.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_02.TabIndex = 36;
@@ -427,7 +428,7 @@
             // label_Montor_List_03
             // 
             this.label_Montor_List_03.AutoSize = true;
-            this.label_Montor_List_03.Location = new System.Drawing.Point(76, 277);
+            this.label_Montor_List_03.Location = new System.Drawing.Point(90, 277);
             this.label_Montor_List_03.Name = "label_Montor_List_03";
             this.label_Montor_List_03.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_03.TabIndex = 39;
@@ -436,7 +437,7 @@
             // 
             // pb_Montor_List_03
             // 
-            this.pb_Montor_List_03.Location = new System.Drawing.Point(35, 260);
+            this.pb_Montor_List_03.Location = new System.Drawing.Point(25, 260);
             this.pb_Montor_List_03.Name = "pb_Montor_List_03";
             this.pb_Montor_List_03.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_03.TabIndex = 38;
@@ -446,7 +447,7 @@
             // label_Montor_List_04
             // 
             this.label_Montor_List_04.AutoSize = true;
-            this.label_Montor_List_04.Location = new System.Drawing.Point(76, 333);
+            this.label_Montor_List_04.Location = new System.Drawing.Point(90, 333);
             this.label_Montor_List_04.Name = "label_Montor_List_04";
             this.label_Montor_List_04.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_04.TabIndex = 41;
@@ -455,7 +456,7 @@
             // 
             // pb_Montor_List_04
             // 
-            this.pb_Montor_List_04.Location = new System.Drawing.Point(35, 316);
+            this.pb_Montor_List_04.Location = new System.Drawing.Point(25, 316);
             this.pb_Montor_List_04.Name = "pb_Montor_List_04";
             this.pb_Montor_List_04.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_04.TabIndex = 40;
@@ -465,7 +466,7 @@
             // label_Montor_List_05
             // 
             this.label_Montor_List_05.AutoSize = true;
-            this.label_Montor_List_05.Location = new System.Drawing.Point(76, 389);
+            this.label_Montor_List_05.Location = new System.Drawing.Point(90, 389);
             this.label_Montor_List_05.Name = "label_Montor_List_05";
             this.label_Montor_List_05.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_05.TabIndex = 43;
@@ -474,7 +475,7 @@
             // 
             // pb_Montor_List_05
             // 
-            this.pb_Montor_List_05.Location = new System.Drawing.Point(35, 372);
+            this.pb_Montor_List_05.Location = new System.Drawing.Point(25, 372);
             this.pb_Montor_List_05.Name = "pb_Montor_List_05";
             this.pb_Montor_List_05.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_05.TabIndex = 42;
@@ -484,7 +485,7 @@
             // label_Montor_List_06
             // 
             this.label_Montor_List_06.AutoSize = true;
-            this.label_Montor_List_06.Location = new System.Drawing.Point(76, 445);
+            this.label_Montor_List_06.Location = new System.Drawing.Point(90, 445);
             this.label_Montor_List_06.Name = "label_Montor_List_06";
             this.label_Montor_List_06.Size = new System.Drawing.Size(0, 12);
             this.label_Montor_List_06.TabIndex = 45;
@@ -493,7 +494,7 @@
             // 
             // pb_Montor_List_06
             // 
-            this.pb_Montor_List_06.Location = new System.Drawing.Point(35, 428);
+            this.pb_Montor_List_06.Location = new System.Drawing.Point(25, 428);
             this.pb_Montor_List_06.Name = "pb_Montor_List_06";
             this.pb_Montor_List_06.Size = new System.Drawing.Size(213, 50);
             this.pb_Montor_List_06.TabIndex = 44;
@@ -502,7 +503,7 @@
             // 
             // pb_CheckBox_SetAsPrimary
             // 
-            this.pb_CheckBox_SetAsPrimary.Location = new System.Drawing.Point(308, 306);
+            this.pb_CheckBox_SetAsPrimary.Location = new System.Drawing.Point(307, 306);
             this.pb_CheckBox_SetAsPrimary.Name = "pb_CheckBox_SetAsPrimary";
             this.pb_CheckBox_SetAsPrimary.Size = new System.Drawing.Size(16, 16);
             this.pb_CheckBox_SetAsPrimary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -514,7 +515,7 @@
             // 
             this.label_SetAsPrimary.AutoSize = true;
             this.label_SetAsPrimary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.label_SetAsPrimary.Location = new System.Drawing.Point(328, 308);
+            this.label_SetAsPrimary.Location = new System.Drawing.Point(328, 306);
             this.label_SetAsPrimary.Name = "label_SetAsPrimary";
             this.label_SetAsPrimary.Size = new System.Drawing.Size(90, 12);
             this.label_SetAsPrimary.TabIndex = 47;
@@ -571,7 +572,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ManageMultiMonitor";
-            this.Opacity = 0.94D;
+            this.Opacity = 0.96D;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).EndInit();
