@@ -88,10 +88,10 @@
             // 
             // pictureBox_CursorControl_Comment
             // 
-            this.pictureBox_CursorControl_Comment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox_CursorControl_Comment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox_CursorControl_Comment.Location = new System.Drawing.Point(40, 100);
             this.pictureBox_CursorControl_Comment.Name = "pictureBox_CursorControl_Comment";
-            this.pictureBox_CursorControl_Comment.Size = new System.Drawing.Size(192, 225);
+            this.pictureBox_CursorControl_Comment.Size = new System.Drawing.Size(192, 120);
             this.pictureBox_CursorControl_Comment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_CursorControl_Comment.TabIndex = 15;
             this.pictureBox_CursorControl_Comment.TabStop = false;
@@ -264,7 +264,7 @@
             // 
             this.label_Warning.AutoSize = true;
             this.label_Warning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
-            this.label_Warning.Location = new System.Drawing.Point(304, 460);
+            this.label_Warning.Location = new System.Drawing.Point(305, 462);
             this.label_Warning.Name = "label_Warning";
             this.label_Warning.Size = new System.Drawing.Size(395, 12);
             this.label_Warning.TabIndex = 37;
@@ -272,36 +272,36 @@
             // 
             // label_Hotkey_MovCurNextScreen
             // 
-            this.label_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(575, 189);
+            this.label_Hotkey_MovCurNextScreen.Location = new System.Drawing.Point(550, 189);
             this.label_Hotkey_MovCurNextScreen.Name = "label_Hotkey_MovCurNextScreen";
-            this.label_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MovCurNextScreen.Size = new System.Drawing.Size(200, 14);
             this.label_Hotkey_MovCurNextScreen.TabIndex = 39;
             this.label_Hotkey_MovCurNextScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_Hotkey_MovCurNextScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurNextScreen_Click);
             // 
             // label_Hotkey_MovCurPrevScreen
             // 
-            this.label_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(575, 225);
+            this.label_Hotkey_MovCurPrevScreen.Location = new System.Drawing.Point(550, 225);
             this.label_Hotkey_MovCurPrevScreen.Name = "label_Hotkey_MovCurPrevScreen";
-            this.label_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MovCurPrevScreen.Size = new System.Drawing.Size(200, 14);
             this.label_Hotkey_MovCurPrevScreen.TabIndex = 40;
             this.label_Hotkey_MovCurPrevScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_Hotkey_MovCurPrevScreen.Click += new System.EventHandler(this.txtBox_Hotkey_MovCurPrevScreen_Click);
             // 
             // label_Hotkey_MoveCurPrimary
             // 
-            this.label_Hotkey_MoveCurPrimary.Location = new System.Drawing.Point(575, 261);
+            this.label_Hotkey_MoveCurPrimary.Location = new System.Drawing.Point(550, 261);
             this.label_Hotkey_MoveCurPrimary.Name = "label_Hotkey_MoveCurPrimary";
-            this.label_Hotkey_MoveCurPrimary.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_MoveCurPrimary.Size = new System.Drawing.Size(200, 14);
             this.label_Hotkey_MoveCurPrimary.TabIndex = 41;
             this.label_Hotkey_MoveCurPrimary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_Hotkey_MoveCurPrimary.Click += new System.EventHandler(this.txtBox_Hotkey_MoveCurPrimary_Click);
             // 
             // label_Hotkey_LockToScreen
             // 
-            this.label_Hotkey_LockToScreen.Location = new System.Drawing.Point(575, 297);
+            this.label_Hotkey_LockToScreen.Location = new System.Drawing.Point(550, 297);
             this.label_Hotkey_LockToScreen.Name = "label_Hotkey_LockToScreen";
-            this.label_Hotkey_LockToScreen.Size = new System.Drawing.Size(153, 14);
+            this.label_Hotkey_LockToScreen.Size = new System.Drawing.Size(200, 14);
             this.label_Hotkey_LockToScreen.TabIndex = 42;
             this.label_Hotkey_LockToScreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_Hotkey_LockToScreen.Click += new System.EventHandler(this.txtBox_Hotkey_LockToScreen_Click);
@@ -338,7 +338,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CursorControl";
-            this.Opacity = 0.5D;
+            this.Opacity = 0.96D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LG USB-Hub Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CursorControl_FormClosed);

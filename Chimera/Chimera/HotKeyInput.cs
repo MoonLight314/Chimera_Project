@@ -36,11 +36,11 @@ namespace Chimera
             /*  */
             this.BackColor = Color.FromArgb(255, 255, 255);
 
-            this.label_Hotkey_Input.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Shift.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Ctrl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label_Alt.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.txtBox_NormalKey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Hotkey_Input.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Shift.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Ctrl.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Alt.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.txtBox_NormalKey.Font = new System.Drawing.Font(FontManager.LG_Smart_H_Regular(), 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
             ClearUI();
 
@@ -58,13 +58,13 @@ namespace Chimera
         {
 
             CtrlKeyDown = e.Control;
-            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             AltKeyDown = e.Alt;
-            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             ShiftKeyDown = e.Shift;
-            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
 
             txtBox_NormalKey.Text = KeyCodeValues.GetKeyCodeString( e );
@@ -169,9 +169,9 @@ namespace Chimera
             AltKeyDown = false;
             ShiftKeyDown = false;
 
-            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
-            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
-            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             txtBox_NormalKey.Text = "";
         }
@@ -208,18 +208,14 @@ namespace Chimera
 
         private void key_up(object sender, KeyEventArgs e)
         {
-            //cb_Ctrl.Checked = e.Control;
-            //cb_Alt.Checked = e.Alt;
-            //cb_Shift.Checked = e.Shift;
-
             CtrlKeyDown = e.Control;
-            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Ctrl.Image = CtrlKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             AltKeyDown = e.Alt;
-            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Alt.Image = AltKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             ShiftKeyDown = e.Shift;
-            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Not_Checked;
+            pb_CheckBox_Shift.Image = ShiftKeyDown ? Properties.Resources.Checkbox_Checked : Properties.Resources.Checkbox_Unselected;
 
             txtBox_NormalKey.Text = "";
         }
@@ -228,15 +224,6 @@ namespace Chimera
         private int CountModifierKey()
         {
             int ModifierCount = 0;
-
-            //if (cb_Ctrl.Checked)
-            //    ModifierCount++;
-
-            //if (cb_Alt.Checked)
-            //    ModifierCount++;
-
-            //if (cb_Shift.Checked)
-            //    ModifierCount++;
 
             if (CtrlKeyDown)
                 ModifierCount++;

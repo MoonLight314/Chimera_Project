@@ -30,7 +30,6 @@
         {
             this.txtBox_NormalKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            //this.btn_CANCEL = new System.Windows.Forms.Button();
             this.label_Hotkey_Input = new System.Windows.Forms.Label();
             this.pb_CheckBox_Shift = new System.Windows.Forms.PictureBox();
             this.label_Shift = new System.Windows.Forms.Label();
@@ -63,21 +62,9 @@
             this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(143, 113);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 16);
+            this.label1.Size = new System.Drawing.Size(12, 12);
             this.label1.TabIndex = 4;
             this.label1.Text = "+";
-#if TEST
-            // 
-            // btn_CANCEL
-            // 
-            this.btn_CANCEL.Location = new System.Drawing.Point(283, 200);
-            this.btn_CANCEL.Name = "btn_CANCEL";
-            this.btn_CANCEL.Size = new System.Drawing.Size(57, 22);
-            this.btn_CANCEL.TabIndex = 5;
-            this.btn_CANCEL.Text = "Reset";
-            this.btn_CANCEL.UseVisualStyleBackColor = true;
-            this.btn_CANCEL.Click += new System.EventHandler(this.HotKeyInput_Cancel);
-#endif
             // 
             // label_Hotkey_Input
             // 
@@ -102,7 +89,7 @@
             // 
             this.label_Shift.AutoSize = true;
             this.label_Shift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
-            this.label_Shift.Location = new System.Drawing.Point(59, 79);
+            this.label_Shift.Location = new System.Drawing.Point(59, 77);
             this.label_Shift.Name = "label_Shift";
             this.label_Shift.Size = new System.Drawing.Size(29, 12);
             this.label_Shift.TabIndex = 31;
@@ -121,7 +108,7 @@
             // 
             this.label_Ctrl.AutoSize = true;
             this.label_Ctrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
-            this.label_Ctrl.Location = new System.Drawing.Point(59, 115);
+            this.label_Ctrl.Location = new System.Drawing.Point(59, 113);
             this.label_Ctrl.Name = "label_Ctrl";
             this.label_Ctrl.Size = new System.Drawing.Size(24, 12);
             this.label_Ctrl.TabIndex = 33;
@@ -140,7 +127,7 @@
             // 
             this.label_Alt.AutoSize = true;
             this.label_Alt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(134)))), ((int)(((byte)(134)))));
-            this.label_Alt.Location = new System.Drawing.Point(59, 151);
+            this.label_Alt.Location = new System.Drawing.Point(59, 149);
             this.label_Alt.Name = "label_Alt";
             this.label_Alt.Size = new System.Drawing.Size(19, 12);
             this.label_Alt.TabIndex = 35;
@@ -158,7 +145,6 @@
             this.Controls.Add(this.pb_CheckBox_Shift);
             this.Controls.Add(this.label_Shift);
             this.Controls.Add(this.label_Hotkey_Input);
-            //this.Controls.Add(this.btn_CANCEL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBox_NormalKey);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -169,6 +155,7 @@
             this.Opacity = 0.96D;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Hotkey Input";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_down);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.key_up);
             ((System.ComponentModel.ISupportInitialize)(this.pb_CheckBox_Shift)).EndInit();
