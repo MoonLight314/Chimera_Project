@@ -27,6 +27,7 @@ namespace Chimera
         AboutBox                aboutBox;
         ManageMultiMonitor      managemultimonitor;
         SettingWallpaper        settingwallpaper;
+        ModernUIBasePanel       modernUIBasePanelForm;
 
         bool                    ShownOneForm;
 
@@ -177,9 +178,14 @@ namespace Chimera
             Application.Exit();
         }
 
+        /*  */
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ;
+            modernUIBasePanelForm = new ModernUIBasePanel(managemultimonitor , settingwallpaper , cursorControl);
+            modernUIBasePanelForm.ShowDialog();
+            modernUIBasePanelForm.Dispose();
+            modernUIBasePanelForm = null;
         }
     }
 }
+
