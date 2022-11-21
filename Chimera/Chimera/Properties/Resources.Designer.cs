@@ -542,6 +542,24 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   001480과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string UD5_ETHERNET_MAC_ADDRESS_PREFIX {
+            get {
+                return ResourceManager.GetString("UD5_ETHERNET_MAC_ADDRESS_PREFIX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Realtek USB GbE Family Controller과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string UD5_ETHERNET_NAME {
+            get {
+                return ResourceManager.GetString("UD5_ETHERNET_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Fit과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string UnderStretch {
