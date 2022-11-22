@@ -340,7 +340,7 @@
             this.Name = "CursorControl";
             this.Opacity = 0.96D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LG USB-Hub Manager";
+            this.Text = Properties.Resources.PRODUCT_NAME;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CursorControl_FormClosed);
             this.Shown += new System.EventHandler(this.ShownForm);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CursorControl_Comment)).EndInit();

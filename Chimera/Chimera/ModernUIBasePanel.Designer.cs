@@ -38,79 +38,89 @@
             // btn_AboutBox
             // 
             this.btn_AboutBox.FlatAppearance.BorderSize = 0;
+            this.btn_AboutBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_AboutBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AboutBox.Location = new System.Drawing.Point(1, 0);
+            this.btn_AboutBox.Location = new System.Drawing.Point(0, 0);
             this.btn_AboutBox.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AboutBox.Name = "btn_AboutBox";
-            this.btn_AboutBox.Size = new System.Drawing.Size(140, 60);
+            this.btn_AboutBox.Size = new System.Drawing.Size(170, 60);
             this.btn_AboutBox.TabIndex = 0;
             this.btn_AboutBox.TabStop = false;
             this.btn_AboutBox.Text = "About...";
             this.btn_AboutBox.UseVisualStyleBackColor = true;
             this.btn_AboutBox.Click += new System.EventHandler(this.btn_AboutBox_Click);
+            this.btn_AboutBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
             // btn_Cursor
             // 
             this.btn_Cursor.FlatAppearance.BorderSize = 0;
+            this.btn_Cursor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Cursor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cursor.Location = new System.Drawing.Point(1, 60);
+            this.btn_Cursor.Location = new System.Drawing.Point(0, 60);
             this.btn_Cursor.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Cursor.Name = "btn_Cursor";
-            this.btn_Cursor.Size = new System.Drawing.Size(140, 60);
+            this.btn_Cursor.Size = new System.Drawing.Size(170, 60);
             this.btn_Cursor.TabIndex = 1;
             this.btn_Cursor.TabStop = false;
-            this.btn_Cursor.Text = "Cursor";
+            this.btn_Cursor.Text = "Cursor Control";
             this.btn_Cursor.UseVisualStyleBackColor = true;
             this.btn_Cursor.Click += new System.EventHandler(this.btn_Cursor_Click);
+            this.btn_Cursor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
             // panelForm
             // 
             this.panelForm.Location = new System.Drawing.Point(183, 0);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(866, 613);
+            this.panelForm.Size = new System.Drawing.Size(767, 512);
             this.panelForm.TabIndex = 2;
             // 
             // btn_Manage
             // 
             this.btn_Manage.FlatAppearance.BorderSize = 0;
+            this.btn_Manage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Manage.Location = new System.Drawing.Point(1, 120);
+            this.btn_Manage.Location = new System.Drawing.Point(0, 120);
             this.btn_Manage.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Manage.Name = "btn_Manage";
-            this.btn_Manage.Size = new System.Drawing.Size(140, 60);
+            this.btn_Manage.Size = new System.Drawing.Size(170, 60);
             this.btn_Manage.TabIndex = 3;
             this.btn_Manage.TabStop = false;
             this.btn_Manage.Text = "Manage";
             this.btn_Manage.UseVisualStyleBackColor = true;
+            this.btn_Manage.Click += new System.EventHandler(this.btn_Manage_Click);
+            this.btn_Manage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
             // btn_Wallpaper
             // 
             this.btn_Wallpaper.FlatAppearance.BorderSize = 0;
+            this.btn_Wallpaper.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Wallpaper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Wallpaper.Location = new System.Drawing.Point(1, 180);
+            this.btn_Wallpaper.Location = new System.Drawing.Point(0, 180);
             this.btn_Wallpaper.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Wallpaper.Name = "btn_Wallpaper";
-            this.btn_Wallpaper.Size = new System.Drawing.Size(140, 60);
+            this.btn_Wallpaper.Size = new System.Drawing.Size(170, 60);
             this.btn_Wallpaper.TabIndex = 4;
             this.btn_Wallpaper.TabStop = false;
             this.btn_Wallpaper.Text = "Wallpaper";
             this.btn_Wallpaper.UseVisualStyleBackColor = true;
+            this.btn_Wallpaper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
             // ModernUIBasePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 625);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(954, 515);
             this.Controls.Add(this.btn_Wallpaper);
             this.Controls.Add(this.btn_Manage);
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.btn_Cursor);
             this.Controls.Add(this.btn_AboutBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ModernUIBasePanel";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "LG USB-Hub Manager";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModernUIBasePanel_FormClosed);
             this.Load += new System.EventHandler(this.ModernUIBasePanel_Load);
             this.ResumeLayout(false);
 

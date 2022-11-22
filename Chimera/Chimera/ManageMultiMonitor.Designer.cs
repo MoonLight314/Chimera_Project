@@ -574,7 +574,7 @@
             this.Name = "ManageMultiMonitor";
             this.Opacity = 0.96D;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "LG USB-Hub Manager";
+            this.Text = Properties.Resources.PRODUCT_NAME;
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Brightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Contrast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

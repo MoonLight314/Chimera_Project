@@ -244,6 +244,9 @@
   <data name="OverStretch" xml:space="preserve">
     <value>Fill</value>
   </data>
+  <data name="PRODUCT_NAME" xml:space="preserve">
+    <value>LG USB-Hub Manager</value>
+  </data>
   <data name="Program_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Program-Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

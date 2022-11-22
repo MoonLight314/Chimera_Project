@@ -112,7 +112,7 @@
             this.MinimizeBox = false;
             this.Name = "AboutBox";
             this.Opacity = 0.96D;
-            this.Text = "LG USB-Hub Manager";
+            this.Text = Properties.Resources.PRODUCT_NAME;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Product_Image)).EndInit();

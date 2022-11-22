@@ -619,8 +619,10 @@ namespace Chimera
         private void CursorControl_FormClosed(object sender, FormClosedEventArgs e)
         {
             UpdateConfigValues();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            //this.DialogResult = DialogResult.OK;
+            
+            /* New UI에서 무한 루프를 만든다. */
+            //this.Close();
         }
     }
 }

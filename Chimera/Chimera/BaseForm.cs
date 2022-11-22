@@ -181,7 +181,7 @@ namespace Chimera
         /*  */
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            modernUIBasePanelForm = new ModernUIBasePanel(managemultimonitor , settingwallpaper , cursorControl);
+            modernUIBasePanelForm = new ModernUIBasePanel(this, settingwallpaper , cursorControl, configManager , configValues);
             modernUIBasePanelForm.ShowDialog();
             modernUIBasePanelForm.Dispose();
             modernUIBasePanelForm = null;
