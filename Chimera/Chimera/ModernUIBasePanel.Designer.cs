@@ -103,11 +103,13 @@
             this.btn_Wallpaper.TabStop = false;
             this.btn_Wallpaper.Text = "Wallpaper";
             this.btn_Wallpaper.UseVisualStyleBackColor = true;
+            this.btn_Wallpaper.Click += new System.EventHandler(this.btn_Wallpaper_Click);
             this.btn_Wallpaper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
             // ModernUIBasePanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(954, 515);
             this.Controls.Add(this.btn_Wallpaper);
             this.Controls.Add(this.btn_Manage);
@@ -118,10 +120,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ModernUIBasePanel";
-            this.ShowInTaskbar = false;
+            this.Opacity = 0.96D;
             this.Text = "LG USB-Hub Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModernUIBasePanel_FormClosed);
             this.Load += new System.EventHandler(this.ModernUIBasePanel_Load);
+            this.Shown += new System.EventHandler(this.ModernUIBasePanel_Shown);
             this.ResumeLayout(false);
 
         }

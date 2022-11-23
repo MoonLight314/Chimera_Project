@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,15 +26,45 @@ namespace Chimera
         CursorControl cursorControl;
         SettingWallpaper settingwallpaper;
         ManageMultiMonitor managemultimonitor;
+
         ConfigManager configManager;
         ConfigValues configValues;
+        DisplayDevices displayDevices;
+        IList<DisplayDevice> allMonitorProperties;
+
         Form BaseForm;
 
 
-        public ModernUIBasePanel(Form BaseForm, SettingWallpaper settingwallpaper , CursorControl cursorControl , ConfigManager configManager , ConfigValues configValues)
+
+
+        public ModernUIBasePanel(   Form BaseForm, 
+                                    CursorControl cursorControl , 
+                                    ConfigManager configManager , 
+                                    ConfigValues configValues ,
+                                    DisplayDevices displayDevices,
+                                    IList<DisplayDevice> allMonitorProperties
+                                    )
         {
             InitializeComponent();
 
+            /*  */
+            InitUI();
+
+            /*  */
+            this.cursorControl = cursorControl;
+            this.configManager = configManager;
+            this.configValues = configValues;
+            this.BaseForm = BaseForm;
+            this.allMonitorProperties = allMonitorProperties;
+            this.displayDevices = displayDevices;
+
+        }
+
+
+
+
+        private void InitUI()
+        {
             Bitmap bmp = Properties.Resources.Manager_Form_Icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
             this.Text = Properties.Resources.PRODUCT_NAME;
@@ -44,16 +75,21 @@ namespace Chimera
             this.btn_Manage.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.btn_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            this.cursorControl = cursorControl;
-            this.settingwallpaper = settingwallpaper;
-            this.configManager = configManager;
-            this.configValues = configValues;
-            this.BaseForm = BaseForm;
+            
         }
+
+
+
 
         /* 처음 Load하면 About Box를 보여주도록 한다. */
         private void ModernUIBasePanel_Load(object sender, EventArgs e)
-        {            
+        {
+            
+        }
+
+        private void ModernUIBasePanel_Shown(object sender, EventArgs e)
+        {
+            panelForm.Controls.Clear();
             btn_AboutBox.PerformClick();
         }
 
@@ -150,16 +186,36 @@ namespace Chimera
             panelForm.Controls.Clear();
 
             ChangeBtnBackColor(MANAGE);
+            
+            this.managemultimonitor = new ManageMultiMonitor(allMonitorProperties, displayDevices);
 
             managemultimonitor.TopLevel = false;
             managemultimonitor.Dock = System.Windows.Forms.DockStyle.Fill;
             managemultimonitor.FormBorderStyle = FormBorderStyle.None;
             panelForm.Controls.Add(managemultimonitor);
-            //cursorControl.ShowDialog();
             managemultimonitor.Show();
-            //cursorControl.Dispose();
-            //cursorControl= null;
         }
+
+
+        private void btn_Wallpaper_Click(object sender, EventArgs e)
+        {
+            /*  */
+            FinishUpProcess();
+
+            panelForm.Controls.Clear();
+
+            ChangeBtnBackColor(WALLPAPER);
+
+            settingwallpaper = new SettingWallpaper(allMonitorProperties);
+
+            settingwallpaper.TopLevel = false;
+            settingwallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
+            settingwallpaper.FormBorderStyle = FormBorderStyle.None;
+            panelForm.Controls.Add(settingwallpaper);
+            settingwallpaper.Show();
+        }
+
+
 
 
         private void btn_MouseMove(object sender, MouseEventArgs e)
@@ -201,10 +257,10 @@ namespace Chimera
                     FinishUpCursorControl();
                     break;
                 case MANAGE:
-                    
+                    FinishUpManageMultiMonitor();
                     break;
                 case WALLPAPER:
-                    
+                    FinishUpWallpaperSetting();
                     break;
                 default:
                     break;
@@ -225,9 +281,33 @@ namespace Chimera
             CursorController.Instance.Init(BaseForm, configValues);
         }
 
+
+
+        private void FinishUpManageMultiMonitor()
+        {
+            if (managemultimonitor != null)
+            {
+                managemultimonitor.Dispose();
+                managemultimonitor = null;
+            }
+        }
+
+        private void FinishUpWallpaperSetting()
+        {
+            if (settingwallpaper != null)
+            {
+                settingwallpaper.Dispose();
+                settingwallpaper = null;
+            }
+        }
+
+
+
+
         private void ModernUIBasePanel_FormClosed(object sender, FormClosedEventArgs e)
         {
             FinishUpProcess();
         }
+                
     }
 }

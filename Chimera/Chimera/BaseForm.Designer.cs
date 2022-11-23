@@ -122,6 +122,7 @@ namespace Chimera
             this.ShowInTaskbar = false;
             this.Text = "Multi Monitor Manager";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.BaseForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

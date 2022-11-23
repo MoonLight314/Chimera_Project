@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using System.Configuration;
 using Chimera.Resources;
 using System.IO;
-
-
+using System.Net.NetworkInformation;
+using System.Diagnostics;
 
 namespace Chimera
 {
@@ -53,6 +53,8 @@ namespace Chimera
 
             /*  */
             ShownOneForm = false;
+
+            modernUIBasePanelForm = new ModernUIBasePanel(this, cursorControl, configManager, configValues , displayDevices , allMonitorProperties );
         }
 
         
@@ -63,7 +65,7 @@ namespace Chimera
         /*  */
         public void notifyIcon1_Load(object sender, EventArgs e)
         {
-            notifyIcon1.ContextMenuStrip = contextMenuStrip1;
+            notifyIcon1.ContextMenuStrip = contextMenuStrip1;            
         }
 
 
@@ -178,13 +180,100 @@ namespace Chimera
             Application.Exit();
         }
 
+
+
         /*  */
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            modernUIBasePanelForm = new ModernUIBasePanel(this, settingwallpaper , cursorControl, configManager , configValues);
-            modernUIBasePanelForm.ShowDialog();
-            modernUIBasePanelForm.Dispose();
-            modernUIBasePanelForm = null;
+            /* 한 번에 하나의 UI만 보이도록 한다. */
+            if (ShownOneForm == false)
+            {
+                ShownOneForm = true;                
+                modernUIBasePanelForm.ShowDialog();
+                ShownOneForm = false;
+            }
+        }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+            /* UD5가 Attached되어 있는지 확인 후 실행 */
+            if (CheckDeviceInstalled())
+            {
+                WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Warning", "The device is not installed.");
+                w.ShowDialog();
+                
+                cursorControl.CleanUp();
+                this.Close();
+                Application.Exit();
+            }
+
+            /* 중복 실행 방지 */
+            if (CheckDuplicatedRunning())
+            {
+                WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Warning", "The application is already running.");
+                w.ShowDialog();
+
+                cursorControl.CleanUp();
+                this.Close();
+                Application.Exit();
+            }
+        }
+
+
+        /*
+        UD5가 설치된 경우에만 Application이 실행되도록 수정.
+        - Ethernet Card의 이름(Description)과 MAC Address의 첫 3 Byte를 확인하는 방식으로 UD5를 Detect한다.
+        */
+        private bool CheckDeviceInstalled()
+        {
+            bool Ret = true;
+            int NameLength;
+
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+
+                string MAC_Address = nic.GetPhysicalAddress().ToString();
+                string Name = nic.Description;
+
+                if (string.IsNullOrEmpty(MAC_Address) == false && string.IsNullOrEmpty(Name) == false)
+                {
+                    string MAC_Address_Prefix = MAC_Address.Substring(0, Properties.Resources.UD5_ETHERNET_MAC_ADDRESS_PREFIX.Length);
+
+                    /* UD5 Ethernet Name(Realtek USB GbE Family Controller)길이보다 짧은 이름을 가진 NIC의 경우에
+                       오류를 발생시킬 수 있다.
+                    */
+                    NameLength = Name.Length <= Properties.Resources.UD5_ETHERNET_NAME.Length ? Name.Length : Properties.Resources.UD5_ETHERNET_NAME.Length;
+
+                    string Name_Prefix = Name.Substring(0, NameLength); 
+
+                    /*  */
+                    if (string.Compare(MAC_Address_Prefix, Properties.Resources.UD5_ETHERNET_MAC_ADDRESS_PREFIX, false) == 0 &&
+                        string.Compare(Name_Prefix, Properties.Resources.UD5_ETHERNET_NAME, false) == 0)
+                    {
+                        Ret = false;
+                        //Ret = true;
+                        break;
+                    }
+                }
+                else
+                    continue;
+            }
+
+            return Ret;
+        }
+
+
+
+
+        private bool CheckDuplicatedRunning()
+        {
+            /* 중복 실행 방지 */
+            Process[] procs = Process.GetProcessesByName("MultiMonitorManager");
+
+            if (procs.Length > 1)
+                return true;
+            else
+                return false;
         }
     }
 }
