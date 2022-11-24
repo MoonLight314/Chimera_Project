@@ -37,17 +37,21 @@
             // 
             // btn_AboutBox
             // 
+            this.btn_AboutBox.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_AboutBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_AboutBox.FlatAppearance.BorderSize = 0;
             this.btn_AboutBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_AboutBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AboutBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_AboutBox.Location = new System.Drawing.Point(0, 0);
             this.btn_AboutBox.Margin = new System.Windows.Forms.Padding(0);
             this.btn_AboutBox.Name = "btn_AboutBox";
-            this.btn_AboutBox.Size = new System.Drawing.Size(170, 60);
+            this.btn_AboutBox.Size = new System.Drawing.Size(183, 60);
             this.btn_AboutBox.TabIndex = 0;
             this.btn_AboutBox.TabStop = false;
-            this.btn_AboutBox.Text = "About...";
-            this.btn_AboutBox.UseVisualStyleBackColor = true;
+            this.btn_AboutBox.Text = "               About...";
+            this.btn_AboutBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AboutBox.UseVisualStyleBackColor = false;
             this.btn_AboutBox.Click += new System.EventHandler(this.btn_AboutBox_Click);
             this.btn_AboutBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
             // 
@@ -56,13 +60,15 @@
             this.btn_Cursor.FlatAppearance.BorderSize = 0;
             this.btn_Cursor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Cursor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cursor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Cursor.Location = new System.Drawing.Point(0, 60);
             this.btn_Cursor.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Cursor.Name = "btn_Cursor";
-            this.btn_Cursor.Size = new System.Drawing.Size(170, 60);
+            this.btn_Cursor.Size = new System.Drawing.Size(183, 60);
             this.btn_Cursor.TabIndex = 1;
             this.btn_Cursor.TabStop = false;
-            this.btn_Cursor.Text = "Cursor Control";
+            this.btn_Cursor.Text = "               Cursor Control";
+            this.btn_Cursor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Cursor.UseVisualStyleBackColor = true;
             this.btn_Cursor.Click += new System.EventHandler(this.btn_Cursor_Click);
             this.btn_Cursor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
@@ -79,13 +85,15 @@
             this.btn_Manage.FlatAppearance.BorderSize = 0;
             this.btn_Manage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Manage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Manage.Location = new System.Drawing.Point(0, 120);
             this.btn_Manage.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Manage.Name = "btn_Manage";
-            this.btn_Manage.Size = new System.Drawing.Size(170, 60);
+            this.btn_Manage.Size = new System.Drawing.Size(183, 60);
             this.btn_Manage.TabIndex = 3;
             this.btn_Manage.TabStop = false;
-            this.btn_Manage.Text = "Manage";
+            this.btn_Manage.Text = "               Manage";
+            this.btn_Manage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Manage.UseVisualStyleBackColor = true;
             this.btn_Manage.Click += new System.EventHandler(this.btn_Manage_Click);
             this.btn_Manage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);
@@ -95,13 +103,15 @@
             this.btn_Wallpaper.FlatAppearance.BorderSize = 0;
             this.btn_Wallpaper.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Wallpaper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Wallpaper.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Wallpaper.Location = new System.Drawing.Point(0, 180);
             this.btn_Wallpaper.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Wallpaper.Name = "btn_Wallpaper";
-            this.btn_Wallpaper.Size = new System.Drawing.Size(170, 60);
+            this.btn_Wallpaper.Size = new System.Drawing.Size(183, 60);
             this.btn_Wallpaper.TabIndex = 4;
             this.btn_Wallpaper.TabStop = false;
-            this.btn_Wallpaper.Text = "Wallpaper";
+            this.btn_Wallpaper.Text = "               Wallpaper";
+            this.btn_Wallpaper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Wallpaper.UseVisualStyleBackColor = true;
             this.btn_Wallpaper.Click += new System.EventHandler(this.btn_Wallpaper_Click);
             this.btn_Wallpaper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_MouseMove);

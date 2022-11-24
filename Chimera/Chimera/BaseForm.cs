@@ -185,14 +185,25 @@ namespace Chimera
         /*  */
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            OpenModernUIPanelForm();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenModernUIPanelForm();
+        }
+
+        private void OpenModernUIPanelForm()
+        {
             /* 한 번에 하나의 UI만 보이도록 한다. */
             if (ShownOneForm == false)
             {
-                ShownOneForm = true;                
+                ShownOneForm = true;
                 modernUIBasePanelForm.ShowDialog();
                 ShownOneForm = false;
             }
         }
+
 
         private void BaseForm_Load(object sender, EventArgs e)
         {

@@ -70,12 +70,18 @@ namespace Chimera
             this.Text = Properties.Resources.PRODUCT_NAME;
             this.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
 
-            this.btn_AboutBox.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Cursor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Manage.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.btn_AboutBox.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.btn_AboutBox.Image = (Image)(new Bitmap(Properties.Resources.About_Button_Image, new Size(42, 32)));
 
-            
+            this.btn_Cursor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.btn_Cursor.Image = (Image)(new Bitmap(Properties.Resources.Cursor_Control_Button_Image, new Size(42, 32)));
+
+            this.btn_Manage.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.btn_Manage.Image = (Image)(new Bitmap(Properties.Resources.Mange_Button_Image, new Size(42, 32)));
+
+            this.btn_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.btn_Wallpaper.Image = (Image)(new Bitmap(Properties.Resources.Wallpaper_Button_Image, new Size(42, 32)));
+
         }
 
 
