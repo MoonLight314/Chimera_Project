@@ -187,7 +187,7 @@ namespace Chimera
             }
         }
 
-
+#if FALSE
         public struct MSLLHOOKSTRUCT
         {
             public POINT pt;
@@ -197,6 +197,7 @@ namespace Chimera
             //public uint dwExtraInfo;
             public IntPtr dwExtraInfo;
         }
+#endif
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct PHYSICAL_MONITOR

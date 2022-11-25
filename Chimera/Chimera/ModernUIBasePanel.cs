@@ -34,6 +34,10 @@ namespace Chimera
 
         Form BaseForm;
 
+        Image About_Button_Unselected;
+        Image Cursor_Control_Button_Unselected;
+        Image Mange_Button_Unselected;
+        Image Wallpaper_Button_Unselected;
 
 
 
@@ -70,17 +74,15 @@ namespace Chimera
             this.Text = Properties.Resources.PRODUCT_NAME;
             this.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
 
-            this.btn_AboutBox.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_AboutBox.Image = (Image)(new Bitmap(Properties.Resources.About_Button_Image, new Size(42, 32)));
-
+            this.btn_AboutBox.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));           
             this.btn_Cursor.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Cursor.Image = (Image)(new Bitmap(Properties.Resources.Cursor_Control_Button_Image, new Size(42, 32)));
-
             this.btn_Manage.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Manage.Image = (Image)(new Bitmap(Properties.Resources.Mange_Button_Image, new Size(42, 32)));
-
             this.btn_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btn_Wallpaper.Image = (Image)(new Bitmap(Properties.Resources.Wallpaper_Button_Image, new Size(42, 32)));
+
+            About_Button_Unselected = (Image)(new Bitmap(Properties.Resources.About_Button_Unselected));
+            Cursor_Control_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Cursor_Control_Button_Unselected));
+            Mange_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Mange_Button_Unselected));
+            Wallpaper_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Wallpaper_Button_Unselected));
 
         }
 
@@ -105,34 +107,50 @@ namespace Chimera
         {            
             btn_AboutBox.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
             btn_AboutBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
+            btn_AboutBox.Image = About_Button_Unselected;
+            btn_AboutBox.BackgroundImage = null;
 
             btn_Cursor.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
             btn_Cursor.FlatAppearance.MouseOverBackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
+            btn_Cursor.Image = Cursor_Control_Button_Unselected;
+            btn_Cursor.BackgroundImage = null;
 
             btn_Manage.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
             btn_Manage.FlatAppearance.MouseOverBackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
+            btn_Manage.Image = Mange_Button_Unselected;
+            btn_Manage.BackgroundImage = null;
 
             btn_Wallpaper.BackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
             btn_Wallpaper.FlatAppearance.MouseOverBackColor = Color.FromArgb(0xF5, 0xF5, 0xF5);
+            btn_Wallpaper.Image = Wallpaper_Button_Unselected;
+            btn_Wallpaper.BackgroundImage = null;
 
             switch (CurrentClickedBtn)
             {
                 case ABOUT_BOX:
                     CurrentSelectedBtn = ABOUT_BOX;
                     btn_AboutBox.BackColor = Color.White;
+                    btn_AboutBox.BackgroundImage = Properties.Resources.Select_Trans;
                     break;
+
                 case CURSOR_CONTROL:
                     CurrentSelectedBtn = CURSOR_CONTROL;
                     btn_Cursor.BackColor = Color.White;
+                    btn_Cursor.BackgroundImage = Properties.Resources.Select_Trans;
                     break;
+
                 case MANAGE:
                     CurrentSelectedBtn = MANAGE;
                     btn_Manage.BackColor = Color.White;
+                    btn_Manage.BackgroundImage = Properties.Resources.Select_Trans;
                     break;
+
                 case WALLPAPER:
                     CurrentSelectedBtn = WALLPAPER;
                     btn_Wallpaper.BackColor = Color.White;
+                    btn_Wallpaper.BackgroundImage = Properties.Resources.Select_Trans;
                     break;                    
+
                 default:
                     break;
             }

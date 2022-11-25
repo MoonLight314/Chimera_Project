@@ -38,7 +38,7 @@
             // btn_AboutBox
             // 
             this.btn_AboutBox.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_AboutBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AboutBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_AboutBox.FlatAppearance.BorderSize = 0;
             this.btn_AboutBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_AboutBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -57,6 +57,7 @@
             // 
             // btn_Cursor
             // 
+            this.btn_Cursor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Cursor.FlatAppearance.BorderSize = 0;
             this.btn_Cursor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Cursor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -82,6 +83,7 @@
             // 
             // btn_Manage
             // 
+            this.btn_Manage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Manage.FlatAppearance.BorderSize = 0;
             this.btn_Manage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -100,6 +102,7 @@
             // 
             // btn_Wallpaper
             // 
+            this.btn_Wallpaper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Wallpaper.FlatAppearance.BorderSize = 0;
             this.btn_Wallpaper.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Wallpaper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -131,6 +134,7 @@
             this.MinimizeBox = false;
             this.Name = "ModernUIBasePanel";
             this.Opacity = 0.96D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LG USB-Hub Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModernUIBasePanel_FormClosed);
             this.Load += new System.EventHandler(this.ModernUIBasePanel_Load);

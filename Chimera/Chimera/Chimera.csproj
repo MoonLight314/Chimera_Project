@@ -342,11 +342,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Select%403x.png" />
+    <None Include="Resource\Wallpaper_Button_Unselected.png" />
+    <None Include="Resource\Wallpaper_Button_Selected.png" />
+    <None Include="Resource\Mange_Button_Unselected.png" />
+    <None Include="Resource\Mange_Button_Selected.png" />
+    <None Include="Resource\Cursor_Control_Button_Unselected.png" />
+    <None Include="Resource\Cursor_Control_Button_Selected.png" />
+    <None Include="Resource\About_Button_Unselected.png" />
+    <None Include="Resource\About_Button_Selected.png" />
     <None Include="Resource\Resize_About_Button_Image.png" />
-    <None Include="Resource\Wallpaper_Button_Image.png" />
-    <None Include="Resource\Mange_Button_Image.png" />
-    <None Include="Resource\Cursor_Control_Button_Image.png" />
-    <None Include="Resource\About_Button_Image.png" />
     <None Include="Resource\Checkbox-Unselected.png" />
     <None Include="Resource\Select.png" />
     <None Include="Resource\Program-Icon.ico" />

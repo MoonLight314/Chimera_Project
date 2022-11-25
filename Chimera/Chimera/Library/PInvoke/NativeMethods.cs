@@ -207,8 +207,8 @@ namespace Chimera.Library.PInvoke
 			}
 		}
 
-
-		public struct MSLLHOOKSTRUCT
+#if FALSE
+        public struct MSLLHOOKSTRUCT
 		{
 			public POINT pt;
 			public uint mouseData;
@@ -217,6 +217,7 @@ namespace Chimera.Library.PInvoke
 			//public uint dwExtraInfo;
 			public IntPtr dwExtraInfo;
 		}
+#endif
 
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
 		public struct PHYSICAL_MONITOR

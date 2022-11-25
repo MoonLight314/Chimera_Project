@@ -77,7 +77,7 @@ namespace Chimera
             this.TextBox_Image_File_Path.Location = new System.Drawing.Point(440, 300);
             this.TextBox_Image_File_Path.Name = "TextBox_Image_File_Path";
             this.TextBox_Image_File_Path.ReadOnly = true;
-            this.TextBox_Image_File_Path.Size = new System.Drawing.Size(247, 21);
+            this.TextBox_Image_File_Path.Size = new System.Drawing.Size(279, 21);
             this.TextBox_Image_File_Path.TabIndex = 4;
             this.TextBox_Image_File_Path.TabStop = false;
             this.TextBox_Image_File_Path.Enter += new System.EventHandler(this.TextBox_Image_File_Path_Enter);
@@ -87,7 +87,7 @@ namespace Chimera
             this.Button_Browse_Wallpaper.BackColor = System.Drawing.Color.White;
             this.Button_Browse_Wallpaper.BackgroundImage = global::Chimera.Properties.Resources.Browse;
             this.Button_Browse_Wallpaper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button_Browse_Wallpaper.Location = new System.Drawing.Point(667, 300);
+            this.Button_Browse_Wallpaper.Location = new System.Drawing.Point(699, 299);
             this.Button_Browse_Wallpaper.Name = "Button_Browse_Wallpaper";
             this.Button_Browse_Wallpaper.Size = new System.Drawing.Size(21, 22);
             this.Button_Browse_Wallpaper.TabIndex = 5;
@@ -112,7 +112,7 @@ namespace Chimera
             this.comboBoxFit.FormattingEnabled = true;
             this.comboBoxFit.Location = new System.Drawing.Point(440, 340);
             this.comboBoxFit.Name = "comboBoxFit";
-            this.comboBoxFit.Size = new System.Drawing.Size(247, 20);
+            this.comboBoxFit.Size = new System.Drawing.Size(279, 20);
             this.comboBoxFit.TabIndex = 9;
             this.comboBoxFit.SelectedIndexChanged += new System.EventHandler(this.ChangedStretchMode);
             // 
@@ -197,7 +197,7 @@ namespace Chimera
             this.MinimizeBox = false;
             this.Name = "SettingWallpaper";
             this.Opacity = 0.94D;
-            this.Text = Properties.Resources.PRODUCT_NAME;
+            this.Text = "LG USB-Hub Manager";
             ((System.ComponentModel.ISupportInitialize)(this.Preview_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

@@ -756,7 +756,7 @@ namespace Chimera
             }
 
 
-            if(CurrentSelectedMonitorIndex != -1 && _displayDevices.ActiveCount() >= CurrentSelectedMonitorIndex )
+            if(CurrentSelectedMonitorIndex != -1 && _displayDevices.ActiveCount() > CurrentSelectedMonitorIndex )
             {
                 ClearAllMonitorPictureBox();
                 MonitorNamePbList[CurrentSelectedMonitorIndex].Image = Properties.Resources.Select;
@@ -816,6 +816,33 @@ namespace Chimera
                     msi.SetAsPrimary = false;
                 }
             }
+        }
+
+        private void pb_Montor_List_Paint(object sender, PaintEventArgs e)
+        {
+            //int SelectedPBIndex = -1;
+
+            //Image image = null;
+            //Image[] img = { Properties.Resources.Icon_Laptop,
+            //                Properties.Resources.Icon_Monitor};
+
+            //var g = e.Graphics;
+
+            //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+            //foreach (ListViewItem v in lv_Monitors.Items)
+            //{
+            //    SelectedPBIndex = lv_Monitors.Items.IndexOf(v);
+
+            //    image = new Bitmap(img[v.ImageIndex], new Size(36, 36));
+
+            //    g.DrawImage(image,
+            //    50,
+            //    MonitorNamePbList[SelectedPBIndex].Location.Y - (MonitorNamePbList[SelectedPBIndex].Height - image.Height) / 2,
+            //    image.Width,
+            //    image.Height);
+            //}
+
         }
 
 
