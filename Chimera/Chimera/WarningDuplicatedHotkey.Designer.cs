@@ -85,7 +85,7 @@
             // pictureBox_Exclamation_Mark
             // 
             this.pictureBox_Exclamation_Mark.Image = global::Chimera.Properties.Resources.Exclamation_Mark;
-            this.pictureBox_Exclamation_Mark.Location = new System.Drawing.Point(22, 29);
+            this.pictureBox_Exclamation_Mark.Location = new System.Drawing.Point(22, 30);
             this.pictureBox_Exclamation_Mark.Name = "pictureBox_Exclamation_Mark";
             this.pictureBox_Exclamation_Mark.Size = new System.Drawing.Size(16, 16);
             this.pictureBox_Exclamation_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

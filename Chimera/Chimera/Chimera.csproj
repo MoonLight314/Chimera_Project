@@ -329,29 +329,15 @@
     <None Include="Resource\Manager_Form_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Monitor_No_01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resource\Monitor_No_02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resource\Monitor_No_03.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resource\About_Box_Logo_Image.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resource\Wallpaper_Button.png" />
+    <None Include="Resource\Mange_Button.png" />
+    <None Include="Resource\Cursor_Control_Button.png" />
+    <None Include="Resource\About_Button.png" />
     <None Include="Resource\Select%403x.png" />
-    <None Include="Resource\Wallpaper_Button_Unselected.png" />
-    <None Include="Resource\Wallpaper_Button_Selected.png" />
-    <None Include="Resource\Mange_Button_Unselected.png" />
-    <None Include="Resource\Mange_Button_Selected.png" />
-    <None Include="Resource\Cursor_Control_Button_Unselected.png" />
-    <None Include="Resource\Cursor_Control_Button_Selected.png" />
-    <None Include="Resource\About_Button_Unselected.png" />
-    <None Include="Resource\About_Button_Selected.png" />
-    <None Include="Resource\Resize_About_Button_Image.png" />
     <None Include="Resource\Checkbox-Unselected.png" />
     <None Include="Resource\Select.png" />
     <None Include="Resource\Program-Icon.ico" />

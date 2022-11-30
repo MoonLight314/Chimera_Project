@@ -73,9 +73,9 @@ namespace Chimera.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap About_Button_Unselected {
+        internal static System.Drawing.Bitmap About_Button {
             get {
-                object obj = ResourceManager.GetObject("About_Button_Unselected", resourceCulture);
+                object obj = ResourceManager.GetObject("About_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -249,9 +249,9 @@ namespace Chimera.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Cursor_Control_Button_Unselected {
+        internal static System.Drawing.Bitmap Cursor_Control_Button {
             get {
-                object obj = ResourceManager.GetObject("Cursor_Control_Button_Unselected", resourceCulture);
+                object obj = ResourceManager.GetObject("Cursor_Control_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +336,15 @@ namespace Chimera.Properties {
             get {
                 object obj = ResourceManager.GetObject("Exclamation_Mark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   This hotkey is already registered.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string HOT_KEY_DUPLICATED_MESSAGE {
+            get {
+                return ResourceManager.GetString("HOT_KEY_DUPLICATED_MESSAGE", resourceCulture);
             }
         }
         
@@ -440,9 +449,9 @@ namespace Chimera.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Mange_Button_Unselected {
+        internal static System.Drawing.Bitmap Mange_Button {
             get {
-                object obj = ResourceManager.GetObject("Mange_Button_Unselected", resourceCulture);
+                object obj = ResourceManager.GetObject("Mange_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,6 +562,15 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   Setting Hotkey과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SETTING_HOTKEY {
+            get {
+                return ResourceManager.GetString("SETTING_HOTKEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Shift과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ShiftModifierKey {
@@ -620,9 +638,9 @@ namespace Chimera.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Wallpaper_Button_Unselected {
+        internal static System.Drawing.Bitmap Wallpaper_Button {
             get {
-                object obj = ResourceManager.GetObject("Wallpaper_Button_Unselected", resourceCulture);
+                object obj = ResourceManager.GetObject("Wallpaper_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

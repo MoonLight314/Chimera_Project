@@ -121,8 +121,8 @@
   <data name="About_Box_Logo_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\About_Box_Logo_Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="About_Button_Unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\About_Button_Unselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="About_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\About_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AltModifierKey" xml:space="preserve">
     <value>Alt</value>
@@ -196,8 +196,8 @@
   <data name="CursorPrimaryScreenWin7" xml:space="preserve">
     <value />
   </data>
-  <data name="Cursor_Control_Button_Unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Cursor_Control_Button_Unselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cursor_Control_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Cursor_Control_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cursor_Control_Text" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Cursor_Control_Text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -207,6 +207,9 @@
   </data>
   <data name="Exclamation_Mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Exclamation_Mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HOT_KEY_DUPLICATED_MESSAGE" xml:space="preserve">
+    <value>This hotkey is already registered.</value>
   </data>
   <data name="Icon_Laptop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Icon-Laptop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +241,8 @@
   <data name="Manager_Form_Icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Manager_Form_Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Mange_Button_Unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Mange_Button_Unselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mange_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Mange_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoKey" xml:space="preserve">
     <value>You need to select a key from the drop down box</value>
@@ -275,6 +278,9 @@ Try another hot key combination.</value>
   <data name="Select_Trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Select@3x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SETTING_HOTKEY" xml:space="preserve">
+    <value>Setting Hotkey</value>
+  </data>
   <data name="ShiftModifierKey" xml:space="preserve">
     <value>Shift</value>
   </data>
@@ -296,8 +302,8 @@ Try another hot key combination.</value>
   <data name="UnderStretch" xml:space="preserve">
     <value>Fit</value>
   </data>
-  <data name="Wallpaper_Button_Unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Wallpaper_Button_Unselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wallpaper_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Wallpaper_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Win7" xml:space="preserve">
     <value>This functionality is already provided by Windows 7 using {0}, so there is no need to enable this unless you want SwapScreen to handle it using a different hotkey.</value>

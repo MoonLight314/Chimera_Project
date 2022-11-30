@@ -75,7 +75,7 @@ namespace Chimera
                 /* 이미 등록된 Key가 있는지 확인 */
                 if( CheckKeyComboDuplicated(e) == true)
                 {
-                    WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Setting Hotkey", "This hotkey is already registed.");
+                    WarningDuplicatedHotkey w = new WarningDuplicatedHotkey(Properties.Resources.SETTING_HOTKEY, Properties.Resources.HOT_KEY_DUPLICATED_MESSAGE);
                     w.ShowDialog();
 
                     ClearUI();

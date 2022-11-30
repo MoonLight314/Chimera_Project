@@ -79,10 +79,10 @@ namespace Chimera
             this.btn_Manage.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.btn_Wallpaper.Font = new System.Drawing.Font(FontManager.LG_Smart_H_SemiBold(), 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            About_Button_Unselected = (Image)(new Bitmap(Properties.Resources.About_Button_Unselected));
-            Cursor_Control_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Cursor_Control_Button_Unselected));
-            Mange_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Mange_Button_Unselected));
-            Wallpaper_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Wallpaper_Button_Unselected));
+            About_Button_Unselected = (Image)(new Bitmap(Properties.Resources.About_Button));
+            Cursor_Control_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Cursor_Control_Button));
+            Mange_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Mange_Button));
+            Wallpaper_Button_Unselected = (Image)(new Bitmap(Properties.Resources.Wallpaper_Button));
 
         }
 
