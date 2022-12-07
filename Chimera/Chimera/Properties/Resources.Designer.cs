@@ -340,6 +340,15 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   5002과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string HIGH_SPEED_PID {
+            get {
+                return ResourceManager.GetString("HIGH_SPEED_PID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   This hotkey is already registered.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string HOT_KEY_DUPLICATED_MESSAGE {
@@ -589,6 +598,15 @@ namespace Chimera.Properties {
         }
         
         /// <summary>
+        ///   5003과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SUPER_SPEED_PID {
+            get {
+                return ResourceManager.GetString("SUPER_SPEED_PID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Bitmap Toggle_Switch_Off {
@@ -632,6 +650,15 @@ namespace Chimera.Properties {
         internal static string UnderStretch {
             get {
                 return ResourceManager.GetString("UnderStretch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   152E과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string VID {
+            get {
+                return ResourceManager.GetString("VID", resourceCulture);
             }
         }
         

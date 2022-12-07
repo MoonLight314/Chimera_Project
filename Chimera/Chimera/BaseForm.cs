@@ -12,6 +12,9 @@ using Chimera.Resources;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
+using System.Management;
+
+
 
 namespace Chimera
 {
@@ -208,7 +211,7 @@ namespace Chimera
         private void BaseForm_Load(object sender, EventArgs e)
         {
             /* UD5가 Attached되어 있는지 확인 후 실행 */
-            if (CheckDeviceInstalled())
+            if (CheckDeviceInstalled() == false)
             {
                 WarningDuplicatedHotkey w = new WarningDuplicatedHotkey("Warning", "The device is not installed.");
                 w.ShowDialog();
@@ -237,7 +240,21 @@ namespace Chimera
         */
         private bool CheckDeviceInstalled()
         {
-            bool Ret = true;
+            /* Ethernet의 MAC Address 검사 */
+            if (CheckMACAddress() == true)
+                return true;
+
+            /* USB Hub의 VID / PID를 확인한다. */
+            if (CheckVIDPID() == true)
+                return true;
+
+            return false;            
+        }
+
+
+        private bool CheckMACAddress()
+        {
+            bool Ret = false;
             int NameLength;
 
             foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
@@ -255,20 +272,56 @@ namespace Chimera
                     */
                     NameLength = Name.Length <= Properties.Resources.UD5_ETHERNET_NAME.Length ? Name.Length : Properties.Resources.UD5_ETHERNET_NAME.Length;
 
-                    string Name_Prefix = Name.Substring(0, NameLength); 
+                    string Name_Prefix = Name.Substring(0, NameLength);
 
                     /*  */
                     if (string.Compare(MAC_Address_Prefix, Properties.Resources.UD5_ETHERNET_MAC_ADDRESS_PREFIX, false) == 0 &&
                         string.Compare(Name_Prefix, Properties.Resources.UD5_ETHERNET_NAME, false) == 0)
                     {
-                        Ret = false;
-                        //Ret = true;
+                        Ret = true;
                         break;
                     }
                 }
                 else
                     continue;
             }
+
+            return Ret;
+        }
+
+
+
+        private bool CheckVIDPID()
+        {
+            ManagementObjectCollection collection;
+            string PNPDeviceID;
+            bool Ret = false;
+
+            using (var searcher = new ManagementObjectSearcher(@"Select * From Win32_USBHub"))
+                collection = searcher.Get();
+
+
+            foreach (var device in collection)
+            {
+                PNPDeviceID = (string)device.GetPropertyValue("PNPDeviceID");
+
+                if (PNPDeviceID.Contains("VID") && PNPDeviceID.Contains("PID"))
+                {
+                    int VID_Pos = PNPDeviceID.IndexOf("VID", 0, PNPDeviceID.Length);
+                    string VID = PNPDeviceID.Substring(VID_Pos + 4, Properties.Resources.VID.Length);
+
+                    int PID_Pos = PNPDeviceID.IndexOf("PID", 0, PNPDeviceID.Length);
+                    string PID = PNPDeviceID.Substring(PID_Pos + 4, Properties.Resources.HIGH_SPEED_PID.Length);
+
+                    if (Properties.Resources.VID == VID && (Properties.Resources.HIGH_SPEED_PID == PID || Properties.Resources.SUPER_SPEED_PID == PID))
+                    {
+                        Ret = true;
+                        break;
+                    }
+                }
+            }
+
+            collection.Dispose();
 
             return Ret;
         }

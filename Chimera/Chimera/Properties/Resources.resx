@@ -311,4 +311,13 @@ Try another hot key combination.</value>
   <data name="WinModifierKey" xml:space="preserve">
     <value>Win</value>
   </data>
+  <data name="HIGH_SPEED_PID" xml:space="preserve">
+    <value>5002</value>
+  </data>
+  <data name="SUPER_SPEED_PID" xml:space="preserve">
+    <value>5003</value>
+  </data>
+  <data name="VID" xml:space="preserve">
+    <value>152E</value>
+  </data>
 </root>

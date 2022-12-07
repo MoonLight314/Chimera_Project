@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -333,6 +334,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Manager_Form_Icon.ico" />
+    <None Include="Resources\Product_Image_Black_LG.png" />
     <None Include="Resource\Wallpaper_Button.png" />
     <None Include="Resource\Mange_Button.png" />
     <None Include="Resource\Cursor_Control_Button.png" />
